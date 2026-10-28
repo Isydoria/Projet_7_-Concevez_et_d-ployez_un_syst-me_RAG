@@ -1,1 +1,119 @@
-# Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG
+# Puls-Events : assistant RAG de recommandation d'événements culturels
+
+Preuve de concept (POC) d'un chatbot qui répond aux questions des utilisateurs sur des événements
+culturels. Il repose sur un système **RAG** (*Retrieval-Augmented Generation*) : les événements sont
+recherchés par similarité de sens dans une base vectorielle (**Faiss**), puis un modèle de langage
+(**Mistral**) rédige la réponse à partir des événements trouvés. L'ensemble est orchestré par
+**LangChain** et exposé via une **API REST** (FastAPI).
+
+> Projet en cours de construction : ce README est complété au fil des étapes.
+
+## Objectifs
+
+Démontrer aux équipes produit et marketing de Puls-Events :
+- la **faisabilité technique** d'un assistant RAG sur les données d'événements Open Agenda ;
+- sa **pertinence métier** : des recommandations à jour, appuyées sur des événements réels ;
+- sa **performance**, mesurée sur un jeu de test annoté.
+
+## Stack technique
+
+| Composant | Outil |
+|---|---|
+| Données | API Open Agenda (jeu public OpenDataSoft) |
+| Vectorisation (embeddings) | Mistral `mistral-embed` |
+| Base vectorielle | Faiss (`faiss-cpu`) |
+| Orchestration | LangChain |
+| Génération des réponses | Mistral (modèle de chat) |
+| API | FastAPI + Uvicorn |
+| Conteneurisation | Docker |
+| Évaluation | Jeu de test annoté + Ragas |
+
+## Structure du dépôt
+
+```
+.
+├── scripts/
+│   └── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
+├── requirements.in         Dépendances directes d'exécution (écrites à la main)
+├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)
+├── requirements-dev.in     Dépendances de développement : tests, évaluation, notebooks
+├── requirements-dev.txt    Toutes les dépendances de développement, versions figées (calculé)
+├── .env.example            Modèle du fichier .env (variables d'environnement attendues)
+├── .gitattributes          Normalisation des fins de ligne (compatibilité Windows / Linux)
+└── .gitignore
+```
+
+## Prérequis
+
+- **Git** ;
+- **Python 3.12** ([python.org](https://www.python.org/downloads/)), inutile si vous utilisez
+  [**uv**](https://docs.astral.sh/uv/), qui le télécharge automatiquement ;
+- une **clé API Mistral** (offre gratuite disponible) : https://console.mistral.ai, menu *Clés API*.
+
+Toutes les commandes se lancent **depuis la racine du dépôt**.
+
+## Installation
+
+### 1. Cloner le dépôt
+
+```bash
+git clone https://github.com/Isydoria/Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG.git
+cd Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG
+```
+
+### 2. Créer et activer l'environnement virtuel
+
+| | macOS / Linux | Windows (PowerShell) |
+|---|---|---|
+| Création avec uv | `uv venv --python 3.12 .venv` | `uv venv --python 3.12 .venv` |
+| Création sans uv | `python3.12 -m venv .venv` | `py -3.12 -m venv .venv` |
+| Activation | `source .venv/bin/activate` | `.venv\Scripts\Activate.ps1` |
+
+> Windows : si PowerShell refuse l'activation (exécution de scripts désactivée), lancer une fois
+> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, ou utiliser l'invite de commandes (`cmd`)
+> avec `.venv\Scripts\activate.bat`.
+
+### 3. Installer les dépendances
+
+| Usage | Avec uv | Sans uv |
+|---|---|---|
+| Développement complet (tests, évaluation, notebooks) | `uv pip install -r requirements-dev.txt` | `pip install -r requirements-dev.txt` |
+| Exécution seule (API) | `uv pip install -r requirements.txt` | `pip install -r requirements.txt` |
+
+Les versions sont figées et valables sous Windows, macOS et Linux.
+
+### 4. Configurer la clé API Mistral
+
+Copier le modèle `.env.example` en `.env` :
+- macOS / Linux : `cp .env.example .env`
+- Windows (PowerShell) : `Copy-Item .env.example .env`
+
+Puis ouvrir `.env` et renseigner la clé : `MISTRAL_API_KEY=votre_clé`.
+Le fichier `.env` est ignoré par Git : la clé n'est jamais versionnée.
+
+### 5. Vérifier l'installation
+
+```bash
+python -m scripts.check_env
+```
+
+Le script vérifie la version de Python, les imports des bibliothèques clés, la présence de la clé
+et l'accès à l'API Mistral. Il doit se terminer par `Environnement prêt.`
+
+## Mettre à jour les dépendances
+
+Les dépendances directes sont écrites à la main dans `requirements.in` (exécution) et
+`requirements-dev.in` (développement). Les fichiers `.txt` sont **calculés** avec uv, dans cet ordre :
+le développement d'abord, puis l'exécution avec les mêmes versions.
+
+```bash
+uv pip compile --universal --python-version 3.12 requirements-dev.in -o requirements-dev.txt
+uv pip compile --universal --python-version 3.12 requirements.in -c requirements-dev.txt -o requirements.txt
+```
+
+Ajouter `--upgrade` aux deux commandes pour passer aux dernières versions compatibles, puis
+vérifier les versions obtenues.
+
+## Auteur
+
+Nathanaëlle Debaque
