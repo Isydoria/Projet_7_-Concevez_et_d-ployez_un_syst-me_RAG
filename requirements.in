@@ -1,0 +1,27 @@
+# Dépendances directes nécessaires à l'EXÉCUTION (API + système RAG).
+# Ce fichier est écrit à la main. Le fichier requirements.txt est calculé à partir de lui,
+# APRÈS requirements-dev.txt, en imposant les mêmes versions :
+#   uv pip compile --universal requirements.in -c requirements-dev.txt -o requirements.txt
+
+# Orchestration RAG (LangChain)
+langchain-core
+langchain-community          # intégration Faiss (FAISS)
+langchain-mistralai          # embeddings + chat Mistral
+langchain-text-splitters     # découpage en chunks
+
+# Base vectorielle
+faiss-cpu
+
+# Client officiel Mistral
+mistralai
+
+# Données
+pandas
+httpx                        # appels à l'API Open Agenda
+
+# API
+fastapi
+uvicorn
+
+# Configuration (lecture du fichier .env)
+python-dotenv

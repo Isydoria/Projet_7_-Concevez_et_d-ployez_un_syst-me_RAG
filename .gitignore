@@ -1,0 +1,19 @@
+# Environnement virtuel
+.venv/
+
+# Secrets : ne jamais versionner
+.env
+
+# Caches Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/

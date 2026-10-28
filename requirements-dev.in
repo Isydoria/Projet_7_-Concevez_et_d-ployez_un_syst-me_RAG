@@ -1,0 +1,19 @@
+# Dépendances de DÉVELOPPEMENT (tests, évaluation, notebooks).
+# Ce fichier est écrit à la main. Ordre de calcul (le dev d'abord, car c'est l'ensemble le plus contraint) :
+#   1) uv pip compile --universal requirements-dev.in -o requirements-dev.txt
+#   2) uv pip compile --universal requirements.in -c requirements-dev.txt -o requirements.txt
+# Ainsi, requirements.txt (Docker) utilise exactement les mêmes versions qu'en développement.
+# uv conserve les versions déjà présentes dans les fichiers .txt : pour passer aux dernières
+# versions compatibles, ajouter --upgrade aux deux commandes. Toujours vérifier les versions obtenues.
+
+-r requirements.in           # inclut toutes les dépendances d'exécution
+
+# Tests
+pytest
+
+# Évaluation de la qualité des réponses
+ragas
+
+# Notebooks d'exploration
+ipykernel
+matplotlib

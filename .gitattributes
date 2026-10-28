@@ -1,0 +1,12 @@
+# Fins de ligne Linux (LF) dans le dépôt ET à l'extraction, même sous Windows :
+# les scripts et le Dockerfile fonctionnent ainsi dans Docker (Linux).
+* text=auto eol=lf
+
+# Fichiers binaires : jamais modifiés par Git
+*.png   binary
+*.jpg   binary
+*.pdf   binary
+*.docx  binary
+*.pptx  binary
+*.faiss binary
+*.pkl   binary
