@@ -51,20 +51,38 @@ python -m scripts.fetch_events --department Creuse          # petit échantillon
 > Les données Open Agenda évoluent en continu : un nouveau téléchargement donnera des résultats
 > légèrement différents de la photo de référence, sur laquelle portent l'évaluation et le jeu de test annoté.
 
+### Nettoyage
+
+Les données brutes sont nettoyées par 13 règles (doublons, événements annulés, agendas emploi et
+formation exclus, dates aberrantes, HTML, conversion en heure de Paris…), justifiées dans la section 8
+du notebook [`notebooks/01_exploration.ipynb`](notebooks/01_exploration.ipynb) :
+
+```bash
+python -m scripts.preprocess_events     # photo de référence : 34 517 -> 18 771 événements, dans data/processed/
+```
+
 ## Structure du dépôt
 
 ```
 .
 ├── data/
-│   └── raw/                Données brutes Open Agenda (photo de référence + échantillon)
+│   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
+│   └── processed/          Données nettoyées (générées par le script, non versionnées)
+├── notebooks/
+│   └── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 ├── rag/                    Logique métier (package Python)
-│   ├── config.py           Paramètres centralisés (chemins, source, région, champs récupérés)
-│   └── fetch.py            Récupération des événements Open Agenda
+│   ├── config.py           Paramètres centralisés (chemins, source, champs, règles de nettoyage)
+│   ├── fetch.py            Récupération des événements Open Agenda
+│   └── preprocess.py       Nettoyage et structuration des événements
 ├── scripts/
 │   ├── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
-│   └── fetch_events.py     Téléchargement des événements dans data/raw/
+│   ├── fetch_events.py     Téléchargement des événements dans data/raw/
+│   └── preprocess_events.py    Nettoyage des événements dans data/processed/
 ├── tests/
-│   └── test_fetch.py       Tests unitaires de la récupération
+│   ├── test_fetch.py           Tests unitaires de la récupération
+│   ├── test_raw_data.py        Contrôle qualité des données brutes
+│   ├── test_preprocess.py      Tests unitaires du nettoyage
+│   └── test_processed_data.py  Contrôle qualité des données nettoyées
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
 ├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)
@@ -139,8 +157,8 @@ python -m pytest        # résumé
 python -m pytest -v     # détail, test par test
 ```
 
-Les tests unitaires n'appellent aucune API (les appels sont simulés) : ils ne nécessitent ni
-connexion Internet ni clé.
+Les tests n'appellent aucune API : les tests unitaires simulent les appels, et les tests de contrôle
+qualité lisent les données versionnées. Ils ne nécessitent ni connexion Internet ni clé.
 
 ## Mettre à jour les dépendances
 

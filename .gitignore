@@ -4,6 +4,9 @@
 # Secrets : ne jamais versionner
 .env
 
+# Données nettoyées : régénérables à partir de data/raw/ et du code
+data/processed/
+
 # Caches Python
 __pycache__/
 *.py[cod]

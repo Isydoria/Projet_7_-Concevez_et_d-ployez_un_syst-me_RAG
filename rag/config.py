@@ -11,6 +11,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
+PROCESSED_DATA_DIR = DATA_DIR / "processed"
+
+# Photo de référence (versionnée) : base de l'évaluation et du jeu de test annoté
+REFERENCE_RAW_FILE = RAW_DATA_DIR / "events_nouvelle-aquitaine_2026-10-29.json.gz"
 
 # --- Source des données : Open Agenda (OpenDataSoft, API Explore v2.1) --------------
 OPENAGENDA_DATASET_URL = (
@@ -36,3 +40,25 @@ OPENAGENDA_FIELDS = [
     "conditions_fr", "age_min", "age_max", "registration", "accessibility_label_fr",
     "status", "attendancemode",
 ]
+
+# --- Nettoyage (règles validées le 2026-10-29, voir notebooks/01_exploration.ipynb) -----------
+TIMEZONE = "Europe/Paris"
+MAX_HORIZON_DAYS = 730   # règle 2 : un début à plus de 2 ans de la date de référence est aberrant
+CANCELLED_STATUS_ID = 6  # règle 3 : statut Open Agenda « Annulé »
+
+# Règle 5 : agendas emploi et formation exclus. On compare le DÉBUT du nom, pour couvrir les
+# éditions futures (« Semaine de l'industrie 2027 »…). Liste à relire à chaque nouvelle photo.
+EXCLUDED_AGENDA_PREFIXES = [
+    "Mes événements France Travail",
+    "Semaine de l'industrie",
+    "Cap Métiers",
+    "Semaine des métiers du tourisme",
+    "Adie NA",
+]
+
+# Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
+NA_DEPARTMENTS = {
+    "16": "Charente", "17": "Charente-Maritime", "19": "Corrèze", "23": "Creuse",
+    "24": "Dordogne", "33": "Gironde", "40": "Landes", "47": "Lot-et-Garonne",
+    "64": "Pyrénées-Atlantiques", "79": "Deux-Sèvres", "86": "Vienne", "87": "Haute-Vienne",
+}
