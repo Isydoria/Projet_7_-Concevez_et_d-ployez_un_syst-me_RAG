@@ -28,12 +28,44 @@ Démontrer aux équipes produit et marketing de Puls-Events :
 | Conteneurisation | Docker |
 | Évaluation | Jeu de test annoté + Ragas |
 
+## Données
+
+Les événements proviennent du jeu de données public
+[« Événements publics OpenAgenda »](https://public.opendatasoft.com/explore/dataset/evenements-publics-openagenda/)
+(éditeur : OpenAgenda, diffusion : OpenDataSoft), publié sous licence *Open License v1.0*.
+
+- **Zone** : Nouvelle-Aquitaine.
+- **Période** : événements terminés depuis moins d'un an et événements à venir, par rapport à la date de référence.
+- **Photo de référence**, versionnée dans `data/raw/` : `events_nouvelle-aquitaine_2026-10-29.json.gz`
+  (34 517 événements, récupérés le 29/10/2026), ainsi qu'un échantillon de développement
+  (`events_creuse_2026-10-29.json.gz`, 903 événements).
+
+Pour retélécharger les données (aucune clé n'est nécessaire) :
+
+```bash
+python -m scripts.fetch_events                              # date du jour
+python -m scripts.fetch_events --reference-date 2026-10-29  # même filtre que la photo de référence
+python -m scripts.fetch_events --department Creuse          # petit échantillon
+```
+
+> Les données Open Agenda évoluent en continu : un nouveau téléchargement donnera des résultats
+> légèrement différents de la photo de référence, sur laquelle portent l'évaluation et le jeu de test annoté.
+
 ## Structure du dépôt
 
 ```
 .
+├── data/
+│   └── raw/                Données brutes Open Agenda (photo de référence + échantillon)
+├── rag/                    Logique métier (package Python)
+│   ├── config.py           Paramètres centralisés (chemins, source, région, champs récupérés)
+│   └── fetch.py            Récupération des événements Open Agenda
 ├── scripts/
-│   └── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
+│   ├── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
+│   └── fetch_events.py     Téléchargement des événements dans data/raw/
+├── tests/
+│   └── test_fetch.py       Tests unitaires de la récupération
+├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
 ├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)
 ├── requirements-dev.in     Dépendances de développement : tests, évaluation, notebooks
@@ -99,6 +131,16 @@ python -m scripts.check_env
 
 Le script vérifie la version de Python, les imports des bibliothèques clés, la présence de la clé
 et l'accès à l'API Mistral. Il doit se terminer par `Environnement prêt.`
+
+## Lancer les tests
+
+```bash
+python -m pytest        # résumé
+python -m pytest -v     # détail, test par test
+```
+
+Les tests unitaires n'appellent aucune API (les appels sont simulés) : ils ne nécessitent ni
+connexion Internet ni clé.
 
 ## Mettre à jour les dépendances
 
