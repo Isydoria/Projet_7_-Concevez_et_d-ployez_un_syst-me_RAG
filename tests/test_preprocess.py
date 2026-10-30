@@ -6,30 +6,9 @@ import pytest
 
 from rag import preprocess
 from rag.fetch import load_raw_events, save_raw_events
+from tests.factories import make_raw_event
 
 REFERENCE_DATE = date(2026, 10, 29)
-
-
-def make_event(**overrides) -> dict:
-    """Fabrique un événement brut valide ; chaque test ne modifie que ce qui l'intéresse."""
-    event = {
-        "uid": "1", "title_fr": "Concert de jazz", "description_fr": "Un quartet",
-        "longdescription_fr": "<p>Un quartet</p>", "keywords_fr": ["Jazz"],
-        "firstdate_begin": "2026-11-01T10:00:00+00:00", "lastdate_end": "2026-11-01T12:00:00+00:00",
-        "timings": '[{"begin": "2026-11-01T11:00:00+01:00", "end": "2026-11-01T13:00:00+01:00"}]',
-        "daterange_fr": "Dimanche 1 novembre, 11h00", "location_name": "Auditorium",
-        "location_address": "9 cours Clemenceau", "location_city": "Bordeaux",
-        "location_postalcode": "33000", "location_department": "Gironde",
-        "location_region": "Nouvelle-Aquitaine", "location_coordinates": {"lat": 44.84, "lon": -0.57},
-        "conditions_fr": None, "age_min": None, "age_max": None, "registration": None,
-        "accessibility_label_fr": None,
-        "status": '{"id": 1, "label": {"fr": "Programmé", "en": "Scheduled"}}',
-        "attendancemode": '{"id": 1, "label": {"fr": "Sur place"}}',
-        "canonicalurl": "https://openagenda.com/exemple", "originagenda_title": "Opéra National de Bordeaux",
-        "updatedat": "2026-10-01T00:00:00+00:00",
-    }
-    event.update(overrides)
-    return event
 
 
 # --- html_to_text (règle 8) ------------------------------------------------------------------
@@ -114,7 +93,7 @@ def test_is_excluded_agenda(agenda, expected):
 # --- clean_event ----------------------------------------------------------------------------------
 
 def test_clean_event_structures_the_event():
-    cleaned = preprocess.clean_event(make_event())
+    cleaned = preprocess.clean_event(make_raw_event())
     assert cleaned["title"] == "Concert de jazz"
     assert cleaned["long_description"] == "Un quartet"
     assert cleaned["start"] == "2026-11-01T11:00:00+01:00"
@@ -128,12 +107,12 @@ def test_clean_event_structures_the_event():
 
 def test_preprocess_events_applies_all_rules():
     events = [
-        make_event(uid="ok"),
-        make_event(uid="annule", title_fr="Autre", status='{"id": 6, "label": {"fr": "Annulé"}}'),
-        make_event(uid="emploi", title_fr="Job dating", originagenda_title="Mes événements France Travail"),
-        make_event(uid="2032", title_fr="Hôtel", firstdate_begin="2032-01-01T01:00:00+00:00"),
-        make_event(uid="sans-titre", title_fr=None),
-        make_event(uid="doublon", title_fr="  CONCERT de jazz ", updatedat="2025-01-01T00:00:00+00:00"),
+        make_raw_event(uid="ok"),
+        make_raw_event(uid="annule", title_fr="Autre", status='{"id": 6, "label": {"fr": "Annulé"}}'),
+        make_raw_event(uid="emploi", title_fr="Job dating", originagenda_title="Mes événements France Travail"),
+        make_raw_event(uid="2032", title_fr="Hôtel", firstdate_begin="2032-01-01T01:00:00+00:00"),
+        make_raw_event(uid="sans-titre", title_fr=None),
+        make_raw_event(uid="doublon", title_fr="  CONCERT de jazz ", updatedat="2025-01-01T00:00:00+00:00"),
     ]
     cleaned, report = preprocess.preprocess_events(events, REFERENCE_DATE)
 
@@ -144,8 +123,8 @@ def test_preprocess_events_applies_all_rules():
 
 def test_preprocess_events_keeps_most_recent_duplicate():
     events = [
-        make_event(uid="ancien", updatedat="2025-01-01T00:00:00+00:00"),
-        make_event(uid="recent", updatedat="2026-10-20T00:00:00+00:00"),
+        make_raw_event(uid="ancien", updatedat="2025-01-01T00:00:00+00:00"),
+        make_raw_event(uid="recent", updatedat="2026-10-20T00:00:00+00:00"),
     ]
     cleaned, _ = preprocess.preprocess_events(events, REFERENCE_DATE)
     assert [event["uid"] for event in cleaned] == ["recent"]
@@ -153,16 +132,16 @@ def test_preprocess_events_keeps_most_recent_duplicate():
 
 def test_preprocess_events_excludes_cancelled_before_deduplicating():
     events = [
-        make_event(uid="annule-recent", status='{"id": 6, "label": {"fr": "Annulé"}}',
+        make_raw_event(uid="annule-recent", status='{"id": 6, "label": {"fr": "Annulé"}}',
                    updatedat="2026-10-20T00:00:00+00:00"),
-        make_event(uid="programme-ancien", updatedat="2025-01-01T00:00:00+00:00"),
+        make_raw_event(uid="programme-ancien", updatedat="2025-01-01T00:00:00+00:00"),
     ]
     cleaned, _ = preprocess.preprocess_events(events, REFERENCE_DATE)
     assert [event["uid"] for event in cleaned] == ["programme-ancien"]
 
 
 def test_preprocess_events_counts_fixed_departments():
-    events = [make_event(location_postalcode="24800", location_department="Charente")]
+    events = [make_raw_event(location_postalcode="24800", location_department="Charente")]
     cleaned, report = preprocess.preprocess_events(events, REFERENCE_DATE)
     assert cleaned[0]["department"] == "Dordogne"
     assert report["departments_fixed"] == 1
@@ -172,7 +151,7 @@ def test_preprocess_events_counts_fixed_departments():
 
 def test_preprocess_file_writes_processed_file_with_report(tmp_path):
     raw_path = tmp_path / "raw" / "events_test_2026-10-29.json.gz"
-    save_raw_events([make_event()], {"reference_date": "2026-10-29"}, raw_path)
+    save_raw_events([make_raw_event()], {"reference_date": "2026-10-29"}, raw_path)
 
     output_path = preprocess.preprocess_file(raw_path, output_dir=tmp_path / "processed")
 

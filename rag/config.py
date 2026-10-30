@@ -56,6 +56,10 @@ EXCLUDED_AGENDA_PREFIXES = [
     "Adie NA",
 ]
 
+# --- Découpage en chunks (choix justifié par la distribution des longueurs de texte) -------------
+CHUNK_SIZE = 1500     # caractères de description au maximum par chunk
+CHUNK_OVERLAP = 150   # caractères répétés entre deux chunks consécutifs
+
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {
     "16": "Charente", "17": "Charente-Maritime", "19": "Corrèze", "23": "Creuse",
