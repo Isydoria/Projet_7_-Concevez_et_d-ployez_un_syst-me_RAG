@@ -1,4 +1,4 @@
-"""Nettoyage et structuration des événements Open Agenda (règles validées le 2026-10-29).
+"""Nettoyage et structuration des événements Open Agenda (règles justifiées dans notebooks/01_exploration.ipynb, section 8).
 
 Les règles sont rejouées à chaque reconstruction de l'index : elles sont donc génériques.
 Déroulé : 1) transformations de chaque événement (décodage, textes, lieu, dates en heure de Paris) ;

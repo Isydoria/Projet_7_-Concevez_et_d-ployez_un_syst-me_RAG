@@ -41,7 +41,7 @@ OPENAGENDA_FIELDS = [
     "status", "attendancemode",
 ]
 
-# --- Nettoyage (règles validées le 2026-10-29, voir notebooks/01_exploration.ipynb) -----------
+# --- Nettoyage (règles justifiées dans notebooks/01_exploration.ipynb, section 8) --------------
 TIMEZONE = "Europe/Paris"
 MAX_HORIZON_DAYS = 730   # règle 2 : un début à plus de 2 ans de la date de référence est aberrant
 CANCELLED_STATUS_ID = 6  # règle 3 : statut Open Agenda « Annulé »
