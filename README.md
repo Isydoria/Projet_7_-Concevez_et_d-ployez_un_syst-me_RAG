@@ -20,8 +20,8 @@ Démontrer aux équipes produit et marketing de Puls-Events :
 | Composant | Outil |
 |---|---|
 | Données | API Open Agenda (jeu public OpenDataSoft) |
-| Vectorisation (embeddings) | Mistral `mistral-embed` |
-| Base vectorielle | Faiss (`faiss-cpu`) |
+| Vectorisation (embeddings) | Mistral `mistral-embed-2312` |
+| Base vectorielle | Faiss (`faiss-cpu`), index exact Flat (produit scalaire) |
 | Orchestration | LangChain |
 | Génération des réponses | Mistral (modèle de chat) |
 | API | FastAPI + Uvicorn |
@@ -61,6 +61,22 @@ du notebook [`notebooks/01_exploration.ipynb`](notebooks/01_exploration.ipynb) :
 python -m scripts.preprocess_events     # photo de référence : 34 517 -> 18 771 événements, dans data/processed/
 ```
 
+### Index vectoriel
+
+L'index est construit à partir des données brutes : nettoyage, découpage en chunks (un événement par
+document ; descriptions de plus de 1 500 caractères découpées ; en-tête de contexte répété sur chaque chunk),
+vectorisation par `mistral-embed-2312` (lots d'environ 10 000 tokens, une requête par seconde au maximum),
+puis index Faiss exact (Flat, produit scalaire). Les choix sont justifiés dans les notebooks
+[`02_embeddings.ipynb`](notebooks/02_embeddings.ipynb) et [`03_faiss_index.ipynb`](notebooks/03_faiss_index.ipynb).
+
+```bash
+python -m scripts.build_index      # photo de référence : 20 644 chunks, ≈ 12 min, ≈ 4,5 millions de tokens
+python -m scripts.build_index --input data/raw/events_creuse_2026-10-29.json.gz   # échantillon : ≈ 15 s
+```
+
+L'index est enregistré dans `vectorstore/<zone>_<date>/` (`index.faiss`, `index.pkl`, `manifest.json`) ;
+il n'est pas versionné. La clé `MISTRAL_API_KEY` est nécessaire.
+
 ## Structure du dépôt
 
 ```
@@ -69,20 +85,30 @@ python -m scripts.preprocess_events     # photo de référence : 34 517 -> 18 77
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   └── processed/          Données nettoyées (générées par le script, non versionnées)
 ├── notebooks/
-│   └── 01_exploration.ipynb    Exploration des données et règles de nettoyage
+│   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
+│   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
+│   └── 03_faiss_index.ipynb    Tests de recherche et choix de l'index Faiss
 ├── rag/                    Logique métier (package Python)
-│   ├── config.py           Paramètres centralisés (chemins, source, champs, règles de nettoyage)
+│   ├── config.py           Paramètres centralisés (chemins, source, champs, nettoyage, découpage, index)
 │   ├── fetch.py            Récupération des événements Open Agenda
-│   └── preprocess.py       Nettoyage et structuration des événements
+│   ├── preprocess.py       Nettoyage et structuration des événements
+│   ├── chunking.py         Découpage en chunks (en-tête de contexte, métadonnées)
+│   └── indexing.py         Vectorisation Mistral par lots et index Faiss
 ├── scripts/
 │   ├── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
 │   ├── fetch_events.py     Téléchargement des événements dans data/raw/
-│   └── preprocess_events.py    Nettoyage des événements dans data/processed/
+│   ├── preprocess_events.py    Nettoyage des événements dans data/processed/
+│   └── build_index.py      Construction de l'index vectoriel dans vectorstore/
 ├── tests/
+│   ├── factories.py            Événements de test partagés
 │   ├── test_fetch.py           Tests unitaires de la récupération
 │   ├── test_raw_data.py        Contrôle qualité des données brutes
 │   ├── test_preprocess.py      Tests unitaires du nettoyage
-│   └── test_processed_data.py  Contrôle qualité des données nettoyées
+│   ├── test_processed_data.py  Contrôle qualité des données nettoyées
+│   ├── test_chunking.py        Tests unitaires du découpage
+│   ├── test_indexing.py        Tests unitaires de la vectorisation et de l'index
+│   └── test_index_data.py      Contrôle de l'index (ignoré tant qu'il n'est pas construit)
+├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
 ├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)
@@ -159,6 +185,7 @@ python -m pytest -v     # détail, test par test
 
 Les tests n'appellent aucune API : les tests unitaires simulent les appels, et les tests de contrôle
 qualité lisent les données versionnées. Ils ne nécessitent ni connexion Internet ni clé.
+Les tests de `tests/test_index_data.py` sont ignorés tant que l'index de référence n'a pas été construit.
 
 ## Mettre à jour les dépendances
 
