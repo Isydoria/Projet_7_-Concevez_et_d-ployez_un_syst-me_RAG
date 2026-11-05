@@ -65,12 +65,12 @@ python -m scripts.preprocess_events     # photo de référence : 34 517 -> 18 77
 
 L'index est construit à partir des données brutes : nettoyage, découpage en chunks (un événement par
 document ; descriptions de plus de 1 500 caractères découpées ; en-tête de contexte répété sur chaque chunk),
-vectorisation par `mistral-embed-2312` (lots d'environ 10 000 tokens, une requête par seconde au maximum),
+vectorisation par `mistral-embed-2312` (lots d'environ 15 000 tokens, une requête par seconde au maximum),
 puis index Faiss exact (Flat, produit scalaire). Les choix sont justifiés dans les notebooks
 [`02_embeddings.ipynb`](notebooks/02_embeddings.ipynb) et [`03_faiss_index.ipynb`](notebooks/03_faiss_index.ipynb).
 
 ```bash
-python -m scripts.build_index      # photo de référence : 20 644 chunks, ≈ 12 min, ≈ 4,5 millions de tokens
+python -m scripts.build_index      # photo de référence : 20 644 chunks, ≈ 12 min, ≈ 6,6 millions de tokens (≈ 0,67 $)
 python -m scripts.build_index --input data/raw/events_creuse_2026-10-29.json.gz   # échantillon : ≈ 15 s
 ```
 

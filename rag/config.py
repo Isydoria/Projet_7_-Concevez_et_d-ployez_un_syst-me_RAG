@@ -63,7 +63,8 @@ CHUNK_OVERLAP = 150   # caractères répétés entre deux chunks consécutifs
 
 # --- Vectorisation et index Faiss ------------------------------------------------------------------
 EMBEDDING_MODEL = "mistral-embed-2312"   # nom daté : reproductibilité
-EMBED_BATCH_MAX_CHARS = 40_000   # ≈ 10 000 tokens par requête (LangChain redécoupe au-delà de 16 000 tokens)
+EMBED_BATCH_MAX_CHARS = 40_000   # ≈ 15 000 tokens par requête (mesuré : ≈ 2,7 caractères par token en français) ;
+                                 # LangChain redécoupe automatiquement un lot qui dépasserait 16 000 tokens
 EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par seconde au maximum
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
