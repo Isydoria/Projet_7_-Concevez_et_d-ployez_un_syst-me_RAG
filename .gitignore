@@ -7,6 +7,9 @@
 # Données nettoyées : régénérables à partir de data/raw/ et du code
 data/processed/
 
+# Index vectoriel : régénérable avec « python -m scripts.build_index » (appels à l'API Mistral)
+vectorstore/
+
 # Caches Python
 __pycache__/
 *.py[cod]

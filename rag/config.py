@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
+VECTORSTORE_DIR = PROJECT_ROOT / "vectorstore"
 
 # Photo de référence (versionnée) : base de l'évaluation et du jeu de test annoté
 REFERENCE_RAW_FILE = RAW_DATA_DIR / "events_nouvelle-aquitaine_2026-10-29.json.gz"
@@ -59,6 +60,11 @@ EXCLUDED_AGENDA_PREFIXES = [
 # --- Découpage en chunks (choix justifié par la distribution des longueurs de texte) -------------
 CHUNK_SIZE = 1500     # caractères de description au maximum par chunk
 CHUNK_OVERLAP = 150   # caractères répétés entre deux chunks consécutifs
+
+# --- Vectorisation et index Faiss ------------------------------------------------------------------
+EMBEDDING_MODEL = "mistral-embed-2312"   # nom daté : reproductibilité
+EMBED_BATCH_MAX_CHARS = 40_000   # ≈ 10 000 tokens par requête (LangChain redécoupe au-delà de 16 000 tokens)
+EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par seconde au maximum
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {

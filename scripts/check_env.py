@@ -16,6 +16,8 @@ import sys
 
 from dotenv import load_dotenv
 
+from rag import config
+
 MIN_PYTHON = (3, 12)
 
 # (module, objets attendus) : équivalents actuels des imports proposés par l'énoncé
@@ -57,7 +59,7 @@ def check_imports() -> bool:
 
 def load_api_key() -> str | None:
     """Charge le fichier .env et renvoie la clé Mistral, sans jamais l'afficher."""
-    load_dotenv()
+    load_dotenv(config.PROJECT_ROOT / ".env")  # chemin explicite : indépendant du dossier de lancement
     api_key = os.getenv("MISTRAL_API_KEY", "").strip()
     if api_key:
         print(f"[OK]     MISTRAL_API_KEY trouvée ({len(api_key)} caractères)")
