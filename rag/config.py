@@ -67,6 +67,9 @@ EMBED_BATCH_MAX_CHARS = 40_000   # ≈ 15 000 tokens par requête (mesuré : ≈
                                  # LangChain redécoupe automatiquement un lot qui dépasserait 16 000 tokens
 EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par seconde au maximum
 
+# --- Recherche (chaîne RAG) -------------------------------------------------------------------------
+TOP_K_EVENTS = 5   # événements distincts transmis au LLM (le meilleur chunk de chacun)
+
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {
     "16": "Charente", "17": "Charente-Maritime", "19": "Corrèze", "23": "Creuse",
