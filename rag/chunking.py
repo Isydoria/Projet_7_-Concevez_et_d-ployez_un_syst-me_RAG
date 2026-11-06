@@ -18,9 +18,10 @@ DAYS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanch
 MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
              "septembre", "octobre", "novembre", "décembre"]
 
-# Métadonnées conservées pour chaque chunk (filtres, sources, vérification de l'indexation)
-METADATA_FIELDS = ["uid", "title", "start", "end", "city", "department", "location_name", "url",
-                   "status_label", "attendance_label", "age_min", "age_max", "keywords"]
+# Métadonnées conservées pour chaque chunk (filtres, sources, vérification de l'indexation).
+# « sessions » : les séances réelles ; la plage start-end ne dit pas si l'événement a lieu un jour donné.
+METADATA_FIELDS = ["uid", "title", "start", "end", "sessions", "city", "department", "location_name",
+                   "url", "status_label", "attendance_label", "age_min", "age_max", "keywords"]
 
 SEPARATOR = "\n---\n"  # sépare l'en-tête du morceau de description
 

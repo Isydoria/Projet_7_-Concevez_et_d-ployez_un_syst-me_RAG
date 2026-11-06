@@ -76,6 +76,18 @@ def test_to_paris_time(utc, paris):
     assert preprocess.to_paris_time(utc) == paris
 
 
+def test_clean_sessions_converts_each_session_to_paris_time():
+    timings = '[{"begin": "2026-11-01T10:00:00+00:00", "end": "2026-11-01T12:00:00+00:00"}]'
+    assert preprocess.clean_sessions(timings, "", "") == [
+        {"begin": "2026-11-01T11:00:00+01:00", "end": "2026-11-01T13:00:00+01:00"}]
+
+
+@pytest.mark.parametrize("timings", [None, "[]", "{pas du json"])
+def test_clean_sessions_falls_back_on_the_event_range(timings):
+    start, end = "2026-11-01T11:00:00+01:00", "2026-11-03T18:00:00+01:00"
+    assert preprocess.clean_sessions(timings, start, end) == [{"begin": start, "end": end}]
+
+
 # --- is_excluded_agenda (règle 5) ---------------------------------------------------------------
 
 @pytest.mark.parametrize("agenda, expected", [

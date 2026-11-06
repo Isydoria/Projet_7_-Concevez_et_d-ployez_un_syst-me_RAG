@@ -103,6 +103,16 @@ def to_paris_time(iso_datetime: str | None) -> str:
     return datetime.fromisoformat(iso_datetime).astimezone(PARIS).isoformat()
 
 
+def clean_sessions(timings: str | None, start: str, end: str) -> list[dict]:
+    """Séances en heure de Paris (règle 10) ; sans séance, la plage début-fin de l'événement.
+
+    Le filtre de dates s'appuie sur les séances : tout événement doit en avoir au moins une.
+    """
+    sessions = [{"begin": to_paris_time(session.get("begin")), "end": to_paris_time(session.get("end"))}
+                for session in parse_json_field(timings) or []]
+    return sessions or [{"begin": start, "end": end}]
+
+
 def is_excluded_agenda(agenda_title: str | None) -> bool:
     """Vrai si l'agenda d'origine fait partie des agendas emploi et formation exclus (règle 5)."""
     title = (agenda_title or "").replace("’", "'").strip()
@@ -119,16 +129,17 @@ def clean_event(event: dict) -> dict:
     status_id, status_label = extract_label(event.get("status"))
     _, attendance_label = extract_label(event.get("attendancemode"))
     coordinates = event.get("location_coordinates") or {}
+    start, end = to_paris_time(event.get("firstdate_begin")), to_paris_time(event.get("lastdate_end"))
     return {
         "uid": event["uid"],
         "title": clean_text(event.get("title_fr")),
         "description": clean_text(event.get("description_fr")),
         "long_description": html_to_text(event.get("longdescription_fr")),
         "keywords": event.get("keywords_fr") or [],
-        "start": to_paris_time(event.get("firstdate_begin")),
-        "end": to_paris_time(event.get("lastdate_end")),
+        "start": start,
+        "end": end,
         "date_text": clean_text(event.get("daterange_fr")),
-        "sessions": parse_json_field(event.get("timings")) or [],
+        "sessions": clean_sessions(event.get("timings"), start, end),
         "location_name": clean_text(event.get("location_name")),
         "address": clean_text(event.get("location_address")),
         "city": clean_text(event.get("location_city")),

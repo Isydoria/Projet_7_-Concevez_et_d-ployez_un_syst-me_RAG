@@ -76,6 +76,15 @@ def test_dates_are_in_paris_time(processed):
     paris_offsets = ("+01:00", "+02:00")
     assert all(event["start"][-6:] in paris_offsets and event["end"][-6:] in paris_offsets
                for event in events)
+    assert all(session["begin"][-6:] in paris_offsets and session["end"][-6:] in paris_offsets
+               for event in events for session in event["sessions"])
+
+
+def test_every_event_has_consistent_sessions(processed):
+    _, events, _ = processed
+    assert all(event["sessions"] for event in events)
+    assert all(datetime.fromisoformat(session["begin"]) <= datetime.fromisoformat(session["end"])
+               for event in events for session in event["sessions"])
 
 
 def test_departments_match_postal_codes(processed):

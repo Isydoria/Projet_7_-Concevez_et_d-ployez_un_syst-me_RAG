@@ -91,6 +91,8 @@ def test_short_event_gives_one_chunk_with_header_and_metadata():
     assert document.metadata["city"] == "Bordeaux"
     assert (document.metadata["chunk_index"], document.metadata["chunk_count"]) == (0, 1)
     assert set(chunking.METADATA_FIELDS) <= set(document.metadata)
+    assert document.metadata["sessions"] == [
+        {"begin": "2026-11-01T11:00:00+01:00", "end": "2026-11-01T13:00:00+01:00"}]
 
 
 def numbered_description(sentences: int) -> str:
