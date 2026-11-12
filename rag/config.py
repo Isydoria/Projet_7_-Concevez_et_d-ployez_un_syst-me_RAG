@@ -73,9 +73,14 @@ MAX_SESSIONS_SHOWN = 5   # séances affichées par événement dans le prompt (u
 
 # --- Génération (chaîne RAG) ------------------------------------------------------------------------
 # Valeurs explicites : ChatMistralAI prend par défaut une température de 0,7 et une longueur illimitée.
-CHAT_MODEL = "mistral-small-2603"   # Mistral Small 4, nom daté : reproductibilité
+# Mistral Large 4, nom daté : reproductibilité. Mistral Small 4 (« mistral-small-2603 »), moins cher,
+# est refusé par l'API pour ce compte (quota de 0 requête par minute au 12/11/2026).
+CHAT_MODEL = "mistral-large-4-0"
 CHAT_TEMPERATURE = 0.2              # réponses stables et fidèles aux événements fournis
-CHAT_MAX_TOKENS = 800               # longueur maximale d'une réponse
+# Large 4 est un modèle de raisonnement : il réfléchit avant de répondre, et la réflexion ne peut pas être
+# coupée (valeurs acceptées : low, medium, high). Le plafond de tokens couvre la réflexion ET la réponse.
+CHAT_REASONING_EFFORT = "medium"
+CHAT_MAX_TOKENS = 4000
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {

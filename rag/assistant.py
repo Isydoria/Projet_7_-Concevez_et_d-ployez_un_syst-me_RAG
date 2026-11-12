@@ -46,12 +46,24 @@ class AssistantAnswer:
         return data
 
 
-def make_chat_model(model: str = config.CHAT_MODEL) -> ChatMistralAI:
+def make_chat_model(model: str = config.CHAT_MODEL,
+                    reasoning_effort: str | None = config.CHAT_REASONING_EFFORT) -> ChatMistralAI:
     """LLM de génération ; la clé MISTRAL_API_KEY est lue dans l'environnement.
 
-    ChatMistralAI réessaie les erreurs réseau, pas les erreurs 429 (débit dépassé) : elles remontent.
+    `reasoning_effort` : niveau de réflexion d'un modèle de raisonnement ; None pour un modèle qui ne
+    raisonne pas (le paramètre n'est alors pas envoyé). ChatMistralAI réessaie les erreurs réseau,
+    pas les erreurs 429 (débit dépassé) : elles remontent.
     """
-    return ChatMistralAI(model=model, temperature=config.CHAT_TEMPERATURE, max_tokens=config.CHAT_MAX_TOKENS)
+    # model_kwargs : paramètres transmis tels quels à l'API de Mistral
+    extra = {"reasoning_effort": reasoning_effort} if reasoning_effort else {}
+    return ChatMistralAI(model=model, temperature=config.CHAT_TEMPERATURE, max_tokens=config.CHAT_MAX_TOKENS,
+                         model_kwargs=extra)
+
+
+def reasoning_tokens(response_metadata: dict) -> int | None:
+    """Tokens de réflexion d'une réponse (comptés dans les tokens de sortie), s'ils sont fournis."""
+    details = (response_metadata.get("token_usage") or {}).get("completion_tokens_details") or {}
+    return details.get("reasoning_tokens")
 
 
 def cited_refs(answer: str, count: int) -> list[int]:
@@ -150,8 +162,9 @@ class EventAssistant:
     def make_answer(self, state: dict) -> AssistantAnswer:
         """Étape 4 : texte, sources citées, critères et métadonnées."""
         events, message, criteria = state["events"], state["message"], state["criteria"]
-        answer = message.text if message else no_result_answer(criteria)
+        answer = message.text if message else no_result_answer(criteria)   # .text : sans le bloc de réflexion
         usage = (message.usage_metadata or {}) if message else {}
+        response_metadata = message.response_metadata if message else {}
         return AssistantAnswer(
             question=state["question"],
             answer=answer,
@@ -169,6 +182,9 @@ class EventAssistant:
                 "total_ms": elapsed_ms(state["started"]),
                 "input_tokens": usage.get("input_tokens"),
                 "output_tokens": usage.get("output_tokens"),
+                "reasoning_tokens": reasoning_tokens(response_metadata),
+                # « length » : plafond de tokens atteint, réponse coupée (voire vide si la réflexion a tout pris)
+                "finish_reason": response_metadata.get("finish_reason"),
             },
             contexts=[format_event(number, event, criteria.period) for number, event in enumerate(events, start=1)],
         )

@@ -10,7 +10,8 @@ import pytest
 from langchain_core.messages import AIMessage
 from langchain_core.runnables import RunnableLambda
 
-from rag.assistant import AssistantAnswer, EventAssistant, cited_refs
+from rag import config
+from rag.assistant import AssistantAnswer, EventAssistant, cited_refs, make_chat_model
 from rag.indexing import build_vectorstore
 from tests.factories import KeywordEmbedder, make_chunk
 
@@ -27,20 +28,28 @@ CATALOGUE = [
 
 
 class FakeLLM:
-    """Faux LLM : renvoie une réponse écrite à l'avance, avec des tokens, et garde les prompts reçus."""
+    """Faux LLM : renvoie une réponse écrite à l'avance, avec des tokens, et garde les prompts reçus.
 
-    def __init__(self, reply: str):
-        self.reply = reply
+    Les métadonnées imitent celles de ChatMistralAI pour un modèle de raisonnement.
+    """
+
+    def __init__(self, reply: str, finish_reason: str = "stop"):
+        self.reply, self.finish_reason = reply, finish_reason
         self.prompts = []   # un prompt (liste de messages) par appel
 
     def __call__(self, prompt_value) -> AIMessage:
         self.prompts.append(prompt_value.to_messages())
-        return AIMessage(content=self.reply,
-                         usage_metadata={"input_tokens": 1200, "output_tokens": 150, "total_tokens": 1350})
+        return AIMessage(
+            content=self.reply,
+            usage_metadata={"input_tokens": 1200, "output_tokens": 150, "total_tokens": 1350},
+            response_metadata={"finish_reason": self.finish_reason,
+                               "token_usage": {"completion_tokens_details": {"reasoning_tokens": 100}}},
+        )
 
 
-def make_assistant(reply: str = "Je vous recommande le concert [1].") -> tuple[EventAssistant, FakeLLM]:
-    llm = FakeLLM(reply)
+def make_assistant(reply: str = "Je vous recommande le concert [1].",
+                   finish_reason: str = "stop") -> tuple[EventAssistant, FakeLLM]:
+    llm = FakeLLM(reply, finish_reason)
     store = build_vectorstore(CATALOGUE, KeywordEmbedder())
     return EventAssistant(store, llm=RunnableLambda(llm), index_name="test", model="faux-modele"), llm
 
@@ -107,8 +116,27 @@ def test_criteria_and_metadata():
     assert metadata["llm_called"] is True
     assert metadata["retrieved_events"] == 2   # à Bordeaux ce week-end : le concert et l'exposition
     assert (metadata["input_tokens"], metadata["output_tokens"]) == (1200, 150)
+    assert (metadata["reasoning_tokens"], metadata["finish_reason"]) == (100, "stop")
     assert 0 <= metadata["retrieval_ms"] <= metadata["total_ms"]
     assert 0 <= metadata["generation_ms"] <= metadata["total_ms"]
+
+
+def test_a_cut_answer_is_reported():
+    # Modèle de raisonnement : si la réflexion consomme tout le plafond, la réponse est vide
+    assistant, _ = make_assistant(reply="", finish_reason="length")
+    answer = assistant.ask(QUESTION, today=TODAY)
+    assert answer.answer == ""
+    assert answer.metadata["finish_reason"] == "length"
+
+
+def test_chat_model_settings(monkeypatch):
+    monkeypatch.setenv("MISTRAL_API_KEY", "cle-factice")   # aucun appel : on lit seulement la configuration
+    llm = make_chat_model()
+    assert (llm.model, llm.temperature, llm.max_tokens) == (config.CHAT_MODEL, config.CHAT_TEMPERATURE,
+                                                            config.CHAT_MAX_TOKENS)
+    assert llm.model_kwargs == {"reasoning_effort": config.CHAT_REASONING_EFFORT}
+    # Modèle sans raisonnement : le paramètre n'est pas envoyé
+    assert make_chat_model("ministral-8b-2512", reasoning_effort=None).model_kwargs == {}
 
 
 def test_contexts_are_the_texts_given_to_the_llm():
