@@ -71,6 +71,12 @@ EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par secon
 TOP_K_EVENTS = 5   # événements distincts transmis au LLM (le meilleur chunk de chacun)
 MAX_SESSIONS_SHOWN = 5   # séances affichées par événement dans le prompt (un événement en compte 783)
 
+# --- Génération (chaîne RAG) ------------------------------------------------------------------------
+# Valeurs explicites : ChatMistralAI prend par défaut une température de 0,7 et une longueur illimitée.
+CHAT_MODEL = "mistral-small-2603"   # Mistral Small 4, nom daté : reproductibilité
+CHAT_TEMPERATURE = 0.2              # réponses stables et fidèles aux événements fournis
+CHAT_MAX_TOKENS = 800               # longueur maximale d'une réponse
+
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {
     "16": "Charente", "17": "Charente-Maritime", "19": "Corrèze", "23": "Creuse",

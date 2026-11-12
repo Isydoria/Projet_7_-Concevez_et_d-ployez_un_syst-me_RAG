@@ -1,5 +1,13 @@
 """Fabriques de données de test, partagées par plusieurs fichiers de tests."""
 
+from datetime import date
+
+import numpy as np
+from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
+
+from rag.criteria import normalize
+
 
 def make_raw_event(**overrides) -> dict:
     """Fabrique un événement brut Open Agenda valide ; chaque test ne modifie que ce qui l'intéresse."""
@@ -21,3 +29,45 @@ def make_raw_event(**overrides) -> dict:
     }
     event.update(overrides)
     return event
+
+
+class KeywordEmbedder(Embeddings):
+    """Faux modèle d'embedding lisible : un axe par mot-clé, vecteurs normalisés comme ceux de Mistral.
+
+    « jazz jazz » est très proche de la question « jazz », « théâtre » en est éloigné.
+    Compte les vectorisations de questions (= appels au modèle).
+    """
+
+    KEYWORDS = ["jazz", "theatre", "exposition", "enfants"]
+
+    def __init__(self):
+        self.query_calls = 0
+
+    def vectorize(self, text: str) -> list[float]:
+        words = normalize(text).split()
+        counts = np.array([words.count(keyword) for keyword in self.KEYWORDS], dtype=float) + 0.01
+        return list(counts / np.linalg.norm(counts))
+
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        return [self.vectorize(text) for text in texts]
+
+    def embed_query(self, text: str) -> list[float]:
+        self.query_calls += 1
+        return self.vectorize(text)
+
+
+def session(day: date) -> dict:
+    """Séance de 20h30 à 23h00 (heure de Paris)."""
+    return {"begin": f"{day.isoformat()}T20:30:00+01:00", "end": f"{day.isoformat()}T23:00:00+01:00"}
+
+
+def make_chunk(uid: str, text: str, sessions: list[date], city: str = "Bordeaux",
+               department: str = "Gironde", chunk_index: int = 0, chunk_count: int = 1) -> Document:
+    """Chunk avec les métadonnées utilisées par la recherche et par les sources de la réponse."""
+    session_list = [session(day) for day in sessions]
+    return Document(id=f"{uid}#{chunk_index}", page_content=text, metadata={
+        "uid": uid, "title": uid, "city": city, "department": department, "location_name": f"Salle {uid}",
+        "start": session_list[0]["begin"], "end": session_list[-1]["end"],
+        "url": f"https://openagenda.com/{uid}", "sessions": session_list,
+        "chunk_index": chunk_index, "chunk_count": chunk_count,
+    })

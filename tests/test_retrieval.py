@@ -5,57 +5,16 @@ Aujourd'hui : jeudi 5 novembre 2026 ; le week-end : samedi 7 et dimanche 8 novem
 
 from datetime import date
 
-import numpy as np
 import pytest
-from langchain_core.documents import Document
-from langchain_core.embeddings import Embeddings
 
-from rag.criteria import Criteria, Period, normalize
+from rag.criteria import Criteria, Period
 from rag.indexing import build_vectorstore
 from rag.retrieval import EventRetriever, overlaps, sessions_in_period
+from tests.factories import KeywordEmbedder, make_chunk, session
 
 TODAY = date(2026, 11, 5)
 UPCOMING = Period("à venir", TODAY, None)
 WEEKEND = Period("ce week-end", date(2026, 11, 7), date(2026, 11, 8))
-
-
-class KeywordEmbedder(Embeddings):
-    """Faux modèle lisible : un axe par mot-clé, vecteurs normalisés comme ceux de Mistral.
-
-    « jazz jazz » est très proche de la question « jazz », « théâtre » en est éloigné.
-    Compte les vectorisations de questions (= appels au modèle).
-    """
-
-    KEYWORDS = ["jazz", "theatre", "exposition", "enfants"]
-
-    def __init__(self):
-        self.query_calls = 0
-
-    def vectorize(self, text: str) -> list[float]:
-        words = normalize(text).split()
-        counts = np.array([words.count(keyword) for keyword in self.KEYWORDS], dtype=float) + 0.01
-        return list(counts / np.linalg.norm(counts))
-
-    def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        return [self.vectorize(text) for text in texts]
-
-    def embed_query(self, text: str) -> list[float]:
-        self.query_calls += 1
-        return self.vectorize(text)
-
-
-def session(day: date) -> dict:
-    return {"begin": f"{day.isoformat()}T20:30:00+01:00", "end": f"{day.isoformat()}T23:00:00+01:00"}
-
-
-def make_chunk(uid: str, text: str, sessions: list[date], city: str = "Bordeaux",
-               department: str = "Gironde", chunk_index: int = 0, chunk_count: int = 1) -> Document:
-    """Chunk avec les métadonnées utilisées par la recherche."""
-    return Document(id=f"{uid}#{chunk_index}", page_content=text, metadata={
-        "uid": uid, "title": uid, "city": city, "department": department,
-        "sessions": [session(day) for day in sessions],
-        "chunk_index": chunk_index, "chunk_count": chunk_count,
-    })
 
 
 CATALOGUE = [
