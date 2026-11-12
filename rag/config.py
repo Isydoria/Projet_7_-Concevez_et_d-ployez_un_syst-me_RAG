@@ -69,6 +69,7 @@ EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par secon
 
 # --- Recherche (chaîne RAG) -------------------------------------------------------------------------
 TOP_K_EVENTS = 5   # événements distincts transmis au LLM (le meilleur chunk de chacun)
+MAX_SESSIONS_SHOWN = 5   # séances affichées par événement dans le prompt (un événement en compte 783)
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {
