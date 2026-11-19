@@ -1,8 +1,8 @@
 """Construit l'index vectoriel : nettoyage -> découpage -> vectorisation Mistral -> index Faiss.
 
 Exemples, depuis la racine du projet :
-    python -m scripts.build_index                                                    # photo de référence (≈ 10 min, ≈ 0,45 $)
-    python -m scripts.build_index --input data/raw/events_creuse_2026-10-29.json.gz  # échantillon (≈ 10 s)
+    python -m scripts.build_index                                                    # photo de référence (≈ 12 min, ≈ 0,67 $)
+    python -m scripts.build_index --input data/raw/events_creuse_2026-10-29.json.gz  # échantillon (≈ 15 s)
 """
 
 import argparse

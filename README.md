@@ -23,7 +23,7 @@ Démontrer aux équipes produit et marketing de Puls-Events :
 | Vectorisation (embeddings) | Mistral `mistral-embed-2312` |
 | Base vectorielle | Faiss (`faiss-cpu`), index exact Flat (produit scalaire) |
 | Orchestration | LangChain |
-| Génération des réponses | Mistral (modèle de chat) |
+| Génération des réponses | Mistral Ministral 8B (`ministral-8b-2512`), accessible avec la formule gratuite ; Mistral Large 4 visé avec une offre payante |
 | API | FastAPI + Uvicorn |
 | Conteneurisation | Docker |
 | Évaluation | Jeu de test annoté + Ragas |
@@ -77,28 +77,88 @@ python -m scripts.build_index --input data/raw/events_creuse_2026-10-29.json.gz 
 L'index est enregistré dans `vectorstore/<zone>_<date>/` (`index.faiss`, `index.pkl`, `manifest.json`) ;
 il n'est pas versionné. La clé `MISTRAL_API_KEY` est nécessaire.
 
+## Poser une question à l'assistant
+
+Le script `scripts/ask.py` fait passer une question par toute la chaîne RAG :
+
+1. **critères** : le lieu (ville ou département) et la période (« ce week-end », « demain », « le 14 novembre »…)
+   sont repérés dans la question par des règles ; sans période précisée, seuls les événements à venir sont retenus ;
+2. **recherche** : les 5 événements les plus proches de la question parmi ceux qui respectent ces critères
+   (au moins une séance pendant la période), dans l'index Faiss ;
+3. **génération** : Ministral 8B rédige la réponse à partir de ces seuls événements, en citant leurs références `[n]` ;
+4. **réponse** : le texte, les sources citées (leurs liens viennent des données, pas du modèle) et les
+   métadonnées (modèle, durées, tokens). Si aucun événement ne respecte les critères, un message fixe est
+   renvoyé, sans appel au modèle.
+
+Prérequis : l'index de référence construit (`python -m scripts.build_index`) et la clé `MISTRAL_API_KEY`
+dans `.env`. Les commandes sont les mêmes sous Windows, macOS et Linux (environnement activé) :
+
+```bash
+python -m scripts.ask "Un concert de jazz à Bordeaux ce week-end" --today 2026-10-29
+python -m scripts.ask "Que faire ce week-end ?"              # avec la vraie date du jour
+python -m scripts.ask "Une exposition à Limoges" --json      # réponse complète en JSON
+```
+
+| Option | Rôle |
+|---|---|
+| `--today AAAA-MM-JJ` | Date du jour, qui fixe le sens de « ce week-end », « demain »… (par défaut : la vraie date). Avec `2026-10-29`, date de la photo de référence, les résultats sont reproductibles. |
+| `--index DOSSIER` | Index à interroger (par défaut : `vectorstore/nouvelle-aquitaine_2026-10-29`) |
+| `--json` | Réponse complète en JSON : texte, sources, critères repérés, métadonnées |
+
+Exemple de sortie (les données ne contiennent aucun concert de jazz à Bordeaux ce week-end : le modèle le
+dit, puis propose l'événement le plus proche) :
+
+```text
+Question : Un concert de jazz à Bordeaux ce week-end
+Critères : lieu : Bordeaux ; période : ce week-end, du samedi 31 octobre 2026 au dimanche 1 novembre 2026
+
+Je suis désolé, mais aucun concert de jazz n'est proposé ce week-end à Bordeaux dans les événements listés. Si vous êtes ouvert à d'autres styles musicaux, le **concert de musique de chambre** intitulé *"Fais-moi peur"* le dimanche 1 novembre à 11h00 à l'Auditorium de Bordeaux pourrait vous intéresser, car il explore des œuvres inspirées par le cinéma, dont certaines ont une ambiance mystérieuse et immersive [1].
+
+Sources :
+[1] Concert du dimanche — Auditorium de Bordeaux, Bordeaux
+    https://openagenda.com/ville-de-bordeaux/events/concert-du-dimanche-1929716
+
+ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1412 ms ; 2007 tokens en entrée, 102 en sortie
+```
+
+> **Formule gratuite de Mistral** : Ministral 8B y est limité à 2 requêtes par minute. Au-delà, le script
+> affiche `[ERREUR] Limite de débit Mistral atteinte : réessayez dans une minute.` Le modèle et ses
+> réglages sont dans `rag/config.py` ; leur choix est justifié dans le notebook
+> [`04_rag_chain.ipynb`](notebooks/04_rag_chain.ipynb) (partie B).
+>
+> L'avertissement « You are sending unauthenticated requests to the HF Hub » est sans conséquence :
+> LangChain récupère sur Hugging Face le tokenizer de Mistral, qui sert à calculer la taille des lots
+> envoyés au modèle d'embedding.
+
 ## Structure du dépôt
 
 ```
 .
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
-│   └── processed/          Données nettoyées (générées par le script, non versionnées)
+│   ├── processed/          Données nettoyées (générées par le script, non versionnées)
+│   └── eval/               Réponses enregistrées par le notebook 04 (relues sans appel à Mistral)
 ├── notebooks/
 │   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 │   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
-│   └── 03_faiss_index.ipynb    Tests de recherche et choix de l'index Faiss
+│   ├── 03_faiss_index.ipynb    Tests de recherche et choix de l'index Faiss
+│   └── 04_rag_chain.ipynb      Recherche filtrée (partie A), choix du modèle et réglage du prompt (partie B)
 ├── rag/                    Logique métier (package Python)
-│   ├── config.py           Paramètres centralisés (chemins, source, champs, nettoyage, découpage, index)
+│   ├── config.py           Paramètres centralisés (chemins, source, nettoyage, découpage, index, modèle de chat)
 │   ├── fetch.py            Récupération des événements Open Agenda
 │   ├── preprocess.py       Nettoyage et structuration des événements
 │   ├── chunking.py         Découpage en chunks (en-tête de contexte, métadonnées)
-│   └── indexing.py         Vectorisation Mistral par lots et index Faiss
+│   ├── indexing.py         Vectorisation Mistral par lots et index Faiss
+│   ├── criteria.py         Repérage du lieu et de la période d'une question (règles)
+│   ├── retrieval.py        Recherche filtrée dans l'index (critères, un résultat par événement)
+│   ├── prompts.py          Textes envoyés au modèle (règles, événements numérotés)
+│   └── assistant.py        Chaîne RAG complète (LangChain LCEL) : de la question à la réponse et ses sources
 ├── scripts/
 │   ├── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
 │   ├── fetch_events.py     Téléchargement des événements dans data/raw/
 │   ├── preprocess_events.py    Nettoyage des événements dans data/processed/
-│   └── build_index.py      Construction de l'index vectoriel dans vectorstore/
+│   ├── build_index.py      Construction de l'index vectoriel dans vectorstore/
+│   └── ask.py              Question à l'assistant en ligne de commande
 ├── tests/
 │   ├── factories.py            Événements de test partagés
 │   ├── test_fetch.py           Tests unitaires de la récupération
@@ -107,7 +167,13 @@ il n'est pas versionné. La clé `MISTRAL_API_KEY` est nécessaire.
 │   ├── test_processed_data.py  Contrôle qualité des données nettoyées
 │   ├── test_chunking.py        Tests unitaires du découpage
 │   ├── test_indexing.py        Tests unitaires de la vectorisation et de l'index
-│   └── test_index_data.py      Contrôle de l'index (ignoré tant qu'il n'est pas construit)
+│   ├── test_index_data.py      Contrôle de l'index (ignoré tant qu'il n'est pas construit)
+│   ├── test_criteria.py        Tests unitaires du repérage des critères
+│   ├── test_criteria_data.py   Contrôle des règles de repérage sur les villes de la photo de référence
+│   ├── test_retrieval.py       Tests unitaires de la recherche filtrée
+│   ├── test_prompts.py         Tests unitaires des textes envoyés au modèle
+│   ├── test_assistant.py       Tests unitaires de la chaîne complète (faux modèle, sans appel à Mistral)
+│   └── test_ask.py             Tests unitaires du script de question
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
