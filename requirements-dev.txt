@@ -365,7 +365,7 @@ pyzmq==27.2.0
     # via
     #   ipykernel
     #   jupyter-client
-ragas==0.4.3
+ragas==0.4.4
     # via -r requirements-dev.in
 regex==2026.9.29
     # via
@@ -377,6 +377,7 @@ requests==2.34.2
     #   langchain-classic
     #   langchain-community
     #   langsmith
+    #   ragas
     #   requests-toolbelt
     #   tiktoken
 requests-toolbelt==1.0.0
@@ -411,6 +412,7 @@ tenacity==9.2.1
     #   instructor
     #   langchain-community
     #   langchain-core
+    #   ragas
 tiktoken==0.14.0
     # via
     #   langchain-openai

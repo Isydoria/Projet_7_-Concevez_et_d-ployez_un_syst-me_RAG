@@ -173,7 +173,8 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 │   ├── test_retrieval.py       Tests unitaires de la recherche filtrée
 │   ├── test_prompts.py         Tests unitaires des textes envoyés au modèle
 │   ├── test_assistant.py       Tests unitaires de la chaîne complète (faux modèle, sans appel à Mistral)
-│   └── test_ask.py             Tests unitaires du script de question
+│   ├── test_ask.py             Tests unitaires du script de question
+│   └── test_dependencies.py    Contrôle des dépendances d'évaluation (import de Ragas)
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
