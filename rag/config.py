@@ -73,14 +73,17 @@ MAX_SESSIONS_SHOWN = 5   # séances affichées par événement dans le prompt (u
 
 # --- Génération (chaîne RAG) ------------------------------------------------------------------------
 # Valeurs explicites : ChatMistralAI prend par défaut une température de 0,7 et une longueur illimitée.
-# Mistral Large 4, nom daté : reproductibilité. Mistral Small 4 (« mistral-small-2603 »), moins cher,
-# est refusé par l'API pour ce compte (quota de 0 requête par minute au 12/11/2026).
-CHAT_MODEL = "mistral-large-4-0"
+# Ministral 8B, nom daté : reproductibilité. Le POC fonctionne avec la formule gratuite de Mistral, qui
+# refuse Mistral Large 4 depuis le 13/11/2026 (« not available in your subscription tier ») et limite
+# Small et Medium à 0 requête par minute ; Ministral 8B y est accepté, à 2 requêtes par minute.
+# Comparaison des modèles : notebook 04, partie B ; Large 4 (réflexion « low ») y est le meilleur et reste
+# la cible pour une mise en production avec une offre payante.
+CHAT_MODEL = "ministral-8b-2512"
 CHAT_TEMPERATURE = 0.2              # réponses stables et fidèles aux événements fournis
-# Large 4 est un modèle de raisonnement : il réfléchit avant de répondre, et la réflexion ne peut pas être
-# coupée (valeurs acceptées : low, medium, high). Le plafond de tokens couvre la réflexion ET la réponse.
-CHAT_REASONING_EFFORT = "medium"
-CHAT_MAX_TOKENS = 4000
+# Niveau de réflexion d'un modèle de raisonnement (Large 4 : low, medium ou high ; le plafond de tokens
+# couvre alors la réflexion ET la réponse). None : Ministral 8B ne raisonne pas, le paramètre n'est pas envoyé.
+CHAT_REASONING_EFFORT = None
+CHAT_MAX_TOKENS = 4000              # plafond de sécurité ; réponse la plus longue observée : 291 tokens
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {

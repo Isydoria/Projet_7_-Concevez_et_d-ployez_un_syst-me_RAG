@@ -134,8 +134,10 @@ def test_chat_model_settings(monkeypatch):
     llm = make_chat_model()
     assert (llm.model, llm.temperature, llm.max_tokens) == (config.CHAT_MODEL, config.CHAT_TEMPERATURE,
                                                             config.CHAT_MAX_TOKENS)
-    assert llm.model_kwargs == {"reasoning_effort": config.CHAT_REASONING_EFFORT}
-    # Modèle sans raisonnement : le paramètre n'est pas envoyé
+    expected = {"reasoning_effort": config.CHAT_REASONING_EFFORT} if config.CHAT_REASONING_EFFORT else {}
+    assert llm.model_kwargs == expected
+    # Modèle de raisonnement : le niveau de réflexion est envoyé ; modèle sans raisonnement : il ne l'est pas
+    assert make_chat_model("mistral-large-4-0", reasoning_effort="low").model_kwargs == {"reasoning_effort": "low"}
     assert make_chat_model("ministral-8b-2512", reasoning_effort=None).model_kwargs == {}
 
 
