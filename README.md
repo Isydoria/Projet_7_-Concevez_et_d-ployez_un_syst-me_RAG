@@ -130,6 +130,55 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 > LangChain récupère sur Hugging Face le tokenizer de Mistral, qui sert à calculer la taille des lots
 > envoyés au modèle d'embedding.
 
+## Lancer l'API REST
+
+L'API (FastAPI) expose l'assistant ; la logique métier reste dans `rag/`. Depuis la racine, environnement
+activé (mêmes commandes sous Windows, macOS et Linux) :
+
+```bash
+uvicorn api.main:app            # http://127.0.0.1:8000 ; documentation interactive : http://127.0.0.1:8000/docs
+```
+
+| Route | Méthode | Rôle |
+|---|---|---|
+| `/ask` | POST | Question → réponse rédigée, événements cités (avec leurs liens), critères repérés, événements trouvés, métadonnées |
+| `/health` | GET | `ok` si l'assistant est prêt ; sinon 503 et la cause |
+| `/metadata` | GET | Index servi (date des données, nombre d'événements), modèles, avancement de la dernière reconstruction |
+| `/rebuild` | POST | Reconstruit l'index en arrière-plan (≈ 12 min) ; protégé par un jeton |
+
+Exemple, avec la page `/docs` (bouton *Try it out*) ou en ligne de commande :
+
+```bash
+# macOS / Linux
+curl -X POST http://127.0.0.1:8000/ask -H "Content-Type: application/json" \
+     -d '{"question": "Un concert de jazz à Bordeaux ce week-end", "today": "2026-10-29"}'
+```
+
+```powershell
+# Windows (PowerShell)
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/ask -ContentType "application/json; charset=utf-8" `
+  -Body '{"question": "Un concert de jazz à Bordeaux ce week-end", "today": "2026-10-29"}'
+```
+
+`today` est facultatif : par défaut, la vraie date du jour ; avec `2026-10-29`, date des données de référence,
+les réponses sont reproductibles.
+
+**Erreurs** : une requête mal formée (question vide ou de plus de 500 caractères, date invalide) reçoit un 422 ;
+si l'index n'est pas chargé ou si Mistral refuse la requête (accès, débit), l'API répond 503 avec la cause
+(et `Retry-After` quand il suffit d'attendre).
+
+**Reconstruction** : `POST /rebuild` avec l'en-tête `X-Rebuild-Token`, dont la valeur doit être celle de
+`REBUILD_TOKEN` dans `.env` (sans valeur, la route est désactivée : 403). Corps facultatif :
+`{"refresh_data": true}` pour télécharger d'abord les événements du jour (par défaut : les données
+enregistrées). La réponse est immédiate (202) ; l'avancement se lit dans `/metadata`, et l'ancien index
+répond jusqu'à la bascule.
+
+**Test fonctionnel**, l'API étant lancée dans un autre terminal :
+
+```bash
+python api_test.py              # 6 vérifications, code de sortie 0 si tout passe
+```
+
 ## Évaluer l'assistant
 
 Le jeu de test annoté (`data/eval/test_set.json`) compte 20 questions : 14 auxquelles les données répondent
@@ -171,6 +220,9 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
 │   └── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
+├── api/                    API REST (FastAPI)
+│   ├── main.py             Application et routes (/ask, /health, /metadata, /rebuild)
+│   └── schemas.py          Modèles Pydantic des requêtes et des réponses
 ├── notebooks/
 │   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 │   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
@@ -216,8 +268,10 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── test_eval_test_set.py   Contrôle du jeu de test annoté sur la photo de référence
 │   ├── test_evaluation.py      Tests unitaires des mesures d'évaluation sans LLM
 │   ├── test_judge.py           Tests unitaires du juge Ragas (faux juge)
-│   └── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
+│   ├── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
+│   └── test_api.py             Tests unitaires de l'API (TestClient, faux assistant)
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
+├── api_test.py             Test fonctionnel de l'API lancée (6 vérifications)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
 ├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)
