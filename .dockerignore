@@ -1,0 +1,10 @@
+# Liste blanche : tout est exclu de la construction de l'image, sauf ce dont l'API a besoin.
+# Ni secrets (.env), ni environnement local (.venv), ni données générées, ni index (fourni au lancement).
+*
+!requirements.txt
+!rag/
+!api/
+!scripts/
+!data/raw/
+**/__pycache__
+**/*.py[cod]

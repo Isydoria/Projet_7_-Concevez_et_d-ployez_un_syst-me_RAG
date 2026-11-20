@@ -130,14 +130,41 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 > LangChain récupère sur Hugging Face le tokenizer de Mistral, qui sert à calculer la taille des lots
 > envoyés au modèle d'embedding.
 
+## Lancer avec Docker
+
+Sans installer Python : seul Docker est nécessaire (Docker Desktop sous Windows et macOS, ou Colima / Docker
+Engine). Depuis la racine du dépôt, après avoir créé le fichier `.env` (copie de `.env.example`, avec la clé
+Mistral) :
+
+```bash
+docker compose up --build        # construit l'image, puis lance l'API sur http://127.0.0.1:8000
+```
+
+Au premier démarrage, le conteneur télécharge l'index (≈ 1 min) dans un volume Docker, qu'il réutilise
+ensuite ; la page `http://127.0.0.1:8000/docs` permet d'essayer l'API, et `python api_test.py` (avec Python)
+la vérifie. Arrêt : `Ctrl+C`, puis `docker compose down` (ajouter `-v` pour supprimer aussi l'index).
+
+| Fichier | Rôle |
+|---|---|
+| `Dockerfile` | Image `python:3.12-slim`, dépendances d'exécution seulement, utilisateur sans droits d'administrateur, contrôle de santé sur `/health` |
+| `.dockerignore` | Liste blanche : seuls le code, les dépendances et les données de référence entrent dans l'image ; jamais `.env` |
+| `docker-compose.yml` | Port `8000`, secrets lus dans `.env` au lancement, volume `index` pour l'index |
+
+Sans Compose : `docker build -t puls-events-api .` puis
+`docker run --env-file .env -p 8000:8000 -v puls-events-index:/app/vectorstore puls-events-api`.
+
 ## Lancer l'API REST
 
 L'API (FastAPI) expose l'assistant ; la logique métier reste dans `rag/`. Depuis la racine, environnement
 activé (mêmes commandes sous Windows, macOS et Linux) :
 
 ```bash
-uvicorn api.main:app            # http://127.0.0.1:8000 ; documentation interactive : http://127.0.0.1:8000/docs
+python -m scripts.serve         # prépare l'index s'il manque, puis lance l'API sur http://127.0.0.1:8000
+uvicorn api.main:app            # lance l'API seule (index déjà présent) ; documentation : http://127.0.0.1:8000/docs
 ```
+
+`scripts/serve.py` télécharge, s'il manque, l'index publié avec le dépôt (release GitHub `index-2026-10-29`,
+56 Mo, empreinte SHA-256 vérifiée) ; s'il ne peut pas, il le construit (≈ 12 min, sur la clé Mistral).
 
 | Route | Méthode | Rôle |
 |---|---|---|
@@ -252,6 +279,7 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── preprocess_events.py    Nettoyage des événements dans data/processed/
 │   ├── build_index.py      Construction de l'index vectoriel dans vectorstore/
 │   ├── ask.py              Question à l'assistant en ligne de commande
+│   ├── serve.py            Lancement de l'API (prépare l'index s'il manque : téléchargement vérifié ou construction)
 │   └── evaluate_rag.py     Évaluation sur le jeu de test annoté (réponses, puis jugement)
 ├── tests/
 │   ├── factories.py            Événements de test partagés
@@ -274,9 +302,13 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── test_evaluation.py      Tests unitaires des mesures d'évaluation sans LLM
 │   ├── test_judge.py           Tests unitaires du juge Ragas (faux juge)
 │   ├── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
-│   └── test_api.py             Tests unitaires de l'API (TestClient, faux assistant)
+│   ├── test_api.py             Tests unitaires de l'API (TestClient, faux assistant)
+│   └── test_serve.py           Tests unitaires du téléchargement de l'index et du lancement
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── api_test.py             Test fonctionnel de l'API lancée (6 vérifications)
+├── Dockerfile              Image de l'API
+├── .dockerignore           Liste blanche des fichiers copiés dans l'image
+├── docker-compose.yml      Lancement de l'API en conteneur (port, secrets, volume de l'index)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
 ├── requirements.txt        Toutes les dépendances d'exécution, versions figées (calculé)

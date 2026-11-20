@@ -70,6 +70,14 @@ EMBED_BATCH_MAX_CHARS = 40_000   # ≈ 15 000 tokens par requête (mesuré : ≈
                                  # LangChain redécoupe automatiquement un lot qui dépasserait 16 000 tokens
 EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par seconde au maximum
 
+# Index de la photo de référence, publié dans une release GitHub du dépôt (archive de 56 Mo) : téléchargé au
+# premier lancement de l'API (scripts/serve.py, conteneur Docker) au lieu d'être reconstruit (≈ 12 min,
+# ≈ 6,6 millions de tokens d'embeddings). index.pkl est un pickle : l'empreinte SHA-256 garantit que
+# l'archive téléchargée est exactement celle publiée.
+INDEX_ARCHIVE_URL = ("https://github.com/Isydoria/Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG/releases/download/"
+                     "index-2026-10-29/nouvelle-aquitaine_2026-10-29.zip")
+INDEX_ARCHIVE_SHA256 = "a4217844d284c563d128654d2dea3255805feb81a4684c0bdedadf2995c66be3"
+
 # --- Recherche (chaîne RAG) -------------------------------------------------------------------------
 TOP_K_EVENTS = 5   # événements distincts transmis au LLM (le meilleur chunk de chacun)
 # Texte de la recherche par similarité : la question sans le lieu ni la période, déjà appliqués comme filtres

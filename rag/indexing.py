@@ -4,13 +4,18 @@ Pipeline complet d'indexation, rejoué à chaque reconstruction :
 données brutes -> nettoyage -> découpage -> vectorisation (par lots) -> index Faiss + manifeste.
 """
 
+import hashlib
 import json
 import logging
+import shutil
+import tempfile
 import time
+import zipfile
 from collections.abc import Callable
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+import httpx
 from langchain_community.vectorstores import FAISS
 from langchain_community.vectorstores.utils import DistanceStrategy
 from langchain_core.documents import Document
@@ -143,3 +148,37 @@ def load_vectorstore(index_dir: Path, embedder: Embeddings | None = None) -> FAI
 def load_manifest(index_dir: Path) -> dict:
     """Relit le manifeste d'un index."""
     return json.loads((index_dir / MANIFEST_NAME).read_text(encoding="utf-8"))
+
+
+INDEX_FILES = {"index.faiss", "index.pkl", MANIFEST_NAME}
+
+
+def download_index(url: str, sha256: str, index_dir: Path, client: httpx.Client | None = None) -> Path:
+    """Télécharge l'archive d'un index publié, vérifie son empreinte SHA-256, puis l'extrait dans `index_dir`.
+
+    index.pkl est un pickle, qu'on ne charge que s'il vient de nous : l'empreinte garantit que l'archive est
+    exactement celle publiée. Empreinte différente ou contenu inattendu : ValueError, rien n'est extrait.
+    """
+    client = client or httpx.Client(follow_redirects=True, timeout=300)
+    digest = hashlib.sha256()
+    with tempfile.TemporaryDirectory() as tmp:
+        archive_path = Path(tmp) / "index.zip"
+        with client.stream("GET", url) as response, archive_path.open("wb") as archive_file:
+            response.raise_for_status()
+            for chunk in response.iter_bytes():
+                digest.update(chunk)
+                archive_file.write(chunk)
+        if digest.hexdigest() != sha256:
+            raise ValueError(f"empreinte SHA-256 différente de celle attendue : archive refusée ({url})")
+        with zipfile.ZipFile(archive_path) as archive:
+            if set(archive.namelist()) != INDEX_FILES:
+                raise ValueError(f"contenu inattendu dans l'archive : {sorted(archive.namelist())}")
+            extracted = Path(tmp) / "index"
+            extracted.mkdir()
+            for name in INDEX_FILES:
+                (extracted / name).write_bytes(archive.read(name))
+        index_dir.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(extracted), str(index_dir))   # tout ou rien : jamais d'index à moitié extrait
+    logger.info("Index téléchargé et vérifié : %s", index_dir)
+    return index_dir
+
