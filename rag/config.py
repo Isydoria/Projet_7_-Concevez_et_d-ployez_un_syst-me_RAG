@@ -86,6 +86,12 @@ CHAT_TEMPERATURE = 0.2              # réponses stables et fidèles aux événem
 # couvre alors la réflexion ET la réponse). None : Ministral 8B ne raisonne pas, le paramètre n'est pas envoyé.
 CHAT_REASONING_EFFORT = None
 CHAT_MAX_TOKENS = 4000              # plafond de sécurité ; réponse la plus longue observée : 291 tokens
+CHAT_MIN_INTERVAL_S = 31            # formule gratuite : 2 requêtes par minute et par modèle de chat
+
+# --- Évaluation (Ragas) -------------------------------------------------------------------------------
+# Juge : un autre modèle que celui qui répond (un modèle qui se juge lui-même tend à s'approuver), plus gros,
+# accessible avec la formule gratuite. Repli possible sur Ministral 8B s'il est refusé ou saturé.
+JUDGE_MODEL = "ministral-14b-2512"
 
 # Règle 4 : départements de Nouvelle-Aquitaine (2 premiers chiffres du code postal -> nom)
 NA_DEPARTMENTS = {
