@@ -175,7 +175,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 │   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
 │   ├── 03_faiss_index.ipynb    Tests de recherche et choix de l'index Faiss
-│   └── 04_rag_chain.ipynb      Recherche filtrée (partie A), choix du modèle et réglage du prompt (partie B)
+│   ├── 04_rag_chain.ipynb      Recherche filtrée (partie A), choix du modèle et réglage du prompt (partie B)
+│   └── 05_evaluation.ipynb     Analyse de l'évaluation : classement humain, origine des erreurs, fiabilité de Ragas
 ├── rag/                    Logique métier (package Python)
 │   ├── config.py           Paramètres centralisés (chemins, source, nettoyage, découpage, index, modèle de chat)
 │   ├── fetch.py            Récupération des événements Open Agenda
