@@ -156,6 +156,9 @@ python -m scripts.evaluate_rag --no-ragas         # mesures sans juge seulement 
 
 Résultats dans `data/eval/` : `rag_answers.json` (réponses complètes), `rag_evaluation.json` (mesures et
 détail du juge), `rag_evaluation.md` (résumé lisible). Une relance reprend là où le calcul s'était arrêté.
+Les 20 réponses ont aussi été classées à la main, à l'aveugle (correcte / partielle / incorrecte, motif
+vérifié dans les données) : `manual_judgments.json`. Le résumé compare les mesures automatiques à ce
+classement, pour savoir lesquelles distinguent vraiment les bonnes réponses des mauvaises.
 Avec la formule gratuite (2 requêtes par minute et par modèle), les requêtes sont espacées de 31 s ; le
 calcul s'arrête au premier refus de Mistral qu'une attente ne résoudrait pas (accès refusé, serveurs
 saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_TRACK`).

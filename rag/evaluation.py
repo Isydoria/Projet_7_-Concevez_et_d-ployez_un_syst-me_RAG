@@ -147,6 +147,26 @@ def summarize(results: list[dict]) -> dict:
     }
 
 
+def agreement_with_humans(results: dict[str, dict], verdicts: dict[str, str]) -> dict:
+    """Mesures automatiques regroupées selon le verdict humain (C correcte, P partielle, I incorrecte).
+
+    Une mesure utile donne des valeurs nettement différentes d'un groupe à l'autre ; une mesure qui donne
+    la même valeur aux trois groupes ne distingue pas les bonnes réponses des mauvaises.
+    """
+    agreement = {}
+    for verdict in ("C", "P", "I"):
+        keys = [key for key, given in verdicts.items() if given == verdict and key in results]
+        judged = [results[key]["ragas"] for key in keys if results[key]["ragas_status"] == "judged"]
+        agreement[verdict] = {
+            "questions": len(keys),
+            "behavior_flagged": sum(not results[key]["behavior_ok"] for key in keys),
+            "similarity": mean(results[key]["similarity"] for key in keys),
+            "judged": len(judged),
+            **{metric: mean(scores[metric] for scores in judged) for metric in RAGAS_METRICS},
+        }
+    return agreement
+
+
 def cosine(a: list[float], b: list[float]) -> float:
     """Similarité cosinus entre deux vecteurs (1 : même direction ; 0 : sans rapport)."""
     a, b = np.asarray(a, dtype=float), np.asarray(b, dtype=float)

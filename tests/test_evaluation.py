@@ -7,8 +7,8 @@ import json
 
 import pytest
 
-from rag.evaluation import (behavior_problems, citation_measures, cosine, free_measures, load_test_set,
-                            retrieval_measures, summarize)
+from rag.evaluation import (agreement_with_humans, behavior_problems, citation_measures, cosine, free_measures,
+                            load_test_set, retrieval_measures, summarize)
 
 
 def make_answer(retrieved=(), cited=(), text="Voici une idée [1].", llm_called=True) -> dict:
@@ -170,6 +170,22 @@ def test_summarize_averages_each_measure_over_the_questions_where_it_applies():
     assert summary["similarity"] == 0.7
     assert summary["ragas"] == {"questions": 2, "faithfulness": 0.5, "answer_relevancy": 0.7,
                                 "context_recall": 0.5, "factual_correctness": 0.4}
+
+
+def test_agreement_groups_the_automatic_measures_by_human_verdict():
+    results = {
+        "1": {"behavior_ok": True, "similarity": 0.9, "ragas_status": "judged",
+              "ragas": {"faithfulness": 1.0, "answer_relevancy": 0.8, "context_recall": 1.0, "factual_correctness": 0.6}},
+        "2": {"behavior_ok": True, "similarity": 0.8, "ragas_status": "judged",
+              "ragas": {"faithfulness": 0.6, "answer_relevancy": 0.8, "context_recall": 0.5, "factual_correctness": 0.2}},
+        "3": {"behavior_ok": False, "similarity": 0.85, "ragas_status": "not_applicable", "ragas": None},
+    }
+    agreement = agreement_with_humans(results, {"1": "C", "2": "P", "3": "I"})
+    assert agreement["C"] == {"questions": 1, "behavior_flagged": 0, "similarity": 0.9, "judged": 1,
+                              "faithfulness": 1.0, "answer_relevancy": 0.8, "context_recall": 1.0,
+                              "factual_correctness": 0.6}
+    assert agreement["I"]["behavior_flagged"] == 1 and agreement["I"]["judged"] == 0
+    assert agreement["I"]["faithfulness"] is None          # aucune réponse jugée par Ragas dans ce groupe
 
 
 # --- Similarité et chargement --------------------------------------------------------------------------

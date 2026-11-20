@@ -2,6 +2,7 @@
   "metadata": {
     "description": "Classement humain des 20 réponses de l'assistant (data/eval/rag_answers.json), fait à l'aveugle (sans les scores du juge Ragas), avec des critères écrits avant la lecture des réponses ; les faits avancés par les réponses ont été vérifiés dans les données.",
     "answers_file": "data/eval/rag_answers.json",
+    "answers_started_at": "2026-11-20T10:33:43",
     "criteria": {
       "C": "correcte : même sens et mêmes informations que la référence ; pour un cas limite, comportement attendu respecté ; citer moins d'événements que la référence est permis s'ils répondent bien à la question",
       "P": "partielle : utile mais imparfaite (un détail faux ou manquant, un événement hors sujet à côté de bons événements, un comportement attendu respecté à moitié)",

@@ -100,6 +100,13 @@ def test_manual_judgments_cover_every_question():
                for judgment in judgments.values())
 
 
+def test_manual_judgments_classify_the_saved_answers():
+    """Le classement porte sur des réponses précises : si elles sont régénérées, il faut les classer à nouveau."""
+    metadata = json.loads(config.MANUAL_JUDGMENTS_FILE.read_text(encoding="utf-8"))["metadata"]
+    answers = json.loads((config.EVAL_DIR / "rag_answers.json").read_text(encoding="utf-8"))["metadata"]
+    assert metadata["answers_started_at"] == answers["started_at"]
+
+
 @pytest.mark.parametrize("question", QUESTIONS, ids=IDS)
 def test_category_is_consistent_with_the_data(question, reference_data):
     """« Sans résultat » : aucun événement ne respecte les critères ; sinon, au moins un (appel au LLM)."""

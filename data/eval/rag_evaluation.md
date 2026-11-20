@@ -45,6 +45,21 @@
 | 19 | Y a-t-il eu des concerts en Lot-et-Garonne le mois dernier ? | past | écart | 1 | 3/3 | 0,94 | 0,88 | 0,84 | 0,50 | 0,63 |
 | 20 | Une idée de sortie pour dimanche ? | vague | conforme | — | — | 0,90 | — | — | — | — |
 
+## Mesures automatiques comparées au classement humain
+
+Classement humain des mêmes réponses, fait à l'aveugle (`data/eval/manual_judgments.json`) : C correcte, P partielle, I incorrecte. Une mesure utile donne des valeurs nettement différentes d'un groupe à l'autre ; une mesure qui donne la même valeur aux trois groupes ne distingue pas les bonnes réponses des mauvaises.
+
+| Mesure | C | P | I |
+|---|---|---|---|
+| Questions | 13 | 5 | 2 |
+| Écarts de comportement signalés par les règles | 1 | 0 | 2 |
+| Similarité (moyenne) | 0,92 | 0,91 | 0,87 |
+| Questions jugées par Ragas | 9 | 5 | 1 |
+| Ragas : fidélité (moyenne) | 0,89 | 0,80 | 0,00 |
+| Ragas : pertinence (moyenne) | 0,83 | 0,84 | 0,81 |
+| Ragas : couverture documentaire (moyenne) | 0,60 | 0,63 | 0,00 |
+| Ragas : exactitude factuelle (moyenne) | 0,48 | 0,39 | 0,00 |
+
 ## Écarts de comportement
 
 - Question 4 (Du théâtre à Brive-la-Gaillarde) : aucun événement cité

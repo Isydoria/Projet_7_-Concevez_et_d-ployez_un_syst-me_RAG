@@ -29,7 +29,8 @@ from dotenv import load_dotenv
 
 from rag import config
 from rag.assistant import EventAssistant
-from rag.evaluation import RAGAS_METRICS, free_measures, is_judged, load_test_set, summarize
+from rag.evaluation import (RAGAS_METRICS, agreement_with_humans, free_measures, is_judged, load_test_set,
+                            summarize)
 from rag.indexing import vectorstore_dir_for
 from rag.judge import RequestPacer, judge_answer, make_client, make_embeddings, make_judge, similarity
 from scripts.ask import use_utf8_output
@@ -169,12 +170,43 @@ def number(value) -> str:
     return "—" if value is None else f"{value:.2f}".replace(".", ",")
 
 
-def render_report(test_set: dict, answers: dict, evaluation: dict, summary: dict) -> str:
-    """Résumé lisible : conditions, synthèse, tableau par question, écarts, affirmations jugées non appuyées."""
+METRIC_LABELS = {"faithfulness": "fidélité", "answer_relevancy": "pertinence",
+                 "context_recall": "couverture documentaire", "factual_correctness": "exactitude factuelle"}
+
+
+def human_comparison(answers: dict, evaluation: dict, human: dict | None) -> list[str]:
+    """Section du rapport : mesures automatiques regroupées selon le classement humain des mêmes réponses."""
+    if human is None:
+        return []
+    title = ["", "## Mesures automatiques comparées au classement humain", ""]
+    if human["metadata"].get("answers_started_at") != answers["metadata"]["started_at"]:
+        return title + ["Le classement humain enregistré porte sur d'autres réponses (réponses régénérées depuis) : "
+                        "comparaison non calculée. Classer à nouveau les réponses actuelles."]
+    verdicts = {key: judgment["verdict"] for key, judgment in human["judgments"].items()}
+    agreement = agreement_with_humans(evaluation["questions"], verdicts)
+    groups = [agreement[verdict] for verdict in ("C", "P", "I")]
+    return title + [
+        "Classement humain des mêmes réponses, fait à l'aveugle (`data/eval/manual_judgments.json`) : "
+        "C correcte, P partielle, I incorrecte. Une mesure utile donne des valeurs nettement différentes "
+        "d'un groupe à l'autre ; une mesure qui donne la même valeur aux trois groupes ne distingue pas "
+        "les bonnes réponses des mauvaises.", "",
+        "| Mesure | C | P | I |", "|---|---|---|---|",
+        "| Questions | " + " | ".join(str(group["questions"]) for group in groups) + " |",
+        "| Écarts de comportement signalés par les règles | "
+        + " | ".join(str(group["behavior_flagged"]) for group in groups) + " |",
+        "| Similarité (moyenne) | " + " | ".join(number(group["similarity"]) for group in groups) + " |",
+        "| Questions jugées par Ragas | " + " | ".join(str(group["judged"]) for group in groups) + " |",
+        *[f"| Ragas : {METRIC_LABELS[metric]} (moyenne) | "
+          + " | ".join(number(group[metric]) for group in groups) + " |" for metric in RAGAS_METRICS],
+    ]
+
+
+def render_report(test_set: dict, answers: dict, evaluation: dict, summary: dict, human: dict | None = None) -> str:
+    """Résumé lisible : conditions, synthèse, tableau par question, écarts, affirmations jugées non appuyées et,
+    si un classement humain des mêmes réponses existe, la comparaison des mesures avec lui."""
     results = evaluation["questions"]
     retrieval, ragas = summary["retrieval"], summary["ragas"]
-    metric_labels = {"faithfulness": "fidélité", "answer_relevancy": "pertinence",
-                     "context_recall": "couverture documentaire", "factual_correctness": "exactitude factuelle"}
+    metric_labels = METRIC_LABELS
     lines = [
         "# Évaluation de l'assistant sur le jeu de test annoté", "",
         f"- Jeu de test : {len(test_set['questions'])} questions ; date du jour fixée : "
@@ -222,6 +254,7 @@ def render_report(test_set: dict, answers: dict, evaluation: dict, summary: dict
                      + " | ".join(number(scores.get(metric)) for metric in RAGAS_METRICS) + " |")
     problems = [(question, results[str(question["id"])]["behavior_problems"]) for question in test_set["questions"]
                 if str(question["id"]) in results and results[str(question["id"])]["behavior_problems"]]
+    lines += human_comparison(answers, evaluation, human)
     lines += ["", "## Écarts de comportement", ""]
     lines += [f"- Question {question['id']} ({question['question']}) : {' ; '.join(found)}"
               for question, found in problems] or ["Aucun écart."]
@@ -285,7 +318,8 @@ def main(argv: list[str] | None = None) -> int:
                 raise EvaluationStopped(f"{answers_path.name} introuvable : lancer d'abord --phase answers")
             evaluation = asyncio.run(judge_phase(test_set, answers, args, evaluation_path))
             summary = summarize(list(evaluation["questions"].values()))
-            report_path.write_text(render_report(test_set, answers, evaluation, summary), encoding="utf-8")
+            human = load_json(config.MANUAL_JUDGMENTS_FILE)   # classement humain, s'il existe
+            report_path.write_text(render_report(test_set, answers, evaluation, summary, human), encoding="utf-8")
             print(f"[OK] résumé écrit dans {report_path}")
     except EvaluationStopped as error:
         print(f"[ERREUR] {error}\nLes résultats déjà obtenus sont enregistrés : relancer la même commande "

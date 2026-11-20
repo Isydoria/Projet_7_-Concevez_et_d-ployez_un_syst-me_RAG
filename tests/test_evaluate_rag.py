@@ -219,6 +219,32 @@ def test_report_shows_the_summary_the_questions_and_the_unsupported_statements(t
     assert "« B » : absente des événements" in report        # affirmation jugée non appuyée, avec son motif
 
 
+def human_judgments(answers: dict, started_at: str | None = None) -> dict:
+    """Classement humain des 3 réponses du mini jeu, rattaché aux réponses classées par leur date."""
+    return {"metadata": {"answers_started_at": started_at or answers["metadata"]["started_at"]},
+            "judgments": {"1": {"verdict": "C", "reason": "juste"}, "2": {"verdict": "C", "reason": "refus"},
+                          "3": {"verdict": "C", "reason": "message fixe"}}}
+
+
+def test_report_compares_the_measures_with_the_human_classification(tmp_path):
+    answers = answers_file(tmp_path)
+    evaluation = judge(tmp_path, answers, FakeJudgeLLM())
+    summary = summarize(list(evaluation["questions"].values()))
+    report = render_report(TEST_SET, answers, evaluation, summary, human=human_judgments(answers))
+    assert "## Mesures automatiques comparées au classement humain" in report
+    assert "| Questions | 3 | 0 | 0 |" in report
+
+
+def test_report_does_not_compare_with_a_classification_of_other_answers(tmp_path):
+    answers = answers_file(tmp_path)
+    evaluation = judge(tmp_path, answers, FakeJudgeLLM())
+    summary = summarize(list(evaluation["questions"].values()))
+    report = render_report(TEST_SET, answers, evaluation, summary,
+                           human=human_judgments(answers, started_at="2000-01-01T00:00:00"))
+    assert "Écarts de comportement signalés par les règles" not in report   # pas de tableau de comparaison
+    assert "porte sur d'autres réponses" in report
+
+
 # --- Lancement -----------------------------------------------------------------------------------------
 
 def test_main_without_key(monkeypatch, capsys):
