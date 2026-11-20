@@ -92,6 +92,8 @@ def test_judge_and_embeddings_use_the_configured_models():
     client = make_client(RequestPacer(), api_key="cle-factice")
     judge = make_judge(client)
     assert isinstance(judge, InstructorBaseRagasLLM) and judge.model == config.JUDGE_MODEL
+    # Plafond de Ragas par défaut : 1 024 tokens, trop peu pour juger une longue réponse (sortie coupée, échec)
+    assert judge.model_args["max_tokens"] == config.JUDGE_MAX_TOKENS > 1024
     assert make_embeddings(client).model == config.EMBEDDING_MODEL
 
 

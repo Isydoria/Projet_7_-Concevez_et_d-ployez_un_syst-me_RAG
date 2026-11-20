@@ -67,8 +67,8 @@ def make_client(pacer: RequestPacer, api_key: str | None = None) -> AsyncOpenAI:
 
 
 def make_judge(client: AsyncOpenAI, model: str = config.JUDGE_MODEL) -> InstructorBaseRagasLLM:
-    """Modèle juge pour Ragas (sorties structurées en JSON, via Instructor)."""
-    return llm_factory(model, provider="mistral", client=client)
+    """Modèle juge pour Ragas (sorties structurées en JSON, via Instructor), avec un plafond de tokens relevé."""
+    return llm_factory(model, provider="mistral", client=client, max_tokens=config.JUDGE_MAX_TOKENS)
 
 
 def make_embeddings(client: AsyncOpenAI) -> OpenAIEmbeddings:
