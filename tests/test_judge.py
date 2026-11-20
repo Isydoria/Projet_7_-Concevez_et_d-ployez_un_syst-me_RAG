@@ -9,48 +9,12 @@ import os
 
 import httpx
 import pytest
-from ragas.embeddings.base import BaseRagasEmbedding
 from ragas.llms.base import InstructorBaseRagasLLM
 
 from rag import config
 from rag.judge import (MISTRAL_OPENAI_URL, RequestPacer, judge_answer, make_client, make_embeddings, make_judge,
                        similarity)
-
-
-class FakeJudgeLLM(InstructorBaseRagasLLM):
-    """Faux juge : deux affirmations, la première appuyée, la seconde non ; garde le format de chaque appel."""
-
-    def __init__(self):
-        self.calls = []
-
-    def generate(self, prompt, response_model):
-        raise NotImplementedError("les métriques appellent agenerate")
-
-    async def agenerate(self, prompt, response_model):
-        name = response_model.__name__
-        self.calls.append(name)
-        verdicts = [{"statement": "A", "reason": "appuyée", "verdict": 1},
-                    {"statement": "B", "reason": "absente des événements", "verdict": 0}]
-        replies = {
-            "StatementGeneratorOutput": {"statements": ["A", "B"]},
-            "NLIStatementOutput": {"statements": verdicts},
-            "AnswerRelevanceOutput": {"question": "Un concert de jazz ?", "noncommittal": 0},
-            "ContextRecallOutput": {"classifications": [{"statement": "A", "reason": "trouvée", "attributed": 1},
-                                                        {"statement": "B", "reason": "absente", "attributed": 0}]},
-            "ClaimDecompositionOutput": {"claims": ["A", "B"]},
-        }
-        return response_model(**replies[name])
-
-
-class FakeEmbeddings(BaseRagasEmbedding):
-    """Faux embeddings : le même vecteur pour tout texte (similarité 1)."""
-
-    def embed_text(self, text, **kwargs):
-        return [1.0, 0.0]
-
-    async def aembed_text(self, text, **kwargs):
-        return [1.0, 0.0]
-
+from tests.fake_judge import FakeEmbeddings, FakeJudgeLLM
 
 QUESTION = {"id": 1, "question": "Un concert de jazz ?", "reference": "Le concert A a lieu dimanche.",
             "category": "answer", "expected_behavior": "recommend", "relevant_uids": ["a"], "excluded": {}}

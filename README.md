@@ -130,6 +130,36 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 > LangChain récupère sur Hugging Face le tokenizer de Mistral, qui sert à calculer la taille des lots
 > envoyés au modèle d'embedding.
 
+## Évaluer l'assistant
+
+Le jeu de test annoté (`data/eval/test_set.json`) compte 20 questions : 14 auxquelles les données répondent
+et 6 cas limites (aucun résultat, genre absent, hors sujet, autre région, événements passés, question vague).
+Chaque référence est rédigée à partir des données de la photo de référence ; `tests/test_eval_test_set.py`
+vérifie qu'elle reste cohérente avec ces données.
+
+Le script `scripts/evaluate_rag.py` évalue l'assistant en deux phases, enregistrées au fil de l'eau :
+
+1. **réponses** : les 20 questions sont posées à l'assistant, avec la date du jour fixée au 29/10/2026 ;
+2. **jugement** :
+   - mesures sans LLM : événements attendus trouvés par la recherche (Exact Match sur les identifiants,
+     rang, précision, rappel), événements cités pertinents, comportement attendu des cas limites,
+     similarité entre la réponse et la référence (`mistral-embed`) ;
+   - métriques Ragas, avec Ministral 14B comme juge, sur les 15 questions à événements attendus :
+     fidélité au contexte, pertinence, couverture documentaire, exactitude factuelle.
+
+```bash
+python -m scripts.evaluate_rag                    # les deux phases (≈ 1 h 20 avec la formule gratuite)
+python -m scripts.evaluate_rag --phase answers    # phase 1 seulement (≈ 10 min)
+python -m scripts.evaluate_rag --phase judge      # phase 2, sur les réponses enregistrées
+python -m scripts.evaluate_rag --no-ragas         # mesures sans juge seulement (≈ 1 min)
+```
+
+Résultats dans `data/eval/` : `rag_answers.json` (réponses complètes), `rag_evaluation.json` (mesures et
+détail du juge), `rag_evaluation.md` (résumé lisible). Une relance reprend là où le calcul s'était arrêté.
+Avec la formule gratuite (2 requêtes par minute et par modèle), les requêtes sont espacées de 31 s ; le
+calcul s'arrête au premier refus de Mistral qu'une attente ne résoudrait pas (accès refusé, serveurs
+saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_TRACK`).
+
 ## Structure du dépôt
 
 ```
@@ -137,7 +167,7 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
-│   └── eval/               Jeu de test annoté (test_set.json) et réponses enregistrées par le notebook 04
+│   └── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
 ├── notebooks/
 │   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 │   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
@@ -152,15 +182,19 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 │   ├── criteria.py         Repérage du lieu et de la période d'une question (règles)
 │   ├── retrieval.py        Recherche filtrée dans l'index (critères, un résultat par événement)
 │   ├── prompts.py          Textes envoyés au modèle (règles, événements numérotés)
-│   └── assistant.py        Chaîne RAG complète (LangChain LCEL) : de la question à la réponse et ses sources
+│   ├── assistant.py        Chaîne RAG complète (LangChain LCEL) : de la question à la réponse et ses sources
+│   ├── evaluation.py       Mesures d'évaluation sans LLM (recherche, citations, comportement) et synthèse
+│   └── judge.py            Juge LLM de l'évaluation : métriques Ragas avec un modèle Mistral
 ├── scripts/
 │   ├── check_env.py        Vérification de l'environnement (imports, clé API, accès Mistral)
 │   ├── fetch_events.py     Téléchargement des événements dans data/raw/
 │   ├── preprocess_events.py    Nettoyage des événements dans data/processed/
 │   ├── build_index.py      Construction de l'index vectoriel dans vectorstore/
-│   └── ask.py              Question à l'assistant en ligne de commande
+│   ├── ask.py              Question à l'assistant en ligne de commande
+│   └── evaluate_rag.py     Évaluation sur le jeu de test annoté (réponses, puis jugement)
 ├── tests/
 │   ├── factories.py            Événements de test partagés
+│   ├── fake_judge.py           Faux juge et faux embeddings pour tester Ragas sans appel
 │   ├── test_fetch.py           Tests unitaires de la récupération
 │   ├── test_raw_data.py        Contrôle qualité des données brutes
 │   ├── test_preprocess.py      Tests unitaires du nettoyage
@@ -175,7 +209,10 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 │   ├── test_assistant.py       Tests unitaires de la chaîne complète (faux modèle, sans appel à Mistral)
 │   ├── test_ask.py             Tests unitaires du script de question
 │   ├── test_dependencies.py    Contrôle des dépendances d'évaluation (import de Ragas)
-│   └── test_eval_test_set.py   Contrôle du jeu de test annoté sur la photo de référence
+│   ├── test_eval_test_set.py   Contrôle du jeu de test annoté sur la photo de référence
+│   ├── test_evaluation.py      Tests unitaires des mesures d'évaluation sans LLM
+│   ├── test_judge.py           Tests unitaires du juge Ragas (faux juge)
+│   └── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)

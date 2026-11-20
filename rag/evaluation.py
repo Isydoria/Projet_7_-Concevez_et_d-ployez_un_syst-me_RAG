@@ -106,6 +106,47 @@ def free_measures(question: dict, answer: dict) -> dict:
     }
 
 
+RAGAS_METRICS = ("faithfulness", "answer_relevancy", "context_recall", "factual_correctness")
+
+
+def is_judged(question: dict, answer: dict) -> bool:
+    """Ragas n'a de sens que si des événements sont attendus et que le LLM a répondu à partir d'événements.
+
+    Cas limites exclus : un refus (« je ne donne pas la météo ») serait jugé « non fidèle aux événements »,
+    alors que c'est le bon comportement ; le message fixe n'a pas été écrit par le LLM.
+    """
+    return bool(question["relevant_uids"]) and answer["metadata"]["llm_called"] and bool(answer.get("contexts"))
+
+
+def mean(values) -> float | None:
+    """Moyenne arrondie, sans les valeurs manquantes (None, ou NaN quand Ragas n'a rien pu mesurer)."""
+    kept = [value for value in values if value is not None and value == value]   # value == value : écarte NaN
+    return round(sum(kept) / len(kept), 3) if kept else None
+
+
+def summarize(results: list[dict]) -> dict:
+    """Moyennes de chaque mesure, sur les questions où elle s'applique (le nombre de questions est indiqué)."""
+    retrieval = [result["retrieval"] for result in results if result["retrieval"]]
+    citation_precisions = [result["citations"]["precision"] for result in results
+                           if result["citations"] and result["citations"]["precision"] is not None]
+    judged = [result["ragas"] for result in results if result["ragas_status"] == "judged"]
+    return {
+        "questions": len(results),
+        "behavior_ok": sum(result["behavior_ok"] for result in results),
+        "retrieval": {
+            "questions": len(retrieval),
+            "hit_rate": mean(float(measures["hit"]) for measures in retrieval),
+            "mrr": mean(measures["reciprocal_rank"] for measures in retrieval),
+            "precision": mean(measures["precision"] for measures in retrieval),
+            "recall": mean(measures["recall"] for measures in retrieval),
+        },
+        "citations": {"questions": len(citation_precisions), "precision": mean(citation_precisions)},
+        "similarity": mean(result.get("similarity") for result in results),
+        "ragas": {"questions": len(judged), **{metric: mean(scores[metric] for scores in judged)
+                                               for metric in RAGAS_METRICS}},
+    }
+
+
 def cosine(a: list[float], b: list[float]) -> float:
     """Similarité cosinus entre deux vecteurs (1 : même direction ; 0 : sans rapport)."""
     a, b = np.asarray(a, dtype=float), np.asarray(b, dtype=float)

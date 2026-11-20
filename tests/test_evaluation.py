@@ -8,7 +8,7 @@ import json
 import pytest
 
 from rag.evaluation import (behavior_problems, citation_measures, cosine, free_measures, load_test_set,
-                            retrieval_measures)
+                            retrieval_measures, summarize)
 
 
 def make_answer(retrieved=(), cited=(), text="Voici une idée [1].", llm_called=True) -> dict:
@@ -146,6 +146,30 @@ def test_free_measures_skip_retrieval_when_no_event_is_expected():
 def test_free_measures_of_a_vague_question():
     measures = free_measures(make_question("vague", relevant=None), make_answer(retrieved=["a"], cited=["a"]))
     assert measures["retrieval"] is None and measures["behavior_ok"] is True
+
+
+# --- Synthèse de l'évaluation --------------------------------------------------------------------------
+
+def test_summarize_averages_each_measure_over_the_questions_where_it_applies():
+    results = [
+        {"behavior_ok": True, "similarity": 0.9, "ragas_status": "judged",
+         "retrieval": {"hit": True, "reciprocal_rank": 1.0, "precision": 0.4, "recall": 1.0},
+         "citations": {"cited": 2, "cited_relevant": 2, "precision": 1.0},
+         "ragas": {"faithfulness": 0.5, "answer_relevancy": 0.8, "context_recall": 1.0, "factual_correctness": 0.6}},
+        {"behavior_ok": True, "similarity": 0.7, "ragas_status": "judged",
+         "retrieval": {"hit": False, "reciprocal_rank": 0.0, "precision": 0.0, "recall": 0.0},
+         "citations": {"cited": 0, "cited_relevant": 0, "precision": None},
+         "ragas": {"faithfulness": None, "answer_relevancy": 0.6, "context_recall": 0.0, "factual_correctness": 0.2}},
+        {"behavior_ok": False, "similarity": 0.5, "ragas_status": "not_applicable",
+         "retrieval": None, "citations": None, "ragas": None},
+    ]
+    summary = summarize(results)
+    assert (summary["questions"], summary["behavior_ok"]) == (3, 2)
+    assert summary["retrieval"] == {"questions": 2, "hit_rate": 0.5, "mrr": 0.5, "precision": 0.2, "recall": 0.5}
+    assert summary["citations"] == {"questions": 1, "precision": 1.0}      # rien cité : pas de précision
+    assert summary["similarity"] == 0.7
+    assert summary["ragas"] == {"questions": 2, "faithfulness": 0.5, "answer_relevancy": 0.7,
+                                "context_recall": 0.5, "factual_correctness": 0.4}
 
 
 # --- Similarité et chargement --------------------------------------------------------------------------
