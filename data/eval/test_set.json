@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "description": "Jeu de test annoté : 20 questions. Chaque référence est rédigée à partir des données nettoyées de la photo de référence et vérifiée événement par événement ; relevant_uids liste les événements qui répondent à la question, excluded les candidats écartés avec leur motif.",
+    "today": "2026-10-29",
+    "source": "data/raw/events_nouvelle-aquitaine_2026-10-29.json.gz",
+    "categories": {
+      "answer": "question à laquelle les données répondent",
+      "no_result": "aucun événement ne respecte les critères",
+      "absent_genre": "des événements respectent le lieu et la période, mais aucun n'est du genre demandé",
+      "off_topic": "question sans rapport avec les sorties culturelles",
+      "other_region": "question sur une autre région",
+      "past": "question sur des événements passés",
+      "vague": "question sans critère précis"
+    },
+    "expected_behaviors": {
+      "recommend": "recommander des événements qui répondent à la question",
+      "fixed_message": "message fixe, sans appel au LLM",
+      "say_none": "dire qu'il n'y a pas ce qui est demandé (une alternative peut être proposée)",
+      "refuse": "refus poli, aucune recommandation"
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Des concerts de jazz à Limoges en novembre ?",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "À Limoges, le festival Éclats d'émail Jazz Edition propose de nombreux concerts de jazz du jeudi 19 au dimanche 29 novembre 2026. Par exemple : Sonny Gullage le jeudi 19 novembre à 20h30 et Yael Naim « Solaire » le vendredi 20 novembre à 20h00, à l'Opéra de Limoges - Grand Théâtre ; Gogo Penguin le dimanche 22 novembre à 17h00 et Erik Truffaz & Antonio Lizana le jeudi 26 novembre à 20h00, au même endroit. Certains concerts sont en entrée libre (par exemple Laure Mura Duo, le samedi 21 novembre à 14h00 à la BFM de la Bastide), d'autres sont payants (de 20 à 32 € en tarif plein).",
+      "relevant_uids": [
+        "34539125",
+        "68512721",
+        "38399981",
+        "55366842",
+        "59148166",
+        "93299404",
+        "65753112",
+        "18247999",
+        "43252658",
+        "81337310",
+        "26683191",
+        "5947321",
+        "12701370",
+        "25371950",
+        "39481767",
+        "60129648",
+        "97689303",
+        "12962654",
+        "4475428",
+        "31944907",
+        "49838858",
+        "55772441",
+        "63829076",
+        "39014246",
+        "81607998",
+        "37353227",
+        "85440472"
+      ],
+      "excluded": {
+        "60438366": "« Autour du festival » : programme annexe (expositions, lectures), pas un concert"
+      }
+    },
+    {
+      "id": 2,
+      "question": "Une exposition à voir à La Rochelle",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "À La Rochelle, on peut voir l'exposition « Le H de Atlantique » à la Chapelle des Dames Blanches, à partir du dimanche 1er novembre 2026 (entrée libre), avec une visite « Les Rendez-vous de midi » le jeudi 5 novembre à 12h00 ; l'exposition « Des habitants bâtisseurs », le samedi 31 octobre à 10h30 dans le quartier de Villeneuve-les-Salines (sur réservation, groupes de 10 personnes) ; et, plus tard, « Paroles d'Ombres » au Musée du Nouveau Monde, à partir du vendredi 5 février 2027.",
+      "relevant_uids": [
+        "76662577",
+        "5902261",
+        "85630350",
+        "28900284"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 3,
+      "question": "Un spectacle d'humour à Bordeaux la semaine prochaine",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "La semaine prochaine (du lundi 2 au dimanche 8 novembre 2026), plusieurs comédies se jouent à Bordeaux : « Les femmes ont toujours raison, les hommes n'ont jamais tort ! » au Théâtre Molière (mercredi 4 novembre à 20h00, vendredi 6 et samedi 7 novembre à 21h30) ; « Mon père cet escroc » au Théâtre Molière (jeudi 5 novembre à 20h00) ; « J'aime beaucoup ce que vous faites ! » au Théâtre Trianon (jeudi 5 novembre à 20h00) ; « Elles pardonnent mais n'oublient jamais » au Théâtre Trianon (vendredi 6 et samedi 7 novembre à 19h00) ; « On choisit pas sa famille ! » au Théâtre Trianon (vendredi 6 novembre à 21h00).",
+      "relevant_uids": [
+        "59666297",
+        "17563696",
+        "55142285",
+        "27974368",
+        "28370351",
+        "23691982",
+        "56733391",
+        "21341432"
+      ],
+      "excluded": {
+        "90133492": "Mathilde Chatin : chansons « avec une touche d'humour », pas un spectacle d'humour",
+        "15278625": "Oscar et la dame rose : drame"
+      }
+    },
+    {
+      "id": 4,
+      "question": "Du théâtre à Brive-la-Gaillarde",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Le seul spectacle de théâtre annoncé à Brive-la-Gaillarde est « Delete », à L'Empreinte - Théâtre de Brive, le mardi 6 avril 2027 à 20h00 et le mercredi 7 avril 2027 à 19h00.",
+      "relevant_uids": [
+        "51069080"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 5,
+      "question": "Un concert de musique classique à Bordeaux en décembre",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "En décembre 2026 à Bordeaux : un concert rencontre de l'Orchestre National Bordeaux Aquitaine le mercredi 2 décembre à 20h00 à la Salle des Fêtes du Grand Parc ; Lang Lang le samedi 5 décembre à 20h00 à l'Auditorium de Bordeaux ; le Concert du dimanche (Marie-Astrid Hulot) le dimanche 6 décembre à 11h00 à l'Auditorium ; « Les classiques de Mériadeck : La flûte » le vendredi 11 décembre à 18h00 à la bibliothèque Mériadeck ; « Couleurs baroques » le samedi 12 décembre à 14h00 et 16h00 à l'Atelier du Conservatoire ; le Concert de Noël Radio Classique (Orchestre National Bordeaux Aquitaine et Chœur de l'Opéra National de Bordeaux) à l'Auditorium à partir du jeudi 17 décembre ; « Les Quatre Saisons de Vivaldi et musiques de Noël » le dimanche 27 décembre à 15h30 à l'église Notre-Dame.",
+      "relevant_uids": [
+        "28123781",
+        "73779268",
+        "23547977",
+        "6744860",
+        "91877737",
+        "95718362",
+        "92550404"
+      ],
+      "excluded": {
+        "4573027": "Le Lac des Cygnes : ballet, pas un concert",
+        "81892931": "Le roi des magiciens : conte musical jeune public",
+        "80640921": "Pierre et le loup : conte musical jeune public",
+        "63950680": "Belmondo X Belmondo : jazz"
+      }
+    },
+    {
+      "id": 6,
+      "question": "Un film documentaire à Bordeaux",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Plusieurs projections de films documentaires sont annoncées à Bordeaux : le ciné-débat « Au fil de l'eau, de l'insouciance à la désobéissance » le mercredi 4 novembre 2026 à 19h30 à la Halle des Douves ; des avant-premières documentaires au cinéma Utopia Saint-Siméon (« Journal d'un premier film » et « Une vie manifeste » le vendredi 6 novembre, « Cœur secret » le samedi 7 novembre) ; « Le Jeu de la ferme » de Jean-Pierre Vedel, dans le cadre du Mois du film documentaire, le samedi 7 novembre à 15h00 à la bibliothèque Flora Tristan ; « The Six Billion Dollar Man » le mardi 10 novembre à 19h45 à l'Utopia ; « The Way We Move » le vendredi 13 novembre à 17h30 à la bibliothèque Mériadeck ; un ciné-débat sur l'agrochimie et la disparition des insectes le jeudi 19 novembre à 18h00 à la ManuCo.",
+      "relevant_uids": [
+        "25844925",
+        "99064503",
+        "77115567",
+        "85101727",
+        "71071218",
+        "85921882",
+        "49451791",
+        "30400181",
+        "78201954",
+        "81224907",
+        "27048083",
+        "84142270"
+      ],
+      "excluded": {
+        "43521389": "Ciné-club : film pas forcément documentaire",
+        "57995763": "Ciné-club : film pas forcément documentaire",
+        "78322183": "El embrujo de Quijat : entre documentaire et fiction",
+        "49506223": "Israel & Mohamed : théâtre documentaire (spectacle vivant)"
+      }
+    },
+    {
+      "id": 7,
+      "question": "Un atelier pour enfants à Bordeaux mercredi",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Le mercredi 4 novembre 2026 à Bordeaux, plusieurs ateliers accueillent les enfants : l'atelier d'éveil à l'art ABCD'ART à la Maison Marandon (10h30, de 3 à 7 ans, sur inscription) ; les cours de dessin, peinture et modelage pour enfants et ados de l'atelier Citrouille (10h00, 11h00 et 14h00) ; l'atelier arts plastiques (14h30, de 7 à 14 ans) ; les ateliers d'architecture pour les 8-15 ans, au 125 cours Journu-Auber (9h00-12h00 et 14h00-16h00) ; « Contes en yoga » à la bibliothèque Mériadeck (10h30, de 6 à 14 ans, sur inscription) ; « Polisson, mes premiers pas au musée » au Musée d'Aquitaine (10h30, 5 € par enfant).",
+      "relevant_uids": [
+        "27269596",
+        "29380963",
+        "86257491",
+        "34507030",
+        "93170870",
+        "76411815",
+        "49370874",
+        "53720764",
+        "82797681",
+        "72512680",
+        "6699334",
+        "81055059"
+      ],
+      "excluded": {
+        "97373650": "Halloween English Camp : stage payant à la semaine",
+        "61602449": "Atelier modèle vivant : adultes"
+      }
+    },
+    {
+      "id": 8,
+      "question": "Une exposition gratuite à Bordeaux ce week-end",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Plusieurs expositions gratuites sont ouvertes à Bordeaux ce week-end (samedi 31 octobre et dimanche 1er novembre 2026), par exemple : « Le tour du monde en 50 régions viticoles » à la Cité du Vin (10h00-18h00, entrée libre) ; « O.R. Studio — Dix ans de création autour de la danse » à la salle capitulaire Mably (14h00-19h00, entrée libre et gratuite) ; « Kaléidoscope. De Renzo Piano aux puits du désert » à Darwin (11h00-19h00, entrée libre) ; « Papi, dis-moi pourquoi les arbres pleurent ? » à la Fabrique Pola (14h00-19h00, entrée gratuite). Le samedi seulement : « Jane Goodall » à la bibliothèque Jean de La Ville de Mirmont ou « Variations Pastels » à la bibliothèque Pierre Veilletet (10h00-18h00, entrée libre). Les expositions payantes (Bassins des Lumières, Capc, Cap Sciences, Muséum…) ne répondent pas à la demande.",
+      "relevant_uids": [
+        "50855600",
+        "54029055",
+        "83383242",
+        "15129701",
+        "50643507",
+        "24580172",
+        "48257273",
+        "31864894",
+        "29992345",
+        "80868635",
+        "10598804",
+        "8135985",
+        "78117372",
+        "79855603",
+        "48465313"
+      ],
+      "excluded": {
+        "76713785": "Blackground : tarif libre à partir de 2 €",
+        "7184712": "GORU GORU : à partir de 2 €, gratuit seulement pour les moins de 18 ans",
+        "5131289": "Un globe, des mondes : gratuit seulement pour les moins de 18 ans",
+        "18879955": "Accrochage du MusBA : tarif non précisé",
+        "43716969": "Morceaux choisis : tarif non précisé",
+        "50169034": "Emotional Heritage : tarif non précisé"
+      }
+    },
+    {
+      "id": 9,
+      "question": "Un concert à Aubusson",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Le seul concert annoncé à Aubusson est « Sophie Alour - Nouveaux Mondes » (jazz), le lundi 16 novembre 2026 à 20h30 au Théâtre Jean Lurçat (de 8 à 24 €, gratuit pour les moins de 12 ans).",
+      "relevant_uids": [
+        "61696777"
+      ],
+      "excluded": {
+        "15865373": "Stage de beatbox : initiation, pas un concert"
+      }
+    },
+    {
+      "id": 10,
+      "question": "Une balade nature en Dordogne en novembre",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "En Dordogne en novembre 2026 : la « Balade découverte des plantes sauvages » à Périgueux, le dimanche 8 novembre de 15h00 à 17h00 (25 € par adulte) ; « Les Carnets d'Aventures », une randonnée nature et photographie à Trélissac, le dimanche 15 novembre de 10h00 à 17h00 (75 €).",
+      "relevant_uids": [
+        "18988656",
+        "24146994"
+      ],
+      "excluded": {
+        "*": "Apéros célibataires « randonneurs » : rencontres au centre-ville, pas des balades"
+      }
+    },
+    {
+      "id": 11,
+      "question": "Que faire à Angoulême en novembre ?",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "À Angoulême en novembre 2026 : l'exposition « Croissant Indigerible » du collectif Tizintizwa au FRAC Poitou-Charentes (dernier jour le dimanche 1er novembre, 14h00-18h00) ; l'exposition « Sténopé / coconstruction » à la médiathèque l'Alpha, du lundi 2 au samedi 21 novembre (10h00-18h00) ; des apéros entre célibataires randonneurs les mardi 3, vendredi 6 et mardi 10 novembre à 19h00.",
+      "relevant_uids": [
+        "85433784",
+        "78193719",
+        "29320682",
+        "15214267",
+        "67077357"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 12,
+      "question": "Que faire à Bayonne cette semaine ?",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "À Bayonne cette semaine (jusqu'au dimanche 1er novembre 2026), plusieurs expositions gratuites se terminent le samedi 31 octobre : « Terres de silence » d'Évelyne Hérisson au Didam, « La cathédrale Sainte-Marie » à la médiathèque du centre-ville, « Des vitraux plein la vue ! » au CIAP Lapurdum et « Archistoire », sur l'architecture des années 1930. L'exposition « DANTZA - Regards sur la danse basque » est présentée à la médiathèque. Le vendredi 30 octobre à 19h00, un apéro réunit des célibataires randonneurs dans le centre-ville. Le dimanche 1er novembre à 18h00, le documentaire « Irish Travellers » est projeté à L'Atalante.",
+      "relevant_uids": [
+        "60714530",
+        "9302960",
+        "58505577",
+        "39947888",
+        "29450720",
+        "47921008",
+        "30355229",
+        "83400650",
+        "8520820"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 13,
+      "question": "Que faire à Niort ce week-end ?",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "Ce week-end à Niort, la Villa Pérochon, centre d'art contemporain photographique, présente l'exposition « Dans le bureau d'Ernest, lettres ouvertes à la photographie », ouverte le samedi 31 octobre 2026 de 13h30 à 18h30. Aucun autre événement n'est annoncé à Niort ce week-end.",
+      "relevant_uids": [
+        "38347230"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 14,
+      "question": "Un marché de Noël en décembre",
+      "category": "answer",
+      "expected_behavior": "recommend",
+      "reference": "En décembre 2026, tous les marchés de Noël annoncés dans les données sont en Gironde : le Marché de Noël de Bordeaux, place des Quinconces, tous les jours de 11h00 à 21h00 jusqu'au 27 décembre (entrée libre) ; le marché de Noël de Martignas-sur-Jalle, place du Cœur de Ville, le samedi 5 décembre au matin (avec une distribution gratuite de 200 arbres, de 9h00 à 12h00, sur inscription) ; le marché de Noël du Musée Mer Marine à Bordeaux, les samedi 12 et dimanche 13 décembre (10h30-18h00, accès libre) ; le Marché de Noël de Fondaudège, place Charles Gruet à Bordeaux, le dimanche 20 décembre (10h00-19h00).",
+      "relevant_uids": [
+        "20724859",
+        "96660577",
+        "84245912",
+        "48696657"
+      ],
+      "excluded": {}
+    },
+    {
+      "id": 15,
+      "question": "Un concert à Aubusson ce week-end",
+      "category": "no_result",
+      "expected_behavior": "fixed_message",
+      "reference": "Aucun événement n'est annoncé à Aubusson ce week-end (samedi 31 octobre et dimanche 1er novembre 2026) : la réponse est le message fixe, qui propose d'élargir la recherche, sans appel au LLM.",
+      "relevant_uids": [],
+      "excluded": {}
+    },
+    {
+      "id": 16,
+      "question": "Un opéra à Limoges ce week-end",
+      "category": "absent_genre",
+      "expected_behavior": "say_none",
+      "reference": "Aucun opéra n'est annoncé à Limoges ce week-end (samedi 31 octobre et dimanche 1er novembre 2026). D'autres sorties sont possibles, par exemple l'exposition photo « La ville invisible » de Guillaume Bonnel à la galerie Chroniques (samedi et dimanche, 15h00-18h00, entrée libre).",
+      "relevant_uids": [],
+      "excluded": {}
+    },
+    {
+      "id": 17,
+      "question": "Quel temps fera-t-il à Bordeaux ce week-end ?",
+      "category": "off_topic",
+      "expected_behavior": "refuse",
+      "reference": "L'assistant ne donne pas la météo : il rappelle qu'il recommande des événements culturels en Nouvelle-Aquitaine, sans recommander d'événement.",
+      "relevant_uids": [],
+      "excluded": {}
+    },
+    {
+      "id": 18,
+      "question": "Une exposition à Toulouse en novembre",
+      "category": "other_region",
+      "expected_behavior": "refuse",
+      "reference": "Toulouse n'est pas en Nouvelle-Aquitaine : l'assistant rappelle qu'il ne couvre que les événements culturels de Nouvelle-Aquitaine, sans recommander d'exposition.",
+      "relevant_uids": [],
+      "excluded": {}
+    },
+    {
+      "id": 19,
+      "question": "Y a-t-il eu des concerts en Lot-et-Garonne le mois dernier ?",
+      "category": "past",
+      "expected_behavior": "recommend",
+      "reference": "Oui : en septembre 2026, plusieurs concerts ont eu lieu en Lot-et-Garonne, les 19 et 20 septembre : « Concert et lecture dans l'église » à Saint-Quentin-du-Dropt (samedi 19 et dimanche 20 septembre) ; la visite guidée du Florida avec concert à Agen (samedi 19 septembre à 16h00) ; « Tableaux d'une exposition », concert-spectacle dans un ancien séchoir à tabac à La Sauvetat-de-Savères (samedi 19 septembre à 17h30) ; des concerts nocturnes à la tour de Paris de Villeneuve-sur-Lot (samedi 19 septembre à 20h00, 21h00 et 22h00). Ces événements sont terminés.",
+      "relevant_uids": [
+        "1881337",
+        "70782950",
+        "19895924",
+        "45684270",
+        "35735230"
+      ],
+      "excluded": {
+        "42735851": "Soirée karaoké : pas un concert"
+      }
+    },
+    {
+      "id": 20,
+      "question": "Une idée de sortie pour dimanche ?",
+      "category": "vague",
+      "expected_behavior": "recommend",
+      "reference": "Le dimanche 1er novembre 2026, de nombreuses sorties sont possibles en Nouvelle-Aquitaine (expositions, visites, spectacles…) : une bonne réponse en propose quelques-unes, avec leur lieu et leurs horaires de ce dimanche.",
+      "relevant_uids": null,
+      "excluded": {}
+    }
+  ]
+}

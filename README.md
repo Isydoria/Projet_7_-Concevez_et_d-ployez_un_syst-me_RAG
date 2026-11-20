@@ -137,7 +137,7 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
-│   └── eval/               Réponses enregistrées par le notebook 04 (relues sans appel à Mistral)
+│   └── eval/               Jeu de test annoté (test_set.json) et réponses enregistrées par le notebook 04
 ├── notebooks/
 │   ├── 01_exploration.ipynb    Exploration des données et règles de nettoyage
 │   ├── 02_embeddings.ipynb     Démonstration des embeddings Mistral (dimension, similarité, limites)
@@ -174,7 +174,8 @@ ministral-8b-2512 ; 5 événements trouvés ; recherche 1092 ms ; génération 1
 │   ├── test_prompts.py         Tests unitaires des textes envoyés au modèle
 │   ├── test_assistant.py       Tests unitaires de la chaîne complète (faux modèle, sans appel à Mistral)
 │   ├── test_ask.py             Tests unitaires du script de question
-│   └── test_dependencies.py    Contrôle des dépendances d'évaluation (import de Ragas)
+│   ├── test_dependencies.py    Contrôle des dépendances d'évaluation (import de Ragas)
+│   └── test_eval_test_set.py   Contrôle du jeu de test annoté sur la photo de référence
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── pytest.ini              Configuration des tests
 ├── requirements.in         Dépendances directes d'exécution (écrites à la main)
