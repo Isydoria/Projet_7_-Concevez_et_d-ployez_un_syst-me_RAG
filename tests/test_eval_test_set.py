@@ -19,8 +19,7 @@ from rag.fetch import load_raw_events
 from rag.preprocess import preprocess_events
 from rag.retrieval import sessions_in_period
 
-TEST_SET_FILE = config.DATA_DIR / "eval" / "test_set.json"
-TEST_SET = json.loads(TEST_SET_FILE.read_text(encoding="utf-8"))
+TEST_SET = json.loads(config.TEST_SET_FILE.read_text(encoding="utf-8"))
 QUESTIONS = TEST_SET["questions"]
 TODAY = date.fromisoformat(TEST_SET["metadata"]["today"])
 IDS = [f"q{question['id']}" for question in QUESTIONS]
@@ -28,7 +27,7 @@ IDS = [f"q{question['id']}" for question in QUESTIONS]
 FIELDS = {"id", "question", "category", "expected_behavior", "reference", "relevant_uids", "excluded"}
 # Comportement attendu pour chaque catégorie
 BEHAVIOR_OF = {"answer": "recommend", "past": "recommend", "vague": "recommend", "no_result": "fixed_message",
-               "absent_genre": "say_none", "off_topic": "refuse", "other_region": "refuse"}
+               "absent_genre": "say_none", "off_topic": "refuse", "other_region": "redirect"}
 
 
 @pytest.fixture(scope="module")
@@ -70,7 +69,7 @@ def test_fields_and_values(question):
     elif question["expected_behavior"] == "recommend":
         assert question["relevant_uids"], "une question à réponse retient au moins un événement"
     else:
-        assert question["relevant_uids"] == []       # message fixe, absence ou refus : rien à recommander
+        assert question["relevant_uids"] == []       # message fixe, absence, refus, autre région : rien d'attendu
 
 
 # --- Cohérence avec les données -------------------------------------------------------------------

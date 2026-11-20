@@ -16,7 +16,8 @@
       "recommend": "recommander des événements qui répondent à la question",
       "fixed_message": "message fixe, sans appel au LLM",
       "say_none": "dire qu'il n'y a pas ce qui est demandé (une alternative peut être proposée)",
-      "refuse": "refus poli, aucune recommandation"
+      "refuse": "refus poli, aucune recommandation",
+      "redirect": "rappeler que seule la Nouvelle-Aquitaine est couverte ; une alternative dans la région est permise"
     }
   },
   "questions": [
@@ -328,8 +329,8 @@
       "id": 18,
       "question": "Une exposition à Toulouse en novembre",
       "category": "other_region",
-      "expected_behavior": "refuse",
-      "reference": "Toulouse n'est pas en Nouvelle-Aquitaine : l'assistant rappelle qu'il ne couvre que les événements culturels de Nouvelle-Aquitaine, sans recommander d'exposition.",
+      "expected_behavior": "redirect",
+      "reference": "Toulouse n'est pas en Nouvelle-Aquitaine : l'assistant rappelle qu'il ne couvre que les événements culturels de Nouvelle-Aquitaine. Il peut proposer à la place une exposition de la région en novembre, mais aucune à Toulouse.",
       "relevant_uids": [],
       "excluded": {}
     },

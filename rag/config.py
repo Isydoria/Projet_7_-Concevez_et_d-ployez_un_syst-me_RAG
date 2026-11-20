@@ -16,6 +16,8 @@ VECTORSTORE_DIR = PROJECT_ROOT / "vectorstore"
 
 # Photo de référence (versionnée) : base de l'évaluation et du jeu de test annoté
 REFERENCE_RAW_FILE = RAW_DATA_DIR / "events_nouvelle-aquitaine_2026-10-29.json.gz"
+EVAL_DIR = DATA_DIR / "eval"
+TEST_SET_FILE = EVAL_DIR / "test_set.json"   # jeu de test annoté (20 questions)
 
 # --- Source des données : Open Agenda (OpenDataSoft, API Explore v2.1) --------------
 OPENAGENDA_DATASET_URL = (
