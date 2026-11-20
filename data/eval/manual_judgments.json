@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "description": "Classement humain des 20 réponses de l'assistant (data/eval/rag_answers.json), fait à l'aveugle (sans les scores du juge Ragas), avec des critères écrits avant la lecture des réponses ; les faits avancés par les réponses ont été vérifiés dans les données.",
+    "answers_file": "data/eval/rag_answers.json",
+    "criteria": {
+      "C": "correcte : même sens et mêmes informations que la référence ; pour un cas limite, comportement attendu respecté ; citer moins d'événements que la référence est permis s'ils répondent bien à la question",
+      "P": "partielle : utile mais imparfaite (un détail faux ou manquant, un événement hors sujet à côté de bons événements, un comportement attendu respecté à moitié)",
+      "I": "incorrecte : n'aide pas ou induit en erreur (« rien » alors que la référence a des événements, information inventée, seulement des événements hors sujet, recommandation au lieu d'un refus)"
+    }
+  },
+  "judgments": {
+    "1": {
+      "verdict": "C",
+      "reason": "Quatre concerts du festival cités, tous acceptés, avec des dates et des lieux justes ; « Autour du festival » est le programme annexe du festival."
+    },
+    "2": {
+      "verdict": "P",
+      "reason": "Exposition juste (dates, lieu, entrée libre), mais la phrase « aucun événement ne correspond pour le 29 octobre » est fausse : la question ne donnait pas de date et d'autres expositions existent."
+    },
+    "3": {
+      "verdict": "C",
+      "reason": "Deux comédies justes (dates, lieux, horaires) ; citer moins d'événements que la référence est permis."
+    },
+    "4": {
+      "verdict": "I",
+      "reason": "Ne donne pas l'unique pièce (« Delete », avril 2027) : répond qu'aucun théâtre n'est proposé."
+    },
+    "5": {
+      "verdict": "P",
+      "reason": "Deux concerts justes, mais le concert du 2 décembre est présenté à tort comme « en dehors de votre période »."
+    },
+    "6": {
+      "verdict": "P",
+      "reason": "Deux documentaires justes, mais affirme à tort que les autres ont lieu avant le 29 octobre."
+    },
+    "7": {
+      "verdict": "C",
+      "reason": "Ateliers justes (horaires, lieux, âges) ; l'atelier ABCD'ART apparaît deux fois car les données le contiennent en double ; citer moins d'événements est permis."
+    },
+    "8": {
+      "verdict": "P",
+      "reason": "Exposition gratuite acceptée, mais lieu faux : bibliothèque Bordeaux-Lac, et non Jardin botanique Bastide."
+    },
+    "9": {
+      "verdict": "C",
+      "reason": "Le seul concert, avec la date, l'heure et le lieu justes."
+    },
+    "10": {
+      "verdict": "C",
+      "reason": "Les deux balades, avec des dates justes."
+    },
+    "11": {
+      "verdict": "P",
+      "reason": "Expositions et apéros justes, mais visite guidée annoncée le « dimanche 2 novembre » (un lundi) au lieu du dimanche 1er novembre."
+    },
+    "12": {
+      "verdict": "C",
+      "reason": "Événements cités acceptés, dates et lieux justes."
+    },
+    "13": {
+      "verdict": "C",
+      "reason": "Le seul événement du week-end, horaires justes."
+    },
+    "14": {
+      "verdict": "C",
+      "reason": "Deux marchés justes (dates, lieux, gratuité) ; citer moins d'événements que la référence est permis."
+    },
+    "15": {
+      "verdict": "C",
+      "reason": "Message fixe, comme attendu."
+    },
+    "16": {
+      "verdict": "C",
+      "reason": "Dit qu'aucun opéra n'est proposé ; l'alternative n'est pas obligatoire."
+    },
+    "17": {
+      "verdict": "I",
+      "reason": "Recommande trois événements alors qu'il devait refuser."
+    },
+    "18": {
+      "verdict": "C",
+      "reason": "Rappelle que seule la Nouvelle-Aquitaine est couverte ; l'alternative n'est pas obligatoire."
+    },
+    "19": {
+      "verdict": "C",
+      "reason": "Trois concerts de septembre, avec des dates justes."
+    },
+    "20": {
+      "verdict": "C",
+      "reason": "Deux sorties du dimanche 1er novembre, justes."
+    }
+  }
+}

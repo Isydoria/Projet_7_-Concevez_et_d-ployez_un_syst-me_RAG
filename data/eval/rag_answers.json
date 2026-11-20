@@ -1,0 +1,1783 @@
+{
+  "metadata": {
+    "model": "ministral-8b-2512",
+    "index": "nouvelle-aquitaine_2026-10-29",
+    "today": "2026-10-29",
+    "started_at": "2026-11-20T10:33:43"
+  },
+  "answers": {
+    "1": {
+      "question": "Des concerts de jazz à Limoges en novembre ?",
+      "answer": "Voici les concerts de jazz à Limoges en novembre 2026 qui correspondent à votre demande :\n\n- **AUTOUR DU FESTIVAL** (du jeudi 19 au dimanche 29 novembre 2026, Limoges) : une programmation variée incluant des concerts de jazz dans le cadre du festival *Jazz Éclats d'Email* [1].\n- **Silvia Ribeiro Ferreira & Ali Hamra – Concert Dessine** (vendredi 27 novembre 2026, 18h00, BFM de l'Aurence) : un concert mêlant jazz et dessin, centré sur des périodes emblématiques du jazz [2].\n- **daoud** (samedi 28 novembre 2026, 17h00, Opéra de Limoges) : un concert de jazz décalé et énergique, avec un univers visuel et musical original [3].\n- **Benjamin Bobenrieth et Bastien Ribot – \"Django Viatge\"** (dimanche 22 novembre 2026, 14h30, Centre Culturel Jean Gagnant) : un hommage au répertoire électrique de Django Reinhardt, avec un quintet dynamique [4].\n- **Loïs Morgan Solo** (mercredi 25 novembre 2026, 16h30, Hôtel de Région) : un concert solo inspirée du blues et du jazz, autour de l'album *Voodoo Spell* [5].\n\nSi vous souhaitez des alternatives ou des précisions sur les horaires, n'hésitez pas !",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "60438366",
+          "title": "AUTOUR DU FESTIVAL",
+          "start": "2026-11-19T00:00:00+01:00",
+          "end": "2026-11-29T22:58:00+01:00",
+          "city": "Limoges",
+          "location_name": "Limoges",
+          "url": "https://openagenda.com/festival-eclats-demail-jazz-edition-2026/events/autour-du-festival",
+          "score": 0.795
+        },
+        {
+          "ref": 2,
+          "uid": "12962654",
+          "title": "SILVIA RIBEIRO FERREIRA & ALI HAMRA – CONCERT DESSINE",
+          "start": "2026-11-27T18:00:00+01:00",
+          "end": "2026-11-27T19:30:00+01:00",
+          "city": "Limoges",
+          "location_name": "BFM de l'Aurence",
+          "url": "https://openagenda.com/festival-eclats-demail-jazz-edition-2026/events/silvia-ribeiro-ferreira-and-ali-hamra-concert-dessine",
+          "score": 0.795
+        },
+        {
+          "ref": 3,
+          "uid": "55772441",
+          "title": "daoud",
+          "start": "2026-11-28T17:00:00+01:00",
+          "end": "2026-11-28T18:30:00+01:00",
+          "city": "Limoges",
+          "location_name": "Opéra de Limoges - MAD Jean Moulin",
+          "url": "https://openagenda.com/festival-eclats-demail-jazz-edition-2026/events/daoud-1569766",
+          "score": 0.795
+        },
+        {
+          "ref": 4,
+          "uid": "18247999",
+          "title": "BENJAMIN BOBENRIETH ET BASTIEN RIBOT \"DJANGO VIATGE\"",
+          "start": "2026-11-22T14:30:00+01:00",
+          "end": "2026-11-22T16:00:00+01:00",
+          "city": "Limoges",
+          "location_name": "Centre Culturel Municipal Jean Gagnant",
+          "url": "https://openagenda.com/festival-eclats-demail-jazz-edition-2026/events/benjamin-bobenrieth-et-bastien-ribot-django-viatge",
+          "score": 0.792
+        },
+        {
+          "ref": 5,
+          "uid": "12701370",
+          "title": "LOIS MORGAN SOLO",
+          "start": "2026-11-25T16:30:00+01:00",
+          "end": "2026-11-25T17:30:00+01:00",
+          "city": "Limoges",
+          "location_name": "Hôtel de Région - Site de Limoges",
+          "url": "https://openagenda.com/festival-eclats-demail-jazz-edition-2026/events/lois-morgan-solo",
+          "score": 0.791
+        }
+      ],
+      "criteria": {
+        "city": "Limoges",
+        "department": null,
+        "period": {
+          "label": "en novembre 2026",
+          "start": "2026-11-01",
+          "end": "2026-11-30"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 307.4,
+        "generation_ms": 4827.7,
+        "total_ms": 5136.8,
+        "input_tokens": 2493,
+        "output_tokens": 345,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "60438366",
+          "title": "AUTOUR DU FESTIVAL",
+          "score": 0.795
+        },
+        {
+          "ref": 2,
+          "uid": "12962654",
+          "title": "SILVIA RIBEIRO FERREIRA & ALI HAMRA – CONCERT DESSINE",
+          "score": 0.795
+        },
+        {
+          "ref": 3,
+          "uid": "55772441",
+          "title": "daoud",
+          "score": 0.795
+        },
+        {
+          "ref": 4,
+          "uid": "18247999",
+          "title": "BENJAMIN BOBENRIETH ET BASTIEN RIBOT \"DJANGO VIATGE\"",
+          "score": 0.792
+        },
+        {
+          "ref": 5,
+          "uid": "12701370",
+          "title": "LOIS MORGAN SOLO",
+          "score": 0.791
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : AUTOUR DU FESTIVAL\nDates : du jeudi 19 novembre 2026 à 0h00 au dimanche 29 novembre 2026 à 22h58\nLieu : Limoges, Limoges (Haute-Vienne)\nMots-clés : #JazzEclatsdEmail, #Festival, #Concerts, #Expositions, #Lectures, #Limoges\nTarifs : Entrées libres sous réserve de places disponibles\nSéances pendant la période demandée : le jeudi 19 novembre 2026, de 0h00 à 22h58 ; le vendredi 20 novembre 2026, de 0h00 à 22h58 ; le samedi 21 novembre 2026, de 0h00 à 22h58 ; le dimanche 22 novembre 2026, de 0h00 à 22h58 ; le lundi 23 novembre 2026, de 0h00 à 23h00 ; et 6 autres séances\n---\nFESTIVAL ECLATS D'EMAIL JAZZ EDITION 2026\nDe plus en plus nombreuses, de plus en plus professionnelles, les rencontres et animations autour du festival renforcent, dynamisent et permettent une ouverture considérable sur tous les publics. Que soient remerciés ici tous ceux qui nous font confiance et qui s’associent à l’événement.",
+        "[2]\nTitre : SILVIA RIBEIRO FERREIRA & ALI HAMRA – CONCERT DESSINE\nDates : le vendredi 27 novembre 2026, de 18h00 à 19h30\nLieu : BFM de l'Aurence, Limoges (Haute-Vienne)\nMots-clés : #JazzEclatsdEmail, #Festival, #Concerts, #Limoges\nTarifs : Entrées libres sous réserves de places disponibles\nSéances pendant la période demandée : le vendredi 27 novembre 2026, de 18h00 à 19h30\n---\n4 périodes seront abordées lors de ce concert dessiné, celles des rencontres avec Charlie PARKER et la période BeBop, John COLTRANE et la période Jazz Modal, Wayne SHORTER et le Jazz Fusion et enfin sa complicité avec Kenny GARRETT pour une ouverture sur la mouvance Funk, tout cela associé à la description de lieux mythiques comme le Café Bohemia ou le Birdland.\nMiles DAVIS a constamment réinventé le Jazz en s’entourant des plus grands saxophonistes. Un terrain de jeu foisonnant pour nos deux formidables complices.\nLine-up :\nSilvia Ribeiro Ferreira – saxophones\nAli Hamra – caricatures, dessins, violon",
+        "[3]\nTitre : daoud\nDates : le samedi 28 novembre 2026, de 17h00 à 18h30\nLieu : Opéra de Limoges - MAD Jean Moulin, Limoges (Haute-Vienne)\nMots-clés : #JazzEclatsdEmail, #Festival, #Concerts, #Limoges\nTarifs : Placement libre. Tarif plein : 25 €\nSéances pendant la période demandée : le samedi 28 novembre 2026, de 17h00 à 18h30\n---\nFESTIVAL ECLATS D'EMAIL JAZZ EDITION 2026\nEnfant terrible qui refuse les codes du jazz, daoud imagine une musique portée par un sentiment d’inadéquation, qui bouscule les cadres sans chercher à plaire et touche autant les novices curieux que les puristes.\nL’ensemble est traversé par une même tension : entre le jeu et la gravité, le chaos et la douceur, l’ironie et la sincérité. Avec « ok », son nouvel album paru chez ACT en 2025, il signe un manifeste personnel teinté par la chute et la répétition – mais aussi par l’abnégation qu’il faut pour recommencer encore.\nTout autour de la musique, l’artiste construit un univers visuel brut, marqué tant par la provocation que le lâcher-prise juvénile, un retour à l’enfance non pour se rassurer, mais pour déterrer les contradictions. Fragilité, impermanence, satire – l’esthétique assume la faille plutôt que de la cacher.\nSur scène, daoud et son groupe se jouent des règles, entre lyrisme contenu et déflagration. Depuis la sortie de « GOOD BOY » en 2024, salué par la critique, ils enchaînent les concerts à guichets fermés et les passages remarqués, du Ronnie Scott’s à Londres au Montreux Jazz Festival, en passant par Marciac.\nLine-up :\ndaoud: trompette\nThomas Perier : claviers\nLouis Navarro : contrebasse\nQuentin Braine : batterie",
+        "[4]\nTitre : BENJAMIN BOBENRIETH ET BASTIEN RIBOT \"DJANGO VIATGE\"\nDates : le dimanche 22 novembre 2026, de 14h30 à 16h00\nLieu : Centre Culturel Municipal Jean Gagnant, Limoges (Haute-Vienne)\nMots-clés : #JazzEclatsdEmail, #Festival, #Concerts, #Limoges\nTarifs : Placement libre. Tarif plein : 25 €\nSéances pendant la période demandée : le dimanche 22 novembre 2026, de 14h30 à 16h00\n---\nFESTIVAL ECLATS D'EMAIL JAZZ EDITION 2026\nBenjamin Bobenrieth est un peu sur ses terres en Limousin. Après avoir enregistré deux magnifiques albums pour le Label LABORIE Jazz (« Travels » en 2018 et « Nahia’s Soul » en 2022), il est aussi bien connu de la scène du Festival à laquelle il a participé plusieurs fois dans des formations allant du Duo au Quintet. Il nous fait le grand plaisir de revenir avec « Django Viatge », projet porté avec le violoniste Bastien Ribot, un quintet de musiciens toulousains réunis autour de leur amour de la musique de Django Reinhardt, et plus particulièrement, du répertoire électrique de Django.\nUtilisant la même composition instrumentale que Django dans les années 50 (la rythmique était assurée par une section piano/basse/batterie), ces 5 musiciens dotés de techniques hors norme dévoilent une musique riche, énergique, où les envolées de violon et les rugissements de la guitare sont portés et poussés par une rythmique puissante et acérée.\nAprès le passage du saxophoniste Baptiste Herbin en 2025 avec son Trio « Django » pour deux concerts splendides et une formule instrumentale tout à fait originale, nous découvrons à nouveau une facette moins connue de cet Artiste de légende dont le discours et les compositions restent toujours aussi actuels.\nLine-up :\nBenjamin Bobenrieth – guitare\nBastien Ribot – violon\nGrégoire Aguilar – piano\nRémi Bouyssière – Contrebasse\nGuillaume Prevost – Batterie",
+        "[5]\nTitre : LOIS MORGAN SOLO\nDates : le mercredi 25 novembre 2026, de 16h30 à 17h30\nLieu : Hôtel de Région - Site de Limoges, Limoges (Haute-Vienne)\nMots-clés : #JazzEclatsdEmail, #Festival, #Concerts, #Limoges\nTarifs : Entrées libres sous réserve de places disponibles\nSéances pendant la période demandée : le mercredi 25 novembre 2026, de 16h30 à 17h30\n---\nA l’issue de ce premier périple, le jeune musicien décidait de s’enfermer en Louisiane rurale. Une petite cabane en bois isolée aux abords de la communauté cajun de Breaux Bridge, allait abriter pendant une quinzaine, un grand besoin de solitude. Là, sous le porche, assis sur un vieux rocking chair patiné, les yeux rivés sur la rivière Atchafalaya qui coulait juste sous ses bottes, il jouait de la guitare tout le jour et toute la nuit. C’est « eh là-bas », comme le dit la vieille chanson de jazz, qu’il a composé la majeure partie des titres qui constituent son dernier album « Voodoo Spell », sorti en Décembre 2025, fruit de collaborations avec trois musiciens louisianais, et déjà récompensé d’un coup de cœur de la France Blues Society. C’est ce même album, fruit de ses entrailles, qui sera présenté aux Memphis Blues Awards pour représenter la France en 2026.\nLine-up :\nLoïs Morgan – Chant, guitare, batterie, harmonium à soufflet"
+      ]
+    },
+    "2": {
+      "question": "Une exposition à voir à La Rochelle",
+      "answer": "Voici une exposition à découvrir à La Rochelle à partir de votre date :\n\n- **\"Le H de Atlantique\"**, du **1er novembre au 8 novembre 2026** à la **Chapelle des Dames Blanches** : une exposition photographique dans le cadre du Bicentenaire de la Photographie, avec des œuvres accessibles gratuitement [4].\n\nMalheureusement, aucun événement ne correspond exactement à votre demande pour le **29 octobre 2026**. Vous pourriez élargir votre recherche à la semaine suivante pour plus d’options.",
+      "sources": [
+        {
+          "ref": 4,
+          "uid": "76662577",
+          "title": "Le H de Atlantique",
+          "start": "2026-09-12T10:30:00+02:00",
+          "end": "2026-11-08T18:00:00+01:00",
+          "city": "La Rochelle",
+          "location_name": "Chapelle des Dames Blanches",
+          "url": "https://openagenda.com/bicentenaire-photographie-fr/events/le-h-de-atlantique",
+          "score": 0.798
+        }
+      ],
+      "criteria": {
+        "city": "La Rochelle",
+        "department": null,
+        "period": {
+          "label": "à venir",
+          "start": "2026-10-29",
+          "end": null
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 287.2,
+        "generation_ms": 2134.2,
+        "total_ms": 2425.4,
+        "input_tokens": 1820,
+        "output_tokens": 121,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "28900284",
+          "title": "Paroles d'Ombres",
+          "score": 0.813
+        },
+        {
+          "ref": 2,
+          "uid": "85630350",
+          "title": "Exposition : \"Des habitants bâtisseurs\"",
+          "score": 0.807
+        },
+        {
+          "ref": 3,
+          "uid": "5902261",
+          "title": "Les Rendez-vous de midi - Exposition Le H de Atlantique",
+          "score": 0.806
+        },
+        {
+          "ref": 4,
+          "uid": "76662577",
+          "title": "Le H de Atlantique",
+          "score": 0.798
+        },
+        {
+          "ref": 5,
+          "uid": "76919340",
+          "title": "Imbécile (Sortie de résidence)",
+          "score": 0.78
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Paroles d'Ombres\nDates : du vendredi 5 février 2027 à 10h00 au lundi 24 mai 2027 à 17h30\nLieu : Musée du Nouveau Monde, La Rochelle (Charente-Maritime)\nSéances pendant la période demandée : le vendredi 5 février 2027, de 10h00 à 17h30 ; le samedi 6 février 2027, de 10h00 à 17h30 ; le dimanche 7 février 2027, de 10h00 à 17h30 ; le lundi 8 février 2027, de 10h00 à 17h30 ; le mardi 9 février 2027, de 10h00 à 17h30 ; et 104 autres séances\n---\nL’exposition met en valeur deux collections privées et celles du musée du Nouveau Monde, à travers une sélection de photographies diverses par leur nature (tirages argentiques, photochromes, héliogravures, portraits cartes, images stéréoscopiques, etc.) et par les photographes représentés (Norman A. forsyth, William Henry Jackson, Edward Sheriff Curtis, Darius Kinsey, Laton Alton Huffman, etc.).",
+        "[2]\nTitre : Exposition : \"Des habitants bâtisseurs\"\nDates : le samedi 31 octobre 2026, de 10h30 à 12h00\nLieu : Quartier de Villeneuve-les-Salines, La Rochelle (Charente-Maritime)\nTarifs : Sur réservation. Groupes de 10 personnes.\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h30 à 12h00\n---\nRéhabiliter les démarches d'urbanisme démocratique\nRéhabiliter les démarches d’urbanisme démocratique\nÀ travers l’exemple de bonnes pratiques menées sur un site urbain sensible, cette exposition commentée revient sur l’animation d’une démarche de maîtrise d’usage.\nElle présente plus particulièrement la phase pionnière conduite entre 1980 et 1999 et permet de mieux comprendre les méthodes de concertation mises en œuvre avec les habitants et les usagers.",
+        "[3]\nTitre : Les Rendez-vous de midi - Exposition Le H de Atlantique\nDates : le jeudi 5 novembre 2026, de 12h00 à 13h00\nLieu : Chapelle des Dames Blanches, La Rochelle (Charente-Maritime)\nTarifs : Sans réservation\nSéances pendant la période demandée : le jeudi 5 novembre 2026, de 12h00 à 13h00\n---\nEn collaboration avec la Chapelle des Dames Blanches, la Maison des Écritures, La Sirène et la médiathèque d’agglomération Michel-Crépeau, dans le cadre du Bicentenaire de la Photographie\nExposition du 12 septembre au 8 novembre 2026",
+        "[4]\nTitre : Le H de Atlantique\nDates : du samedi 12 septembre 2026 à 10h30 au dimanche 8 novembre 2026 à 18h00\nLieu : Chapelle des Dames Blanches, La Rochelle (Charente-Maritime)\nTarifs : Entrée libre\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 14h00 à 18h00 ; le mardi 3 novembre 2026, de 14h00 à 18h00 ; le mercredi 4 novembre 2026, de 10h30 à 12h30 ; le mercredi 4 novembre 2026, de 14h00 à 18h00 ; le jeudi 5 novembre 2026, de 14h00 à 18h00 ; et 4 autres séances\n---\nEn collaboration avec la Chapelle des Dames Blanches, la Maison des Écritures, La Sirène et la médiathèque d’agglomération Michel-Crépeau, dans le cadre du Bicentenaire de la Photographie",
+        "[5]\nTitre : Imbécile (Sortie de résidence)\nDates : du jeudi 3 décembre 2026 à 19h00 au lundi 7 décembre 2026 à 20h30\nLieu : Maison de l'Étudiant - Espace culture Université de La Rochelle, La Rochelle (Charente-Maritime)\nMots-clés : imbecile, intelligence, collectif, theatre, humour, conference-spectacle\nSéances pendant la période demandée : le jeudi 3 décembre 2026, de 19h00 à 20h30 ; le lundi 7 décembre 2026, de 19h00 à 20h30\n---\nJérôme Rouger / La Martingale\nJadis, un imbécile, même un peu exubérant, passait relativement inaperçu. Grâce à nos moyens modernes de communication, chacun peut aujourd’hui aisément montrer au monde entier ses capacités en matière d’imbécillité.\nDans cette conférence spectaculaire, Jérôme Rouger explore l’imbécillité sous toutes ses formes : la sienne, la nôtre, celle de l’individu comme celle des foules. Il nous invite à en traquer les signes, à en reconnaître les ressorts, et surtout à essayer de nous en prémunir — à « nous armer en pensée » —, puisque parler d’imbécillité, c’est inévitablement interroger l’intelligence : l’intelligence collective, celle du public, l’intelligence artificielle,…, ou même le QI des groupes. Un miroir tendu à notre époque, avec humour et lucidité."
+      ]
+    },
+    "3": {
+      "question": "Un spectacle d'humour à Bordeaux la semaine prochaine",
+      "answer": "Voici deux spectacles d'humour à Bordeaux pour la semaine prochaine :\n\n- **J'aime beaucoup ce que vous faites !** le jeudi 5 novembre à 20h00 au **Théâtre Trianon** : une comédie culte et hilarante, parfaite pour rire en famille ou entre amis [1].\n- **On choisit pas sa famille !** le vendredi 6 novembre à 21h00 au **Théâtre Trianon** : une pièce déjantée et pleine de rebondissements, idéale pour un soir de rire [5].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "55142285",
+          "title": "J'aime beaucoup ce que vous faites !",
+          "start": "2025-11-22T19:00:00+01:00",
+          "end": "2026-12-28T21:30:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Théâtre Trianon",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/jaime-beaucoup-ce-que-vous-faites-6258120",
+          "score": 0.798
+        },
+        {
+          "ref": 5,
+          "uid": "28370351",
+          "title": "On choisit pas sa famille !",
+          "start": "2026-05-15T20:00:00+02:00",
+          "end": "2026-12-31T19:30:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Théâtre Trianon",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/on-choisit-pas-sa-famille-6504819",
+          "score": 0.794
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "la semaine prochaine",
+          "start": "2026-11-02",
+          "end": "2026-11-08"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 296.7,
+        "generation_ms": 1717.3,
+        "total_ms": 2017.2,
+        "input_tokens": 2908,
+        "output_tokens": 122,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "55142285",
+          "title": "J'aime beaucoup ce que vous faites !",
+          "score": 0.798
+        },
+        {
+          "ref": 2,
+          "uid": "56733391",
+          "title": "Le Cabaret singulier (théâtre musical)",
+          "score": 0.797
+        },
+        {
+          "ref": 3,
+          "uid": "53360731",
+          "title": "Sortie culturelle - Petits secrets et grandes histoires",
+          "score": 0.795
+        },
+        {
+          "ref": 4,
+          "uid": "85267140",
+          "title": "Hors Piste, l’événement en famille à Bordeaux",
+          "score": 0.794
+        },
+        {
+          "ref": 5,
+          "uid": "28370351",
+          "title": "On choisit pas sa famille !",
+          "score": 0.794
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : J'aime beaucoup ce que vous faites !\nDates : du samedi 22 novembre 2025 à 19h00 au lundi 28 décembre 2026 à 21h30\nLieu : Théâtre Trianon, Bordeaux (Gironde)\nTarifs : Plein : 26 euros / Réduit : 19,50 euros (étudiant, pass sénior, demandeur d'emploi, RSA, moins de 26 ans) / Carré Or : 29 euros\nÂge : de 11 à 90 ans\nSéances pendant la période demandée : le jeudi 5 novembre 2026, de 20h00 à 21h30\n---\nLa célèbre comédie aux 2 millions de spectateurs !\nJ’aime Beaucoup ce que Vous Faites\nLa célèbre comédie aux 2 millions de spectateurs !\nTout commence par une simple fausse manœuvre sur un téléphone… et en quelques secondes, vous découvrez ce que vos meilleurs amis pensent vraiment de vous.\nProblème : ils arrivent justement pour passer le week-end dans votre maison de campagne.\nMensonges, trahisons, règlements de comptes : le week-end prend une tournure explosive… mais toujours hilarante !\n20e année de succès ininterrompu !\nUn phénomène théâtral devenu culte.\nUn régal de médisance. » Le Point\n« Pour le plus grand plaisir du public » Le Parisien\n« Une vraie réussite » Figaroscope\n« La comédie à ne pas rater » France soir\n« Une formidable comédie qui mérite son succès » Pariscope\n« Un régal de médisance » VSD\n« Un jeu de massacre désopilant » Le Point\nDistribution :\nMise en scène : Nicolas Delas & Xavier Viton\nAssistant : Cha Godard\nAvec Fred Bourgade – Fred Demours – Nicolas Payero – Benjamin Roy",
+        "[2]\nTitre : Le Cabaret singulier (théâtre musical)\nDates : du mercredi 14 octobre 2026 à 20h00 au mercredi 23 juin 2027 à 21h15\nLieu : L'Impromptu, Bordeaux (Gironde)\nMots-clés : cabaret, piano, chanson, danse\nTarifs : - Plein tarif : 10€ - Tarif réduit : 7€ (avec justificatif : étudiants, chômeurs, RSA, PSH) BOISSON OFFERTE\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le samedi 7 novembre 2026, de 20h30 à 21h45\n---\nUn spectacle musical délirant mêlant piano, divers instruments, chant, comédie, danse et vidéo !\nUn père autoritaire tente de façonner l’avenir de sa fille, une adolescente rebelle. Mais l’arrivée d’une employée de maison transforme l’habitat en véritable terrain d’expérimentations, où règlements absurdes, quiproquos et élans de liberté s’enchaînent de manière endiablée.\nAvec Pascal Pistone, Adèle Pistone et Mathilde Chatin\nTout public - durée : 1h\nInfos sur https://33.vivaarte.fr\nPASCAL PISTONE : Compositeur, pianiste et chef d’orchestre franco-italien, docteur en musicologie, maître de conférences à l'Université Bordeaux Montaigne, il est l’auteur de divers écrits sur la musique des XXe et XXIe siècles et enseigne notamment l'analyse, l'improvisation et l'accompagnement de chansons. Ses compositions (pour piano ou orchestre) et ses spectacles de théâtre musical (comédie musicale, opéra multimédia) reflètent son intérêt pour les correspondances entre la musique et les autres arts. Pascal Pistone a donné plus de 700 concerts en tant que pianiste, en France et à l'étranger.",
+        "[3]\nTitre : Sortie culturelle - Petits secrets et grandes histoires\nDates : le mardi 3 novembre 2026, de 14h30 à 16h00\nLieu : Place de la Bourse, Bordeaux (Gironde)\nMots-clés : sortie, culturelle, culture, adulte, amis, ami, couple, idée, organisation, rendez-vous, journée, après midi, découverte, événement, tourisme, groupe, activité, programme, agenda, quoi faire, balade, promenade, bordeaux, ville, parcours, histoire, monument\nTarifs : Inscription à 12€\nÂge : de 18 à 99 ans\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 14h30 à 16h00\n---\nL’AGJA vous propose une balade guidée à Bordeaux pour découvrir ses histoires méconnues, ses détails insolites et ses lieux oubliés.\nPetits secrets et grandes histoires : découvrez le Bordeaux caché\nAu programme : une balade au cœur des mystères de Bordeaux\nRendez-vous mardi 3 novembre à 14h30, place de la Bourse, près de la fontaine des Trois Grâces, pour une visite guidée d’environ 1h30.\nAccompagnés d’un guide, partez à la découverte des anecdotes, des légendes urbaines et des lieux insolites qui font partie de l’histoire de Bordeaux. Certains détails passent inaperçus au quotidien, même aux yeux des habitants, tandis que d’autres lieux discrets gardent encore leurs secrets.\nAu fil de la promenade, ouvrez l’œil et laissez-vous surprendre par les histoires qui se cachent derrière les façades et les rues que vous pensiez connaître.\nBordeaux autrement\nCette visite s’adresse aux adultes et aux seniors curieux de découvrir le patrimoine bordelais différemment. Que vous habitiez Bordeaux depuis longtemps ou que vous souhaitiez approfondir votre connaissance de la ville, cette balade est l’occasion d’apprendre, d’échanger et de partager un moment culturel en petit groupe.\n>Lien d'inscription<\nInformations pratiques\nDate : mardi 3 novembre\nHoraire : 14h30 – 16h (Se présenter 10 mn avant le départ)\nLieu de rendez-vous : place de la Bourse, près de la fontaine des Trois Grâces\nPublic : adultes et seniors\nDurée : 1h30\nTarif : 12 € par personne",
+        "[4]\nTitre : Hors Piste, l’événement en famille à Bordeaux\nDates : le samedi 7 novembre 2026, de 19h30 à 20h45\nLieu : Cap Sciences, Bordeaux (Gironde)\nTarifs : Tarif adulte : 13€ - Tarif enfant/jeune : 10€ (sur inscription uniquement)\nÂge : de 6 à 99 ans\nSéances pendant la période demandée : le samedi 7 novembre 2026, de 19h30 à 20h45\n---\nUn événement imaginé par Cap Sciences et La Brigade du Bonheur\nUne nouvelle sortie avec les enfants à Cap Sciences\nHors Piste, c’est le nouvel événement imaginé avec la Brigade du Bonheur. Prêt à sortir un peu des sentiers battus ? Au programme : des défis, des jeux, des énigmes, des surprises...\nEn équipe, faites appel à votre sens de l’observation, votre logique, votre mémoire ou votre intuition… mais surtout à votre esprit d’équipe pour relever une série d’épreuves. Ici, on joue, on cherche, on coopère, on se trompe parfois et surtout, on rigole beaucoup !\nLe principe ? Se retrouver en famille, pour vivre Cap Sciences autrement.\nUn rendez-vous amusant, décalé, convivial et participatif, où la science se glisse dans le jeu… et où le jeu prend les commandes !\nDes jeux, des défis, des surprises...\nLa Chaîne humaine : Vous connaissez certainement le Twister, ses quatre couleurs et ses positions improbables. Ici, nous revisitons ce grand classique dans une version dédiée au corps humain !\nLe Casque à dur : Vous êtes répartis en duos, composés d’une personne équipée d’un casque audio et d’une personne sans casque. L’objectif ? Faire deviner un mot ou une expression à son partenaire uniquement grâce à l’articulation.\nLe Par ici la sortie : En équipe, coordonnez vos mouvements afin de guider le crayon à travers le labyrinthe le plus rapidement possible.",
+        "[5]\nTitre : On choisit pas sa famille !\nDates : du vendredi 15 mai 2026 à 20h00 au jeudi 31 décembre 2026 à 19h30\nLieu : Théâtre Trianon, Bordeaux (Gironde)\nMots-clés : Comédie, Humour\nTarifs : Plein : 26 euros / Réduit : 19,50 euros (étudiant, pass sénior, demandeur d'emploi, RSA, moins de 26 ans) / Carré Or : 29 euros\nÂge : de 11 à 99 ans\nSéances pendant la période demandée : le vendredi 6 novembre 2026, de 21h00 à 22h30\n---\nL’un des plus grand succès théâtral enfin à Bordeaux : 17 personnages interprétés par 5 comédien·nes virtuoses - Une performance jubilatoire à cent à l’heure.\nOn Choisit pas sa Famille !\nL’un des plus grand succès théâtral enfin à Bordeaux : 17 personnages interprétés par 5 comédien·nes virtuoses - Une performance jubilatoire à cent à l’heure.\nUn mariage. Une famille. Et une soirée qui tourne à la catastrophe… pour le plus grand bonheur du public.\nPour ses noces, Yvette a tout prévu : un banquet “grandiose” dans le réfectoire de l’école primaire où travaille son futur mari Gilbert. Charmant, non ?\nSauf que le vin est imbuvable, le cuisinier sort tout droit de la cantine scolaire, et les deux serveuses forment un duo de pieds nickelés absolument incontrôlable.\nEt ce n’est que le début…\nLa famille débarque.\nSuzanne, la fille, avec son ex végan militant.\nBenoît, le frère, avec sa nouvelle lubie existentielle.\nGeorges, le cousin belge, bien décidé à transformer la soirée en monument national de la guindaille.\nAjoutez à cela des jumelles explosives, un serveur dépassé, un cuisinier amorphe, une ribambelle de personnages plus incontrôlables les uns que les autres… et une chienne nommée Rillette chargée d’amortir les dégâts.\nRésultat : un tourbillon de quiproquos, de règlements de comptes et de situations totalement délirantes.\nLes masques tombent, les secrets éclatent, et la soirée vire à la tempête comique absolument irrésistible.\nUne chose est sûre :"
+      ]
+    },
+    "4": {
+      "question": "Du théâtre à Brive-la-Gaillarde",
+      "answer": "Je suis désolé, mais aucun événement de théâtre n'est proposé à Brive-la-Gaillarde dans les dates à venir (à partir du 29 octobre 2026) parmi les suggestions disponibles.\n\nSi vous souhaitez élargir votre recherche à d'autres types d'événements culturels (musique, expositions, jeux de société, etc.) ou à une autre période, je peux vous aider à explorer d'autres options.",
+      "sources": [],
+      "criteria": {
+        "city": "Brive-la-Gaillarde",
+        "department": null,
+        "period": {
+          "label": "à venir",
+          "start": "2026-10-29",
+          "end": null
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 289.4,
+        "generation_ms": 1719.7,
+        "total_ms": 2012.1,
+        "input_tokens": 2039,
+        "output_tokens": 92,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "58942113",
+          "title": "Games Gaillardes n° 92",
+          "score": 0.794
+        },
+        {
+          "ref": 2,
+          "uid": "59375961",
+          "title": "Games Gaillardes n° 93",
+          "score": 0.792
+        },
+        {
+          "ref": 3,
+          "uid": "25572983",
+          "title": "Games Gaillardes n° 94",
+          "score": 0.791
+        },
+        {
+          "ref": 4,
+          "uid": "40749380",
+          "title": "Apéro célibataires — Brive-la-Gaillarde",
+          "score": 0.791
+        },
+        {
+          "ref": 5,
+          "uid": "9960570",
+          "title": "Apéro célibataires — Brive-la-Gaillarde",
+          "score": 0.79
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Games Gaillardes n° 92\nDates : le dimanche 11 avril 2027, de 14h00 à 19h00\nLieu : Salle Dumazaud, Brive-la-Gaillarde (Corrèze)\nMots-clés : jeux de société, ludique, brive\nTarifs : Entrée libre et gratuite\nSéances pendant la période demandée : le dimanche 11 avril 2027, de 14h00 à 19h00\n---\nOn continue de jouer à Brive-la-Gaillarde en ce mois d'avril ! De nombreux jeux de société seront disponibles et les animateurs vous attendent pour vous y faire jouer.\nLa Guilde Ludique Briviste organise rituellement 2 rencontres ludiques mensuelles à Brive-la-Gaillarde, les Games Gaillardes, et elles ont lieu un dimanche après-midi et un vendredi soir.\nCette 92ème Games Gaillarde vous accueillera autour de tables de jeux de société, familiaux ou expert, de jeux d'ambiance, de jeux de cartes à collectionner et de jeux de figurines.\nDes animateurs seront présents pour vous faire découvrir les jeux et vous apprendre si besoin à y jouer.\nVous trouverez à coup sûr des partenaires pour partager un moment de conviviatlité autour de ces tables de jeux.",
+        "[2]\nTitre : Games Gaillardes n° 93\nDates : le vendredi 23 avril 2027, de 19h00 à 23h00\nLieu : Salle Dumazaud, Brive-la-Gaillarde (Corrèze)\nMots-clés : jeux de société, ludique, brive\nTarifs : Entrée libre et gratuite\nSéances pendant la période demandée : le vendredi 23 avril 2027, de 19h00 à 23h00\n---\nOn continue de jouer à Brive-la-Gaillarde en ce mois d'avril ! De nombreux jeux de société seront disponibles et les animateurs vous attendent pour vous y faire jouer.\nLa Guilde Ludique Briviste organise rituellement 2 rencontres ludiques mensuelles à Brive-la-Gaillarde, les Games Gaillardes, et elles ont lieu un dimanche après-midi et un vendredi soir.\nCette 93ème Games Gaillarde vous accueillera autour de tables de jeux de société, familiaux ou expert, de jeux d'ambiance, de jeux de cartes à collectionner et de jeux de figurines.\nDes animateurs seront présents pour vous faire découvrir les jeux et vous apprendre si besoin à y jouer.\nVous trouverez à coup sûr des partenaires pour partager un moment de conviviatlité autour de ces tables de jeux.",
+        "[3]\nTitre : Games Gaillardes n° 94\nDates : le vendredi 14 mai 2027, de 19h00 à 23h00\nLieu : Salle Dumazaud, Brive-la-Gaillarde (Corrèze)\nMots-clés : jeux de société, ludique, brive\nTarifs : Entrée libre et gratuite\nSéances pendant la période demandée : le vendredi 14 mai 2027, de 19h00 à 23h00\n---\nOn continue de jouer à Brive-la-Gaillarde en ce mois de mai ! De nombreux jeux de société seront disponibles et les animateurs vous attendent pour vous y faire jouer.\nLa Guilde Ludique Briviste organise rituellement 2 rencontres ludiques mensuelles à Brive-la-Gaillarde, les Games Gaillardes, et elles ont lieu un dimanche après-midi et un vendredi soir.\nCette 94ème Games Gaillarde vous accueillera autour de tables de jeux de société, familiaux ou expert, de jeux d'ambiance, de jeux de cartes à collectionner et de jeux de figurines.\nDes animateurs seront présents pour vous faire découvrir les jeux et vous apprendre si besoin à y jouer.\nVous trouverez à coup sûr des partenaires pour partager un moment de conviviatlité autour de ces tables de jeux.",
+        "[4]\nTitre : Apéro célibataires — Brive-la-Gaillarde\nDates : le mardi 10 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Brive-la-Gaillarde, Brive-la-Gaillarde (Corrèze)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 10 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Brive-la-Gaillarde : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Brive-la-Gaillarde, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/brive-la-gaillarde-19",
+        "[5]\nTitre : Apéro célibataires — Brive-la-Gaillarde\nDates : le mardi 3 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Brive-la-Gaillarde, Brive-la-Gaillarde (Corrèze)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Brive-la-Gaillarde : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Brive-la-Gaillarde, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/brive-la-gaillarde-19"
+      ]
+    },
+    "5": {
+      "question": "Un concert de musique classique à Bordeaux en décembre",
+      "answer": "Voici les concerts de musique classique à Bordeaux en décembre 2026 qui correspondent à votre demande :\n\n- **Concert de Noël Radio Classique** : du jeudi 17 au dimanche 20 décembre 2026 à l'Auditorium de Bordeaux, avec des séances le 17 et 18 décembre à 20h00, et le 20 décembre à 15h00 et 20h00, où le public participe à choisir le programme [1].\n- **Les Quatre Saisons de Vivaldi et musiques de Noël** : le dimanche 27 décembre 2026 à 15h30 à l'Église Notre-Dame de Bordeaux, mêlant œuvres classiques et chants de Noël [2].\n\nPour élargir vos options, ces événements se situent en dehors de votre période demandée :\n- **Concert rencontre** le mercredi 2 décembre 2026 à la Salle des Fêtes Bordeaux Grand Parc, centré sur un concerto pour basson [5].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "95718362",
+          "title": "Concert de Noël Radio Classique",
+          "start": "2026-12-17T20:00:00+01:00",
+          "end": "2026-12-20T21:30:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Auditorium de Bordeaux",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/concert-de-noel-radio-classique-3953217",
+          "score": 0.864
+        },
+        {
+          "ref": 2,
+          "uid": "92550404",
+          "title": "Les Quatre Saisons de Vivaldi et musiques de Noël",
+          "start": "2026-12-27T15:30:00+01:00",
+          "end": "2026-12-27T16:45:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Eglise Notre Dame",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/les-quatre-saisons-de-vivaldi-et-musiques-de-noel",
+          "score": 0.843
+        },
+        {
+          "ref": 5,
+          "uid": "28123781",
+          "title": "Concert rencontre",
+          "start": "2026-12-02T20:00:00+01:00",
+          "end": "2026-12-02T21:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Salle des Fêtes Bordeaux Grand Parc",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/concert-rencontre-2163430",
+          "score": 0.833
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "en décembre 2026",
+          "start": "2026-12-01",
+          "end": "2026-12-31"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 288.8,
+        "generation_ms": 3837.9,
+        "total_ms": 4129.7,
+        "input_tokens": 1936,
+        "output_tokens": 226,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "95718362",
+          "title": "Concert de Noël Radio Classique",
+          "score": 0.864
+        },
+        {
+          "ref": 2,
+          "uid": "92550404",
+          "title": "Les Quatre Saisons de Vivaldi et musiques de Noël",
+          "score": 0.843
+        },
+        {
+          "ref": 3,
+          "uid": "91877737",
+          "title": "Couleurs baroques",
+          "score": 0.841
+        },
+        {
+          "ref": 4,
+          "uid": "23547977",
+          "title": "Concert du dimanche",
+          "score": 0.834
+        },
+        {
+          "ref": 5,
+          "uid": "28123781",
+          "title": "Concert rencontre",
+          "score": 0.833
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Concert de Noël Radio Classique\nDates : du jeudi 17 décembre 2026 à 20h00 au dimanche 20 décembre 2026 à 21h30\nLieu : Auditorium de Bordeaux, Bordeaux (Gironde)\nMots-clés : Orchestre\nSéances pendant la période demandée : le jeudi 17 décembre 2026, de 20h00 à 21h30 ; le vendredi 18 décembre 2026, de 20h00 à 21h30 ; le dimanche 20 décembre 2026, de 15h00 à 16h30 ; le dimanche 20 décembre 2026, de 20h00 à 21h30\n---\nOrchestre National Bordeaux Aquitaine | Chœur de l’Opéra National de Bordeaux | Joseph Swensen\nOrchestre\nAvec le Concert de Noël Radio Classique, tout le monde participe ! Dans une recette qui a fait ses preuves, le public est invité à choisir le programme en élisant, pour chaque thématique résonnant avec l’esprit de Noël, le morceau qui sera joué par l’Orchestre National Bordeaux Aquitaine, chanté par le Chœur de l’Opéra National de Bordeaux et dirigé par Joseph Swensen. Si le programme est un secret, pour garder intact le plaisir de la surprise, une chose est sûre : à l’Auditorium, on sait faire la fête !\nEn partenariat avec :\nEn savoir plus",
+        "[2]\nTitre : Les Quatre Saisons de Vivaldi et musiques de Noël\nDates : le dimanche 27 décembre 2026, de 15h30 à 16h45\nLieu : Eglise Notre Dame, Bordeaux (Gironde)\nTarifs : Tarifs : de 20 € à 30 €.\nSéances pendant la période demandée : le dimanche 27 décembre 2026, de 15h30 à 16h45\n---\nSchubert Vivaldi Bach Corelli & Ave Maria\nDimanche 27 décembre à l'Église Notre Dame de Bordeaux\nPlace du Chapelet, 33000 Bordeaux\nOrchestre « Les Violons de France » Au programme :\nLes Quatre Saisons de Vivaldi - Ave Maria de Schubert\nDouce nuit – Jésus que ma Joie demeure – Minuit Chrétiens.\n30€ - Seniors : 25€ - Etudiants et chômeurs : 20€. Infos 06 80 10 91 79\nBillets : Fnac et à l’église 1 heure avant le concert.\nCertaines œuvres ont leur secret ; Les Quatre Saisons en possèdent certainement un, elles qui sont parvenues à une telle célébrité dans le répertoire classique. En cette période de l’Avent les célèbres Douce Nuit et Minuit Chrétiens nous plongent dans la magie de Noël. Jésus que ma joie demeure de Bach et l’Ave Maria de Schubert complèteront ce programme d’environ 1h10.",
+        "[3]\nTitre : Couleurs baroques\nDates : le samedi 12 décembre 2026, de 14h00 à 17h15\nLieu : Atelier du Conservatoire de Bordeaux, Bordeaux (Gironde)\nMots-clés : conservatoire, gratuit, jeunesse, culture, Bordeaux, musique, concert, musiqueancienne, baroque\nTarifs : Entrée libre dans la limite des places disponibles\nSéances pendant la période demandée : le samedi 12 décembre 2026, de 14h00 à 15h15 ; le samedi 12 décembre 2026, de 16h00 à 17h15\n---\nUn voyage au cœur de la musique ancienne !\nJean-Sébastien Bach, Jean-Féry Rebel, Samuel Capricornus et autres surprises...\nL'Orchestre baroque vous propose deux concerts au son des instruments anciens !\nUn programme bariolé interprété par des groupes de musique de chambre, à la découverte d'œuvres majeures des 17e et 18e siècles.\nLe programme sera interprété à deux reprises :\n• concert #1 à 14h\n• concert #2 à 16h\nRetrouvez l'événement sur notre site internet !",
+        "[4]\nTitre : Concert du dimanche\nDates : le dimanche 6 décembre 2026, de 11h00 à 12h00\nLieu : Auditorium de Bordeaux, Bordeaux (Gironde)\nMots-clés : Musique de chambre\nSéances pendant la période demandée : le dimanche 6 décembre 2026, de 11h00 à 12h00\n---\nMarie-Astrid Hulot\nConcert du dimanche\nUn programme aux couleurs post-romantiques, porté par la violoniste Marie-Astrid Hulot, supersoliste de l’Orchestre National Bordeaux Aquitaine, et Vincent Martinet, étoile montante du piano français.\nProgramme\nFranz Schubert, Sonatine n° 2 en la mineur D. 385 op. 137\nAmy Beach, Romance op. 23\nRichard Strauss, Sonate en mi bémol op. 18\nEn savoir plus",
+        "[5]\nTitre : Concert rencontre\nDates : le mercredi 2 décembre 2026, de 20h00 à 21h00\nLieu : Salle des Fêtes Bordeaux Grand Parc, Bordeaux (Gironde)\nMots-clés : Orchestre\nSéances pendant la période demandée : le mercredi 2 décembre 2026, de 20h00 à 21h00\n---\nOrchestre National Bordeaux Aquitaine I Izabelė Jankauskaitė I Sam Sallenave\nOrchestre\nÀ la Salle des fêtes, la formule est connue : à l’issue du concert, les musiciens de l’Orchestre rejoignent le public dans la salle pour discuter et mieux se connaître de manière conviviale. Le basson sera la star cette année, sortant de son rôle habituel pour chanter sur le devant de la scène : une découverte du timbre élégant de cet instrument rare, dans un concerto de Rossini.\nProgramme\nWolfgang Amadeus Mozart, Don Giovanni, ouverture\nGioacchino Rossini, Concerto pour basson\nJoseph Haydn, Symphonie n° 102\nEn savoir plus"
+      ]
+    },
+    "6": {
+      "question": "Un film documentaire à Bordeaux",
+      "answer": "Voici deux propositions de films documentaires à Bordeaux à partir du 29 octobre 2026 :\n\n- **\"Le Jeu de la ferme\"** le samedi 7 novembre à la **Bibliothèque Flora Tristan** : une projection suivie d'une rencontre avec le réalisateur, explorant la relation entre des enfants et leurs animaux sur un plateau agricole [1].\n\n- **\"Au fil de l'eau, de l'insouciance à la désobéissance\"** le mercredi 4 novembre à la **Halle des Douves** : un ciné-débat sur l'agriculture et la gestion de l'eau, avec une projection suivie d'un échange avec un expert [4].\n\nPour les autres documentaires, les dates sont antérieures au 29 octobre.",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "71071218",
+          "title": "Mois du film documentaire - Le Jeu de la ferme réalisé par Jean-Pierre Vedel",
+          "start": "2026-11-07T15:00:00+01:00",
+          "end": "2026-11-07T17:30:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Bibliothèque Flora Tristan",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/mois-du-film-documentaire-le-jeu-de-la-ferme-realise-par-jean-pierre-vedel",
+          "score": 0.795
+        },
+        {
+          "ref": 4,
+          "uid": "25844925",
+          "title": "Ciné débat : au fil de l'eau, de l'insouciance à la désobéissance",
+          "start": "2026-11-04T19:30:00+01:00",
+          "end": "2026-11-04T22:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Halle des Douves",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/cine-debat-au-fil-de-leau-de-linsouciance-a-la-desobeissance",
+          "score": 0.776
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "à venir",
+          "start": "2026-10-29",
+          "end": null
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 329.9,
+        "generation_ms": 2810.7,
+        "total_ms": 3143.1,
+        "input_tokens": 1759,
+        "output_tokens": 158,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "71071218",
+          "title": "Mois du film documentaire - Le Jeu de la ferme réalisé par Jean-Pierre Vedel",
+          "score": 0.795
+        },
+        {
+          "ref": 2,
+          "uid": "27048083",
+          "title": "Projection | LE CORPS VERMEIL (UNE ANATOMIE DU DESIR)",
+          "score": 0.78
+        },
+        {
+          "ref": 3,
+          "uid": "99064503",
+          "title": "Journal d&rsquo;un premier film",
+          "score": 0.78
+        },
+        {
+          "ref": 4,
+          "uid": "25844925",
+          "title": "Ciné débat : au fil de l'eau, de l'insouciance à la désobéissance",
+          "score": 0.776
+        },
+        {
+          "ref": 5,
+          "uid": "78201954",
+          "title": "Soirée de clôture — projection autour du documentaire consacré à Charles Jude",
+          "score": 0.772
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Mois du film documentaire - Le Jeu de la ferme réalisé par Jean-Pierre Vedel\nDates : le samedi 7 novembre 2026, de 15h00 à 17h30\nLieu : Bibliothèque Flora Tristan, Bordeaux (Gironde)\nMots-clés : film, documentaire, projection, rencontre, moisdudoc\nTarifs : Entrée libre\nÂge : de 9 à 99 ans\nSéances pendant la période demandée : le samedi 7 novembre 2026, de 15h00 à 17h30\n---\nProjection et rencontre dans le cadre du mois du film documentaire\nDans le cadre du mois du film documentaire, la bibliothèque Flora Tristan vous invite à la projection du film \"Le Jeu de la ferme\" suivie d'une discussion avec son réalisateur Jean-Pierre Vedel.\nC'est un film tourné pendant plus de quatre ans qu’avec des enfants. Sur le plateau de l’Aubrac, les vaches de race Aubrac vivent dans des conditions climatiques extrêmes, des enfants grandissent au rythme de la nature et de leurs animaux. Ils rêvent de devenir éleveurs comme les générations qui les précèdent. À travers leurs jeux, ils recréent la vie du troupeau, de leur ferme, entre joies et drames, doutes et certitudes où la mort, la maladie, et les saisons forgent leur quotidien. Ce film explore la relation intime qu’ils tissent avec leurs animaux, et comment par le jeu, ces enfants se dessinent un avenir.\nDurée de la projection : 1h27\nPrix du Public Cinéma et ruralité – La Biolle 2026\nA partir de 9 ans",
+        "[2]\nTitre : Projection | LE CORPS VERMEIL (UNE ANATOMIE DU DESIR)\nDates : le mardi 24 novembre 2026, de 19h00 à 21h00\nLieu : Bibliothèque Mériadeck, Bordeaux (Gironde)\nMots-clés : Quinzaine de l'égalité, documentaire, projection\nTarifs : Entrée libre\nÂge : de 16 à 99 ans\nSéances pendant la période demandée : le mardi 24 novembre 2026, de 19h00 à 21h00\n---\nIl a également exercé en tant que photographe pour des journaux, des magazines, des agences publicitaires et a enseigné dans plusieurs centres de formation professionnelle en Bolivie, au Paraguay, en Finlande et en France, notamment à l’Université Bordeaux Montaigne.",
+        "[3]\nTitre : Journal d&rsquo;un premier film\nDates : le vendredi 6 novembre 2026, de 14h15 à 16h15\nLieu : Utopia Saint-Simeon, Bordeaux (Gironde)\nMots-clés : Utopia Bordeaux, Journal d&rsquo, un premier film\nSéances pendant la période demandée : le vendredi 6 novembre 2026, de 14h15 à 16h15\n---\nAvant-premières documentaires – Utopia\nEn présence de l'équipes du film",
+        "[4]\nTitre : Ciné débat : au fil de l'eau, de l'insouciance à la désobéissance\nDates : le mercredi 4 novembre 2026, de 19h30 à 22h00\nLieu : Halle des Douves, Bordeaux (Gironde)\nMots-clés : agriculture, eau, paysans, citoyens, solution, résilience alimentaire\nTarifs : Entrée libre\nÂge : de 16 à 99 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 19h30 à 22h00\n---\nA l'issue de la projection du documentaire de Georges Tillard, Au fil de l'eau, de l'insouciance à la désobéissance, nous laisserons la parole à Olivier Hounvide, qui a participé à une recherche nationale de la confédération paysanne sur l'utilisation de l'eau dans le modèle de l'agriculture paysanne. Il nous donnera quelques éléments sur la manière dont les paysan·nes gère la ressources en eau sur leurs fermes.",
+        "[5]\nTitre : Soirée de clôture — projection autour du documentaire consacré à Charles Jude\nDates : le mardi 3 novembre 2026, de 18h30 à 20h00\nLieu : Salle capitulaire Mably, Bordeaux (Gironde)\nMots-clés : exposition, danse, photographie, film de danse, ballet, Charles Jude, documentaire, projection, Opéra National de Bordeaux\nTarifs : Gratuit, sur inscription (places limitées) : orstudio.art/exposition\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 18h30 à 20h00\n---\nSoirée de clôture : projection d'un extrait du documentaire en cours consacré à Charles Jude, suivie d'un échange avec l'équipe du film. Gratuit, sur inscription.\nSoirée de clôture de l'exposition « O.R. Studio — Dix ans de création autour de la danse ».\nProjection d'un extrait du documentaire en cours de production consacré à Charles Jude, étoile et figure de la danse française — le portrait d'une vie et d'une époque —, suivie d'un échange avec l'équipe du film.\nGratuit, sur inscription (places limitées) : https://orstudio.art/exposition/\nExposition ouverte du 29 octobre au 3 novembre 2026, tous les jours de 14h à 19h, entrée libre."
+      ]
+    },
+    "7": {
+      "question": "Un atelier pour enfants à Bordeaux mercredi",
+      "answer": "Voici les ateliers pour enfants à Bordeaux le **mercredi 4 novembre 2026** qui correspondent à votre demande :\n\n- **Ateliers d'éveil à l'art ABCD'ART** (10h30–12h00 à la Maison Marandon) : idéal pour éveiller la créativité des 3-7 ans à travers des histoires d’art ludiques [1].\n- **Atelier d'éveil à l'art avec ABCD'ART** (10h30–12h00 à la Maison Marandon) : atelier créatif et artistique pour les 3-7 ans, avec des thèmes variés [2].\n- **Atelier Arts Plastiques** (14h30–16h00 à l’Ehpad Village Terre Nègre) : pour les 7-14 ans, exploration de techniques comme le dessin, la peinture ou le collage [3].\n- **Cours de dessin/peinture/modelage** (10h00–11h00, 11h00–12h30 ou 14h00–17h00 à l’atelier Citrouille) : ateliers adaptés aux 5-14 ans, avec des techniques variées et un focus sur l’expression artistique [4].\n\nPour les 3-7 ans, les ateliers ABCD’ART sont particulièrement adaptés. Si vous cherchez un atelier plus technique ou pour un public plus âgé, les autres propositions sont adaptées.",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "29380963",
+          "title": "Les ateliers d'éveil à l'art ABCD'ART",
+          "start": "2026-09-30T10:30:00+02:00",
+          "end": "2026-12-16T12:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Maison Marandon",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/les-ateliers-deveil-a-lart-abcdart",
+          "score": 0.815
+        },
+        {
+          "ref": 2,
+          "uid": "27269596",
+          "title": "Atelier d'éveil à l'art avec ABCD'ART",
+          "start": "2026-03-18T10:30:00+01:00",
+          "end": "2027-06-30T12:00:00+02:00",
+          "city": "Bordeaux",
+          "location_name": "La Maison Marandon",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/la-maison-ouverte-des-enfants",
+          "score": 0.808
+        },
+        {
+          "ref": 3,
+          "uid": "76411815",
+          "title": "Atelier Arts Plastiques",
+          "start": "2026-09-16T14:30:00+02:00",
+          "end": "2027-06-16T16:00:00+02:00",
+          "city": "Bordeaux",
+          "location_name": "Ehpad village terre nègre",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/atelier-arts-plastiques-9516974",
+          "score": 0.807
+        },
+        {
+          "ref": 4,
+          "uid": "86257491",
+          "title": "Cours de dessin, peinture et modelage pour enfants et ados",
+          "start": "2026-09-09T10:00:00+02:00",
+          "end": "2027-06-30T17:00:00+02:00",
+          "city": "Bordeaux",
+          "location_name": "atelier Citrouille",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/cours-de-dessin-peinture-et-modelage-pour-enfants-et-ados",
+          "score": 0.803
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "mercredi",
+          "start": "2026-11-04",
+          "end": "2026-11-04"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 287.7,
+        "generation_ms": 4156.1,
+        "total_ms": 4447.1,
+        "input_tokens": 1953,
+        "output_tokens": 326,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "29380963",
+          "title": "Les ateliers d'éveil à l'art ABCD'ART",
+          "score": 0.815
+        },
+        {
+          "ref": 2,
+          "uid": "27269596",
+          "title": "Atelier d'éveil à l'art avec ABCD'ART",
+          "score": 0.808
+        },
+        {
+          "ref": 3,
+          "uid": "76411815",
+          "title": "Atelier Arts Plastiques",
+          "score": 0.807
+        },
+        {
+          "ref": 4,
+          "uid": "86257491",
+          "title": "Cours de dessin, peinture et modelage pour enfants et ados",
+          "score": 0.803
+        },
+        {
+          "ref": 5,
+          "uid": "72138372",
+          "title": "Atelier Dessin au fusain",
+          "score": 0.794
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Les ateliers d'éveil à l'art ABCD'ART\nDates : du mercredi 30 septembre 2026 à 10h30 au mercredi 16 décembre 2026 à 12h00\nLieu : Maison Marandon, Bordeaux (Gironde)\nMots-clés : art, atelier, enfant, famille, créer, créativité\nTarifs : Sur inscription, sans engagement\nÂge : de 3 à 7 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 10h30 à 12h00\n---\nAteliers 3-7 ans pour découvrir des histoires de l'art, jouer et créer\nTous les mercredis à la Maison Ouverte, Lieu Culturel de Proximité à Nansouty-St-Genès\nPour les 3-7 ans\nDe 10h30 à 12h le mercredi\nEn solo sans adulte accopagnateur / des ateliers sur inscription sans engagement annuel / hors vacances scolaires\nDes histoires de l'art à découvrir chaque semaine à travers un artiste, une œuvre d'art ou un thème incroyable. Un atelier adapté aux plus jeunes pour éveiller sa curiosité, nourrir son imaginaire et cultiver le plaisir de créer.\nProgramme des ateliers à découvrir toute l’année sur le site abcd-art.fr\nInscription par mail ou téléphone\ncontact@abcd-art.fr",
+        "[2]\nTitre : Atelier d'éveil à l'art avec ABCD'ART\nDates : du mercredi 18 mars 2026 à 10h30 au mercredi 30 juin 2027 à 12h00\nLieu : La Maison Marandon, Bordeaux (Gironde)\nMots-clés : atelier, créativité, créatif, art, culture, enfant, jeune public\nTarifs : Sur inscription\nÂge : de 3 à 7 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 10h30 à 12h00\n---\nDes ateliers 3-7 ans tous les mercredis matin pour explorer l’histoire de l’art de façon ludique et créative. Un temps pour découvrir et un temps pour se laisser inspirer et créer à sa manière.\nL'association ABCD'ART, habitante du Lieu Culturel de Proximité la Maison Ouverte, propose chaque mercredi matin des ateliers artistiques à partir de 3 ans. Des artistes, des thèmes nouveaux à découvrir à chaque séance. Thèmes à découvrir sur le site abcd-art.fr\nDe 10H30 à 12H",
+        "[3]\nTitre : Atelier Arts Plastiques\nDates : du mercredi 16 septembre 2026 à 14h30 au mercredi 16 juin 2027 à 16h00\nLieu : Ehpad village terre nègre, Bordeaux (Gironde)\nMots-clés : art, peinture, collage, dessin, fusain, pastel, aquarelle, créativité, artiste\nTarifs : Atelier pour les enfants et adolescents, adhésion offerte et -10% de réduction sur l'atelier pour la carte jeune !\nÂge : de 7 à 14 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 14h30 à 16h00\n---\nAtelier découverte et exploration de différentes techniques artistiques le mercredi de 14h30 à 16h pour les enfants et adolescents.\nAtelier découverte et exploration de différentes techniques artistiques (dessin, peinture, collage, pastels, empreintes...) pour laisser libre cours à sa créativité en étant accompagné par une artiste plasticienne.",
+        "[4]\nTitre : Cours de dessin, peinture et modelage pour enfants et ados\nDates : du mercredi 9 septembre 2026 à 10h00 au mercredi 30 juin 2027 à 17h00\nLieu : atelier Citrouille, Bordeaux (Gironde)\nMots-clés : cours, enfants, ados, dessin, peinture, modelage, arts plastiques, poterie, technique de dessin, création, expression, arts visuels, créatif, atelier\nTarifs : Tarifs de 250€ à 550€ par an en fonction des horaires choisis\nÂge : de 5 à 14 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 10h00 à 11h00 ; le mercredi 4 novembre 2026, de 11h00 à 12h30 ; le mercredi 4 novembre 2026, de 14h00 à 17h00\n---\nCours les mercredis et samedis de septembre à juin, pour les enfants et les ados. Gouache, encre, pastel, marqueur, mine de graphite, aquarelle, argile...\nLaure Grimonprez et Marie-Laure Abboubi proposent des ateliers d'arts plastiques basés sur une approche sensible et expressive de la création. Elles privilégient l'exploration et le plaisir de la découverte, le développement de l'imaginaire et de l'expression personnelle. Au fil des thèmes, les enfants affinent leur regard et évoluent dans leur représentation du monde qui les entoure. les animatrices proposent régulièrement de découvrir des œuvres d'artistes de toutes les époques et de toutes cultures.\nLes plus grands abordent des techniques de dessin et de peinture plus approfondies : perspective, mise en volume, représentation du corps humain, des animaux, des objets...",
+        "[5]\nTitre : Atelier Dessin au fusain\nDates : du mercredi 2 septembre 2026 à 14h30 au mercredi 30 décembre 2026 à 15h30\nLieu : Echoppe seniors Billaudel, Bordeaux (Gironde)\nMots-clés : bordeaux, seniors, fusain, gratuit\nTarifs : Gratuit sur inscription obligatoire par mail\nÂge : de 60 à 99 ans\nSéances pendant la période demandée : le mercredi 4 novembre 2026, de 14h30 à 15h30\n---\nTous les mercredis, 14h30\nAtelier d'1h30 animé par un artiste. Technique simple accessible aux débutants. Matériel fourni."
+      ]
+    },
+    "8": {
+      "question": "Une exposition gratuite à Bordeaux ce week-end",
+      "answer": "Voici une exposition gratuite à Bordeaux pour ce week-end :\n\n- **\"Mine d'Emile s'expose\"** (du samedi 31 octobre 2026, de 10h00 à 18h00 au Jardin botanique Bastide) : une exposition de sculptures sur métal recyclé, accessible librement aux horaires d'ouverture de la bibliothèque Bordeaux-Lac [4].\n\n*(Note : L'exposition \"Sols\" au Jardin botanique Bastide n'est pas gratuite, mais elle reste ouverte ce week-end.)*",
+      "sources": [
+        {
+          "ref": 4,
+          "uid": "31864894",
+          "title": "Mine d'Emile s'expose",
+          "start": "2026-10-03T10:00:00+02:00",
+          "end": "2026-11-03T18:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Bibliothèque Bordeaux-Lac",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/8997809",
+          "score": 0.806
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "ce week-end",
+          "start": "2026-10-31",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 461.6,
+        "generation_ms": 1787.6,
+        "total_ms": 2252.5,
+        "input_tokens": 2289,
+        "output_tokens": 119,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "85778054",
+          "title": "Exposition Jean Dupas & Co. Le grand Art déco",
+          "score": 0.809
+        },
+        {
+          "ref": 2,
+          "uid": "22644291",
+          "title": "Goûter de clôture Un habit trop grand",
+          "score": 0.807
+        },
+        {
+          "ref": 3,
+          "uid": "69886014",
+          "title": "Visites commentées de l'exposition 'Jean Dupas & Co. Le grand Art déco'",
+          "score": 0.807
+        },
+        {
+          "ref": 4,
+          "uid": "31864894",
+          "title": "Mine d'Emile s'expose",
+          "score": 0.806
+        },
+        {
+          "ref": 5,
+          "uid": "31802487",
+          "title": "Exposition Sols",
+          "score": 0.805
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Exposition Jean Dupas & Co. Le grand Art déco\nDates : du vendredi 26 juin 2026 à 11h00 au dimanche 29 novembre 2026 à 18h00\nLieu : Galerie des Beaux-Arts Bordeaux, Bordeaux (Gironde)\nMots-clés : Exposition, Jean Dupas, Art déco, vernissage, vernissage junior, Galerie des Beaux-Arts, rétrospective, peintre, décorateur, dessinateur, affichiste, artiste bordelais, entre-deux-guerres, Exposition internationale de 1925\nTarifs : Tarif plein 8€ ; tarif réduit 4,50€ ; 2€ pour les étudiants de moins de 26 ans ; gratuit pour les moins de 18 ans et les personnes en situation de handicap ainsi que leur accompagnateur\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 11h00 à 18h00\n---\n--------------------\nCommissariat : Sophie Barthélémy, commissaire générale, Margaux Wymbs, commissaire scientifique, Louis Deltour, commissaire associé.\nScénographie et graphisme : Agence Roll, scénographes et République Studio, conception graphique.\n--------------------\nMécènes et partenaires : Château Kirwan, Fondation d’entreprise Philippine de Rothschild, TBM et FRAME (FRench American Museum Exchange).\nPartenaires média : Libération, Connaissance des Arts, Sud Ouest et Ici Nouvelle-Aquitaine.\n--------------------\nCatalogue de l’exposition (35 €) et Album (9 €) publiés aux Éditions sans Égal",
+        "[2]\nTitre : Goûter de clôture Un habit trop grand\nDates : le samedi 31 octobre 2026, de 15h00 à 19h00\nLieu : Hôtel de Ragueneau, 17 rue du Loup 33000 BORDEAUX, Bordeaux (Gironde)\nMots-clés : goûter, halloween, exposition, art, espace enfant, bibliothèque\nTarifs : Entrée libre et gratuite\nÂge : de 5 à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 15h00 à 19h00\n---\nPour ce dernier jour d'exposition, nous vous invitons une dernière fois à venir découvrir notre exposition Un habit trop grand, dress code haloween accepté avec joie. Pluie de bonbons garantie\nPour le dernier jour de l'exposition Un habit trop grand de Paul Peinture et Cyril Berthet avec l'AFTC Gironde, nous vous invitons une dernière fois à venir découvrir ou redécouvrir notre exposition Un habit trop grand.\nDress code haloween accepté avec joie. Pluie de bonbons garantie pour les grand.es et les petit.es.\nESPACE ENFANT\nUne sélection de livres de la Bibliothèque de Bordeaux donne vie à un espace dédié aux enfants.\nExposition d'oeuvres créées par des enfants d'écoles bordelaises, espaces crayonnages, lecture, illustration sonore et coin chill pour les enfants.",
+        "[3]\nTitre : Visites commentées de l'exposition 'Jean Dupas & Co. Le grand Art déco'\nDates : du samedi 27 juin 2026 à 15h30 au samedi 28 novembre 2026 à 16h30\nLieu : Galerie des Beaux-Arts Bordeaux, Bordeaux (Gironde)\nTarifs : Entrée du musée + 5 euros. Gratuit avec la Carte Jeune, sans réservation\nÂge : de 18 à 107 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 15h30 à 16h30\n---\nGalerie des Beaux-Arts de Bordeaux\nPeintre, dessinateur et affichiste, Jean Dupas (1882-1964) est l’une des figures majeures de l’Art déco, en France comme aux États-Unis. Son univers étrange et intemporel, peuplé d'élégantes silhouettes féminines longilignes, s’est imposé dans les pavillons des grandes expositions internationales, les intérieurs de collectionneurs, les salons des paquebots transatlantiques et les bâtiments civils et religieux.\nArtiste au style d'emblée reconnaissable, Jean Dupas mêle réminiscences maniéristes et innovations cubistes. Héritier de la tradition des grands ateliers de la Renaissance, il voyait dans le décor monumental l’accomplissement ultime de son art comme en témoigne sa devise : « Plus grand est mon travail, plus je suis heureux. »\nLien vers l'événément original : https://www.musba-bordeaux.fr/visite-commentee-jean-dupas-co",
+        "[4]\nTitre : Mine d'Emile s'expose\nDates : du samedi 3 octobre 2026 à 10h00 au mardi 3 novembre 2026 à 18h00\nLieu : Bibliothèque Bordeaux-Lac, Bordeaux (Gironde)\nMots-clés : Exposition, Sculpture\nTarifs : Entrée libre\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h00 à 18h00\n---\nExposition de sculptures sur métal recyclé\n\"Mine d'Emile\" s'expose à la bibliothèque Bordeaux-Lac du 3 octobre au 3 novembre.\nVenez découvrir le singulier travail de cet artiste engagé à travers l'exposition de ses sculptures sur métal recyclé.\nComme l'artiste l'écrit lui-même :\n\"Mine d'Émile, c'est quoi ?\nMétallo utopiste et humaniste, qui assemble et soude des bouts de métaux. Cette ferraille qui a vécu, souffert et très souvent chargée d'histoire, à qui je redonne vie !\nÀ travers mon monde, je parle de ce qui m'a construit, les classes ouvrières, l'usine, la musique et le street art.\"\nEntrée libre aux horaires d'ouverture de la bibliothèque, vernissage en présence de l'artiste samedi 3 octobre à 11h30.",
+        "[5]\nTitre : Exposition Sols\nDates : du samedi 4 juillet 2026 à 11h00 au dimanche 28 février 2027 à 18h00\nLieu : JARDIN BOTANIQUE Bastide, Bordeaux (Gironde)\nMots-clés : exposition bordeaux\nTarifs : Tarifs d'entrée à l'accueil du Jardin botanique\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 11h00 à 18h00\n---\nUn parcours pédo-sensoriel, accompagné de boîtes à toucher, permet d’appréhender différentes textures de sols et de mieux comprendre leur diversité.\nUne deuxième parcelle est consacrée à l’humification. Elle montre comment la matière organique se décompose au fil du temps grâce à l’action de nombreux organismes.\nUne troisième parcelle présente la phytoremédiation, c’est-à-dire la capacité de certaines plantes à absorber ou accumuler des polluants, contribuant ainsi à la dépollution des sols.\nLa dernière parcelle s’intéresse à l’influence des propriétés chimiques du sol, notamment du pH, sur le développement des plantes. L’exemple de l’hortensia permet d’illustrer concrètement comment la couleur des fleurs varie selon l’acidité du milieu.\nEn poursuivant la visite, la galerie des milieux fait écho à cette exploration. Onze écosystèmes aquitains y sont reconstitués à grande échelle, posés sur leur socle pédologique visible. Les visiteurs peuvent ainsi observer les horizons qui composent chaque sol et comprendre comment ils soutiennent et façonnent les paysages.\nInformations pratiques\nDates : du samedi 4 juillet 2026 au 28 février 2027\nLieu : Jardin botanique de Bordeaux Bastide\nPublic : tout public"
+      ]
+    },
+    "9": {
+      "question": "Un concert à Aubusson",
+      "answer": "Voici un concert qui correspond à votre demande à Aubusson :\n\n- **Sophie Alour - Nouveaux Mondes** : ce concert de jazz au Théâtre Jean Lurçat le **lundi 16 novembre 2026** à partir de 20h30 vous offrira une expérience musicale envoûtante, avec la saxophoniste Sophie Alour en quartet [4].",
+      "sources": [
+        {
+          "ref": 4,
+          "uid": "61696777",
+          "title": "Sophie Alour - Nouveaux Mondes",
+          "start": "2026-11-16T20:30:00+01:00",
+          "end": "2026-11-16T22:00:00+01:00",
+          "city": "Aubusson",
+          "location_name": "Théâtre Jean Lurçat",
+          "url": "https://openagenda.com/saison-2026-2027-scene-nationale-aubusson/events/sophie-alour-nouveaux-mondes",
+          "score": 0.815
+        }
+      ],
+      "criteria": {
+        "city": "Aubusson",
+        "department": null,
+        "period": {
+          "label": "à venir",
+          "start": "2026-10-29",
+          "end": null
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 325.1,
+        "generation_ms": 1706.6,
+        "total_ms": 2034.9,
+        "input_tokens": 2032,
+        "output_tokens": 87,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "30831208",
+          "title": "Apéro célibataires — Aubusson",
+          "score": 0.817
+        },
+        {
+          "ref": 2,
+          "uid": "96637996",
+          "title": "Apéro célibataires — Aubusson",
+          "score": 0.816
+        },
+        {
+          "ref": 3,
+          "uid": "82264777",
+          "title": "Apéro célibataires — Aubusson",
+          "score": 0.816
+        },
+        {
+          "ref": 4,
+          "uid": "61696777",
+          "title": "Sophie Alour - Nouveaux Mondes",
+          "score": 0.815
+        },
+        {
+          "ref": 5,
+          "uid": "77632590",
+          "title": "Apéro célibataires — Aubusson",
+          "score": 0.814
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Apéro célibataires — Aubusson\nDates : le vendredi 30 octobre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Aubusson, Aubusson (Creuse)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le vendredi 30 octobre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Aubusson : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Aubusson, le vendredi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/aubusson-23",
+        "[2]\nTitre : Apéro célibataires — Aubusson\nDates : le mardi 10 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Aubusson, Aubusson (Creuse)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 10 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Aubusson : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Aubusson, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/aubusson-23",
+        "[3]\nTitre : Apéro célibataires — Aubusson\nDates : le mardi 3 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Aubusson, Aubusson (Creuse)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Aubusson : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Aubusson, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/aubusson-23",
+        "[4]\nTitre : Sophie Alour - Nouveaux Mondes\nDates : le lundi 16 novembre 2026, de 20h30 à 22h00\nLieu : Théâtre Jean Lurçat, Aubusson (Creuse)\nMots-clés : jazz, saxophone, sophie, alour, jazz à la sout, festival, quartet\nTarifs : Tarifs de 8€ à 24€ / Gratuit pour les -12 ans\nSéances pendant la période demandée : le lundi 16 novembre 2026, de 20h30 à 22h00\n---\nCONCERT | Paysages sonores aussi délicats qu'envoûtants\nNouveaux Mondes\nSophie Alour\nEn partenariat avec Jazz à La Sout\nLe festival Jazz à la Sout et le Théâtre Jean Lurçat – Scène nationale d’Aubusson s’associent à nouveau pour un concert exceptionnel. Après Robinson Khoury puis le duo Airelle Besson et Lionel Suarez, c’est la saxophoniste Sophie Alour qui est invitée par le festival de jazz sostranien à jouer à Aubusson en quartet.\nSophie Alour a commencé le saxophone en autodidacte à 19 ans, après avoir étudié la clarinette à l’école de musique de Quimper. C’est sur scène qu’elle fait l’apprentissage du jazz et les collaborations s’enchaînent à partir des années 2000, avec notamment Wynton Marsalis, les frères Belmondo, Aldo Romano, Rhoda Scott … Elle a sorti huit albums sous son nom, tous salués par la critique.",
+        "[5]\nTitre : Apéro célibataires — Aubusson\nDates : le vendredi 6 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Aubusson, Aubusson (Creuse)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le vendredi 6 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Aubusson : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Aubusson, le vendredi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/aubusson-23"
+      ]
+    },
+    "10": {
+      "question": "Une balade nature en Dordogne en novembre",
+      "answer": "Voici deux propositions de balades nature en Dordogne en novembre 2026 :\n\n- **Balade découverte des plantes sauvages** le dimanche 8 novembre à Périgueux, une activité pour explorer les plantes sauvages et leurs évolutions saisonnières [1].\n- **Les Carnets d'Aventures** le dimanche 15 novembre à Trélissac, une randonnée guidée mêlant nature, développement personnel et créativité [2].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "18988656",
+          "title": "Balade découverte des plantes sauvages",
+          "start": "2025-09-21T17:00:00+02:00",
+          "end": "2026-11-08T17:00:00+01:00",
+          "city": "Périgueux",
+          "location_name": "74 Chem. de Beaupuy",
+          "url": "https://openagenda.com/econature/events/balade-decouverte-des-plantes-sauvages-5178121",
+          "score": 0.809
+        },
+        {
+          "ref": 2,
+          "uid": "24146994",
+          "title": "Les Carnets d'Aventures",
+          "start": "2026-04-12T11:00:00+02:00",
+          "end": "2026-12-13T17:00:00+01:00",
+          "city": "Trélissac",
+          "location_name": "51 Av. de l'Automobile, 24557 Trélissac, France",
+          "url": "https://openagenda.com/econature/events/laventure-interieure-7105678",
+          "score": 0.789
+        }
+      ],
+      "criteria": {
+        "city": null,
+        "department": "Dordogne",
+        "period": {
+          "label": "en novembre 2026",
+          "start": "2026-11-01",
+          "end": "2026-11-30"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 345.1,
+        "generation_ms": 1314.2,
+        "total_ms": 1662.4,
+        "input_tokens": 2046,
+        "output_tokens": 97,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "18988656",
+          "title": "Balade découverte des plantes sauvages",
+          "score": 0.809
+        },
+        {
+          "ref": 2,
+          "uid": "24146994",
+          "title": "Les Carnets d'Aventures",
+          "score": 0.789
+        },
+        {
+          "ref": 3,
+          "uid": "53804638",
+          "title": "Apéro célibataires — Périgueux",
+          "score": 0.755
+        },
+        {
+          "ref": 4,
+          "uid": "20597469",
+          "title": "Apéro célibataires — Périgueux",
+          "score": 0.754
+        },
+        {
+          "ref": 5,
+          "uid": "2293261",
+          "title": "Apéro célibataires — Périgueux",
+          "score": 0.75
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Balade découverte des plantes sauvages\nDates : du dimanche 21 septembre 2025 à 17h00 au dimanche 8 novembre 2026 à 17h00\nLieu : 74 Chem. de Beaupuy, Périgueux (Dordogne)\nMots-clés : Nature, Sortie nature, plantes sauvages, visite de jardin, plantes-comestibles, plantes-médicinales\nTarifs : Tarifs : Adulte 25€ ; Tarif spécial 20€\nSéances pendant la période demandée : le dimanche 8 novembre 2026, de 15h00 à 17h00\n---\nLes plantes rencontrées lors des balades changeront à chaque saison. Nous pourrons aussi recroiser certaines plantes et ainsi suivre leurs évolutions au fil des saisons.\nLe carnet fourni pourra être ramener d’une sortie à une autre afin de l’étoffer un peu plus !\nPrêt.e à ouvrir les yeux sur ce nouveau monde ?\nDurée : 2h00\nActivité organisée par Floriane - Herbaliste animatrice nature\nInfos et réservation sur EcoNature : https://www.eco-nature.org/experience/balade-decouverte-des-plantes-sauvages-3923",
+        "[2]\nTitre : Les Carnets d'Aventures\nDates : du dimanche 12 avril 2026 à 11h00 au dimanche 13 décembre 2026 à 17h00\nLieu : 51 Av. de l'Automobile, 24557 Trélissac, France, Trélissac (Dordogne)\nMots-clés : Nature, Randonnée nature, photographie, pratiques créatives\nTarifs : Tarifs : Standard 75€ ; Standard avec location sac à dos 78€\nSéances pendant la période demandée : le dimanche 15 novembre 2026, de 10h00 à 17h00\n---\nSe reconnecter à sa nature en pleine nature\nCes escapades mensuelles te proposent une petite randonnée guidée de groupe (8 personnes max, 2 personnes min) avec des ateliers et jeux pour se reconnecter à soi et à la nature (développement personnel, cluedo en équipe, land’art…). Le but étant d’explorer les recoins les plus sauvages et méconnus de la Dordogne. Le pique-nique est à prévoir ainsi que les vêtements adéquats selon la météo. Le tarif est de 75€/personne. Les lieux sont dévoilés le jour J.\nDurée : 7h\nActivité organisée par Jordan - Le Tour de Soi\nInfos et réservation sur EcoNature : https://www.eco-nature.org/experience/carnet-d-aventures-8379",
+        "[3]\nTitre : Apéro célibataires — Périgueux\nDates : le mardi 3 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Périgueux, Périgueux (Dordogne)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Périgueux : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Périgueux, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/perigueux-24",
+        "[4]\nTitre : Apéro célibataires — Périgueux\nDates : le mardi 10 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Périgueux, Périgueux (Dordogne)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 10 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Périgueux : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Périgueux, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/perigueux-24",
+        "[5]\nTitre : Apéro célibataires — Périgueux\nDates : le vendredi 6 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Périgueux, Périgueux (Dordogne)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le vendredi 6 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Périgueux : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Périgueux, le vendredi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/perigueux-24"
+      ]
+    },
+    "11": {
+      "question": "Que faire à Angoulême en novembre ?",
+      "answer": "Voici deux propositions culturelles à Angoulême pour novembre 2026 :\n\n- **Exposition *sténopé/coconstruction*** à la médiathèque **l'Alpha** : une immersion créative et réflexive sur l'habitat et la lumière, accessible toute la période demandée [4].\n- **Exposition *Croissant Indigerible / علاقات عرنسية*** au **FRAC Poitou-Charentes** : une visite guidée gratuite le **dimanche 2 novembre à 16h**, explorant des œuvres du collectif Tizintizwa [5].\n\nPour les apéros entre célibataires (thème randonnée), les dates sont le **6 novembre (vendredi)**, le **10 novembre (mardi)** et le **3 novembre (mardi)** [1, 2, 3].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "29320682",
+          "title": "Apéro célibataires — Angoulême",
+          "start": "2026-11-03T19:00:00+01:00",
+          "end": "2026-11-03T22:00:00+01:00",
+          "city": "Angoulême",
+          "location_name": "Centre-ville de Angoulême",
+          "url": "https://openagenda.com/randodate/events/apero-celibataires-angouleme-409105",
+          "score": 0.77
+        },
+        {
+          "ref": 2,
+          "uid": "67077357",
+          "title": "Apéro célibataires — Angoulême",
+          "start": "2026-11-10T19:00:00+01:00",
+          "end": "2026-11-10T22:00:00+01:00",
+          "city": "Angoulême",
+          "location_name": "Centre-ville de Angoulême",
+          "url": "https://openagenda.com/randodate/events/apero-celibataires-angouleme-2023358",
+          "score": 0.77
+        },
+        {
+          "ref": 3,
+          "uid": "15214267",
+          "title": "Apéro célibataires — Angoulême",
+          "start": "2026-11-06T19:00:00+01:00",
+          "end": "2026-11-06T22:00:00+01:00",
+          "city": "Angoulême",
+          "location_name": "Centre-ville de Angoulême",
+          "url": "https://openagenda.com/randodate/events/apero-celibataires-angouleme-4337791",
+          "score": 0.77
+        },
+        {
+          "ref": 4,
+          "uid": "78193719",
+          "title": "Exposition sténopé /coconstruction",
+          "start": "2026-11-02T10:00:00+01:00",
+          "end": "2026-11-21T18:00:00+01:00",
+          "city": "Angoulême",
+          "location_name": "mediatheque l'alpha",
+          "url": "https://openagenda.com/bicentenaire-photographie-fr/events/exposition-stenope-coconstruction",
+          "score": 0.721
+        },
+        {
+          "ref": 5,
+          "uid": "85433784",
+          "title": "Exposition « Croissant Indigerible / علاقات عرنسية » du collectif Tizintizwa",
+          "start": "2026-05-22T14:00:00+02:00",
+          "end": "2026-11-01T18:00:00+01:00",
+          "city": "Angoulême",
+          "location_name": "FRAC Poitou-Charentes - site d'Angoulême",
+          "url": "https://openagenda.com/culture/events/exposition-croissant-indigerible-alaqat-arnsyh-du-collectif-tizintizwa",
+          "score": 0.705
+        }
+      ],
+      "criteria": {
+        "city": "Angoulême",
+        "department": null,
+        "period": {
+          "label": "en novembre 2026",
+          "start": "2026-11-01",
+          "end": "2026-11-30"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 298.0,
+        "generation_ms": 2807.5,
+        "total_ms": 3107.8,
+        "input_tokens": 1954,
+        "output_tokens": 178,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "29320682",
+          "title": "Apéro célibataires — Angoulême",
+          "score": 0.77
+        },
+        {
+          "ref": 2,
+          "uid": "67077357",
+          "title": "Apéro célibataires — Angoulême",
+          "score": 0.77
+        },
+        {
+          "ref": 3,
+          "uid": "15214267",
+          "title": "Apéro célibataires — Angoulême",
+          "score": 0.77
+        },
+        {
+          "ref": 4,
+          "uid": "78193719",
+          "title": "Exposition sténopé /coconstruction",
+          "score": 0.721
+        },
+        {
+          "ref": 5,
+          "uid": "85433784",
+          "title": "Exposition « Croissant Indigerible / علاقات عرنسية » du collectif Tizintizwa",
+          "score": 0.705
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Apéro célibataires — Angoulême\nDates : le mardi 3 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Angoulême, Angoulême (Charente)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 3 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Angoulême : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Angoulême, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/angouleme-16",
+        "[2]\nTitre : Apéro célibataires — Angoulême\nDates : le mardi 10 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Angoulême, Angoulême (Charente)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le mardi 10 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Angoulême : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Angoulême, le mardi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/angouleme-16",
+        "[3]\nTitre : Apéro célibataires — Angoulême\nDates : le vendredi 6 novembre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Angoulême, Angoulême (Charente)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le vendredi 6 novembre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Angoulême : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Angoulême, le vendredi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/angouleme-16",
+        "[4]\nTitre : Exposition sténopé /coconstruction\nDates : du lundi 2 novembre 2026 à 10h00 au samedi 21 novembre 2026 à 18h00\nLieu : mediatheque l'alpha, Angoulême (Charente)\nSéances pendant la période demandée : le lundi 2 novembre 2026, de 10h00 à 18h00 ; le mardi 3 novembre 2026, de 10h00 à 18h00 ; le mercredi 4 novembre 2026, de 10h00 à 18h00 ; le jeudi 5 novembre 2026, de 10h00 à 18h00 ; le vendredi 6 novembre 2026, de 10h00 à 18h00 ; et 13 autres séances\n---\nCocon-struction évoque à la fois l’idée de construction collective, d’abri, de transformation et de réflexion sur l’habitat. Cette exposition met en lumière un processus où techniques anciennes et outils contemporains se rencontrent pour créer une lecture sensible et renouvelée de l’architecture.\nÀ travers leurs expérimentations, les élèves deviennent observateurs, bâtisseurs et créateurs d’images, offrant au visiteur un parcours entre mémoire, matière, lumière et projection.",
+        "[5]\nTitre : Exposition « Croissant Indigerible / علاقات عرنسية » du collectif Tizintizwa\nDates : du vendredi 22 mai 2026 à 14h00 au dimanche 1 novembre 2026 à 18h00\nLieu : FRAC Poitou-Charentes - site d'Angoulême, Angoulême (Charente)\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 14h00 à 18h00\n---\nEntrée gratuite, tout public\nVisite accompagnée, gratuite et sans réservation tous les 1er dimanches du mois, à 16h00.\nPour mener leurs recherches, les quatre artistes du collectif ont été accueillis entre mars et octobre 2025 successivement à La Réciproque (Hasparren), La Forêt d’Art contemporain (PNR des Landes de Gascogne), Trapèze (St Jean d’Angély) et la Maison des écritures (La Rochelle)."
+      ]
+    },
+    "12": {
+      "question": "Que faire à Bayonne cette semaine ?",
+      "answer": "Voici quelques suggestions d'événements culturels à Bayonne pour cette semaine :\n\n- **Exposition : *À la découverte de la biodiversité dans mon quartier***\n  Du jeudi 29 octobre au samedi 31 octobre, au **Jardin Léon-Bonnat** : une belle occasion de découvrir la richesse naturelle de Bayonne, accessible gratuitement [2].\n\n- **Exposition : *Archistoire : regards sur l'architecture des années 1930***\n  Toujours visible jusqu’au samedi 31 octobre, à l’**Immeuble Nivadour** : une plongée dans l’histoire architecturale de Bayonne, avec des ressources numériques et des balades thématiques [3].\n\n- **Exposition : *DANTZA - Regards sur la danse basque***\n  Du jeudi 29 au samedi 31 octobre, à la **Médiathèque de Bayonne** : une exploration fascinante de la danse traditionnelle basque et de son héritage culturel [4].\n\n- **Exposition : *L'objet Invité : tête à tête avec la cathédrale néogothique***\n  Jusqu’au samedi 31 octobre au **CIAP Lapurdum** : une immersion dans l’histoire de la cathédrale Sainte-Marie, avec des objets et documents rares [5].\n\nSi vous cherchez une ambiance plus conviviale, l’**Apéro célibataires** le vendredi 30 octobre en centre-ville pourrait aussi vous intéresser, mais il s’agit d’un événement dédié aux rencontres [1].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "83400650",
+          "title": "Apéro célibataires — Bayonne",
+          "start": "2026-10-30T19:00:00+01:00",
+          "end": "2026-10-30T22:00:00+01:00",
+          "city": "Bayonne",
+          "location_name": "Centre-ville de Bayonne",
+          "url": "https://openagenda.com/randodate/events/apero-celibataires-bayonne-5252610",
+          "score": 0.723
+        },
+        {
+          "ref": 2,
+          "uid": "58505577",
+          "title": "Exposition : À la découverte de la biodiversité dans mon quartier",
+          "start": "2026-10-01T09:00:00+02:00",
+          "end": "2026-10-31T19:00:00+01:00",
+          "city": "Bayonne",
+          "location_name": "Jardin Léon-Bonnat",
+          "url": "https://openagenda.com/planlibre/events/a-la-decouverte-de-la-biodiversite-dans-mon-quartier",
+          "score": 0.718
+        },
+        {
+          "ref": 3,
+          "uid": "60714530",
+          "title": "Archistoire : regards sur l'architecture des années 1930",
+          "start": "2026-09-22T08:00:00+02:00",
+          "end": "2026-10-31T19:00:00+01:00",
+          "city": "Bayonne",
+          "location_name": "Immeuble Nivadour",
+          "url": "https://openagenda.com/planlibre/events/archistoire-regards-sur-larchitecture-des-annees-1930",
+          "score": 0.711
+        },
+        {
+          "ref": 4,
+          "uid": "47921008",
+          "title": "DANTZA - Regards sur la danse basque",
+          "start": "2026-10-08T14:00:00+02:00",
+          "end": "2027-01-09T18:00:00+01:00",
+          "city": "Bayonne",
+          "location_name": "Médiathèque de Bayonne",
+          "url": "https://openagenda.com/pci-nouvelle-aquitaine/events/dantza-regards-sur-la-danse-basque",
+          "score": 0.707
+        },
+        {
+          "ref": 5,
+          "uid": "39947888",
+          "title": "L'objet Invité : tête à tête avec la cathédrale néogothique",
+          "start": "2026-10-01T14:00:00+02:00",
+          "end": "2026-10-31T18:00:00+01:00",
+          "city": "Bayonne",
+          "location_name": "CIAP Lapurdum",
+          "url": "https://openagenda.com/planlibre/events/lobjet-invite-tete-a-tete-avec-la-cathedrale-neogothique",
+          "score": 0.705
+        }
+      ],
+      "criteria": {
+        "city": "Bayonne",
+        "department": null,
+        "period": {
+          "label": "cette semaine",
+          "start": "2026-10-29",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 272.7,
+        "generation_ms": 5043.4,
+        "total_ms": 5319.4,
+        "input_tokens": 2151,
+        "output_tokens": 324,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "83400650",
+          "title": "Apéro célibataires — Bayonne",
+          "score": 0.723
+        },
+        {
+          "ref": 2,
+          "uid": "58505577",
+          "title": "Exposition : À la découverte de la biodiversité dans mon quartier",
+          "score": 0.718
+        },
+        {
+          "ref": 3,
+          "uid": "60714530",
+          "title": "Archistoire : regards sur l'architecture des années 1930",
+          "score": 0.711
+        },
+        {
+          "ref": 4,
+          "uid": "47921008",
+          "title": "DANTZA - Regards sur la danse basque",
+          "score": 0.707
+        },
+        {
+          "ref": 5,
+          "uid": "39947888",
+          "title": "L'objet Invité : tête à tête avec la cathédrale néogothique",
+          "score": 0.705
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Apéro célibataires — Bayonne\nDates : le vendredi 30 octobre 2026, de 19h00 à 22h00\nLieu : Centre-ville de Bayonne, Bayonne (Pyrénées-Atlantiques)\nMots-clés : célibataires, rencontre, apéro, randonnée, soirée\nSéances pendant la période demandée : le vendredi 30 octobre 2026, de 19h00 à 22h00\n---\nApéro convivial entre célibataires randonneurs à Bayonne : petit groupe (8 max), ambiance détendue. Inscription gratuite sur RandoDate.\nUn apéro convivial entre célibataires passionnés de randonnée à Bayonne, le vendredi soir. 🍻\nOn se retrouve autour d'un verre pour faire connaissance, échanger sur nos prochains itinéraires et se motiver pour partir marcher ensemble le week-end.\nAmbiance détendue, aucune pression : on vient comme on est.\nPetit groupe (8 personnes max) pour que tout le monde puisse échanger.\nLe lieu exact (bar / café) se décide ensemble dans le groupe de discussion une fois inscrit·e.\nInscription gratuite sur RandoDate : https://www.randodate.fr/soirees-celibataires/bayonne-64",
+        "[2]\nTitre : Exposition : À la découverte de la biodiversité dans mon quartier\nDates : du jeudi 1 octobre 2026 à 9h00 au samedi 31 octobre 2026 à 19h00\nLieu : Jardin Léon-Bonnat, Bayonne (Pyrénées-Atlantiques)\nTarifs : Gratuit.\nSéances pendant la période demandée : le jeudi 29 octobre 2026, de 9h00 à 19h00 ; le vendredi 30 octobre 2026, de 9h00 à 19h00 ; le samedi 31 octobre 2026, de 9h00 à 19h00\n---\nVenez redécouvrir la biodiversité à travers le regard des habitants et si vous le souhaitez, poursuivre l'aventure en participant à la connaissance sur : observations-biodiv.bayonne.fr.\nVenez redécouvrir la biodiversité à travers le regard des habitants et, si vous le souhaitez, poursuivez l’aventure en contribuant à la connaissance de la faune et de la flore locales sur observations-biodiv.bayonne.fr.\nPar le service Fabrique des transitions de la Ville de Bayonne.",
+        "[3]\nTitre : Archistoire : regards sur l'architecture des années 1930\nDates : du mardi 22 septembre 2026 à 8h00 au samedi 31 octobre 2026 à 19h00\nLieu : Immeuble Nivadour, Bayonne (Pyrénées-Atlantiques)\nTarifs : Gratuit.\nSéances pendant la période demandée : le jeudi 29 octobre 2026, de 8h00 à 19h00 ; le vendredi 30 octobre 2026, de 8h00 à 19h00 ; le samedi 31 octobre 2026, de 8h00 à 19h00\n---\nDans la rue ou depuis votre canapé, plongez au cœur des architectures bayonnaises des années 1930 grâce aux panoramas 360°, aux photographies anciennes, aux plans… et découvrez les architectes qui de…\nDans la rue ou depuis votre canapé, plongez au cœur des architectures bayonnaises des années 1930 grâce aux panoramas 360°, aux photographies anciennes, aux plans… et découvrez les architectes qui ont marqué l’histoire de l’évolution urbaine de Bayonne.\nUne story présentée par le C.A.U.E. des Pyrénées Atlantiques et le Service Patrimoine -Ville d’art et d’histoire de Bayonne, avec le soutien du ministère de la Culture.\nBalade d’environ 45 min. à pied & 20 min à vélo.\nL’application Archistoire est disponible gratuitement sur les stores.",
+        "[4]\nTitre : DANTZA - Regards sur la danse basque\nDates : du jeudi 8 octobre 2026 à 14h00 au samedi 9 janvier 2027 à 18h00\nLieu : Médiathèque de Bayonne, Bayonne (Pyrénées-Atlantiques)\nSéances pendant la période demandée : le jeudi 29 octobre 2026, de 14h00 à 18h00 ; le vendredi 30 octobre 2026, de 10h00 à 18h00 ; le samedi 31 octobre 2026, de 10h00 à 18h00\n---\nL’attachement que les Basques ont toujours manifesté envers leur culture leur a permis de conserver un répertoire riche et spectaculaire de danses traditionnelles.\nLa danse et la langue sont les deux langages dont les Basques disposent pour communiquer, ressentir et vivre. La langue prend corps à travers les mots, la danse basque parle à travers les corps.\nAu travers de focus thématiques, de documents d'archives et d'images contemporaines, l'exposition \"DANTZA, regards sur la danse basque\" explore la place de la danse traditionnelle dans la société basque, son héritage et ses évolutions, sans oublier l'importance de sa transmission.\nUne exposition co-produite par l'Institut culturel basque et la Médiathèque de Bayonne",
+        "[5]\nTitre : L'objet Invité : tête à tête avec la cathédrale néogothique\nDates : du jeudi 1 octobre 2026 à 14h00 au samedi 31 octobre 2026 à 18h00\nLieu : CIAP Lapurdum, Bayonne (Pyrénées-Atlantiques)\nTarifs : Gratuit, sur réservation.\nSéances pendant la période demandée : le jeudi 29 octobre 2026, de 14h00 à 18h00 ; le vendredi 30 octobre 2026, de 14h00 à 18h00 ; le samedi 31 octobre 2026, de 10h00 à 12h30 ; le samedi 31 octobre 2026, de 14h00 à 18h00\n---\nSaviez-vous que la cathédrale Sainte-Marie n’avait pas de flèches avant la fin du XIXᵉsiècle ? Émile Boeswillwald, tailleur de pierre, peintre et architecte, supervise un chantier colossal. La réunit…\nSaviez-vous que la cathédrale Sainte-Marie n’avait pas de flèches avant la fin du XIXᵉsiècle ? Émile Boeswillwald, tailleur de pierre, peintre et architecte, supervise un chantier colossal. La vitrine réunit les témoins de cet incroyable renouveau : dessins préparatoires, photographie de chantier et moules de visages en plâtre qui ont servi de modèle aux tailleurs de pierre.\nPar le Service Patrimoine-Ville d’art et d’histoire en partenariat, la DRAC Nouvelle-Aquitaine, le Musée Basque et de l’histoire de Bayonne et la Médiathèque."
+      ]
+    },
+    "13": {
+      "question": "Que faire à Niort ce week-end ?",
+      "answer": "Voici une proposition pour ce week-end à Niort :\n\n**Dans le bureau d'Ernest, lettres ouvertes à la photographie** – *Samedi 31 octobre 2026, de 13h30 à 18h30 à la Villa Pérochon*\nUne expérience littéraire et photographique originale, où des écrivain·es explorent le médium photographique à travers des lettres ouvertes, à découvrir dans le cadre intimiste du bureau d’Ernest Pérochon [1].\n\nAucun autre événement culturel ne correspond à votre demande pour ce week-end. Souhaitez-vous élargir votre recherche à d’autres dates ou types d’événements ?",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "38347230",
+          "title": "Dans le bureau d'Ernest, lettres ouvertes à la photographie",
+          "start": "2026-09-29T13:30:00+02:00",
+          "end": "2027-07-31T18:30:00+02:00",
+          "city": "Niort",
+          "location_name": "Villa Pérochon, Centre d'art contemporain photographique",
+          "url": "https://openagenda.com/bicentenaire-photographie-fr/events/dans-le-bureau-dernest-lettres-ouvertes-a-la-photographie",
+          "score": 0.688
+        }
+      ],
+      "criteria": {
+        "city": "Niort",
+        "department": null,
+        "period": {
+          "label": "ce week-end",
+          "start": "2026-10-31",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 1,
+        "retrieval_ms": 307.4,
+        "generation_ms": 2338.6,
+        "total_ms": 2649.5,
+        "input_tokens": 821,
+        "output_tokens": 146,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "38347230",
+          "title": "Dans le bureau d'Ernest, lettres ouvertes à la photographie",
+          "score": 0.688
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Dans le bureau d'Ernest, lettres ouvertes à la photographie\nDates : du mardi 29 septembre 2026 à 13h30 au samedi 31 juillet 2027 à 18h30\nLieu : Villa Pérochon, Centre d'art contemporain photographique, Niort (Deux-Sèvres)\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 13h30 à 18h30\n---\nLa Villa Pérochon, centre d’art contemporain d’intérêt national est l’ancienne demeure d’un lauréat du Prix Goncourt, Ernest Pérochon en 1920.\nEn partenariat avec le Collège international de Photographie du Grand Paris, la Villa Pérochon inaugure un cycle inédit de résidences d’écriture sur la photographie intitulé Lettres ouvertes à la photographie. Il est destiné à des écrivain·es reconnu·es ou émergent·es désireux·euses de relier leur univers à celui de la photographie.\nSur le principe d’une correspondance, leurs lettres ouvertes offrent l’occasion d’une expérience littéraire susceptible d’enrichir notre regard sur le médium. La résidence présente un caractère performatif en invitant l’écrivain·e à travailler dans le bureau d’Ernest Pérochon au cœur même du centre d’art.\nLes textes sont ensuite proposés au public par un dispositif d'écoute dans le jardin de la Villa Pérochon."
+      ]
+    },
+    "14": {
+      "question": "Un marché de Noël en décembre",
+      "answer": "Voici deux marchés de Noël en Nouvelle-Aquitaine qui correspondent à votre demande en décembre 2026 :\n\n- **Marché de Noël de Bordeaux** : du **mardi 1er au dimanche 27 décembre 2026** (Place des Quinconces, Bordeaux), pour une ambiance festive avec illuminations et produits locaux [1].\n- **Marché de Noël de Fondaudège** : le **dimanche 20 décembre 2026** (Place Charles Gruet, Bordeaux), organisé par les commerçants de la rue Fondaudège, avec gourmandises et idées cadeaux [2].\n\nCes deux événements sont entièrement gratuits et ouverts à tous.",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "20724859",
+          "title": "Marché de Noël de Bordeaux",
+          "start": "2026-11-27T11:00:00+01:00",
+          "end": "2026-12-27T21:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Place des Quinconces",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/mercado-de-navidad-en-burdeos",
+          "score": 0.821
+        },
+        {
+          "ref": 2,
+          "uid": "84245912",
+          "title": "Marché de Noël de Fondaudège",
+          "start": "2026-12-20T10:00:00+01:00",
+          "end": "2026-12-20T19:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Place Charles Gruet",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/marche-de-noel-de-fondaudege",
+          "score": 0.814
+        }
+      ],
+      "criteria": {
+        "city": null,
+        "department": null,
+        "period": {
+          "label": "en décembre 2026",
+          "start": "2026-12-01",
+          "end": "2026-12-31"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 397.1,
+        "generation_ms": 2606.9,
+        "total_ms": 3006.9,
+        "input_tokens": 1853,
+        "output_tokens": 151,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "20724859",
+          "title": "Marché de Noël de Bordeaux",
+          "score": 0.821
+        },
+        {
+          "ref": 2,
+          "uid": "84245912",
+          "title": "Marché de Noël de Fondaudège",
+          "score": 0.814
+        },
+        {
+          "ref": 3,
+          "uid": "96660577",
+          "title": "Noël au Musée Mer Marine",
+          "score": 0.778
+        },
+        {
+          "ref": 4,
+          "uid": "44654704",
+          "title": "\" C'est bientôt Noël \"",
+          "score": 0.778
+        },
+        {
+          "ref": 5,
+          "uid": "1159910",
+          "title": "Il faut sauver Noel",
+          "score": 0.773
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Marché de Noël de Bordeaux\nDates : du vendredi 27 novembre 2026 à 11h00 au dimanche 27 décembre 2026 à 21h00\nLieu : Place des Quinconces, Bordeaux (Gironde)\nMots-clés : marché, noel, bordeaux, illumination\nTarifs : Entrée libre.\nSéances pendant la période demandée : le mardi 1 décembre 2026, de 11h00 à 21h00 ; le mercredi 2 décembre 2026, de 11h00 à 21h00 ; le jeudi 3 décembre 2026, de 11h00 à 21h00 ; le vendredi 4 décembre 2026, de 11h00 à 21h00 ; le samedi 5 décembre 2026, de 11h00 à 21h00 ; et 22 autres séances\n---\nLe Marché de Noël revient en décembre ! Entre illuminations et produits locaux, un mois de fête attend les visiteurs.\nVivez la magie de Noël à Bordeaux\nCette année, le marché de Noël de Bordeaux vous ouvre ses portes. Il sera ouvert tous les jours de 11h à 21h. Vous pourrez ainsi en profiter la journée pour faire vos emplettes, mais également lorsque la nuit sera tombée pour admirer lumières et décorations.\nAu programme du Marché de Noël de Bordeaux : exposants et animations ! Pendant tout le mois de décembre, la ville de Bordeaux - par le biais de l'association des commerçants Bordeaux Mon Commerce - monte une nouvelle fois le tant attendu Marché de Noël !\nToutes les infos du marché de Noël de Bordeaux par ici",
+        "[2]\nTitre : Marché de Noël de Fondaudège\nDates : le dimanche 20 décembre 2026, de 10h00 à 19h00\nLieu : Place Charles Gruet, Bordeaux (Gironde)\nMots-clés : Marché de noël bordeaux Fondaudège\nTarifs : Entrée libre et gratuite, tout public !\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le dimanche 20 décembre 2026, de 10h00 à 19h00\n---\nBordeaux en fête ! 2ème édition du marché de noël des commerçants de la rue Fondaudège\nLes commerçants de la rue Fondaudège organisent leur tout premier marché de noël, le dimanche 20 décembre, sur la place Charles Gruet, à l'arrêt de Tramway Fondaudège-Museum.\nPlus de 15 exposants de la rue sont attendus pour vous fêter ensemble la magie de noël : boissons chaudes, gourmandises, déco, idées cadeaux locales..",
+        "[3]\nTitre : Noël au Musée Mer Marine\nDates : du samedi 12 décembre 2026 à 10h30 au dimanche 13 décembre 2026 à 18h00\nLieu : Musée Mer Marine, Bordeaux (Gironde)\nMots-clés : Fables, Madame Jeanne, Collectif Le PAGE, Musée Mer Marine, Spectacle, Noël, Marché de Noël, contes, ateliers\nTarifs : MARCHÉ DE NOËL : en accès libre // SPECTACLE : Tarif plein : 20€ / Tarif réduit : 15€ (AMMM, - de 10 ans, Carte Jeune) / Spectacle + musée - enfant : 25€ / Spectacle + musée - adulte : 30€\nSéances pendant la période demandée : le samedi 12 décembre 2026, de 10h30 à 18h00 ; le dimanche 13 décembre 2026, de 10h30 à 18h00\n---\nMise en scène et adaptation : Camille Thomas & Thibaut Kizirian\nAvec : Thibaut Kizirian, Loïc Richard, Océane Rucinski et Isabelle Trancart",
+        "[4]\nTitre : \" C'est bientôt Noël \"\nDates : du lundi 9 novembre 2026 à 16h30 au jeudi 10 décembre 2026 à 14h00\nLieu : Pavillon du Verdurier, Limoges (Haute-Vienne)\nTarifs : Complet exposant(e)s et entrée gratuite pour visiteur\nÂge : de 7 à 99 ans\nSéances pendant la période demandée : le jeudi 3 décembre 2026, de 13h30 à 14h00 ; le jeudi 10 décembre 2026, de 13h30 à 14h00\n---\nExposition Art et Artisanat\n\"C'est bientôt Noël\"\nArts-Art du feu-Artisanat\n22 participantes et participants proposeront céramique, émail sur cuivre, porcelaine, bijoux, textile, fusing, sculpture, peinture, raku, photo, art africain...",
+        "[5]\nTitre : Il faut sauver Noel\nDates : le vendredi 4 décembre 2026, de 18h15 à 19h30\nLieu : Médiathèque Castagnéra, Talence (Gironde)\nTarifs : Sur inscription\nÂge : de 4 à 99 ans\nSéances pendant la période demandée : le vendredi 4 décembre 2026, de 18h15 à 19h30\n---\npar la Cie La Marge Rousse\nC’est la panique dans la fabrique du Père Noël. Les lutins enchaînent les bêtises et maintenant, ils sont en retard… Et s’ils n’arrivaient pas à finir tous les cadeaux à temps ? Peut-être que les enfants pourront les aider à tout remettre en ordre pour sauver Noël…"
+      ]
+    },
+    "15": {
+      "question": "Un concert à Aubusson ce week-end",
+      "answer": "Je n'ai trouvé aucun événement correspondant à ces critères : lieu : Aubusson ; période : ce week-end, du samedi 31 octobre 2026 au dimanche 1 novembre 2026. Vous pouvez élargir la recherche : une autre date, un autre lieu ou toute la région.",
+      "sources": [],
+      "criteria": {
+        "city": "Aubusson",
+        "department": null,
+        "period": {
+          "label": "ce week-end",
+          "start": "2026-10-31",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": false,
+        "retrieved_events": 0,
+        "retrieval_ms": 6.8,
+        "generation_ms": 0.0,
+        "total_ms": 9.5,
+        "input_tokens": null,
+        "output_tokens": null,
+        "reasoning_tokens": null,
+        "finish_reason": null
+      },
+      "retrieved": [],
+      "contexts": []
+    },
+    "16": {
+      "question": "Un opéra à Limoges ce week-end",
+      "answer": "Malheureusement, aucun opéra n'est proposé à Limoges pour ce week-end (du **samedi 31 octobre au dimanche 1 novembre 2026**) dans les événements listés.\n\nSi vous souhaitez élargir votre recherche à d'autres types de spectacles musicaux ou à une autre période, je peux vous aider à explorer d'autres propositions.",
+      "sources": [],
+      "criteria": {
+        "city": "Limoges",
+        "department": null,
+        "period": {
+          "label": "ce week-end",
+          "start": "2026-10-31",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 329.8,
+        "generation_ms": 1298.5,
+        "total_ms": 1631.3,
+        "input_tokens": 2058,
+        "output_tokens": 76,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "65843339",
+          "title": "Le souterrain endiablé (8-12 ans)",
+          "score": 0.735
+        },
+        {
+          "ref": 2,
+          "uid": "75049166",
+          "title": "Exposition Écrits du Limousin en portraits d'auteurs",
+          "score": 0.732
+        },
+        {
+          "ref": 3,
+          "uid": "25507485",
+          "title": "Exposition photo : La ville invisible, Guillaume Bonnel",
+          "score": 0.724
+        },
+        {
+          "ref": 4,
+          "uid": "50244185",
+          "title": "Atelier famille : Un bonbon ou un sort",
+          "score": 0.724
+        },
+        {
+          "ref": 5,
+          "uid": "627243",
+          "title": "Objectif Rose - exposition photographique",
+          "score": 0.721
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Le souterrain endiablé (8-12 ans)\nDates : du jeudi 29 octobre 2026 à 14h00 au samedi 31 octobre 2026 à 17h45\nLieu : Souterrain de la Règle, Limoges (Haute-Vienne)\nMots-clés : #Villedartetdhistoire, #Halloween\nTarifs : 5 €\nÂge : de 8 à 12 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h00 à 10h45 ; le samedi 31 octobre 2026, de 10h45 à 11h30 ; le samedi 31 octobre 2026, de 11h30 à 12h15 ; le samedi 31 octobre 2026, de 14h00 à 14h45 ; le samedi 31 octobre 2026, de 14h45 à 15h30 ; et 3 autres séances\n---\nPour Halloween, viens trembler dans les souterrains de Limoges !\nBOUH, MÊME PAS PEUR !\nDécouvre un souterrain monstrueusement effrayant et laisse-toi envoûter par des histoires d'Halloween !\nRENSEIGNEMENTS ET INSCRIPTIONS\nRéservation et règlement obligatoires auprès de l'Office de Tourisme :\n12 boulevard de Fleurus - Tél. : 05 55 34 46 87 - www.destination-limoges.com\nUNE ANIMATION VILLE D’ART ET D’HISTOIRE\nLimoges Ville d’art et d’histoire vous propose toute l’année des visites, ateliers et animations sur l'architecture et le patrimoine, pour tous les âges.",
+        "[2]\nTitre : Exposition Écrits du Limousin en portraits d'auteurs\nDates : du samedi 19 septembre 2026 à 10h00 au samedi 14 novembre 2026 à 18h00\nLieu : Bfm Centre-ville - Pôle Limousin et patrimoine, Limoges (Haute-Vienne)\nMots-clés : #exposition, #ecrits, #limousin, #auteurs\nTarifs : Accès libre\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h00 à 18h00\n---\nPanorama des auteurs liés au Limousin du Moyen-Age au XXIème siècle\nLe pôle patrimoine présente un panorama des auteurs liés au Limousin du Moyen-Age au XXIème siècle à l'occasion des journées européennes du patrimoine.",
+        "[3]\nTitre : Exposition photo : La ville invisible, Guillaume Bonnel\nDates : du vendredi 9 octobre 2026 à 18h30 au dimanche 20 décembre 2026 à 18h00\nLieu : Chroniques, Limoges (Haute-Vienne)\nMots-clés : photographe, photographie, exposition, urbanisme, galerie, Limoges, Chroniques\nTarifs : Entrée Libre\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 15h00 à 18h00 ; le dimanche 1 novembre 2026, de 15h00 à 18h00\n---\nLa photographie de Guillaume Bonnel n’écarte pas les objets les plus triviaux sur le trottoir, le cadre attrape autant les perspectives lointaines que les horizons fermés et n’hésite pas à tailler dans les hauteurs d’immeubles d’habitations ou des églises pour respecter la vision à hauteur d’homme. Avec une profondeur de champ maximum, le plan est uniformément net pour servir la recherche d’une vision la plus entière possible et donner une représentation de la ville sans hiérarchie.\nLa ville invisible est certes le portrait de la ville de Saint-Étienne, mais sans chercher à le cacher, il n’était pas indispensable que la ville soit identifiée autrement que par des indices qui la caractérisent (les vestiges industriels, le foisonnement architectural, le relief). Les photographies de Guillaume Bonnel nous invitent à rentrer dans l’image pour la parcourir dans ses moindres recoins. Inversement, cette identification par le détail laisse la possibilité de s’imaginer que ce portrait de ville puisse être celui d’une autre ville à l’histoire ouvrière comparable.",
+        "[4]\nTitre : Atelier famille : Un bonbon ou un sort\nDates : le samedi 31 octobre 2026, de 14h00 à 16h00\nLieu : Frac-Artothèque Nouvelle-Aquitaine, Limoges (Haute-Vienne)\nTarifs : Gratuit / 5 ans et plus / sans réservation\nÂge : de 5 à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 14h00 à 16h00\n---\nParticipez à un atelier de pratique créative sur le thème d’Halloween.\nAtelier famille : Un bonbon ou un sort\nSamedi 31 octobre de 14h à 16h\nParticipez à un atelier de pratique créative sur le thème d’Halloween en regard avec des œuvres de la collection. Venez avec votre déguisement et préparez votre chasse aux bonbons au Frac-Arto !",
+        "[5]\nTitre : Objectif Rose - exposition photographique\nDates : du vendredi 16 octobre 2026 à 10h00 au samedi 31 octobre 2026 à 18h00\nLieu : Galerie des Hospices, Limoges (Haute-Vienne)\nMots-clés : #cancer, #octobrerose, #prevention, #sensibilisation, #photographie, #cancerdusein\nTarifs : Entrée libre\nÂge : de 16 à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h00 à 18h00\n---\nVenez découvrir 83 portraits de femmes et d'hommes pour porter un autre regard sur le cancer du sein\nObjectif Rose - Exposition 2026\nUn autre regard sur le cancer du sein\ndu 16 au 31 octobre, l'association Objectif Rose organise une grande exposition pour informer et sensibiliser à la prévention du cancer du sein.\nVenez découvrir les portraits des 83 femmes et hommes qui se sont mobilisé.e.s à nos côtés pour porter un autre regard sur le cancer du sein, montrer la beauté et la poésie des corps pendant et après les traitements, s'informer sur l'auto-examen mammaire, participer à des ateliers d'information ou d'expression, etc.\nRetrouvez tous les détails de notre événement sur les pages Instagram et Facebook de notre association."
+      ]
+    },
+    "17": {
+      "question": "Quel temps fera-t-il à Bordeaux ce week-end ?",
+      "answer": "Je suis là pour vous aider à découvrir des événements culturels en Nouvelle-Aquitaine, et non pour les prévisions météo. Cependant, je peux vous recommander quelques activités culturelles à Bordeaux pour ce week-end :\n\n- **Foire aux plaisirs d'automne** : du samedi 31 octobre 2026 au dimanche 1 novembre 2026, sur la Place des Quinconces, pour des moments de divertissement en famille [1].\n\n- **Café littéraire : spécial rentrée littéraire** : le samedi 31 octobre 2026 à 11h00 à la Bibliothèque Pierre Veilletet, pour partager des coups de cœur littéraires [2].\n\n- **Bouge ta couche spécial Halloween !** : le samedi 31 octobre 2026 de 16h00 à 18h00 à la Bibliothèque Pierre Veilletet, une animation ludique pour les tout-petits [3].\n\nPour des informations sur la météo, je vous conseille de consulter une application ou un site spécialisé.",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "97018739",
+          "title": "Foire aux plaisirs d'automne",
+          "start": "2026-10-09T11:00:00+02:00",
+          "end": "2026-11-01T23:59:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Place des Quinconces",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/feria-del-placer-del-otono-de-burdeos",
+          "score": 0.798
+        },
+        {
+          "ref": 2,
+          "uid": "40643694",
+          "title": "Café littéraire : spécial rentrée littéraire",
+          "start": "2026-10-31T11:00:00+01:00",
+          "end": "2026-10-31T12:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Bibliothèque Pierre Veilletet",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/cafe-litteraire-special-rentree-litteraire-2726119",
+          "score": 0.791
+        },
+        {
+          "ref": 3,
+          "uid": "50423823",
+          "title": "Bouge ta couche spécial Halloween !",
+          "start": "2026-10-31T16:00:00+01:00",
+          "end": "2026-10-31T18:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Bibliothèque Pierre Veilletet",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/boum-deguisee-bouge-ta-couche-special-halloween-9244855",
+          "score": 0.784
+        }
+      ],
+      "criteria": {
+        "city": "Bordeaux",
+        "department": null,
+        "period": {
+          "label": "ce week-end",
+          "start": "2026-10-31",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 299.0,
+        "generation_ms": 3067.5,
+        "total_ms": 3369.8,
+        "input_tokens": 1844,
+        "output_tokens": 226,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "97018739",
+          "title": "Foire aux plaisirs d'automne",
+          "score": 0.798
+        },
+        {
+          "ref": 2,
+          "uid": "40643694",
+          "title": "Café littéraire : spécial rentrée littéraire",
+          "score": 0.791
+        },
+        {
+          "ref": 3,
+          "uid": "50423823",
+          "title": "Bouge ta couche spécial Halloween !",
+          "score": 0.784
+        },
+        {
+          "ref": 4,
+          "uid": "14057471",
+          "title": "Réouverture de la flèche Saint-Michel",
+          "score": 0.778
+        },
+        {
+          "ref": 5,
+          "uid": "31802487",
+          "title": "Exposition Sols",
+          "score": 0.777
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Foire aux plaisirs d'automne\nDates : du vendredi 9 octobre 2026 à 11h00 au dimanche 1 novembre 2026 à 23h59\nLieu : Place des Quinconces, Bordeaux (Gironde)\nMots-clés : foire, plaisirs, enfant, quinconces\nTarifs : Entrée libre. Tarif selon attraction.\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 11h00 à 23h59 ; le dimanche 1 novembre 2026, de 11h00 à 23h59\n---\nL’édition d'automne de la Foire aux Plaisirs de Bordeaux se déroulera du vendredi 9 octobre au dimanche 1 novembre 2026 sur la Place des Quinconces !\nUn événement biannuel\nDeux fois par an, à six mois d’intervalle, la fête foraine de Bordeaux s’installe sur la Place des Quinconces. On y trouve près de 200 manèges, attractions foraines et stands de confiseries et de produits du terroir.\nInfos pratiques\nLa foire de Bordeaux ouvre ses portes tous les jours à 11h et ferme à minuit (2h les vendredis et samedis). Les attractions sont disponibles à partir de 14h.",
+        "[2]\nTitre : Café littéraire : spécial rentrée littéraire\nDates : le samedi 31 octobre 2026, de 11h00 à 12h00\nLieu : Bibliothèque Pierre Veilletet, Bordeaux (Gironde)\nTarifs : Entrée libre\nÂge : de 18 à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 11h00 à 12h00\n---\nVenez partager des découvertes et des coups de cœur.",
+        "[3]\nTitre : Bouge ta couche spécial Halloween !\nDates : le samedi 31 octobre 2026, de 16h00 à 18h00\nLieu : Bibliothèque Pierre Veilletet, Bordeaux (Gironde)\nMots-clés : Vacances d'automne 2026\nTarifs : Entrée libre\nÂge : de 1 à 4 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 16h00 à 18h00\n---\nBoum déguisée\nAujourd'hui, on fait la fête à la bibliothèque ! Entre swing, rock et rondes, viens te déhancher dans ton plus beau costume !",
+        "[4]\nTitre : Réouverture de la flèche Saint-Michel\nDates : du samedi 13 juin 2026 à 19h30 au samedi 31 octobre 2026 à 18h00\nLieu : Flèche Saint-Michel, Bordeaux (Gironde)\nMots-clés : bordeaux, patrimoine, Quartier Saint-Michel, culture\nTarifs : Tarifs : plein 7€, réduit 5€, Carte jeune 2€, gratuit pour les -13 ans et porteurs du City pass. Sans réservation. Billetterie sur place ou en ligne. Paiement par carte bancaire uniquement. Dernier accès 30mn avant fermeture.\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 10h00 à 13h00 ; le samedi 31 octobre 2026, de 14h00 à 18h00\n---\nAprès presque 5 ans de travaux, la flèche Saint-Michel a rouvert au public le samedi 13 juin, l'occasion de (re)découvrir la plus belle vue de Bordeaux !\nEmblème du quartier Saint-Michel, la flèche constitue un repère visuel fort du quartier et un symbole du patrimoine bordelais, offrant un panorama unique sur la ville.\nEn savoir plus sur la flèche Saint-Michel sur le site dédié : https://www.fleche-saint-michel.com",
+        "[5]\nTitre : Exposition Sols\nDates : du samedi 4 juillet 2026 à 11h00 au dimanche 28 février 2027 à 18h00\nLieu : JARDIN BOTANIQUE Bastide, Bordeaux (Gironde)\nMots-clés : exposition bordeaux\nTarifs : Tarifs d'entrée à l'accueil du Jardin botanique\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le samedi 31 octobre 2026, de 11h00 à 18h00\n---\nUn parcours pédo-sensoriel, accompagné de boîtes à toucher, permet d’appréhender différentes textures de sols et de mieux comprendre leur diversité.\nUne deuxième parcelle est consacrée à l’humification. Elle montre comment la matière organique se décompose au fil du temps grâce à l’action de nombreux organismes.\nUne troisième parcelle présente la phytoremédiation, c’est-à-dire la capacité de certaines plantes à absorber ou accumuler des polluants, contribuant ainsi à la dépollution des sols.\nLa dernière parcelle s’intéresse à l’influence des propriétés chimiques du sol, notamment du pH, sur le développement des plantes. L’exemple de l’hortensia permet d’illustrer concrètement comment la couleur des fleurs varie selon l’acidité du milieu.\nEn poursuivant la visite, la galerie des milieux fait écho à cette exploration. Onze écosystèmes aquitains y sont reconstitués à grande échelle, posés sur leur socle pédologique visible. Les visiteurs peuvent ainsi observer les horizons qui composent chaque sol et comprendre comment ils soutiennent et façonnent les paysages.\nInformations pratiques\nDates : du samedi 4 juillet 2026 au 28 février 2027\nLieu : Jardin botanique de Bordeaux Bastide\nPublic : tout public"
+      ]
+    },
+    "18": {
+      "question": "Une exposition à Toulouse en novembre",
+      "answer": "Je suis désolé, mais je ne peux répondre qu'aux questions concernant les événements culturels en **Nouvelle-Aquitaine**. Pour une exposition à Toulouse, je ne dispose pas d'informations adaptées.\n\nSi vous souhaitez des recommandations dans notre région, je peux vous proposer des alternatives en Nouvelle-Aquitaine. Souhaitez-vous élargir votre recherche ?",
+      "sources": [],
+      "criteria": {
+        "city": null,
+        "department": null,
+        "period": {
+          "label": "en novembre 2026",
+          "start": "2026-11-01",
+          "end": "2026-11-30"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 304.3,
+        "generation_ms": 1147.0,
+        "total_ms": 1454.6,
+        "input_tokens": 2195,
+        "output_tokens": 76,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "80609934",
+          "title": "Exposition des œuvres collectives de Street Art réalisées par les jeunes participants aux ateliers MIX’ART.",
+          "score": 0.814
+        },
+        {
+          "ref": 2,
+          "uid": "24239799",
+          "title": "Manger à l'œil. Les Français à table en deux siècles de photos",
+          "score": 0.807
+        },
+        {
+          "ref": 3,
+          "uid": "40968068",
+          "title": "\"PLANÈTE LORMONT — L'EXPO DONT TU ES LE HÉROS, OU LES SUPER-POUVOIRS DE LA FRATERNITÉ\"",
+          "score": 0.805
+        },
+        {
+          "ref": 4,
+          "uid": "51598637",
+          "title": "Exposition des œuvres collectives de Street Art réalisées par les jeunes participants aux ateliers MIX’ART.",
+          "score": 0.802
+        },
+        {
+          "ref": 5,
+          "uid": "48465313",
+          "title": "Visite commentée — exposition O.R. Studio, dimanche 1er novembre",
+          "score": 0.799
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Exposition des œuvres collectives de Street Art réalisées par les jeunes participants aux ateliers MIX’ART.\nDates : du mardi 10 novembre 2026 à 14h00 au vendredi 11 décembre 2026 à 17h00\nLieu : Collège François Mitterrand, Pessac (Gironde)\nTarifs : Collégiens et collégiennes pour les ateliers. Tout public pour l’exposition.\nSéances pendant la période demandée : le mardi 10 novembre 2026, de 14h00 à 17h00 ; le jeudi 12 novembre 2026, de 14h00 à 17h00 ; le vendredi 13 novembre 2026, de 14h00 à 17h00 ; le mardi 17 novembre 2026, de 14h00 à 17h00 ; le jeudi 19 novembre 2026, de 14h00 à 17h00 ; et 4 autres séances\n---\nRéalisation de 20 toiles Thématique : « Vivre ensemble, égalité filles/garçons » : 30 élèves de 6ème en demi groupes.\nDes débats animés par les intervenants artistiques de MIX’ART permettent aux jeunes de faire émerger des idées, des valeurs et des messages. Ces échanges donneront lieu à des créations sur toiles. En parallèle, des ateliers de journalisme sont organisés auprès des jeunes du Collège. Une exposition sera organisée pour valoriser les créations des jeunes",
+        "[2]\nTitre : Manger à l'œil. Les Français à table en deux siècles de photos\nDates : du mardi 1 septembre 2026 à 14h00 au dimanche 15 novembre 2026 à 18h00\nLieu : Musée départemental de la faïence et des Arts de la table, Samadet (Landes)\nTarifs : Plein tarif : 4,50€; Tarif réduit : 3,50€; moins de 25 ans : gratuit\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 14h00 à 18h00 ; le mardi 3 novembre 2026, de 14h00 à 18h00 ; le mercredi 4 novembre 2026, de 14h00 à 18h00 ; le jeudi 5 novembre 2026, de 14h00 à 18h00 ; le vendredi 6 novembre 2026, de 14h00 à 18h00 ; et 8 autres séances\n---\nÀ l’occasion du Bicentenaire de la Photographie nationalement célébré en 2026-2027, le Musée de la Faïence et des Arts de la table a l’honneur de recevoir l’exposition « Manger à l’œil. Les Français à table en deux siècles de photos », présentée en 2018 au Musée des Civilisations de l'Europe et de la Méditerranée (MUCEM), à Marseille.\nDans une version adaptée au territoire landais et à travers une sélection de photographies datant de 1823 à nos jours, cette exposition explore l’évolution du repas des Français classé au patrimoine culturel immatériel de l’humanité par l’UNESCO en 2010.\nPhotographies anonymes et œuvres d’artistes de renom, (Nicéphore Niépce, Robert Doisneau, Willy Ronis, Martin Parr…) se côtoient pour proposer un voyage chronologique de deux siècles, présentant la table des Français dans ses manifestations les plus diverses. Du repas dans les tranchées de la Première Guerre mondiale aux mises en scènes diplomatiques, du rassemblement familial dominical au plateau-télé, de la table de noces au déferlement continu d’images de sur les réseaux sociaux, cette exposition dévoile comment la photo rend compte des mutations sociales et culturelles de ce patrimoine.",
+        "[3]\nTitre : \"PLANÈTE LORMONT — L'EXPO DONT TU ES LE HÉROS, OU LES SUPER-POUVOIRS DE LA FRATERNITÉ\"\nDates : le mercredi 25 novembre 2026, de 18h30 à 21h00\nLieu : Salle Léo Lagrange, Lormont (Gironde)\nTarifs : Entrée gratuite - Tout public\nSéances pendant la période demandée : le mercredi 25 novembre 2026, de 18h30 à 21h00\n---\nExposition\n« Planète Lormont » est une installation sonore et visuelle pensée comme un outil d'Éducation Populaire et de médiation. L'exposition mêle photographies, création sonore et vidéo pour immerger les participants dans des récits de vie, des témoignages et des projets citoyens.\nExposition du 24 au 29 novembre\nVernissage soirée festive le mercredi 25 novembre à 18h30\nAssociation porteuse du projet : Compagnie Enyre-Nous\nPartenaires : Parlons nos Langues",
+        "[4]\nTitre : Exposition des œuvres collectives de Street Art réalisées par les jeunes participants aux ateliers MIX’ART.\nDates : le mercredi 18 novembre 2026, de 18h00 à 20h00\nLieu : Espace jeune Le PASS'ÂGE, Pessac (Gironde)\nTarifs : Tout public.\nSéances pendant la période demandée : le mercredi 18 novembre 2026, de 18h00 à 20h00\n---\nVERNISSAGE\nUne exposition organisée pour valoriser les créations des jeunes.",
+        "[5]\nTitre : Visite commentée — exposition O.R. Studio, dimanche 1er novembre\nDates : le dimanche 1 novembre 2026, de 15h00 à 16h30\nLieu : Salle capitulaire Mably, Bordeaux (Gironde)\nMots-clés : exposition, danse, photographie, film de danse, ballet, visite commentée, visite guidée\nTarifs : Gratuit, sur inscription (places limitées) : orstudio.art/exposition\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 15h00 à 16h30\n---\nVisite commentée de l'exposition des dix ans d'O.R. Studio, photographies et films de danse, avec l'équipe artistique. Dimanche 1er novembre, 15h. Gratuit, sur inscription.\nDécouvrez l'exposition « O.R. Studio — Dix ans de création autour de la danse » en compagnie de l'équipe d'O.R. Studio.\nAu fil du parcours : portraits d'artistes du ballet, journées photo inspirées des grands ballets, scène & coulisses, films de danse, captations nées des collaborations avec l'Opéra National de Bordeaux, et le teaser du documentaire consacré à Charles Jude.\nDimanche 1er novembre, à 15h (durée 1h30). Une première visite a lieu le samedi 31 octobre à 15h.\nGratuit, sur inscription (places limitées) : https://orstudio.art/exposition/\nExposition ouverte du 29 octobre au 3 novembre 2026, tous les jours de 14h à 19h, entrée libre."
+      ]
+    },
+    "19": {
+      "question": "Y a-t-il eu des concerts en Lot-et-Garonne le mois dernier ?",
+      "answer": "Oui, Madame, Monsieur, voici les concerts proposés en Lot-et-Garonne en septembre 2026 :\n\n- **Concerts nocturnes à la tour de Paris de Villeneuve-sur-Lot** : le samedi 19 septembre 2026 à Villeneuve-sur-Lot, avec trois créneaux musicaux à la tombée de la nuit, animés par Yohan Arbona [1].\n- **Concert et lecture dans l'église** : du samedi 19 au dimanche 20 septembre 2026 à Saint-Quentin-du-Dropt, avec des concerts ponctués de lectures de textes toute la journée [2].\n- **Tableaux d’une exposition — Concert-spectacle dans un ancien séchoir à tabac** : le samedi 19 septembre 2026 à La Sauvetat-de-Savères, avec un concert-spectacle mêlant musique et mise en scène dans un lieu historique [5].",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "45684270",
+          "title": "Concerts nocturnes à la tour de Paris de Villeneuve-sur-Lot",
+          "start": "2026-09-19T20:00:00+02:00",
+          "end": "2026-09-19T23:00:00+02:00",
+          "city": "Villeneuve-sur-Lot",
+          "location_name": "Tour de Paris",
+          "url": "https://openagenda.com/culture/events/concerts-nocturnes-a-la-tour-de-paris-de-villeneuve-sur-lot",
+          "score": 0.806
+        },
+        {
+          "ref": 2,
+          "uid": "1881337",
+          "title": "Concert et lecture dans l'église",
+          "start": "2026-09-19T10:00:00+02:00",
+          "end": "2026-09-20T18:00:00+02:00",
+          "city": "Saint-Quentin-du-Dropt",
+          "location_name": "Église Saint-Quentin",
+          "url": "https://openagenda.com/culture/events/concert-et-lecture-dans-l-eglise",
+          "score": 0.786
+        },
+        {
+          "ref": 5,
+          "uid": "19895924",
+          "title": "Tableaux d’une exposition — Concert-spectacle dans un ancien séchoir à tabac",
+          "start": "2026-09-19T17:30:00+02:00",
+          "end": "2026-09-19T20:00:00+02:00",
+          "city": "La Sauvetat-de-Savères",
+          "location_name": "Ancien séchoir à tabac",
+          "url": "https://openagenda.com/culture/events/tableaux-dune-exposition-concert-spectacle-dans-un-ancien-sechoir-a-tabac",
+          "score": 0.777
+        }
+      ],
+      "criteria": {
+        "city": null,
+        "department": "Lot-et-Garonne",
+        "period": {
+          "label": "le mois dernier",
+          "start": "2026-09-01",
+          "end": "2026-09-30"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 383.2,
+        "generation_ms": 2229.5,
+        "total_ms": 2615.9,
+        "input_tokens": 1863,
+        "output_tokens": 199,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "45684270",
+          "title": "Concerts nocturnes à la tour de Paris de Villeneuve-sur-Lot",
+          "score": 0.806
+        },
+        {
+          "ref": 2,
+          "uid": "1881337",
+          "title": "Concert et lecture dans l'église",
+          "score": 0.786
+        },
+        {
+          "ref": 3,
+          "uid": "98937764",
+          "title": "Visite « Les disparus » de Villeneuve",
+          "score": 0.785
+        },
+        {
+          "ref": 4,
+          "uid": "95432907",
+          "title": "Visite commentée de l’hôtel préfectoral et de son parc",
+          "score": 0.781
+        },
+        {
+          "ref": 5,
+          "uid": "19895924",
+          "title": "Tableaux d’une exposition — Concert-spectacle dans un ancien séchoir à tabac",
+          "score": 0.777
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Concerts nocturnes à la tour de Paris de Villeneuve-sur-Lot\nDates : le samedi 19 septembre 2026, de 20h00 à 23h00\nLieu : Tour de Paris, Villeneuve-sur-Lot (Lot-et-Garonne)\nTarifs : Jauge limitée. Pas d'accès PMR.\nSéances pendant la période demandée : le samedi 19 septembre 2026, de 20h00 à 21h00 ; le samedi 19 septembre 2026, de 21h00 à 22h00 ; le samedi 19 septembre 2026, de 22h00 à 23h00\n---\nLa tour de Paris ouvre ses portes pour trois rendez-vous musicaux inédits à la tombée de la nuit avec l’association la Team Kompagnie et son interprète Yohan Arbona. À l'issue de chaque prolongez en…\nLa tour de Paris ouvre ses portes pour trois rendez-vous musicaux inédits à la tombée de la nuit avec l’association la Team Kompagnie et son interprète Yohan Arbona. À l'issue de chaque représentation, prolongez l'expérience en découvrant librement la Tour de Paris jusqu'au clocheton, ainsi que son panorama de nuit.",
+        "[2]\nTitre : Concert et lecture dans l'église\nDates : du samedi 19 septembre 2026 à 10h00 au dimanche 20 septembre 2026 à 18h00\nLieu : Église Saint-Quentin, Saint-Quentin-du-Dropt (Lot-et-Garonne)\nTarifs : Gratuit. Entrée libre. Tout public.\nSéances pendant la période demandée : le samedi 19 septembre 2026, de 10h00 à 18h00 ; le dimanche 20 septembre 2026, de 10h00 à 18h00\n---\nConcert et lecture de textes dans l’église\nDe 10h à 18h, assistez à un concert ponctué de lectures de textes, au cœur de l’église.",
+        "[3]\nTitre : Visite « Les disparus » de Villeneuve\nDates : le samedi 19 septembre 2026, de 10h00 à 11h00\nLieu : Place Lafayette, Villeneuve-sur-Lot (Lot-et-Garonne)\nTarifs : Gratuit.\nSéances pendant la période demandée : le samedi 19 septembre 2026, de 10h00 à 11h00\n---\nQue reste-t-il des monuments qui ont façonné Villeneuve-sur-Lot ? Certains ont traversé les siècles, tandis que d’autres ont disparu, comme la chapelle des Pénitents bleus, les fortifications qui la…\nPartez à la découverte du patrimoine disparu de Villeneuve-sur-Lot lors d'une visite inédite. Si certains monuments ont traversé les siècles, d'autres ont aujourd'hui totalement disparu, comme la chapelle des Pénitents bleus, les anciennes fortifications ou encore le collège de garçons. Au fil du parcours, remontez le fil de leur histoire et découvrez comment le patrimoine villeneuvois s'est construit, transformé et réinventé au fil du temps.",
+        "[4]\nTitre : Visite commentée de l’hôtel préfectoral et de son parc\nDates : le dimanche 20 septembre 2026, de 14h00 à 18h00\nLieu : Préfecture de Lot-et-Garonne, Agen (Lot-et-Garonne)\nTarifs : Gratuit.\nSéances pendant la période demandée : le dimanche 20 septembre 2026, de 14h00 à 18h00\n---\nLa préfecture de Lot-et-Garonne ouvre ses portes pour la 43ème édition des Journées Européennes du Patrimoine. Des visites commentées gratuites de l'hôtel préfectoral et du parc seront organisées.\nLa préfecture de Lot-et-Garonne ouvre exceptionnellement ses portes à l’occasion de la 43e édition des Journées européennes du patrimoine. Profitez de visites commentées gratuites pour découvrir l’hôtel préfectoral et son parc.",
+        "[5]\nTitre : Tableaux d’une exposition — Concert-spectacle dans un ancien séchoir à tabac\nDates : le samedi 19 septembre 2026, de 17h30 à 20h00\nLieu : Ancien séchoir à tabac, La Sauvetat-de-Savères (Lot-et-Garonne)\nTarifs : Entrée gratuite sur réservation, dans la limite des places disponibles. Jauge limitée à 60 personnes.\nSéances pendant la période demandée : le samedi 19 septembre 2026, de 17h30 à 20h00\n---\nTableaux d'une exposition — Concert-spectacle\nPhilippe Casemode, piano\nÀ l'occasion des Journées européennes du patrimoine, un ancien séchoir à tabac du Lot-et-Garonne ouvre exceptionnellement ses portes et retrouve une nouvelle vie.\nLe public est invité à découvrir ce bâtiment rural autrefois consacré à la culture et au séchage du tabac, témoin d'une activité agricole qui a profondément marqué l'histoire et les paysages de la région.\nLa rencontre débutera par la découverte du lieu et par la projection en continu d'un court film évoquant l'histoire des séchoirs à tabac et la vie qui autrefois les animait, accompagnée d'un verre de l'amitié.\nPuis, dans la pénombre et l'architecture de bois du séchoir, le pianiste Philippe Casemode interprétera les Tableaux d'une exposition de Modeste Moussorgski, ainsi que des oeuvres de Robert Schumann et Jean-Sébastien Bach\nLe concert prendra la forme d'un concert-spectacle, dans lequel musique, images et mise en scène dialogueront avec l'architecture singulière du bâtiment.\nPour cette première ouverture, le séchoir accomplira ainsi un passage symbolique : après avoir abrité pendant des décennies le travail des hommes et le séchage des feuilles de tabac, il deviendra, le temps d'une soirée, un lieu de mémoire, de rencontre et de création artistique."
+      ]
+    },
+    "20": {
+      "question": "Une idée de sortie pour dimanche ?",
+      "answer": "Voici deux propositions pour votre dimanche 1 novembre 2026 en Nouvelle-Aquitaine :\n\n- **Concert du dimanche** à l'Auditorium de Bordeaux : un programme musical captivant autour des œuvres de Bernard Herrmann, idéal pour une sortie culturelle et artistique [1].\n- **Bestiaire Vestiaire** à Saint-Jean-d'Angély : une expérience festive et créative mêlant performance et convivialité, avec repas inclus [5].\n\nSi vous souhaitez d'autres options, n'hésitez pas à préciser vos préférences !",
+      "sources": [
+        {
+          "ref": 1,
+          "uid": "22900016",
+          "title": "Concert du dimanche",
+          "start": "2026-11-01T11:00:00+01:00",
+          "end": "2026-11-01T12:00:00+01:00",
+          "city": "Bordeaux",
+          "location_name": "Auditorium de Bordeaux",
+          "url": "https://openagenda.com/ville-de-bordeaux/events/concert-du-dimanche-1929716",
+          "score": 0.751
+        },
+        {
+          "ref": 5,
+          "uid": "98883718",
+          "title": "Bestiaire Vestiaire",
+          "start": "2026-10-31T18:30:00+01:00",
+          "end": "2026-11-01T16:00:00+01:00",
+          "city": "saint jean d'angely",
+          "location_name": "Sous chapiteau Caserne Voyer",
+          "url": "https://openagenda.com/culture/events/bestiaire-vestiaire",
+          "score": 0.72
+        }
+      ],
+      "criteria": {
+        "city": null,
+        "department": null,
+        "period": {
+          "label": "dimanche",
+          "start": "2026-11-01",
+          "end": "2026-11-01"
+        }
+      },
+      "metadata": {
+        "today": "2026-10-29",
+        "model": "ministral-8b-2512",
+        "index": "nouvelle-aquitaine_2026-10-29",
+        "region": "Nouvelle-Aquitaine",
+        "llm_called": true,
+        "retrieved_events": 5,
+        "retrieval_ms": 320.6,
+        "generation_ms": 1907.6,
+        "total_ms": 2231.3,
+        "input_tokens": 2353,
+        "output_tokens": 119,
+        "reasoning_tokens": 0,
+        "finish_reason": "stop"
+      },
+      "retrieved": [
+        {
+          "ref": 1,
+          "uid": "22900016",
+          "title": "Concert du dimanche",
+          "score": 0.751
+        },
+        {
+          "ref": 2,
+          "uid": "8476435",
+          "title": "VIDE GRENIER À DARWIN",
+          "score": 0.732
+        },
+        {
+          "ref": 3,
+          "uid": "80882484",
+          "title": "Automne à La Ferme",
+          "score": 0.727
+        },
+        {
+          "ref": 4,
+          "uid": "83997186",
+          "title": "Au poste de plongée ! L'aventure des premiers submersibles",
+          "score": 0.723
+        },
+        {
+          "ref": 5,
+          "uid": "98883718",
+          "title": "Bestiaire Vestiaire",
+          "score": 0.72
+        }
+      ],
+      "contexts": [
+        "[1]\nTitre : Concert du dimanche\nDates : le dimanche 1 novembre 2026, de 11h00 à 12h00\nLieu : Auditorium de Bordeaux, Bordeaux (Gironde)\nMots-clés : Musique de chambre\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 11h00 à 12h00\n---\nFais-moi peur\nConcert du dimanche\nSueurs froides, Psychose, La Mort aux trousses : derrière ces chefs-d’oeuvre d’épouvante signés Alfred Hitchcock se cache la science musicale de Bernard Herrmann, qui livre avec ces deux oeuvres un vrai carnet de voyage au pays du mystère, des eaux vaporeuses de Venise aux côtes houleuses des îles irlandaises. En effet, au-delà de son travail pour le cinéma qui lui a valu de nombreuses récompenses, Hermann était aussi un compositeur voyageur, attentifs aux sensations qui nous traversent lorsque nous sommes loin de chez nous : solitude, errance, découverte, émerveillement...\nProgramme\nBernard Herrmann\nQuintette avec clarinette « Souvenir de voyage »\nQuatuor à cordes « Echoes »\nAutour du concert\nPendant que vous assistez à l’un de nos concerts du dimanche, vos enfants découvrent la musique lors d’un atelier d’éveil musical, dès 4 ans.\nVoir l'atelier du dimanche 1er novembre à 11 h à l’Auditorium\nEn savoir plus",
+        "[2]\nTitre : VIDE GRENIER À DARWIN\nDates : le dimanche 1 novembre 2026, de 10h00 à 18h00\nLieu : Darwin Éco-système, Bordeaux (Gironde)\nTarifs : Entrée libre\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 10h00 à 18h00\n---\nTous les premiers dimanches du mois, retrouvez le Dominicale Market de Darwin avec toujours autant de pépites à dénicher, de trésors à chiner et de jolies surprises à tout petits prix.\nLe vide-grenier de Darwin avec toujours autant de pépites à dénicher, de trésors à chiner et de jolies surprises à tout petits prix ✨\nOn garde le soleil dans le cœur, la bonne humeur et surtout cette ambiance conviviale.\nAlors, prêts à reprendre les bonnes habitudes ?\nRendez-vous dimanche 01 novembre, de 10h à 18h pour une nouvelle édition du Dominical Market !\nVenez chiner, flâner, papoter et prolonger l’été avec nous. 💛\n📅 Dimanche 01 novembre\n🕙 10h – 18h\n____________\n✨ Tu veux exposer ?\nQue tu sois grand collectionneur de trésors ou simple baladin du dimanche, viens vider tes placards et faire de belles rencontres.\nLes inscriptions se font uniquement via notre questionnaire chaque début de mois pour le mois suivant ! (lien en bio Instagram @darwin.camp).\nUn mail de validation te sera envoyé si ton stand est validé.\n💚Les bonnes pratiques :\nSeules les candidatures reçues via le questionnaire seront prises en compte. Une demande par mail ne fait pas office de validation.\nSi tu n’es pas sélectionné, pas de panique, tu pourras retenter ta chance (via le questionnaire, toujours).\n🚨 les places sont limitées !!!\n🔔 Le questionnaire est ouvert chaque début de mois, pour l’édition du mois suivant.\n👉 Une seule règle : événement réservé aux particuliers – on chine vrai !",
+        "[3]\nTitre : Automne à La Ferme\nDates : du mercredi 23 septembre 2026 à 0h00 au dimanche 20 décembre 2026 à 21h00\nLieu : Partout en France, Bordeaux (Gironde)\nMots-clés : Bienvenue à la ferme, Ferme, Portes ouvertes, Nouvelle aquitaine, Découverte, Visite, Produits locaux, Animaux de la ferme\nTarifs : Sur inscription\nÂge : jusqu'à 99 ans\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 7h30 à 21h00\n---\n💡 Quelques exemples d'animations pour découvrir la vie à la ferme et nos savoir-faire :\nPartez à la chasse à la potion chez les Petites Merveilles dans l'Eure-et-Loir : la productrice Doïna vous accueillera malicieusement pour différents ateliers sur le thème d'Halloween. La ferme sera décorée pour l'occasion ! Les séances ont lieu pendant les vacances de la Toussaint, sur réservation.\nDécouvrez des vignes... en courant ! C'est ce que vous propose le Domaine Daelly Cognac en Charente. Dans un groupe de 4 à 8 personnes, laissez-vous guider dans les vignes, pour un parcours commenté dévoilant les secrets du vignoble de Caroline et Damien. Dégustation en fin de parcours. Tous les samedis de septembre à novembre, sur réservation.\nPlongez au coeur de l'univers de la spiruline avec Laurent. Il vous montrera ses bassins, ses techniques de fabrication et de séchage, le produit fini et tous les bienfaits de la spiruline ! Tous les jours à 11h du 17 octobre au 1er novembre.\nDéguster du vin... sous hypnose ! Activité totalement insolite à faire à la ferme de Saint Martin dans le Vaucluse, le vendredi 16 octobre (téléchargez le programme du Vaucluse pour en savoir +).",
+        "[4]\nTitre : Au poste de plongée ! L'aventure des premiers submersibles\nDates : du vendredi 25 septembre 2026 à 10h00 au vendredi 31 décembre 2027 à 18h00\nLieu : Musée national de la Marine, Hôtel de Cheusses/Arsenal, Rochefort (Charente-Maritime)\nTarifs : 10€ / 8€, familles nombreuses, anciens combattants. Gratuit : -26 ans, 18-26 ans (UE), Pass Education, minimas sociaux, demandeur d'emploi, personnes en situation de handicap\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 13h30 à 18h00\n---\nDès la fin du xviiie siècle, d’ingénieux précurseurs se penchent sur les limites de la navigation sous-marine. Cherchant à dompter un écosystème hostile, ils tâtonnent, dessinent et proposent divers prototypes. Plonger et attaquer l’ennemi par surprise, tels sont les objectifs des premiers submersibles expérimentaux, conçus au cours de la seconde moitié du xixe siècle, période d’intenses transformations industrielles, notamment dans la marine française.\nExposer l’aventure des premiers submersibles permet d’aborder une multitude de thèmes et de sujets : histoire des sciences et des techniques, évolution des sociétés et changements politiques, construction de mémoires individuelles et collectives, émergence de nouvelles pratiques artistiques, élaboration de récits mêlant histoire locale, nationale et internationale… Le parcours, chronologique, réunit près d’une centaine d’objets, de documents et d’archives qui incarnent des récits sensibles, parfois tragiques. Témoins d’une époque, ils contribuent à l’histoire et à la mémoire des sous‑marins.",
+        "[5]\nTitre : Bestiaire Vestiaire\nDates : du samedi 31 octobre 2026 à 18h30 au dimanche 1 novembre 2026 à 16h00\nLieu : Sous chapiteau Caserne Voyer, saint jean d'angely (Charente-Maritime)\nTarifs : Limité à 200 personnes\nSéances pendant la période demandée : le dimanche 1 novembre 2026, de 13h00 à 16h00\n---\nUne célébration joyeuse, sensible et résolument contemporaine de la diversité des corps et des identités, qui se prolonge dans une boum collective.\nDurée : 3 heures, repas en cinq services inclus.\nTout public à partir de 8 ans."
+      ]
+    }
+  }
+}

@@ -1,0 +1,1190 @@
+{
+  "metadata": {
+    "judge_model": "ministral-14b-2512",
+    "started_at": "2026-11-20T10:44:27",
+    "updated_at": "2026-11-20T12:13:39"
+  },
+  "questions": {
+    "1": {
+      "id": 1,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 2,
+        "reciprocal_rank": 0.5,
+        "precision": 0.8,
+        "recall": 0.8
+      },
+      "citations": {
+        "cited": 5,
+        "cited_relevant": 4,
+        "precision": 0.8
+      },
+      "similarity": 0.8709719226251709,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.9090909090909091,
+        "faithfulness_statements": [
+          {
+            "statement": "Les concerts de jazz à Limoges en novembre 2026 sont les suivants:",
+            "verdict": 0,
+            "reason": "La phrase est incomplète et ne peut pas être directement vérifiée comme fidèle sans une liste exhaustive des concerts. Le contexte mentionne des événements et concerts, mais ne les énumère pas tous explicitement."
+          },
+          {
+            "statement": "Un événement nommé AUTOUR DU FESTIVAL se tiendra du jeudi 19 novembre 2026 au dimanche 29 novembre 2026 à Limoges.",
+            "verdict": 1,
+            "reason": "Le contexte précise explicitement les dates et le lieu de l'événement AUTOUR DU FESTIVAL."
+          },
+          {
+            "statement": "Cet événement inclut une programmation variée avec des concerts de jazz dans le cadre du festival Jazz Éclats d'Email.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne que l'événement AUTOUR DU FESTIVAL fait partie du festival Jazz Éclats d'Email, qui inclut des concerts de jazz."
+          },
+          {
+            "statement": "Un concert nommé Silvia Ribeiro Ferreira & Ali Hamra – Concert Dessine est prévu le vendredi 27 novembre 2026 à 18h00 au BFM de l'Aurence.",
+            "verdict": 1,
+            "reason": "Le contexte fournit explicitement ces informations pour le concert en question."
+          },
+          {
+            "statement": "Ce concert combine jazz et dessin et se concentre sur des périodes emblématiques du jazz.",
+            "verdict": 1,
+            "reason": "Le contexte décrit que le concert inclut des dessins et aborde des périodes emblématiques du jazz (BeBop, Jazz Modal, Jazz Fusion, etc.)."
+          },
+          {
+            "statement": "Un concert nommé daoud est prévu le samedi 28 novembre 2026 à 17h00 à l'Opéra de Limoges.",
+            "verdict": 1,
+            "reason": "Le contexte précise explicitement ces informations pour le concert de daoud."
+          },
+          {
+            "statement": "Ce concert propose un jazz décalé et énergique avec un univers visuel et musical original.",
+            "verdict": 1,
+            "reason": "Le contexte décrit daoud comme un artiste qui bouscule les codes du jazz et propose une musique et un univers visuel originaux."
+          },
+          {
+            "statement": "Un concert nommé Benjamin Bobenrieth et Bastien Ribot – \"Django Viatge\" est prévu le dimanche 22 novembre 2026 à 14h30 au Centre Culturel Jean Gagnant.",
+            "verdict": 1,
+            "reason": "Le contexte fournit explicitement ces informations pour ce concert."
+          },
+          {
+            "statement": "Ce concert rend hommage au répertoire électrique de Django Reinhardt avec un quintet dynamique.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne que le concert est dédié au répertoire électrique de Django Reinhardt et implique un quintet dynamique."
+          },
+          {
+            "statement": "Un concert solo nommé Loïs Morgan Solo est prévu le mercredi 25 novembre 2026 à 16h30 à l'Hôtel de Région.",
+            "verdict": 1,
+            "reason": "Le contexte précise explicitement ces informations pour le concert solo de Loïs Morgan."
+          },
+          {
+            "statement": "Ce concert est inspiré du blues et du jazz et tourne autour de l'album Voodoo Spell.",
+            "verdict": 1,
+            "reason": "Le contexte décrit que Loïs Morgan présente son album 'Voodoo Spell', inspiré du blues et du jazz, lors de ce concert."
+          }
+        ],
+        "answer_relevancy": 0.9050396518519128,
+        "context_recall": 0.4,
+        "factual_correctness": 0.1
+      }
+    },
+    "2": {
+      "id": 2,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9035190521342625,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.7142857142857143,
+        "faithfulness_statements": [
+          {
+            "statement": "An exhibition named \"Le H de Atlantique\" will take place at La Rochelle.",
+            "verdict": 1,
+            "reason": "The context explicitly mentions that the exhibition 'Le H de Atlantique' is scheduled to take place at Chapelle des Dames Blanches, La Rochelle."
+          },
+          {
+            "statement": "The exhibition \"Le H de Atlantique\" will run from November 1, 2026, to November 8, 2026.",
+            "verdict": 0,
+            "reason": "The context states the exhibition runs from September 12, 2026, to November 8, 2026, not starting on November 1, 2026."
+          },
+          {
+            "statement": "The location for \"Le H de Atlantique\" is the Chapelle des Dames Blanches.",
+            "verdict": 1,
+            "reason": "The context explicitly states that the exhibition 'Le H de Atlantique' is located at Chapelle des Dames Blanches, La Rochelle."
+          },
+          {
+            "statement": "\"Le H de Atlantique\" is a photographic exhibition organized as part of the Bicentenaire de la Photographie.",
+            "verdict": 1,
+            "reason": "The context mentions that 'Le H de Atlantique' is in collaboration with various entities 'dans le cadre du Bicentenaire de la Photographie,' implying it is a photographic exhibition."
+          },
+          {
+            "statement": "The works in the \"Le H de Atlantique\" exhibition are accessible for free.",
+            "verdict": 1,
+            "reason": "The context explicitly states that the exhibition 'Le H de Atlantique' has 'Entrée libre,' meaning free access."
+          },
+          {
+            "statement": "No event matches the exact date of October 29, 2026, for the request made.",
+            "verdict": 1,
+            "reason": "The context does not provide any event scheduled on October 29, 2026, and no events are listed for that date."
+          },
+          {
+            "statement": "The user could broaden the search to the following week to find more available options.",
+            "verdict": 0,
+            "reason": "The context does not provide any guidance or suggestion for broadening the search period; this is an external recommendation not supported by the given context."
+          }
+        ],
+        "answer_relevancy": 0.8119590146712667,
+        "context_recall": 0.8,
+        "factual_correctness": 0.42
+      }
+    },
+    "3": {
+      "id": 3,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6,
+        "recall": 0.6
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9100014647246494,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.8,
+        "faithfulness_statements": [
+          {
+            "statement": "A comedy show titled **J'aime beaucoup ce que vous faites !** will take place on Thursday, November 5th at 20:00 at the **Théâtre Trianon** in Bordeaux.",
+            "verdict": 1,
+            "reason": "The context explicitly states that the show **J'aime Beaucoup ce que Vous Faites** will take place on Thursday, November 5, 2026, from 20:00 to 21:30 at Théâtre Trianon, Bordeaux."
+          },
+          {
+            "statement": "The show **J'aime beaucoup ce que vous faites !** is a cult comedy and is highly entertaining, suitable for families or groups of friends.",
+            "verdict": 0,
+            "reason": "The context describes the show as a 'phénomène théâtral devenu culte' and mentions it has had 2 million spectators, indicating its popularity and entertainment value. However, it does not explicitly state it is suitable for families or groups of friends, though the age range (11-90) suggests broad appeal."
+          },
+          {
+            "statement": "A comedy show titled **On choisit pas sa famille !** will take place on Friday, November 6th at 21:00 at the **Théâtre Trianon** in Bordeaux.",
+            "verdict": 1,
+            "reason": "The context explicitly states that **On choisit pas sa famille !** will take place on Friday, November 6, 2026, from 21:00 to 22:30 at Théâtre Trianon, Bordeaux."
+          },
+          {
+            "statement": "The show **On choisit pas sa famille !** is a quirky and unpredictable piece filled with twists, ideal for an evening of laughter.",
+            "verdict": 1,
+            "reason": "The context describes the show as filled with 'quiproquos, règlements de comptes, et situations totalement délirantes,' which aligns with the description of being quirky, unpredictable, and filled with twists. It is also clearly intended for an evening of laughter."
+          },
+          {
+            "statement": "Both comedy shows will occur during the upcoming week in Bordeaux.",
+            "verdict": 1,
+            "reason": "The context specifies that **J'aime Beaucoup ce que Vous Faites** will take place on November 5, 2026, and **On choisit pas sa famille !** on November 6, 2026, both within the same week. The 'upcoming week' is ambiguous but can reasonably be inferred as the week of November 5-11, 2026."
+          }
+        ],
+        "answer_relevancy": 0.8879822045319886,
+        "context_recall": 0.4,
+        "factual_correctness": 0.4
+      }
+    },
+    "4": {
+      "id": 4,
+      "category": "answer",
+      "behavior_ok": false,
+      "behavior_problems": [
+        "aucun événement cité"
+      ],
+      "retrieval": {
+        "hit": false,
+        "first_rank": null,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "citations": {
+        "cited": 0,
+        "cited_relevant": 0,
+        "precision": null
+      },
+      "similarity": 0.8634978070534812,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.0,
+        "faithfulness_statements": [
+          {
+            "statement": "No theatre events are currently available in Brive-la-Gaillarde for upcoming dates starting from October 29, 2026, according to available suggestions.",
+            "verdict": 0,
+            "reason": "The context does not mention theatre events at all, nor does it provide any information about events starting from October 29, 2026. The available events are related to board games and apéros for singles."
+          },
+          {
+            "statement": "The information is based on the current database of events.",
+            "verdict": 0,
+            "reason": "The context does not explicitly mention a 'database of events,' but it provides specific details about scheduled events. This statement cannot be directly inferred from the given context."
+          },
+          {
+            "statement": "A search for other types of cultural events can be conducted if desired.",
+            "verdict": 0,
+            "reason": "The context does not mention any mechanism or suggestion for conducting searches or exploring other types of cultural events beyond what is listed."
+          },
+          {
+            "statement": "Cultural events may include music performances, exhibitions, board games, or other related activities.",
+            "verdict": 0,
+            "reason": "The context explicitly mentions board games (jeux de société) and apéros, but does not mention music performances or exhibitions. The statement partially aligns but is not fully supported by the context."
+          },
+          {
+            "statement": "An alternative time period can be selected for event searches.",
+            "verdict": 0,
+            "reason": "The context does not provide any information about the possibility of selecting alternative time periods for event searches."
+          },
+          {
+            "statement": "Assistance is available to explore additional options for events.",
+            "verdict": 0,
+            "reason": "The context mentions animators are present to help discover and learn about games, but it does not explicitly state that assistance is available for exploring additional event options beyond the listed ones."
+          }
+        ],
+        "answer_relevancy": 0.8112437804574025,
+        "context_recall": 0.0,
+        "factual_correctness": 0.0
+      }
+    },
+    "5": {
+      "id": 5,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.9084144352486964,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.9166666666666666,
+        "faithfulness_statements": [
+          {
+            "statement": "Un concert de musique classique intitulé **Concert de Noël Radio Classique** se tiendra à Bordeaux du jeudi 17 décembre 2026 au dimanche 20 décembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte précise les dates exactes (du 17 au 20 décembre 2026) et le titre du concert."
+          },
+          {
+            "statement": "L'événement aura lieu à l'Auditorium de Bordeaux.",
+            "verdict": 1,
+            "reason": "Le lieu est explicitement mentionné comme l'Auditorium de Bordeaux dans le contexte."
+          },
+          {
+            "statement": "Les séances sont prévues le 17 décembre 2026 à 20h00, le 18 décembre 2026 à 20h00, le 20 décembre 2026 à 15h00 et le 20 décembre 2026 à 20h00.",
+            "verdict": 1,
+            "reason": "Les horaires et dates des séances sont détaillés dans le contexte pour le Concert de Noël Radio Classique."
+          },
+          {
+            "statement": "Le public pourra participer à la sélection du programme lors de cet événement.",
+            "verdict": 1,
+            "reason": "Le contexte indique que le public est invité à choisir le programme pour le Concert de Noël Radio Classique."
+          },
+          {
+            "statement": "Un autre concert de musique classique intitulé **Les Quatre Saisons de Vivaldi et musiques de Noël** se tiendra le dimanche 27 décembre 2026 à 15h30.",
+            "verdict": 1,
+            "reason": "Le titre, la date et l'heure sont explicitement mentionnés dans le contexte."
+          },
+          {
+            "statement": "Ce concert aura lieu à l'Église Notre-Dame de Bordeaux.",
+            "verdict": 1,
+            "reason": "Le lieu est clairement indiqué comme l'Église Notre-Dame de Bordeaux dans le contexte."
+          },
+          {
+            "statement": "Ce programme inclura des œuvres classiques de Vivaldi ainsi que des chants de Noël.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement Les Quatre Saisons de Vivaldi et des chants de Noël comme Douce Nuit et Minuit Chrétiens."
+          },
+          {
+            "statement": "Un événement supplémentaire, nommé **Concert rencontre**, se déroulera le mercredi 2 décembre 2026.",
+            "verdict": 1,
+            "reason": "Le titre et la date sont explicitement mentionnés dans le contexte."
+          },
+          {
+            "statement": "Cet événement se tiendra à la Salle des Fêtes Bordeaux Grand Parc.",
+            "verdict": 1,
+            "reason": "Le lieu est clairement indiqué comme la Salle des Fêtes Bordeaux Grand Parc dans le contexte."
+          },
+          {
+            "statement": "Le programme de cet événement sera centré sur un concerto pour basson.",
+            "verdict": 1,
+            "reason": "Le contexte précise que le programme inclut un Concerto pour basson de Rossini."
+          },
+          {
+            "statement": "Les deux premiers concerts mentionnés correspondent à la période de décembre 2026 demandée.",
+            "verdict": 0,
+            "reason": "Les deux premiers concerts (Concert de Noël Radio Classique et Les Quatre Saisons de Vivaldi) ont lieu respectivement du 17 au 20 décembre et le 27 décembre 2026, mais le second ne correspond pas entièrement à la période demandée (du 17 au 20 décembre)."
+          },
+          {
+            "statement": "Le **Concert rencontre** du 2 décembre 2026 se situe en dehors de la période demandée.",
+            "verdict": 1,
+            "reason": "La période demandée n'est pas explicitement définie dans le contexte, mais si on considère la période mentionnée dans le titre du premier événement (du 17 au 20 décembre), alors le 2 décembre 2026 est effectivement en dehors de cette période."
+          }
+        ],
+        "answer_relevancy": 0.891740331217712,
+        "context_recall": 0.7142857142857143,
+        "factual_correctness": 0.48
+      }
+    },
+    "6": {
+      "id": 6,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9254580903108016,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.75,
+        "faithfulness_statements": [
+          {
+            "statement": "Two documentary films are proposed in Bordeaux starting from October 29, 2026.",
+            "verdict": 0,
+            "reason": "The context mentions multiple documentary events starting from October 29, 2026, including projections and debates, but does not explicitly state that only two films are proposed. The phrase 'starting from' is ambiguous and could imply more events beyond the listed ones."
+          },
+          {
+            "statement": "The documentary titled \"Le Jeu de la ferme\" will be screened on Saturday, November 7, at the Bibliothèque Flora Tristan.",
+            "verdict": 1,
+            "reason": "The context explicitly states the title, date (Saturday, November 7, 2026), and location (Bibliothèque Flora Tristan) for this documentary."
+          },
+          {
+            "statement": "The screening of \"Le Jeu de la ferme\" will be followed by a meeting with the filmmaker.",
+            "verdict": 1,
+            "reason": "The context mentions that the screening will be followed by a discussion with the filmmaker, Jean-Pierre Vedel."
+          },
+          {
+            "statement": "The documentary \"Le Jeu de la ferme\" explores the relationship between children and their animals on an agricultural plot.",
+            "verdict": 1,
+            "reason": "The context describes the film as exploring the relationship between children and their animals on the Aubrac plateau, which is an agricultural area."
+          },
+          {
+            "statement": "The documentary titled \"Au fil de l'eau, de l'insouciance à la désobéissance\" will be screened on Wednesday, November 4, at the Halle des Douves.",
+            "verdict": 1,
+            "reason": "The context explicitly states the title, date (Wednesday, November 4, 2026), and location (Halle des Douves) for this documentary."
+          },
+          {
+            "statement": "The screening of \"Au fil de l'eau, de l'insouciance à la désobéissance\" will include a ciné-débat on agriculture and water management.",
+            "verdict": 1,
+            "reason": "The context mentions a ciné-débat following the screening, focusing on agriculture, water, and related themes, including an expert discussion on water management."
+          },
+          {
+            "statement": "The event for \"Au fil de l'eau, de l'insouciance à la désobéissance\" will feature an exchange with an expert after the projection.",
+            "verdict": 1,
+            "reason": "The context explicitly states that Olivier Hounvide, an expert, will speak after the projection to discuss water management in agriculture."
+          },
+          {
+            "statement": "Other documentary films in Bordeaux have screening dates prior to October 29, 2026.",
+            "verdict": 0,
+            "reason": "The context does not mention any documentary films with screening dates before October 29, 2026. All listed events start on or after that date."
+          }
+        ],
+        "answer_relevancy": 0.8252464922132449,
+        "context_recall": 0.375,
+        "factual_correctness": 0.24
+      }
+    },
+    "7": {
+      "id": 7,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 0.8
+      },
+      "citations": {
+        "cited": 4,
+        "cited_relevant": 4,
+        "precision": 1.0
+      },
+      "similarity": 0.9320715011610492,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.8125,
+        "faithfulness_statements": [
+          {
+            "statement": "Les ateliers pour enfants disponibles à Bordeaux le mercredi 4 novembre 2026 sont les suivants:",
+            "verdict": 0,
+            "reason": "La question est une introduction générale et non une affirmation vérifiable. Aucune liste exhaustive n'est fournie dans le contexte."
+          },
+          {
+            "statement": "Un atelier d'éveil à l'art nommé ABCD'ART se déroule de 10h30 à 12h00 à la Maison Marandon.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement un atelier ABCD'ART à la Maison Marandon de 10h30 à 12h00 le mercredi 4 novembre 2026."
+          },
+          {
+            "statement": "L'atelier ABCD'ART cible les enfants âgés de 3 à 7 ans.",
+            "verdict": 1,
+            "reason": "Le contexte précise que l'atelier ABCD'ART est destiné aux enfants de 3 à 7 ans."
+          },
+          {
+            "statement": "L'objectif de l'atelier ABCD'ART est d'éveiller la créativité des enfants à travers des histoires d'art ludiques.",
+            "verdict": 1,
+            "reason": "Le contexte décrit que l'atelier ABCD'ART vise à éveiller la créativité des enfants via des histoires d'art, des œuvres ou des thèmes ludiques."
+          },
+          {
+            "statement": "Un autre atelier d'éveil à l'art, également organisé par ABCD'ART, a lieu de 10h30 à 12h00 à la Maison Marandon.",
+            "verdict": 0,
+            "reason": "Le contexte ne mentionne qu'un seul atelier ABCD'ART à cet horaire et lieu. Il n'y a pas d'indication d'un autre atelier similaire."
+          },
+          {
+            "statement": "Cet atelier est conçu pour les enfants âgés de 3 à 7 ans.",
+            "verdict": 0,
+            "reason": "Le contexte indique que l'atelier ABCD'ART est destiné aux enfants de 3 à 7 ans, mais cette affirmation est répétitive et non applicable à un autre atelier non mentionné."
+          },
+          {
+            "statement": "L'atelier propose des activités créatives et artistiques avec des thèmes variés.",
+            "verdict": 1,
+            "reason": "Le contexte décrit des activités créatives et artistiques avec des thèmes variés pour l'atelier ABCD'ART."
+          },
+          {
+            "statement": "Un atelier d'Arts Plastiques est prévu de 14h30 à 16h00 à l’Ehpad Village Terre Nègre.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement un atelier d'Arts Plastiques à l'Ehpad Village Terre Nègre de 14h30 à 16h00 le mercredi 4 novembre 2026."
+          },
+          {
+            "statement": "L'atelier d'Arts Plastiques est destiné aux enfants âgés de 7 à 14 ans.",
+            "verdict": 1,
+            "reason": "Le contexte précise que l'atelier d'Arts Plastiques est destiné aux enfants de 7 à 14 ans."
+          },
+          {
+            "statement": "Les participants explorent des techniques comme le dessin, la peinture ou le collage.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement que l'atelier d'Arts Plastiques explore des techniques comme le dessin, la peinture, le collage, etc."
+          },
+          {
+            "statement": "Des cours de dessin, peinture et modelage sont disponibles à l’atelier Citrouille.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement des cours de dessin, peinture et modelage à l'atelier Citrouille."
+          },
+          {
+            "statement": "Ces cours se déroulent aux horaires de 10h00 à 11h00, 11h00 à 12h30 ou 14h00 à 17h00.",
+            "verdict": 1,
+            "reason": "Le contexte précise que les cours à l'atelier Citrouille ont lieu aux horaires mentionnés le mercredi 4 novembre 2026."
+          },
+          {
+            "statement": "Les cours de dessin, peinture et modelage sont adaptés aux enfants âgés de 5 à 14 ans.",
+            "verdict": 1,
+            "reason": "Le contexte indique que les cours de dessin, peinture et modelage sont destinés aux enfants de 5 à 14 ans."
+          },
+          {
+            "statement": "Les activités proposent des techniques variées et mettent l'accent sur l'expression artistique.",
+            "verdict": 1,
+            "reason": "Le contexte décrit que les cours à l'atelier Citrouille proposent des techniques variées et mettent l'accent sur l'expression artistique."
+          },
+          {
+            "statement": "Les ateliers ABCD'ART sont particulièrement adaptés pour les enfants âgés de 3 à 7 ans.",
+            "verdict": 1,
+            "reason": "Le contexte précise que les ateliers ABCD'ART sont destinés aux enfants de 3 à 7 ans."
+          },
+          {
+            "statement": "Les autres ateliers proposés conviennent aux enfants recherchant des activités plus techniques ou pour des publics plus âgés.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne des ateliers pour des tranches d'âge différentes (7-14 ans, 5-14 ans) et des techniques plus avancées, ce qui correspond à la déclaration."
+          }
+        ],
+        "answer_relevancy": 0.8548304352492521,
+        "context_recall": 0.5,
+        "factual_correctness": 0.52
+      }
+    },
+    "8": {
+      "id": 8,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 4,
+        "reciprocal_rank": 0.25,
+        "precision": 0.2,
+        "recall": 0.2
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.886605396897507,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.9,
+        "faithfulness_statements": [
+          {
+            "statement": "An exhibition named \"Mine d'Emile s'expose\" is taking place in Bordeaux this weekend.",
+            "verdict": 1,
+            "reason": "The exhibition 'Mine d'Emile s'expose' is scheduled from October 3 to November 3, 2026, which includes the weekend of October 31, 2026."
+          },
+          {
+            "statement": "The event will occur on Saturday, October 31, 2026.",
+            "verdict": 1,
+            "reason": "The exhibition 'Mine d'Emile s'expose' is open on Saturday, October 31, 2026, from 10:00 AM to 6:00 PM."
+          },
+          {
+            "statement": "The exhibition hours are from 10:00 AM to 6:00 PM.",
+            "verdict": 1,
+            "reason": "The context specifies the exhibition hours as 10:00 AM to 18:00 (6:00 PM) on October 31, 2026."
+          },
+          {
+            "statement": "The location of the exhibition is the Jardin botanique Bastide.",
+            "verdict": 0,
+            "reason": "The exhibition 'Mine d'Emile s'expose' is located at Bibliothèque Bordeaux-Lac, not the Jardin botanique Bastide."
+          },
+          {
+            "statement": "The exhibition features sculptures made from recycled metal.",
+            "verdict": 1,
+            "reason": "The context explicitly states that the exhibition features sculptures on metal recyclé (recycled metal)."
+          },
+          {
+            "statement": "The exhibition is free of charge during the opening hours of the Bordeaux-Lac library.",
+            "verdict": 1,
+            "reason": "The context mentions that the exhibition is free of charge and open during the library's operating hours."
+          },
+          {
+            "statement": "Access to the exhibition is granted freely during the library's operating hours.",
+            "verdict": 1,
+            "reason": "The context confirms that the exhibition 'Mine d'Emile s'expose' is free of charge and open during the library's operating hours."
+          },
+          {
+            "statement": "An exhibition named \"Sols\" is also located at the Jardin botanique Bastide this weekend.",
+            "verdict": 1,
+            "reason": "The 'Sols' exhibition is indeed located at the Jardin botanique Bastide and is open on October 31, 2026."
+          },
+          {
+            "statement": "The \"Sols\" exhibition is not free of charge.",
+            "verdict": 1,
+            "reason": "The context states that the 'Sols' exhibition requires payment at the Jardin botanique Bastide's entrance."
+          },
+          {
+            "statement": "The \"Sols\" exhibition remains open during this weekend.",
+            "verdict": 1,
+            "reason": "The 'Sols' exhibition is open on October 31, 2026, from 11:00 AM to 6:00 PM, which is part of the weekend."
+          }
+        ],
+        "answer_relevancy": 0.8457923227544971,
+        "context_recall": 0.2727272727272727,
+        "factual_correctness": 0.12
+      }
+    },
+    "9": {
+      "id": 9,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 4,
+        "reciprocal_rank": 0.25,
+        "precision": 0.2,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9647185164554756,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 1.0,
+        "faithfulness_statements": [
+          {
+            "statement": "Un concert de jazz intitulé \"Nouveaux Mondes\" par Sophie Alour aura lieu à Aubusson.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement un concert intitulé 'Nouveaux Mondes' par Sophie Alour au Théâtre Jean Lurçat, Aubusson."
+          },
+          {
+            "statement": "L'événement se déroulera au Théâtre Jean Lurçat.",
+            "verdict": 1,
+            "reason": "Le lieu du concert est clairement indiqué comme étant le Théâtre Jean Lurçat dans le contexte."
+          },
+          {
+            "statement": "La date du concert est fixée au lundi 16 novembre 2026.",
+            "verdict": 1,
+            "reason": "La date du concert est explicitement mentionnée comme étant le lundi 16 novembre 2026 dans le contexte."
+          },
+          {
+            "statement": "Le concert débutera à 20h30.",
+            "verdict": 1,
+            "reason": "L'heure de début du concert est précisée comme étant 20h30 dans le contexte."
+          },
+          {
+            "statement": "Sophie Alour sera accompagnée d'un quartet pour cette performance.",
+            "verdict": 1,
+            "reason": "Le contexte indique explicitement que Sophie Alour jouera en quartet lors de ce concert."
+          },
+          {
+            "statement": "L'expérience musicale proposée sera envoûtante.",
+            "verdict": 1,
+            "reason": "Le contexte décrit les paysages sonores de Sophie Alour comme 'aussi délicats qu'envoûtants', ce qui permet d'inférer cette qualité pour l'expérience musicale."
+          }
+        ],
+        "answer_relevancy": 0.7276564064680278,
+        "context_recall": 1.0,
+        "factual_correctness": 0.67
+      }
+    },
+    "10": {
+      "id": 10,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9483803167963851,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 1.0,
+        "faithfulness_statements": [
+          {
+            "statement": "Two nature walks in the Dordogne region are proposed for November 2026.",
+            "verdict": 1,
+            "reason": "The context lists one nature walk titled 'Balade découverte des plantes sauvages' on 8 November 2026 and another titled 'Les Carnets d'Aventures' on 15 November 2026, both in the Dordogne region."
+          },
+          {
+            "statement": "The first walk is titled 'Balade découverte des plantes sauvages'.",
+            "verdict": 1,
+            "reason": "The context explicitly lists 'Balade découverte des plantes sauvages' as the first nature walk in the provided sequence."
+          },
+          {
+            "statement": "This walk takes place on Sunday, 8 November in Périgueux.",
+            "verdict": 1,
+            "reason": "The context specifies that 'Balade découverte des plantes sauvages' occurs on Sunday, 8 November 2026, at 15h00-17h00 in Périgueux."
+          },
+          {
+            "statement": "The activity focuses on exploring wild plants and their seasonal changes.",
+            "verdict": 1,
+            "reason": "The description of 'Balade découverte des plantes sauvages' mentions observing wild plants and their seasonal evolution explicitly."
+          },
+          {
+            "statement": "The second walk is titled 'Les Carnets d'Aventures'.",
+            "verdict": 1,
+            "reason": "The context lists 'Les Carnets d'Aventures' as the second nature-related activity in the sequence."
+          },
+          {
+            "statement": "This walk occurs on Sunday, 15 November in Trélissac.",
+            "verdict": 1,
+            "reason": "The context states that 'Les Carnets d'Aventures' takes place on Sunday, 15 November 2026, in Trélissac."
+          },
+          {
+            "statement": "The walk is a guided hike combining nature, personal development, and creativity.",
+            "verdict": 1,
+            "reason": "The description of 'Les Carnets d'Aventures' includes guided group hikes, workshops, and creative activities like land art, aligning with the statement."
+          }
+        ],
+        "answer_relevancy": 0.8373041022336323,
+        "context_recall": 1.0,
+        "factual_correctness": 0.64
+      }
+    },
+    "11": {
+      "id": 11,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 5,
+        "cited_relevant": 5,
+        "precision": 1.0
+      },
+      "similarity": 0.9358340504662318,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.7,
+        "faithfulness_statements": [
+          {
+            "statement": "Angoulême propose deux expositions culturelles en novembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne deux expositions distinctes (*sténopé/coconstruction* et *Croissant Indigerible / علاقات عرنسية*) en novembre 2026."
+          },
+          {
+            "statement": "La première exposition, intitulée *sténopé/coconstruction*, se déroule à la médiathèque l'Alpha.",
+            "verdict": 1,
+            "reason": "Le contexte précise que l'exposition *sténopé/coconstruction* a lieu à la médiathèque l'Alpha."
+          },
+          {
+            "statement": "Cette exposition offre une immersion créative et réflexive sur les thèmes de l'habitat et de la lumière.",
+            "verdict": 1,
+            "reason": "Le contexte décrit explicitement que l'exposition *sténopé/coconstruction* explore les thèmes de l'habitat, de la construction collective, de la lumière et de la mémoire."
+          },
+          {
+            "statement": "L'exposition *sténopé/coconstruction* est accessible pendant toute la période demandée.",
+            "verdict": 0,
+            "reason": "Le contexte indique que l'exposition est accessible du lundi 2 novembre au samedi 21 novembre 2026, mais ne précise pas si elle est accessible *toute la journée* pendant cette période. La formulation 'toute la période demandée' est ambiguë et non explicitement confirmée."
+          },
+          {
+            "statement": "La deuxième exposition, intitulée *Croissant Indigerible / علاقات عرنسية*, a lieu au FRAC Poitou-Charentes.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement que l'exposition *Croissant Indigerible / علاقات عرنسية* se tient au FRAC Poitou-Charentes."
+          },
+          {
+            "statement": "Une visite guidée gratuite de l'exposition *Croissant Indigerible / علاقات عرنسية* est organisée le dimanche 2 novembre à 16h.",
+            "verdict": 0,
+            "reason": "Le contexte précise qu'une visite accompagnée gratuite a lieu tous les premiers dimanches du mois à 16h, mais la date mentionnée est le dimanche 1 novembre, non le 2 novembre."
+          },
+          {
+            "statement": "La visite guidée explore des œuvres du collectif Tizintizwa.",
+            "verdict": 1,
+            "reason": "Le contexte indique que l'exposition *Croissant Indigerible / علاقات عرنسية* est réalisée par le collectif Tizintizwa, et la visite guidée concerne cette exposition."
+          },
+          {
+            "statement": "Des apéros entre célibataires sur le thème de la randonnée sont organisés à Angoulême.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement des apéros conviviaux entre célibataires randonneurs à Angoulême."
+          },
+          {
+            "statement": "Les dates des apéros sont le 6 novembre, le 10 novembre et le 3 novembre.",
+            "verdict": 1,
+            "reason": "Le contexte liste explicitement ces trois dates pour les apéros."
+          },
+          {
+            "statement": "Les apéros ont lieu un vendredi, deux mardis et un autre jour non précisé dans la liste fournie.",
+            "verdict": 0,
+            "reason": "Le contexte mentionne un apéro le vendredi 6 novembre et deux apéros les mardis 3 et 10 novembre. Aucune autre date n'est précisée, donc la formulation 'un autre jour non précisé' est incorrecte."
+          }
+        ],
+        "answer_relevancy": 0.8222816496468749,
+        "context_recall": 1.0,
+        "factual_correctness": 0.67
+      }
+    },
+    "12": {
+      "id": 12,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 5,
+        "cited_relevant": 5,
+        "precision": 1.0
+      },
+      "similarity": 0.8778772139826865,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 1.0,
+        "faithfulness_statements": [
+          {
+            "statement": "Une exposition intitulée *À la découverte de la biodiversité dans mon quartier* se déroule du jeudi 29 octobre au samedi 31 octobre au Jardin Léon-Bonnat.",
+            "verdict": 1,
+            "reason": "L'exposition est mentionnée comme ayant lieu du jeudi 1er octobre au samedi 31 octobre, incluant les dates du 29 au 31 octobre. Le lieu est bien le Jardin Léon-Bonnat."
+          },
+          {
+            "statement": "Cette exposition permet de découvrir la richesse naturelle de Bayonne.",
+            "verdict": 1,
+            "reason": "Le contexte indique que l'exposition vise à redécouvrir la biodiversité à travers le regard des habitants, ce qui implique une découverte de la richesse naturelle."
+          },
+          {
+            "statement": "L’accès à cette exposition est gratuit.",
+            "verdict": 1,
+            "reason": "Le contexte précise explicitement que les tarifs de cette exposition sont gratuits."
+          },
+          {
+            "statement": "Une exposition intitulée *Archistoire : regards sur l'architecture des années 1930* est visible jusqu’au samedi 31 octobre à l’Immeuble Nivadour.",
+            "verdict": 1,
+            "reason": "L'exposition est mentionnée comme ayant lieu jusqu'au samedi 31 octobre à l'Immeuble Nivadour."
+          },
+          {
+            "statement": "Cette exposition explore l’histoire architecturale de Bayonne.",
+            "verdict": 1,
+            "reason": "Le contexte décrit l'exposition comme une plongée dans les architectures bayonnaises des années 1930, ce qui implique une exploration de l'histoire architecturale."
+          },
+          {
+            "statement": "Des ressources numériques et des balades thématiques sont proposées dans le cadre de cette exposition.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne des panoramas 360°, des photographies anciennes, des plans, et une balade d’environ 45 minutes à pied et 20 minutes à vélo, ce qui correspond à des ressources numériques et des balades thématiques."
+          },
+          {
+            "statement": "Une exposition intitulée *DANTZA - Regards sur la danse basque* a lieu du jeudi 29 au samedi 31 octobre à la Médiathèque de Bayonne.",
+            "verdict": 1,
+            "reason": "L'exposition est mentionnée comme ayant lieu du jeudi 8 octobre au samedi 9 janvier 2027, incluant les dates du 29 au 31 octobre. Le lieu est bien la Médiathèque de Bayonne."
+          },
+          {
+            "statement": "Cette exposition présente une exploration fascinante de la danse traditionnelle basque et de son héritage culturel.",
+            "verdict": 1,
+            "reason": "Le contexte décrit l'exposition comme explorant la place de la danse traditionnelle dans la société basque, son héritage et ses évolutions, ce qui correspond à une exploration fascinante."
+          },
+          {
+            "statement": "Une exposition intitulée *L'objet Invité : tête à tête avec la cathédrale néogothique* est accessible jusqu’au samedi 31 octobre au CIAP Lapurdum.",
+            "verdict": 1,
+            "reason": "L'exposition est mentionnée comme ayant lieu jusqu'au samedi 31 octobre au CIAP Lapurdum."
+          },
+          {
+            "statement": "Cette exposition plonge dans l’histoire de la cathédrale Sainte-Marie.",
+            "verdict": 1,
+            "reason": "Le contexte indique que l'exposition explore l'histoire de la cathédrale Sainte-Marie, notamment son renouveau architectural."
+          },
+          {
+            "statement": "Des objets et documents rares sont présentés dans cette exposition.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne des dessins préparatoires, des photographies de chantier et des moules de visages en plâtre, qui sont des objets et documents rares."
+          },
+          {
+            "statement": "Un événement appelé Apéro célibataires se tient le vendredi 30 octobre en centre-ville de Bayonne.",
+            "verdict": 1,
+            "reason": "L'événement est mentionné comme ayant lieu le vendredi 30 octobre en centre-ville de Bayonne."
+          },
+          {
+            "statement": "Cet événement est dédié aux rencontres et offre une ambiance conviviale.",
+            "verdict": 1,
+            "reason": "Le contexte décrit l'événement comme un apéro convivial entre célibataires pour faire connaissance et échanger, ce qui correspond à une ambiance conviviale dédiée aux rencontres."
+          }
+        ],
+        "answer_relevancy": 0.8571374836136197,
+        "context_recall": 0.375,
+        "factual_correctness": 0.32
+      }
+    },
+    "13": {
+      "id": 13,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9442317224383142,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.75,
+        "faithfulness_statements": [
+          {
+            "statement": "An event titled 'Dans le bureau d'Ernest, lettres ouvertes à la photographie' will take place on Saturday, October 31, 2026.",
+            "verdict": 1,
+            "reason": "The context explicitly states the event title and confirms its occurrence on Saturday, October 31, 2026."
+          },
+          {
+            "statement": "The event will occur at Villa Pérochon.",
+            "verdict": 1,
+            "reason": "The context mentions the event will take place at Villa Pérochon, Centre d'art contemporain photographique, Niort."
+          },
+          {
+            "statement": "The event will run from 1:30 PM to 6:30 PM.",
+            "verdict": 1,
+            "reason": "The context specifies the event will run from 13h30 (1:30 PM) to 18h30 (6:30 PM) on the specified date."
+          },
+          {
+            "statement": "The event involves a literary and photographic experience.",
+            "verdict": 1,
+            "reason": "The context describes the event as a cycle of residences where writers explore the relationship between literature and photography, confirming a literary and photographic experience."
+          },
+          {
+            "statement": "Writers will explore the photographic medium through open letters.",
+            "verdict": 1,
+            "reason": "The context explicitly states that the event involves writers creating 'lettres ouvertes' (open letters) to explore the photographic medium."
+          },
+          {
+            "statement": "The exploration will occur within the intimate setting of Ernest Pérochon’s office.",
+            "verdict": 1,
+            "reason": "The context mentions that writers will work in the 'bureau d’Ernest Pérochon,' which is described as an intimate setting within the center."
+          },
+          {
+            "statement": "No other cultural events match the specified criteria for this weekend in Niort.",
+            "verdict": 0,
+            "reason": "The context only provides information about this specific event and does not mention or compare it to other events in Niort or elsewhere."
+          },
+          {
+            "statement": "The user may choose to expand the search to other dates or types of events.",
+            "verdict": 0,
+            "reason": "The context does not provide any guidance or information about expanding the search to other dates or types of events."
+          }
+        ],
+        "answer_relevancy": 0.7620264579924411,
+        "context_recall": 0.6666666666666666,
+        "factual_correctness": 0.67
+      }
+    },
+    "14": {
+      "id": 14,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6,
+        "recall": 0.75
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9178942894927611,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.8461538461538461,
+        "faithfulness_statements": [
+          {
+            "statement": "Un marché de Noël se tiendra à Bordeaux en décembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement le 'Marché de Noël de Bordeaux' avec des dates en décembre 2026."
+          },
+          {
+            "statement": "Ce marché de Noël à Bordeaux aura lieu du mardi 1er décembre 2026 au dimanche 27 décembre 2026.",
+            "verdict": 0,
+            "reason": "Le marché commence le 27 novembre 2026, pas le 1er décembre. La date de début est incorrecte."
+          },
+          {
+            "statement": "Le lieu de ce marché de Noël à Bordeaux est la Place des Quinconces.",
+            "verdict": 1,
+            "reason": "Le contexte précise que le marché de Noël de Bordeaux se tiendra à la Place des Quinconces."
+          },
+          {
+            "statement": "Ce marché de Noël à Bordeaux offrira une ambiance festive avec des illuminations.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement des 'illuminations' et une ambiance festive pour le marché de Noël de Bordeaux."
+          },
+          {
+            "statement": "Ce marché de Noël à Bordeaux proposera des produits locaux.",
+            "verdict": 1,
+            "reason": "Le contexte indique que le marché proposera des 'produits locaux'."
+          },
+          {
+            "statement": "Un autre marché de Noël se tiendra à Fondaudège en décembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement le 'Marché de Noël de Fondaudège' en décembre 2026."
+          },
+          {
+            "statement": "Ce marché de Noël à Fondaudège aura lieu le dimanche 20 décembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte précise que le marché de Noël de Fondaudège se tiendra uniquement le dimanche 20 décembre 2026."
+          },
+          {
+            "statement": "Le lieu de ce marché de Noël à Fondaudège est la Place Charles Gruet à Bordeaux.",
+            "verdict": 1,
+            "reason": "Le contexte indique que le marché de Noël de Fondaudège se tiendra à la Place Charles Gruet, Bordeaux."
+          },
+          {
+            "statement": "Ce marché de Noël à Fondaudège est organisé par les commerçants de la rue Fondaudège.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement que les commerçants de la rue Fondaudège organisent ce marché de Noël."
+          },
+          {
+            "statement": "Ce marché de Noël à Fondaudège proposera des gourmandises.",
+            "verdict": 1,
+            "reason": "Le contexte indique que le marché proposera des 'gourmandises'."
+          },
+          {
+            "statement": "Ce marché de Noël à Fondaudège offrira des idées cadeaux.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne explicitement des 'idées cadeaux locales'."
+          },
+          {
+            "statement": "Les deux marchés de Noël mentionnés sont entièrement gratuits.",
+            "verdict": 0,
+            "reason": "Le marché de Bordeaux est 'entrée libre', mais celui de Fondaudège est 'entrée libre et gratuite'. Cependant, le marché de Bordeaux n'est pas explicitement décrit comme 'entièrement gratuit', seulement libre d'accès."
+          },
+          {
+            "statement": "Les deux marchés de Noël mentionnés sont ouverts à tous.",
+            "verdict": 1,
+            "reason": "Le marché de Bordeaux est 'tout public' par implication (entrée libre), et celui de Fondaudège est explicitement 'tout public'."
+          }
+        ],
+        "answer_relevancy": 0.7783987680190251,
+        "context_recall": 0.6,
+        "factual_correctness": 0.41
+      }
+    },
+    "15": {
+      "id": 15,
+      "category": "no_result",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.945480901133632,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "16": {
+      "id": 16,
+      "category": "absent_genre",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.9237686906949737,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "17": {
+      "id": 17,
+      "category": "off_topic",
+      "behavior_ok": false,
+      "behavior_problems": [
+        "événement cité malgré le refus"
+      ],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.8760921897430555,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "18": {
+      "id": 18,
+      "category": "other_region",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.8858904334644937,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "19": {
+      "id": 19,
+      "category": "past",
+      "behavior_ok": false,
+      "behavior_problems": [
+        "ne présente pas les événements comme passés"
+      ],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6,
+        "recall": 0.6
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.9373357912373085,
+      "ragas_status": "judged",
+      "ragas": {
+        "faithfulness": 0.875,
+        "faithfulness_statements": [
+          {
+            "statement": "Des concerts ont eu lieu en Lot-et-Garonne en septembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne plusieurs événements musicaux (concerts nocturnes, concert-spectacle) organisés en septembre 2026 dans le Lot-et-Garonne."
+          },
+          {
+            "statement": "Un événement nommé 'Concerts nocturnes à la tour de Paris' a été organisé à Villeneuve-sur-Lot le samedi 19 septembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte précise explicitement un événement intitulé 'Concerts nocturnes à la tour de Paris' organisé à Villeneuve-sur-Lot le 19 septembre 2026."
+          },
+          {
+            "statement": "Trois créneaux musicaux ont été proposés lors de la tombée de la nuit à Villeneuve-sur-Lot.",
+            "verdict": 1,
+            "reason": "Le contexte indique trois séances musicales distinctes (20h-21h, 21h-22h, 22h-23h) lors des 'Concerts nocturnes à la tour de Paris'."
+          },
+          {
+            "statement": "Yohan Arbona a animé les créneaux musicaux à Villeneuve-sur-Lot.",
+            "verdict": 1,
+            "reason": "Le contexte mentionne que Yohan Arbona est l'interprète associé à l'événement 'Concerts nocturnes à la tour de Paris' organisé par l'association la Team Kompagnie."
+          },
+          {
+            "statement": "Un concert et une lecture ont été organisés dans une église à Saint-Quentin-du-Dropt du samedi 19 au dimanche 20 septembre 2026.",
+            "verdict": 1,
+            "reason": "Le contexte décrit un événement intitulé 'Concert et lecture dans l'église' à Saint-Quentin-du-Dropt, couvrant les dates et horaires mentionnés."
+          },
+          {
+            "statement": "Les concerts à Saint-Quentin-du-Dropt ont été ponctués de lectures de textes durant toute la journée.",
+            "verdict": 0,
+            "reason": "Le contexte précise qu'il s'agit d'un 'concert ponctué de lectures de textes' de 10h à 18h le samedi 19 septembre, mais ne mentionne pas explicitement la journée du dimanche 20 septembre pour les lectures."
+          },
+          {
+            "statement": "Un concert-spectacle combinant musique et mise en scène a eu lieu le samedi 19 septembre 2026 à La Sauvetat-de-Savères.",
+            "verdict": 1,
+            "reason": "Le contexte décrit un événement intitulé 'Tableaux d’une exposition — Concert-spectacle' à La Sauvetat-de-Savères, avec une combinaison de musique, images et mise en scène."
+          },
+          {
+            "statement": "Le concert-spectacle de La Sauvetat-de-Savères s'est déroulé dans un ancien séchoir à tabac, un lieu historique.",
+            "verdict": 1,
+            "reason": "Le contexte précise que l'événement a lieu dans un 'ancien séchoir à tabac' et décrit son importance historique dans la région."
+          }
+        ],
+        "answer_relevancy": 0.8419954562406566,
+        "context_recall": 0.5,
+        "factual_correctness": 0.63
+      }
+    },
+    "20": {
+      "id": 20,
+      "category": "vague",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.9046649118731306,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    }
+  }
+}

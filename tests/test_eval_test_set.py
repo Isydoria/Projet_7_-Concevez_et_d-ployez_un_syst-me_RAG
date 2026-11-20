@@ -92,6 +92,14 @@ def test_excluded_events_exist_and_are_not_relevant(question, reference_data):
     assert not excluded & set(question["relevant_uids"] or [])
 
 
+def test_manual_judgments_cover_every_question():
+    """Classement humain des réponses : un verdict C / P / I motivé pour chaque question du jeu de test."""
+    judgments = json.loads(config.MANUAL_JUDGMENTS_FILE.read_text(encoding="utf-8"))["judgments"]
+    assert list(judgments) == [str(question["id"]) for question in QUESTIONS]
+    assert all(judgment["verdict"] in {"C", "P", "I"} and judgment["reason"].strip()
+               for judgment in judgments.values())
+
+
 @pytest.mark.parametrize("question", QUESTIONS, ids=IDS)
 def test_category_is_consistent_with_the_data(question, reference_data):
     """« Sans résultat » : aucun événement ne respecte les critères ; sinon, au moins un (appel au LLM)."""
