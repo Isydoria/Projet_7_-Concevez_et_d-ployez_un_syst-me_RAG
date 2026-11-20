@@ -80,6 +80,29 @@ def test_sources_are_the_cited_events_with_links_from_the_metadata():
     assert set(answer.sources[0]) == {"ref", "uid", "title", "start", "end", "city", "location_name", "url", "score"}
 
 
+def test_retrieved_lists_every_event_given_to_the_llm_even_if_not_cited():
+    # Sans cette liste, une réponse « rien ne correspond » ne dit pas si la recherche a trouvé le bon événement
+    assistant, _ = make_assistant("Aucun de ces événements ne correspond à votre demande.")
+    answer = assistant.ask(QUESTION, today=TODAY)
+    assert answer.sources == []
+    assert [event["ref"] for event in answer.retrieved] == [1, 2]   # numéro [n] du prompt = rang de recherche
+    assert [event["uid"] for event in answer.retrieved] == ["jazz-bordeaux", "expo-bordeaux"]
+    assert set(answer.retrieved[0]) == {"ref", "uid", "title", "score"}
+    assert "retrieved" in answer.to_dict()
+
+
+def test_cited_sources_are_among_the_retrieved_events():
+    assistant, _ = make_assistant("Le concert [1].")
+    answer = assistant.ask(QUESTION, today=TODAY)
+    retrieved = {(event["ref"], event["uid"]) for event in answer.retrieved}
+    assert {(source["ref"], source["uid"]) for source in answer.sources} <= retrieved
+
+
+def test_no_event_means_nothing_retrieved():
+    assistant, _ = make_assistant()
+    assert assistant.ask("Une exposition à Limoges", today=TODAY).retrieved == []
+
+
 def test_an_answer_without_reference_has_no_source():
     assistant, _ = make_assistant("Aucun de ces événements ne correspond à votre demande.")
     assert assistant.ask(QUESTION, today=TODAY).sources == []

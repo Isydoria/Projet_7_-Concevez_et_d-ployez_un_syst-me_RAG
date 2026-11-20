@@ -36,6 +36,8 @@ class AssistantAnswer:
     sources: list[dict]    # événements cités dans la réponse, liens tirés des métadonnées
     criteria: dict         # critères repérés dans la question
     metadata: dict         # date du jour, modèle, index, durées, tokens
+    # Événements trouvés par la recherche et transmis au LLM, cités ou non (évaluation de la recherche)
+    retrieved: list[dict] = field(default_factory=list)
     contexts: list[str] = field(default_factory=list)   # textes transmis au LLM (évaluation de la fidélité)
 
     def to_dict(self, include_contexts: bool = False) -> dict:
@@ -80,6 +82,12 @@ def make_source(ref: int, event: RetrievedEvent) -> dict:
         **{key: metadata[key] for key in ["uid", "title", "start", "end", "city", "location_name", "url"]},
         "score": round(event.score, 3),
     }
+
+
+def make_retrieved(ref: int, event: RetrievedEvent) -> dict:
+    """Événement trouvé par la recherche : son numéro [n] dans le prompt (= son rang), uid, titre et score."""
+    metadata = event.document.metadata
+    return {"ref": ref, "uid": metadata["uid"], "title": metadata["title"], "score": round(event.score, 3)}
 
 
 def criteria_to_dict(criteria: Criteria) -> dict:
@@ -186,5 +194,6 @@ class EventAssistant:
                 # « length » : plafond de tokens atteint, réponse coupée (voire vide si la réflexion a tout pris)
                 "finish_reason": response_metadata.get("finish_reason"),
             },
+            retrieved=[make_retrieved(number, event) for number, event in enumerate(events, start=1)],
             contexts=[format_event(number, event, criteria.period) for number, event in enumerate(events, start=1)],
         )
