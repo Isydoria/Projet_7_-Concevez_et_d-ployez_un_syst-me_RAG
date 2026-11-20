@@ -12,7 +12,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 
 from rag import config
-from rag.criteria import Criteria, Period, build_city_index, normalize
+from rag.criteria import Criteria, Period, build_city_index, normalize, search_text
 
 
 @dataclass(frozen=True)
@@ -75,14 +75,23 @@ class EventRetriever:
                 and (not criteria.department or event.department == criteria.department)
                 and any(overlaps(criteria.period, begin, end) for begin, end in event.sessions)}
 
+    @staticmethod
+    def query_text(question: str, criteria: Criteria) -> str:
+        """Texte vectorisé : la question sans le lieu ni la période déjà filtrés (ou entière, selon la config)."""
+        return search_text(question, criteria) if config.SEARCH_REDUCED_QUESTION else question
+
     def search(self, question: str, criteria: Criteria, k: int = config.TOP_K_EVENTS) -> list[RetrievedEvent]:
-        """Les k événements les plus proches de la question parmi ceux qui respectent les critères."""
+        """Les k événements les plus proches de la question parmi ceux qui respectent les critères.
+
+        La similarité porte sur `query_text` : la question sans le lieu ni la période, déjà filtrés.
+        """
         allowed = self.allowed_uids(criteria)
         if not allowed:
             return []  # rien à chercher : pas d'appel au modèle d'embedding
         total = self.store.index.ntotal
         matches = self.store.similarity_search_with_score(
-            question, k=total, fetch_k=total, filter=lambda metadata: metadata["uid"] in allowed)
+            self.query_text(question, criteria), k=total, fetch_k=total,
+            filter=lambda metadata: metadata["uid"] in allowed)
         best: dict[str, RetrievedEvent] = {}
         for document, score in matches:  # du plus au moins similaire : le premier chunk est le meilleur
             uid = document.metadata["uid"]

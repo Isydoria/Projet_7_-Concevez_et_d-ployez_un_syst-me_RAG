@@ -2,6 +2,9 @@
 
 Les règles sont déterministes et testables. Une question qui ne contient aucun critère reconnu
 est traitée par la seule recherche par le sens ; la période vaut alors « à venir ».
+
+Les critères repérés servent de filtres ; `search_text` les retire du texte de la recherche par
+similarité (« Du théâtre à Brive-la-Gaillarde » -> « Du théâtre »).
 """
 
 import re
@@ -277,3 +280,110 @@ def extract_criteria(question: str, today: date, city_index: dict[str, str]) -> 
         city=find_place(text, CITY_PREPOSITIONS, city_index),
         department=find_place(text, DEPARTMENT_PREPOSITIONS, DEPARTMENTS),
     )
+
+
+# --- Texte de la recherche par similarité ---------------------------------------------------------
+# Le lieu et la période repérés filtrent déjà les événements : la recherche par similarité porte sur
+# le reste de la question (« Du théâtre à Brive-la-Gaillarde » -> « Du théâtre »). Garder le lieu dans le
+# texte cherché fausse la similarité : « Brive-la-Gaillarde » attirait les « Games Gaillardes ».
+# Seuls le lieu et la période effectivement repérés sont retirés ; un lieu inconnu (« à Toulouse ») reste.
+
+NEXT_OR_PAST_RE = f"(?:{NEXT_RE}|{PAST_RE})"
+# Une expression par règle de find_period, en texte normalisé (la même grammaire que la règle)
+PERIOD_EXPRESSIONS = {
+    "weekend": rf"\b(?:{NEXT_RE} )?week ?end(?: {NEXT_OR_PAST_RE})?\b",
+    "week": rf"\b(?:cette semaine|semaine {NEXT_OR_PAST_RE}|{NEXT_RE} semaine)\b",
+    "month": rf"\b(?:ce mois(?: ci)?|mois {NEXT_OR_PAST_RE}|{NEXT_RE} mois)\b",
+    "month_name": rf"\b(?:{MONTH_MARKERS_RE} )?(?:{MONTH_RE})(?: \d{{4}})?(?: {PAST_RE})?\b|\b(?:{MONTH_RE}) \d{{4}}\b",
+    "weekday": rf"\b(?:{WEEKDAY_RE})(?: {NEXT_OR_PAST_RE})?\b",
+    "date": rf"\b\d{{1,2}}(?:er)? (?:{MONTH_RE})(?: \d{{4}})?(?: {PAST_RE})?\b|\b\d{{1,2}} \d{{1,2}}(?: \d{{2,4}})?\b",
+}
+WEEKEND_LABELS = {"ce week-end", "le week-end prochain", "le week-end dernier"}
+WEEK_LABELS = {"cette semaine", "la semaine prochaine", "la semaine dernière"}
+MONTH_LABELS = {"le mois dernier", "le mois prochain", "ce mois-ci"}
+# Petits mots qui introduisent une période ou un lieu, retirés avec lui : « pour dimanche », « au mois de »…
+LEADING_WORDS = {"ce", "cet", "cette", "ces", "le", "la", "les", "l", "du", "de", "des", "d", "au", "aux", "en",
+                 "pour", "dans", "a", "mi", "courant", "fin", "debut", "mois", "ou", "et"}
+
+
+def period_expression(label: str) -> str | None:
+    """Expression (texte normalisé) de la règle qui a produit la période ; None pour une période par défaut."""
+    relative = {label_: expression for expression, _, label_ in RELATIVE_DAYS}
+    if label in relative:
+        return rf"\b{relative[label]}\b"
+    if label in WEEKEND_LABELS:
+        return PERIOD_EXPRESSIONS["weekend"]
+    if label in WEEK_LABELS:
+        return PERIOD_EXPRESSIONS["week"]
+    if label in MONTH_LABELS:
+        return PERIOD_EXPRESSIONS["month"]
+    if label.startswith("en "):
+        return PERIOD_EXPRESSIONS["month_name"]
+    if label.startswith("le ") and re.search(r"\d", label):   # « le samedi 14 novembre 2026 »
+        return PERIOD_EXPRESSIONS["date"]
+    if label == "à venir" or label.startswith("les "):   # par défaut : rien dans la question à retirer
+        return None
+    return PERIOD_EXPRESSIONS["weekday"]
+
+
+def place_words(words: list[str], prepositions: list[str], name: str) -> range | None:
+    """Positions de « préposition + nom » dans `words` (texte normalisé), comme le repère find_place."""
+    name_words = normalize(name).split()
+    for preposition in sorted(prepositions, key=lambda value: -len(value.split())):
+        preposition_words = preposition.split()
+        article = CONTRACTED_ARTICLES.get(preposition)
+        # « au Bouscat » : l'article de « Le Bouscat » est contenu dans « au »
+        candidates = [name_words] + ([name_words[1:]] if article and name_words[:1] == [article] else [])
+        for target in candidates:
+            pattern = preposition_words + target
+            for start in range(len(words) - len(pattern) + 1):
+                if words[start:start + len(pattern)] == pattern:
+                    return range(start, start + len(pattern))
+    return None
+
+
+def search_text(question: str, criteria: Criteria) -> str:
+    """Texte de la recherche par similarité : la question sans le lieu ni la période déjà filtrés.
+
+    Si rien ne reste (« À Bordeaux ce week-end »), la question entière est cherchée.
+    """
+    # Mots de la question, avec leur position dans le texte d'origine et leur forme normalisée
+    tokens = list(re.finditer(r"[^\W_]+", question))
+    words, owner = [], []   # mots normalisés, et indice du mot d'origine de chacun
+    for index, token in enumerate(tokens):
+        for word in normalize(token[0]).split():
+            words.append(word)
+            owner.append(index)
+    removed: set[int] = set()   # positions (dans `words`) à retirer
+
+    for prepositions, name in ((CITY_PREPOSITIONS, criteria.city), (DEPARTMENT_PREPOSITIONS, criteria.department)):
+        if name and (positions := place_words(words, prepositions, name)):
+            removed.update(positions)
+
+    expression = period_expression(criteria.period.label)
+    if expression:
+        text = " ".join(words)
+        starts = [0]
+        for word in words[:-1]:
+            starts.append(starts[-1] + len(word) + 1)   # position de chaque mot dans `text`
+        for match in re.finditer(expression, text):
+            positions = [i for i, start in enumerate(starts) if match.start() <= start < match.end()]
+            first = positions[0]
+            while first > 0 and words[first - 1] in LEADING_WORDS and first - 1 not in removed:
+                first -= 1   # « pour dimanche », « la semaine prochaine », « au mois de décembre »
+            removed.update(range(first, positions[-1] + 1))
+
+    if not removed:
+        return question.strip()
+    # Retire du texte d'origine les mots concernés (avec ce qui les sépare), puis nettoie les espaces
+    removed_tokens = sorted({owner[position] for position in removed})
+    kept, cursor, run_start = [], 0, None
+    for position, index in enumerate(removed_tokens):
+        if run_start is None:
+            run_start = index
+        if position + 1 == len(removed_tokens) or removed_tokens[position + 1] != index + 1:
+            kept.append(question[cursor:tokens[run_start].start()])
+            cursor, run_start = tokens[index].end(), None
+    kept.append(question[cursor:])
+    reduced = re.sub(r"\s+", " ", "".join(kept)).strip(" ,;:!?.-")
+    return reduced if re.search(r"[^\W_]", reduced) and reduced != question.strip() else question.strip()

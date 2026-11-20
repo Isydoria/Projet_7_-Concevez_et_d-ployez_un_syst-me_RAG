@@ -42,6 +42,7 @@ class KeywordEmbedder(Embeddings):
 
     def __init__(self):
         self.query_calls = 0
+        self.queries = []   # textes vectorisés comme questions, dans l'ordre
 
     def vectorize(self, text: str) -> list[float]:
         words = normalize(text).split()
@@ -53,6 +54,7 @@ class KeywordEmbedder(Embeddings):
 
     def embed_query(self, text: str) -> list[float]:
         self.query_calls += 1
+        self.queries.append(text)
         return self.vectorize(text)
 
 

@@ -73,6 +73,9 @@ class AnswerMetadata(BaseModel):
     index: str
     region: str
     llm_called: bool = Field(..., description="Faux : aucun événement trouvé, message fixe sans appel au modèle")
+    search_text: str | None = Field(None, description=(
+        "Texte de la recherche par similarité : la question sans le lieu ni la période, déjà appliqués comme "
+        "filtres"))
     retrieved_events: int
     retrieval_ms: float
     generation_ms: float

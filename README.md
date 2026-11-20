@@ -205,6 +205,11 @@ python -m scripts.evaluate_rag --no-ragas         # mesures sans juge seulement 
 
 Résultats dans `data/eval/` : `rag_answers.json` (réponses complètes), `rag_evaluation.json` (mesures et
 détail du juge), `rag_evaluation.md` (résumé lisible). Une relance reprend là où le calcul s'était arrêté.
+L'évaluation a conduit à une amélioration, mesurée sur le même jeu de test : la recherche par similarité porte
+désormais sur la question **sans le lieu ni la période**, déjà appliqués comme filtres (`SEARCH_REDUCED_QUESTION`
+dans `rag/config.py`) ; événement attendu trouvé 0,93 → 1,00, comportement attendu 17 → 19 sur 20 (résultats
+dans `data/eval/question_reduite/`, analyse dans `notebooks/05_evaluation.ipynb`).
+
 Les 20 réponses ont aussi été classées à la main, à l'aveugle (correcte / partielle / incorrecte, motif
 vérifié dans les données) : `manual_judgments.json`. Le résumé compare les mesures automatiques à ce
 classement, pour savoir lesquelles distinguent vraiment les bonnes réponses des mauvaises.

@@ -184,6 +184,7 @@ class EventAssistant:
                 "index": self.index_name,
                 "region": self.region,
                 "llm_called": message is not None,
+                "search_text": self.retriever.query_text(state["question"], criteria),   # texte vectorisé
                 "retrieved_events": len(events),
                 "retrieval_ms": state["retrieval_ms"],
                 "generation_ms": state["generation_ms"],

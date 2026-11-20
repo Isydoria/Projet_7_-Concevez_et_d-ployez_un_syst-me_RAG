@@ -8,7 +8,7 @@ from datetime import date
 
 import pytest
 
-from rag.criteria import Criteria, Period, build_city_index, extract_criteria, find_period, normalize
+from rag.criteria import Criteria, Period, build_city_index, extract_criteria, find_period, normalize, search_text
 
 TODAY = date(2026, 11, 5)  # jeudi
 
@@ -164,3 +164,28 @@ def test_extract_criteria_from_a_full_question():
         city="Bordeaux",
         department=None,
     )
+
+
+# --- Texte de la recherche par similarité ---------------------------------------------------------
+
+@pytest.mark.parametrize("question, expected", [
+    ("Du théâtre à Poitiers", "Du théâtre"),
+    ("Un spectacle d'humour à Bordeaux la semaine prochaine", "Un spectacle d'humour"),
+    ("Que faire à Pau ce week-end ?", "Que faire"),
+    ("Une sortie avec des enfants dans les Landes cette semaine", "Une sortie avec des enfants"),
+    ("Un atelier pour enfants à Bordeaux mercredi", "Un atelier pour enfants"),
+    ("Une idée de sortie pour dimanche ?", "Une idée de sortie"),
+    ("Un concert samedi ou dimanche", "Un concert"),
+    ("Y a-t-il eu des concerts en Gironde le mois dernier ?", "Y a-t-il eu des concerts"),
+    ("Des concerts de jazz à Limoges en novembre ?", "Des concerts de jazz"),
+    ("Un spectacle à La Rochelle le 14 novembre", "Un spectacle"),
+    ("Un concert au Bouscat demain", "Un concert"),                                # article contracté
+    ("Une exposition à Saint-Jean-de-Luz samedi prochain", "Une exposition"),
+    ("Une exposition à Toulouse en novembre", "Une exposition à Toulouse"),         # lieu non repéré : gardé
+    ("Une dégustation de cognac", "Une dégustation de cognac"),                     # pas un lieu : rien retiré
+    ("À Bordeaux ce week-end", "À Bordeaux ce week-end"),                           # rien d'autre : question entière
+])
+def test_search_text_leaves_out_the_place_and_period_already_used_as_filters(question, expected):
+    # Le lieu et la période filtrent déjà les événements : les garder dans le texte cherché fausse
+    # la similarité (« Brive-la-Gaillarde » attirait les « Games Gaillardes » plutôt que le théâtre).
+    assert search_text(question, criteria(question)) == expected

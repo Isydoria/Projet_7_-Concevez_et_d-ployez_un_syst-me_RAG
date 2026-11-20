@@ -192,3 +192,9 @@ def test_the_chain_answers_several_questions_at_once():
     answers = assistant.chain.batch([{"question": QUESTION, "today": TODAY},
                                      {"question": "Une exposition à Limoges", "today": TODAY}])
     assert [answer.metadata["llm_called"] for answer in answers] == [True, False]
+
+
+def test_the_searched_text_is_reported_in_the_metadata():
+    # La recherche porte sur la question sans le lieu ni la période, déjà appliqués comme filtres
+    assistant, _ = make_assistant()
+    assert assistant.ask(QUESTION, today=TODAY).metadata["search_text"] == "Un concert de jazz"

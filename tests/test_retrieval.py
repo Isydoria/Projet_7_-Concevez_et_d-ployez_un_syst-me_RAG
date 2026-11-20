@@ -7,6 +7,7 @@ from datetime import date
 
 import pytest
 
+from rag import config
 from rag.criteria import Criteria, Period
 from rag.indexing import build_vectorstore
 from rag.retrieval import EventRetriever, overlaps, sessions_in_period
@@ -127,3 +128,14 @@ def test_filters_apply_to_all_chunks_not_only_the_closest(embedder):
 def test_no_matching_event_returns_nothing_without_calling_the_model(retriever, embedder):
     assert retriever.search("jazz", Criteria(period=UPCOMING, city="Limoges")) == []
     assert embedder.query_calls == 0
+
+
+def test_the_model_receives_the_question_without_the_place_and_period_already_filtered(retriever, embedder):
+    retriever.search("Du théâtre à Poitiers", Criteria(period=UPCOMING, city="Poitiers"))
+    assert embedder.queries == ["Du théâtre"]
+
+
+def test_the_full_question_can_still_be_searched_for_comparison(retriever, embedder, monkeypatch):
+    monkeypatch.setattr(config, "SEARCH_REDUCED_QUESTION", False)
+    retriever.search("Du théâtre à Poitiers", Criteria(period=UPCOMING, city="Poitiers"))
+    assert embedder.queries == ["Du théâtre à Poitiers"]

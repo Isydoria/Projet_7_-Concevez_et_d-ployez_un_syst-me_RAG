@@ -72,6 +72,10 @@ EMBED_MIN_INTERVAL_S = 1.1       # offre gratuite Mistral : 1 requête par secon
 
 # --- Recherche (chaîne RAG) -------------------------------------------------------------------------
 TOP_K_EVENTS = 5   # événements distincts transmis au LLM (le meilleur chunk de chacun)
+# Texte de la recherche par similarité : la question sans le lieu ni la période, déjà appliqués comme filtres
+# (criteria.search_text). Mesuré sur le jeu de test annoté : événement attendu trouvé 0,93 -> 1,00, MRR
+# 0,80 -> 0,96. False : la question entière (version d'origine, gardée pour comparer).
+SEARCH_REDUCED_QUESTION = True
 MAX_SESSIONS_SHOWN = 5   # séances affichées par événement dans le prompt (un événement en compte 783)
 
 # --- Génération (chaîne RAG) ------------------------------------------------------------------------

@@ -1,0 +1,382 @@
+{
+  "metadata": {
+    "judge_model": "ministral-14b-2512",
+    "started_at": "2026-11-20T17:45:47",
+    "updated_at": "2026-11-20T17:46:08"
+  },
+  "questions": {
+    "1": {
+      "id": 1,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.8709448092284431,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "2": {
+      "id": 2,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.9365614886264311,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "3": {
+      "id": 3,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6,
+        "recall": 0.6
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9107194419045683,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "4": {
+      "id": 4,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.2,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9331595309305745,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "5": {
+      "id": 5,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 0.8
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.9196126816572247,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "6": {
+      "id": 6,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 0.8
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.915433751816416,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "7": {
+      "id": 7,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 5,
+        "cited_relevant": 5,
+        "precision": 1.0
+      },
+      "similarity": 0.9263546276448298,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "8": {
+      "id": 8,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.4,
+        "recall": 0.4
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9074616727265541,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "9": {
+      "id": 9,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 3,
+        "reciprocal_rank": 0.3333333333333333,
+        "precision": 0.2,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9420662077309182,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "10": {
+      "id": 10,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.4,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.9484719859805579,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "11": {
+      "id": 11,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.8975991080573106,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "12": {
+      "id": 12,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 3,
+        "precision": 1.0
+      },
+      "similarity": 0.8772148867562076,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "13": {
+      "id": 13,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "citations": {
+        "cited": 1,
+        "cited_relevant": 1,
+        "precision": 1.0
+      },
+      "similarity": 0.9352767963102991,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "14": {
+      "id": 14,
+      "category": "answer",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6,
+        "recall": 0.75
+      },
+      "citations": {
+        "cited": 2,
+        "cited_relevant": 2,
+        "precision": 1.0
+      },
+      "similarity": 0.92364141505024,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "15": {
+      "id": 15,
+      "category": "no_result",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.9456458027860074,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "16": {
+      "id": 16,
+      "category": "absent_genre",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.9221047422878748,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "17": {
+      "id": 17,
+      "category": "off_topic",
+      "behavior_ok": false,
+      "behavior_problems": [
+        "événement cité malgré le refus",
+        "manque : Nouvelle-Aquitaine"
+      ],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.8536128373208728,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "18": {
+      "id": 18,
+      "category": "other_region",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.8739497693697552,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    },
+    "19": {
+      "id": 19,
+      "category": "past",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": {
+        "hit": true,
+        "first_rank": 1,
+        "reciprocal_rank": 1.0,
+        "precision": 0.8,
+        "recall": 0.8
+      },
+      "citations": {
+        "cited": 3,
+        "cited_relevant": 2,
+        "precision": 0.6666666666666666
+      },
+      "similarity": 0.9257978396458663,
+      "ragas_status": "skipped",
+      "ragas": null
+    },
+    "20": {
+      "id": 20,
+      "category": "vague",
+      "behavior_ok": true,
+      "behavior_problems": [],
+      "retrieval": null,
+      "citations": null,
+      "similarity": 0.9168985213117454,
+      "ragas_status": "not_applicable",
+      "ragas": null
+    }
+  }
+}
