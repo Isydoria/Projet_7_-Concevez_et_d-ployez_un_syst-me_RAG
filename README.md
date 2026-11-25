@@ -1,5 +1,7 @@
 # Puls-Events : assistant RAG de recommandation d'événements culturels
 
+[![Tests](https://github.com/Isydoria/Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG/actions/workflows/tests.yml/badge.svg)](https://github.com/Isydoria/Projet_7_-Concevez_et_d-ployez_un_syst-me_RAG/actions/workflows/tests.yml)
+
 Preuve de concept (POC) d'un chatbot qui répond aux questions des utilisateurs sur des événements
 culturels. Il repose sur un système **RAG** (*Retrieval-Augmented Generation*) : les événements sont
 recherchés par similarité de sens dans une base vectorielle (**Faiss**), puis un modèle de langage
@@ -270,6 +272,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 
 ```
 .
+├── .github/workflows/
+│   └── tests.yml           Intégration continue : tests sous Linux et Windows, construction de l'image Docker
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
@@ -328,7 +332,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
 │   ├── test_api.py             Tests unitaires de l'API (TestClient, faux assistant)
 │   ├── test_record_demo.py     Tests de l'enregistrement et contrôle des réponses de secours
-│   └── test_serve.py           Tests unitaires du téléchargement de l'index et du lancement
+│   ├── test_serve.py           Tests unitaires du téléchargement de l'index et du lancement
+│   └── test_ci.py              Contrôle du workflow d'intégration continue (systèmes, version de Python)
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── api_test.py             Test fonctionnel de l'API lancée (6 vérifications)
 ├── Dockerfile              Image de l'API
@@ -411,6 +416,12 @@ python -m pytest -v     # détail, test par test
 Les tests n'appellent aucune API : les tests unitaires simulent les appels, et les tests de contrôle
 qualité lisent les données versionnées. Ils ne nécessitent ni connexion Internet ni clé.
 Les tests de `tests/test_index_data.py` sont ignorés tant que l'index de référence n'a pas été construit.
+
+**Intégration continue** (`.github/workflows/tests.yml`, GitHub Actions) : à chaque push et à chaque pull
+request, sur des machines neuves, les tests sont lancés sous **Linux et Windows** (installation avec `pip`,
+comme ci-dessus) et l'image Docker est construite. Aucune clé ni aucun appel à Mistral : les tests de
+l'index y sont ignorés (index non versionné). L'évaluation Ragas, qui appelle Mistral (clé, quota, résultats
+variables d'un lancement à l'autre), reste un script lancé à la main (« Évaluer l'assistant »).
 
 ## Mettre à jour les dépendances
 

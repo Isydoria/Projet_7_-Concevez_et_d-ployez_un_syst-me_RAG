@@ -1,0 +1,57 @@
+# Intégration continue : à chaque push et à chaque pull request, sur des machines neuves fournies par GitHub,
+#   - les tests (unitaires et contrôle des données) sous Linux ET Windows, installés comme dans le README (pip) ;
+#   - la construction de l'image Docker, comme dans le README (docker build).
+# Aucun appel à Mistral, aucune clé : les tests simulent les appels. L'évaluation Ragas, qui appelle Mistral
+# (clé, quota, résultats variables), reste un script lancé à la main (scripts/evaluate_rag.py).
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:          # bouton « Run workflow » dans l'onglet Actions
+
+permissions:
+  contents: read              # lecture du dépôt seulement
+
+concurrency:                  # un nouveau push annule le lancement en cours sur la même branche
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false        # un échec sous Windows n'interrompt pas Linux : on voit les deux résultats
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v7
+
+      - name: Installer Python 3.12 (même version que l'image Docker)
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip                                  # paquets téléchargés gardés d'un lancement à l'autre
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Installer les dépendances (versions figées)
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Lancer les tests
+        run: python -m pytest -ra                     # -ra : résumé final des tests ignorés et en échec
+
+  docker:
+    name: Image Docker
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v7
+
+      - name: "Construire l'image (sans la lancer : ni index ni clé sur cette machine)"   # guillemets : « : »
+        run: docker build -t puls-events-api .

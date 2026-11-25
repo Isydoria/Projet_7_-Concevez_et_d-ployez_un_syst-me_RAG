@@ -10,6 +10,7 @@
 
 # Tests
 pytest
+pyyaml                       # lecture du workflow d'intégration continue (tests/test_ci.py)
 
 # Évaluation de la qualité des réponses
 ragas
