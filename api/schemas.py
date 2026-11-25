@@ -84,6 +84,9 @@ class AnswerMetadata(BaseModel):
     output_tokens: int | None = None
     reasoning_tokens: int | None = None
     finish_reason: str | None = Field(None, description="« length » : réponse coupée par le plafond de tokens")
+    recorded_at: str | None = Field(None, description=(
+        "Renseigné seulement pour une réponse enregistrée, rendue parce que Mistral était indisponible : "
+        "date de l'enregistrement (en-tête X-Answer-Source: recorded)"))
 
 
 class AskResponse(BaseModel):

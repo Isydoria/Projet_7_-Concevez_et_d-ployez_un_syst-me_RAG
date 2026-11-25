@@ -19,11 +19,13 @@ RUN pip install -r requirements.txt
 RUN python -c "from tokenizers import Tokenizer; Tokenizer.from_pretrained('mistralai/Mixtral-8x7B-v0.1')" \
     || echo "Tokenizer non téléchargé : LangChain le récupérera au démarrage"
 
-# Code et données de référence (pour reconstruire l'index si besoin) ; aucun secret (voir .dockerignore)
+# Code, données de référence (pour reconstruire l'index si besoin) et réponses de secours de la démonstration
+# (rendues si Mistral est indisponible) ; aucun secret (voir .dockerignore)
 COPY rag/ rag/
 COPY api/ api/
 COPY scripts/ scripts/
 COPY data/raw/ data/raw/
+COPY data/demo/ data/demo/
 
 # Utilisateur sans droits d'administrateur ; l'index est rangé dans vectorstore/, monté comme volume
 RUN useradd --create-home appuser && mkdir -p vectorstore && chown -R appuser /app

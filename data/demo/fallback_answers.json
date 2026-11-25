@@ -1,0 +1,285 @@
+{
+  "answers": [
+    {
+      "question": "Un opéra à Limoges ce week-end",
+      "today": "2026-10-29",
+      "recorded_at": "2026-11-20T17:35:15",
+      "answer": {
+        "question": "Un opéra à Limoges ce week-end",
+        "answer": "Je ne trouve pas d'opéra programmé à Limoges pour ce week-end (31 octobre et 1 novembre 2026) dans les événements proposés.\n\nSi vous souhaitez élargir votre recherche à d'autres types d'événements musicaux ou culturels, je peux vous proposer des alternatives comme :\n- **Recto/Verso exposition vol.1** (art contemporain, LAVITRINE 2.0, samedi 31 octobre 2026, 15h00–19h00) [1]\n- **SANS CONTREFAÇON — Anatomie d'un vêtement** (art contemporain, Frac-Artothèque, samedi 31 octobre 2026, 10h00–19h00) [2]\n- **Exposition photo : La ville invisible** (photographie, Chroniques, samedi 31 et dimanche 1 novembre 2026, 15h00–18h00) [5].",
+        "sources": [
+          {
+            "ref": 1,
+            "uid": "49361983",
+            "title": "Recto/Verso exposition vol.1",
+            "start": "2026-09-12T15:00:00+02:00",
+            "end": "2026-11-14T19:00:00+01:00",
+            "city": "Limoges",
+            "location_name": "LAVITRINE 2.0",
+            "url": "https://openagenda.com/galeries-dart-de-limoges/events/rectoverso-exposition-vol1",
+            "score": 0.729
+          },
+          {
+            "ref": 2,
+            "uid": "73701732",
+            "title": "SANS CONTREFAÇON — Anatomie d'un vêtement : deuxième séquence",
+            "start": "2026-09-25T10:00:00+02:00",
+            "end": "2026-11-18T19:00:00+01:00",
+            "city": "Limoges",
+            "location_name": "Frac-Artothèque Nouvelle-Aquitaine",
+            "url": "https://openagenda.com/frac-artotheque-nouvelle-aquitaine-limoges/events/sans-contrefacon-anatomie-dun-vetement-deuxieme-sequence",
+            "score": 0.727
+          },
+          {
+            "ref": 5,
+            "uid": "25507485",
+            "title": "Exposition photo : La ville invisible, Guillaume Bonnel",
+            "start": "2026-10-09T18:30:00+02:00",
+            "end": "2026-12-20T18:00:00+01:00",
+            "city": "Limoges",
+            "location_name": "Chroniques",
+            "url": "https://openagenda.com/galeries-dart-de-limoges/events/la-ville-invisible-guillaume-bonnel",
+            "score": 0.72
+          }
+        ],
+        "criteria": {
+          "city": "Limoges",
+          "department": null,
+          "period": {
+            "label": "ce week-end",
+            "start": "2026-10-31",
+            "end": "2026-11-01"
+          }
+        },
+        "metadata": {
+          "today": "2026-10-29",
+          "model": "ministral-8b-2512",
+          "index": "nouvelle-aquitaine_2026-10-29",
+          "region": "Nouvelle-Aquitaine",
+          "llm_called": true,
+          "search_text": "Un opéra",
+          "retrieved_events": 5,
+          "retrieval_ms": 584.9,
+          "generation_ms": 3023.9,
+          "total_ms": 3612.3,
+          "input_tokens": 2167,
+          "output_tokens": 224,
+          "reasoning_tokens": 0,
+          "finish_reason": "stop"
+        },
+        "retrieved": [
+          {
+            "ref": 1,
+            "uid": "49361983",
+            "title": "Recto/Verso exposition vol.1",
+            "score": 0.729
+          },
+          {
+            "ref": 2,
+            "uid": "73701732",
+            "title": "SANS CONTREFAÇON — Anatomie d'un vêtement : deuxième séquence",
+            "score": 0.727
+          },
+          {
+            "ref": 3,
+            "uid": "627243",
+            "title": "Objectif Rose - exposition photographique",
+            "score": 0.727
+          },
+          {
+            "ref": 4,
+            "uid": "50244185",
+            "title": "Atelier famille : Un bonbon ou un sort",
+            "score": 0.725
+          },
+          {
+            "ref": 5,
+            "uid": "25507485",
+            "title": "Exposition photo : La ville invisible, Guillaume Bonnel",
+            "score": 0.72
+          }
+        ]
+      }
+    },
+    {
+      "question": "Du théâtre à Brive-la-Gaillarde",
+      "today": "2026-10-29",
+      "recorded_at": "2026-11-20T17:35:15",
+      "answer": {
+        "question": "Du théâtre à Brive-la-Gaillarde",
+        "answer": "À Brive-la-Gaillarde, voici l'événement de théâtre disponible à partir du **29 octobre 2026** :\n\n- **« Delete »** (à partir du **6 avril 2027**) au **L'Empreinte - Théâtre de Brive** : une pièce mêlant théâtre et réflexion sur les intelligences artificielles, la mémoire et l'identité, portée par Anne Théron [1].\n*Attention : cet événement n'est pas encore programmé pour la période demandée (à partir du 29 octobre 2026).*\n\nAucun autre événement théâtral n'est prévu à Brive-la-Gaillarde dans les semaines à venir. Souhaitez-vous élargir votre recherche à d'autres dates ou à d'autres types d'événements culturels ?",
+        "sources": [
+          {
+            "ref": 1,
+            "uid": "51069080",
+            "title": "Delete",
+            "start": "2027-04-06T20:00:00+02:00",
+            "end": "2027-04-07T20:15:00+02:00",
+            "city": "Brive-la-Gaillarde",
+            "location_name": "L'Empreinte - Théâtre de Brive",
+            "url": "https://openagenda.com/accueil-agenda-spectacle-vivant-drac-na/events/delete-5283827",
+            "score": 0.771
+          }
+        ],
+        "criteria": {
+          "city": "Brive-la-Gaillarde",
+          "department": null,
+          "period": {
+            "label": "à venir",
+            "start": "2026-10-29",
+            "end": null
+          }
+        },
+        "metadata": {
+          "today": "2026-10-29",
+          "model": "ministral-8b-2512",
+          "index": "nouvelle-aquitaine_2026-10-29",
+          "region": "Nouvelle-Aquitaine",
+          "llm_called": true,
+          "search_text": "Du théâtre",
+          "retrieved_events": 5,
+          "retrieval_ms": 292.3,
+          "generation_ms": 1754.2,
+          "total_ms": 2049.8,
+          "input_tokens": 1915,
+          "output_tokens": 171,
+          "reasoning_tokens": 0,
+          "finish_reason": "stop"
+        },
+        "retrieved": [
+          {
+            "ref": 1,
+            "uid": "51069080",
+            "title": "Delete",
+            "score": 0.771
+          },
+          {
+            "ref": 2,
+            "uid": "17930811",
+            "title": "Ernest Rupin (1845-1909), érudit photographe",
+            "score": 0.717
+          },
+          {
+            "ref": 3,
+            "uid": "83683716",
+            "title": "Soirée jeu du quartier 8",
+            "score": 0.71
+          },
+          {
+            "ref": 4,
+            "uid": "93019747",
+            "title": "Games Gaillardes n° 85",
+            "score": 0.71
+          },
+          {
+            "ref": 5,
+            "uid": "50398009",
+            "title": "Games Gaillardes n° 97",
+            "score": 0.708
+          }
+        ]
+      }
+    },
+    {
+      "question": "Une exposition à Toulouse en novembre",
+      "today": "2026-10-29",
+      "recorded_at": "2026-11-20T17:35:15",
+      "answer": {
+        "question": "Une exposition à Toulouse en novembre",
+        "answer": "Je ne peux répondre qu'aux questions concernant les événements culturels en **Nouvelle-Aquitaine**. Voici quelques expositions qui pourraient vous intéresser en novembre 2026 dans cette région :\n\n- **\"Tremblez tremblez ! Les sorcières sont parmi nous\"** au Musée d'Aquitaine à Bordeaux, du 4 novembre au 22 novembre 2026, une exposition historique et captivante sur les procès de sorcellerie en Nouvelle-Aquitaine [1].\n- **\"Sols\"** au Jardin botanique Bastide à Bordeaux, accessible jusqu'au 28 février 2027, une immersion sensorielle et scientifique sur les écosystèmes souterrains [3].\n- **\"Manger à l'œil. Les Français à table en deux siècles de photos\"** au Musée départemental de la faïence et des Arts de la table à Samadet (Landes), jusqu'au 15 novembre 2026, une exploration visuelle de l'évolution des repas français [4].\n\nSi vous souhaitez élargir votre recherche à d'autres lieux en Nouvelle-Aquitaine ou à d'autres types d'événements, je peux affiner les propositions.",
+        "sources": [
+          {
+            "ref": 1,
+            "uid": "92351671",
+            "title": "Exposition \"Tremblez tremblez ! Les sorcières sont parmi nous\"",
+            "start": "2026-10-18T15:00:00+02:00",
+            "end": "2026-12-30T16:30:00+01:00",
+            "city": "Bordeaux",
+            "location_name": "Musée d'Aquitaine",
+            "url": "https://openagenda.com/ville-de-bordeaux/events/exposition-tremblez-tremblez-les-sorcieres-sont-parmi-nous",
+            "score": 0.797
+          },
+          {
+            "ref": 3,
+            "uid": "31802487",
+            "title": "Exposition Sols",
+            "start": "2026-07-04T11:00:00+02:00",
+            "end": "2027-02-28T18:00:00+01:00",
+            "city": "Bordeaux",
+            "location_name": "JARDIN BOTANIQUE Bastide",
+            "url": "https://openagenda.com/ville-de-bordeaux/events/exposition-sols",
+            "score": 0.796
+          },
+          {
+            "ref": 4,
+            "uid": "24239799",
+            "title": "Manger à l'œil. Les Français à table en deux siècles de photos",
+            "start": "2026-09-01T14:00:00+02:00",
+            "end": "2026-11-15T18:00:00+01:00",
+            "city": "Samadet",
+            "location_name": "Musée départemental de la faïence et des Arts de la table",
+            "url": "https://openagenda.com/bicentenaire-photographie-fr/events/manger-a-loeil-les-francais-a-table-en-deux-siecles-de-photos",
+            "score": 0.794
+          }
+        ],
+        "criteria": {
+          "city": null,
+          "department": null,
+          "period": {
+            "label": "en novembre 2026",
+            "start": "2026-11-01",
+            "end": "2026-11-30"
+          }
+        },
+        "metadata": {
+          "today": "2026-10-29",
+          "model": "ministral-8b-2512",
+          "index": "nouvelle-aquitaine_2026-10-29",
+          "region": "Nouvelle-Aquitaine",
+          "llm_called": true,
+          "search_text": "Une exposition à Toulouse",
+          "retrieved_events": 5,
+          "retrieval_ms": 322.4,
+          "generation_ms": 2961.8,
+          "total_ms": 3287.3,
+          "input_tokens": 3042,
+          "output_tokens": 251,
+          "reasoning_tokens": 0,
+          "finish_reason": "stop"
+        },
+        "retrieved": [
+          {
+            "ref": 1,
+            "uid": "92351671",
+            "title": "Exposition \"Tremblez tremblez ! Les sorcières sont parmi nous\"",
+            "score": 0.797
+          },
+          {
+            "ref": 2,
+            "uid": "80609934",
+            "title": "Exposition des œuvres collectives de Street Art réalisées par les jeunes participants aux ateliers MIX’ART.",
+            "score": 0.796
+          },
+          {
+            "ref": 3,
+            "uid": "31802487",
+            "title": "Exposition Sols",
+            "score": 0.796
+          },
+          {
+            "ref": 4,
+            "uid": "24239799",
+            "title": "Manger à l'œil. Les Français à table en deux siècles de photos",
+            "score": 0.794
+          },
+          {
+            "ref": 5,
+            "uid": "6483569",
+            "title": "Exposition Miaou!",
+            "score": 0.791
+          }
+        ]
+      }
+    }
+  ]
+}

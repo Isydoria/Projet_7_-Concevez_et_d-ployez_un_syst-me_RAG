@@ -19,6 +19,9 @@ REFERENCE_RAW_FILE = RAW_DATA_DIR / "events_nouvelle-aquitaine_2026-10-29.json.g
 EVAL_DIR = DATA_DIR / "eval"
 TEST_SET_FILE = EVAL_DIR / "test_set.json"   # jeu de test annoté (20 questions)
 MANUAL_JUDGMENTS_FILE = EVAL_DIR / "manual_judgments.json"   # classement humain des réponses (C / P / I)
+# Réponses de secours de la démonstration : vraies réponses enregistrées, rendues par l'API (et signalées)
+# si Mistral refuse ou est injoignable (scripts/record_demo.py)
+DEMO_FALLBACK_FILE = DATA_DIR / "demo" / "fallback_answers.json"
 
 # --- Source des données : Open Agenda (OpenDataSoft, API Explore v2.1) --------------
 OPENAGENDA_DATASET_URL = (

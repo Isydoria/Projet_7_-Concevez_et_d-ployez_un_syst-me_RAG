@@ -191,8 +191,30 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/ask -ContentType "appl
 les réponses sont reproductibles.
 
 **Erreurs** : une requête mal formée (question vide ou de plus de 500 caractères, date invalide) reçoit un 422 ;
-si l'index n'est pas chargé ou si Mistral refuse la requête (accès, débit), l'API répond 503 avec la cause
-(et `Retry-After` quand il suffit d'attendre).
+si l'index n'est pas chargé ou si Mistral refuse la requête (accès, débit) ou reste injoignable, l'API répond
+503 avec la cause (et `Retry-After` quand il suffit d'attendre), sauf pour les scénarios de démonstration
+(ci-dessous).
+
+**Démonstration et réponses de secours** : l'assistant dépend de l'API de Mistral, en ligne. Pour que la
+démonstration n'en dépende pas, les vraies réponses de trois scénarios, des questions du jeu de test posées avec
+la date du jour fixée au 29/10/2026, sont enregistrées dans `data/demo/fallback_answers.json`, copié dans l'image
+Docker. Si Mistral refuse ou est injoignable, `/ask` renvoie la réponse enregistrée pour la même question et la
+même date, **signalée** par `metadata.recorded_at` (date de l'enregistrement) et l'en-tête
+`X-Answer-Source: recorded` ; toute autre question reçoit le 503.
+
+| Scénario | Question (`"today": "2026-10-29"`) | Ce que montre la réponse |
+|---|---|---|
+| Honnêteté | Un opéra à Limoges ce week-end | Aucun opéra : l'assistant le dit, puis propose d'autres sorties ce week-end |
+| Recherche | Du théâtre à Brive-la-Gaillarde | L'événement attendu (« Delete ») est trouvé, grâce à l'amélioration de la recherche |
+| Périmètre | Une exposition à Toulouse en novembre | Seule la Nouvelle-Aquitaine est couverte : expositions de la région proposées |
+
+```bash
+python -m scripts.record_demo     # enregistre de nouvelles réponses (3 appels à Mistral, espacés de 31 s)
+python -m scripts.record_demo --from-eval data/eval/question_reduite/rag_answers.json   # sans appel
+```
+
+La seconde commande reprend les réponses déjà obtenues lors d'une évaluation : c'est le cas des réponses
+versionnées (évaluation du 20/11/2026, configuration actuelle).
 
 **Reconstruction** : `POST /rebuild` avec l'en-tête `X-Rebuild-Token`, dont la valeur doit être celle de
 `REBUILD_TOKEN` dans `.env` (sans valeur, la route est désactivée : 403). Corps facultatif :
@@ -251,7 +273,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
-│   └── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
+│   ├── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
+│   └── demo/               Réponses de secours de la démonstration (rendues si Mistral est indisponible)
 ├── api/                    API REST (FastAPI)
 │   ├── main.py             Application et routes (/ask, /health, /metadata, /rebuild)
 │   └── schemas.py          Modèles Pydantic des requêtes et des réponses
@@ -280,6 +303,7 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── build_index.py      Construction de l'index vectoriel dans vectorstore/
 │   ├── ask.py              Question à l'assistant en ligne de commande
 │   ├── serve.py            Lancement de l'API (prépare l'index s'il manque : téléchargement vérifié ou construction)
+│   ├── record_demo.py      Enregistrement des réponses de secours de la démonstration
 │   └── evaluate_rag.py     Évaluation sur le jeu de test annoté (réponses, puis jugement)
 ├── tests/
 │   ├── factories.py            Événements de test partagés
@@ -303,6 +327,7 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── test_judge.py           Tests unitaires du juge Ragas (faux juge)
 │   ├── test_evaluate_rag.py    Tests unitaires du script d'évaluation (faux assistant, faux juge)
 │   ├── test_api.py             Tests unitaires de l'API (TestClient, faux assistant)
+│   ├── test_record_demo.py     Tests de l'enregistrement et contrôle des réponses de secours
 │   └── test_serve.py           Tests unitaires du téléchargement de l'index et du lancement
 ├── vectorstore/            Index Faiss (généré par le script, non versionné)
 ├── api_test.py             Test fonctionnel de l'API lancée (6 vérifications)

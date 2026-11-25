@@ -6,5 +6,6 @@
 !api/
 !scripts/
 !data/raw/
+!data/demo/
 **/__pycache__
 **/*.py[cod]

@@ -5,6 +5,7 @@ contre la même application de test (TestClient se comporte comme un client http
 """
 
 import json
+from pathlib import Path
 from datetime import date
 
 import httpx
@@ -124,6 +125,8 @@ def test_ask_turns_a_refusal_of_mistral_into_a_clear_503(index_dir, status, text
     assert response.status_code == 503
     assert "Mistral" in response.json()["detail"] and str(status) in response.json()["detail"]
     assert response.headers.get("retry-after") == retry_after
+    if status != 429:   # le refus peut venir de la recherche (embeddings) comme de la génération
+        assert "recherche et génération" in response.json()["detail"]
 
 
 def test_ask_when_the_index_could_not_be_loaded(index_dir):
@@ -248,3 +251,63 @@ def test_functional_script_passes_against_the_application(index_dir, monkeypatch
     with client:
         results = api_test.run_checks(client)
     assert all(ok for _, ok, _ in results), results
+
+
+# --- Réponses de secours (plan B de la démonstration) ---------------------------------------------------
+
+def make_fallback(tmp_path, question=QUESTION, today="2026-10-29") -> Path:
+    path = tmp_path / "fallback_answers.json"
+    path.write_text(json.dumps({"answers": [{"question": question, "today": today,
+                                             "recorded_at": "2026-11-20T18:45:00",
+                                             "answer": ANSWER.to_dict()}]}, ensure_ascii=False), encoding="utf-8")
+    return path
+
+
+def make_client_with_fallback(index_dir, fallback_file, error):
+    app = create_app(load_assistant=lambda directory: FakeAssistant(error=error),
+                     rebuild_index=lambda refresh: index_dir, index_dir=index_dir, env_file=None,
+                     fallback_file=fallback_file)
+    return TestClient(app)
+
+
+def test_a_recorded_answer_is_returned_and_flagged_when_mistral_refuses(index_dir, tmp_path):
+    client = make_client_with_fallback(index_dir, make_fallback(tmp_path), mistral_error(402, "no_api_budget"))
+    with client:
+        response = client.post("/ask", json={"question": QUESTION, "today": "2026-10-29"})
+    assert response.status_code == 200
+    assert response.headers["x-answer-source"] == "recorded"                # signalée, jamais dissimulée
+    assert response.json()["metadata"]["recorded_at"] == "2026-11-20T18:45:00"
+    assert response.json()["answer"] == ANSWER.answer
+
+
+def test_a_recorded_answer_is_also_used_when_mistral_is_unreachable(index_dir, tmp_path):
+    error = httpx.ConnectError("réseau indisponible")
+    client = make_client_with_fallback(index_dir, make_fallback(tmp_path), error)
+    with client:
+        response = client.post("/ask", json={"question": f"  {QUESTION.upper()} ", "today": "2026-10-29"})
+    assert response.status_code == 200                                         # casse et espaces ignorés
+
+
+def test_no_recorded_answer_for_another_question_or_date(index_dir, tmp_path):
+    client = make_client_with_fallback(index_dir, make_fallback(tmp_path), mistral_error(402, "no_api_budget"))
+    with client:
+        other_question = client.post("/ask", json={"question": "Du théâtre à Brive", "today": "2026-10-29"})
+        other_date = client.post("/ask", json={"question": QUESTION, "today": "2026-11-05"})
+    assert other_question.status_code == 503 and other_date.status_code == 503
+
+
+def test_mistral_unreachable_without_recorded_answer(index_dir):
+    client = make_client_with_fallback(index_dir, None, httpx.ConnectError("réseau indisponible"))
+    with client:
+        response = client.post("/ask", json={"question": QUESTION})
+    assert response.status_code == 503 and "injoignable" in response.json()["detail"]
+    assert "recherche et génération" in response.json()["detail"]
+
+
+def test_the_live_answer_is_not_flagged(index_dir, tmp_path):
+    app = create_app(load_assistant=lambda directory: FakeAssistant(), rebuild_index=lambda refresh: index_dir,
+                     index_dir=index_dir, env_file=None, fallback_file=make_fallback(tmp_path))
+    with TestClient(app) as client:
+        response = client.post("/ask", json={"question": QUESTION, "today": "2026-10-29"})
+    assert "x-answer-source" not in response.headers
+    assert response.json()["metadata"].get("recorded_at") is None
