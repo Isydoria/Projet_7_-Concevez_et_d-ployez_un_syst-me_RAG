@@ -1,10 +1,12 @@
 """Évalue l'assistant sur le jeu de test annoté : les réponses, puis leur jugement (mesures sans LLM et Ragas).
 
 Exemples, depuis la racine du projet :
-    python -m scripts.evaluate_rag                    # les deux phases (≈ 1 h 20 avec la formule gratuite)
+    python -m scripts.evaluate_rag                    # les deux phases (≈ 1 h 40 avec la formule gratuite)
     python -m scripts.evaluate_rag --phase answers    # phase 1 : les réponses de l'assistant (≈ 10 min)
     python -m scripts.evaluate_rag --phase judge      # phase 2 : mesures et Ragas sur les réponses enregistrées
-    python -m scripts.evaluate_rag --no-ragas         # mesures sans juge seulement (≈ 1 min après les réponses)
+    python -m scripts.evaluate_rag --no-ragas         # réponses puis mesures sans juge (≈ 10 min)
+    python -m scripts.evaluate_rag --phase judge --no-ragas   # mesures sans juge sur les réponses enregistrées
+                                                              # (moins d'une minute)
 
 Résultats dans data/eval/ : rag_answers.json (réponses complètes), rag_evaluation.json (mesures, détail du
 juge), rag_evaluation.md (résumé lisible). Chaque réponse et chaque jugement est enregistré dès qu'il est
@@ -207,14 +209,19 @@ def render_report(test_set: dict, answers: dict, evaluation: dict, summary: dict
     results = evaluation["questions"]
     retrieval, ragas = summary["retrieval"], summary["ragas"]
     metric_labels = METRIC_LABELS
+    if any(result["ragas_status"] == "judged" for result in results.values()):
+        judge_line = (f"- Juge Ragas : `{evaluation['metadata']['judge_model']}` (jugement mis à jour le "
+                      f"{evaluation['metadata'].get('updated_at', '—')})")
+    else:   # --no-ragas : aucun juge n'a rien jugé, on ne le nomme pas
+        judge_line = (f"- Juge Ragas : non utilisé (--no-ragas : mesures sans juge seulement, calculées le "
+                      f"{evaluation['metadata'].get('updated_at', '—')})")
     lines = [
         "# Évaluation de l'assistant sur le jeu de test annoté", "",
         f"- Jeu de test : {len(test_set['questions'])} questions ; date du jour fixée : "
         f"{test_set['metadata']['today']} ; données : `{test_set['metadata']['source']}`",
         f"- Réponses : modèle `{answers['metadata']['model']}`, index `{answers['metadata']['index']}` "
         f"(obtenues à partir du {answers['metadata']['started_at']})",
-        f"- Juge Ragas : `{evaluation['metadata']['judge_model']}` (jugement mis à jour le "
-        f"{evaluation['metadata'].get('updated_at', '—')})", "",
+        judge_line, "",
         "## Synthèse", "",
         "| Mesure | Valeur | Questions |", "|---|---|---|",
         f"| Comportement attendu respecté | {summary['behavior_ok']}/{summary['questions']} | {summary['questions']} |",

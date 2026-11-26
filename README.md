@@ -11,8 +11,6 @@ recherchés par similarité de sens dans une base vectorielle (**Faiss**), puis 
 Le **rapport technique** (architecture et schémas UML, choix justifiés, résultats de l'évaluation, limites et
 perspectives) est dans [`docs/rapport_technique.md`](docs/rapport_technique.md) ; ce README est le mode d'emploi.
 
-> Projet en cours de construction : ce README est complété au fil des étapes.
-
 ## Objectifs
 
 Démontrer aux équipes produit et marketing de Puls-Events :
@@ -183,13 +181,13 @@ Exemple, avec la page `/docs` (bouton *Try it out*) ou en ligne de commande :
 ```bash
 # macOS / Linux
 curl -X POST http://127.0.0.1:8000/ask -H "Content-Type: application/json" \
-     -d '{"question": "Un concert de jazz à Bordeaux ce week-end", "today": "2026-10-29"}'
+     -d '{"question": "Un opéra à Limoges ce week-end", "today": "2026-10-29"}'
 ```
 
 ```powershell
 # Windows (PowerShell)
 Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/ask -ContentType "application/json; charset=utf-8" `
-  -Body '{"question": "Un concert de jazz à Bordeaux ce week-end", "today": "2026-10-29"}'
+  -Body '{"question": "Un opéra à Limoges ce week-end", "today": "2026-10-29"}'
 ```
 
 `today` est facultatif : par défaut, la vraie date du jour ; avec `2026-10-29`, date des données de référence,
@@ -251,10 +249,11 @@ Le script `scripts/evaluate_rag.py` évalue l'assistant en deux phases, enregist
      fidélité au contexte, pertinence, couverture documentaire, exactitude factuelle.
 
 ```bash
-python -m scripts.evaluate_rag                    # les deux phases (≈ 1 h 20 avec la formule gratuite)
+python -m scripts.evaluate_rag                    # les deux phases (≈ 1 h 40 avec la formule gratuite)
 python -m scripts.evaluate_rag --phase answers    # phase 1 seulement (≈ 10 min)
 python -m scripts.evaluate_rag --phase judge      # phase 2, sur les réponses enregistrées
-python -m scripts.evaluate_rag --no-ragas         # mesures sans juge seulement (≈ 1 min)
+python -m scripts.evaluate_rag --no-ragas         # réponses puis mesures sans juge (≈ 10 min)
+python -m scripts.evaluate_rag --phase judge --no-ragas   # mesures sans juge, réponses enregistrées (< 1 min)
 ```
 
 Résultats dans `data/eval/` : `rag_answers.json` (réponses complètes), `rag_evaluation.json` (mesures et
@@ -280,7 +279,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 ├── data/
 │   ├── raw/                Données brutes Open Agenda (photo de référence + échantillon)
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
-│   ├── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
+│   ├── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, classement humain
+│   │                       (manual_judgments.json), run « question réduite » (question_reduite/), réponses du notebook 04
 │   └── demo/               Réponses de secours de la démonstration (rendues si Mistral est indisponible)
 ├── docs/
 │   └── rapport_technique.md    Rapport technique (architecture, choix, évaluation, perspectives)

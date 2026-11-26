@@ -197,6 +197,20 @@ sequenceDiagram
 | Déploiement | Docker (`python:3.12-slim`), Docker Compose | Lancement identique sur toute machine ; secrets fournis au lancement |
 | Intégration continue | GitHub Actions | Tests sous Linux et Windows et construction de l'image à chaque push |
 
+**Écarts avec les imports suggérés par l'énoncé (étape 1)**, vérifiés dans l'environnement figé (`langchain` 1.4.7,
+`mistralai` 3.6.0) : les quatre imports proposés échouent avec les versions actuelles des bibliothèques ; le
+projet utilise leurs équivalents maintenus (`scripts/check_env.py` les teste).
+
+| Import de l'énoncé | Résultat | Équivalent utilisé |
+|---|---|---|
+| `from langchain.vectorstores import FAISS` | module supprimé de `langchain` | `from langchain_community.vectorstores import FAISS` |
+| `from langchain.embeddings import HuggingFaceEmbeddings` | classe absente de `langchain` | `from langchain_mistralai import MistralAIEmbeddings` |
+| `from mistral import MistralClient` | paquet `mistral` inexistant (le client s'appelle `mistralai`, et `MistralClient` n'existe plus depuis sa version 1) | `from mistralai.client import Mistral` ; `ChatMistralAI` pour LangChain |
+
+`HuggingFaceEmbeddings` (un modèle d'embedding local) n'est pas retenu : l'énoncé demande ensuite de vectoriser
+les descriptions **via Mistral**, et un seul fournisseur garde l'image Docker légère (pas de PyTorch ni de modèle
+local). Un comparatif avec un modèle multilingue local reste une perspective (partie 8.3).
+
 ---
 
 ## 3. Préparation et vectorisation des données
@@ -205,7 +219,7 @@ sequenceDiagram
 
 | Paramètre | Valeur |
 |---|---|
-| Jeu de données | [`evenements-publics-openagenda`](https://public.opendatasoft.com/explore/dataset/evenements-publics-openagenda/) (OpenDataSoft, mis à jour en continu) |
+| Jeu de données | [`evenements-publics-openagenda`](https://public.opendatasoft.com/explore/dataset/evenements-publics-openagenda/) (OpenDataSoft, mis à jour en continu) : c'est la source vers laquelle pointe le lien « API Open Agenda » de l'énoncé ; aucune clé n'est nécessaire |
 | Point d'accès | `/api/explore/v2.1/catalog/datasets/evenements-publics-openagenda/exports/json` : export complet, sans la limite de 100 résultats par page de l'API de recherche |
 | Filtre (`where`) | `location_region = "Nouvelle-Aquitaine" AND lastdate_end >= date'2025-10-29'` (date de référence − 365 jours) |
 | Champs (`select`) | 26 champs sur 56 (`rag/config.py`) : identification, descriptions, mots-clés, dates et séances, lieu, tarifs, âge, statut, mode de participation. **Les champs de contact des contributeurs (données personnelles) sont exclus** |
@@ -231,7 +245,7 @@ future.
 | 94,6 % des descriptions longues contiennent du **HTML** | Extraction du texte (`html.parser`), les balises de bloc devenant des retours à la ligne | — |
 | Dates en **UTC** | Conversion en heure de Paris | — |
 | Statut, séances, inscription stockés comme du **texte JSON** | Décodage en champs structurés | — |
-| 406 descriptions réduites à de la ponctuation (« . ») | Description vidée (l'événement est gardé : titre et lieu suffisent) | — |
+| 406 événements presque sans texte (leurs deux descriptions font moins de 30 caractères, parfois un simple « . ») | Une description faite uniquement de ponctuation est vidée ; l'événement est gardé (titre, lieu et mots-clés suffisent) | — |
 
 **Résultat : 34 517 → 18 771 événements** (`data/processed/`, régénérable, non versionné). Les données
 nettoyées sont contrôlées par des tests avec une **tolérance zéro** (`tests/test_processed_data.py`) : aucun
@@ -293,7 +307,7 @@ et la période sur les métadonnées plutôt que de compter sur la similarité.
 |---|---|---|
 | Nom du modèle | `ministral-8b-2512` (nom daté) | Reproductibilité : un alias comme `latest` peut changer de modèle sans prévenir |
 | Température | 0,2 | Réponses stables et fidèles aux événements fournis (`ChatMistralAI` prend 0,7 par défaut) |
-| Plafond de sortie | 4 000 tokens | Sécurité ; la réponse la plus longue observée fait 291 tokens (`ChatMistralAI` ne plafonne pas par défaut) |
+| Plafond de sortie | 4 000 tokens | Sécurité ; la réponse la plus longue observée fait 345 tokens (`ChatMistralAI` ne plafonne pas par défaut) |
 | Réflexion | aucune | Ministral 8B n'est pas un modèle de raisonnement |
 | Débit | 2 requêtes par minute | Limite de la formule gratuite ; les scripts qui enchaînent les appels attendent 31 s entre deux |
 
@@ -497,6 +511,9 @@ reproductibles sur la photo de référence).
 | `retrieved` | Les 5 événements trouvés par la recherche, cités ou non (utile pour l'évaluation) |
 | `metadata` | Date du jour, modèle, index, texte de la recherche, appel ou non au LLM, durées (recherche, génération, total), tokens ; `recorded_at` pour une réponse de secours |
 
+**Pas de pagination** : une réponse porte sur 5 événements au plus, ce que le LLM peut lire et résumer ; pour en
+voir d'autres, l'utilisateur précise sa question (lieu, date, genre).
+
 ### 6.4 Exemple d'appel API
 
 ```bash
@@ -602,7 +619,7 @@ identifiants existants, dans la bonne ville, avec une séance dans la période d
 |---|---|---|---|
 | **Règles exactes** (sans LLM, gratuites, reproductibles) | Comportement attendu | Message fixe, refus, redirection, événements passés présentés comme tels… | 20 |
 | | Recherche : **événement attendu trouvé** (*Exact Match* sur les identifiants), **MRR** (moyenne de 1 / rang du premier attendu), **précision** et **rappel** | La recherche a-t-elle remonté les bons événements parmi les 5 ? | 15 |
-| | Citations pertinentes | Part des événements cités dans la réponse qui sont dans `relevant_uids` | 15 |
+| | Citations pertinentes | Part des événements cités dans la réponse qui sont dans `relevant_uids` | 14 ou 15 (questions où au moins un événement est cité) |
 | **Similarité sémantique** | Cosinus entre la réponse et la référence (`mistral-embed`) | La réponse dit-elle « la même chose » que la référence ? | 20 |
 | **Juge LLM** (Ragas 0.4.4, juge Ministral 14B, un autre modèle que celui qui répond) | **Fidélité** | Part des affirmations de la réponse appuyées par les événements transmis (hallucinations) | 15 |
 | | **Pertinence** | La réponse répond-elle à la question posée ? | 15 |
@@ -613,7 +630,7 @@ identifiants existants, dans la bonne ville, avec une séance dans la période d
 **Automatisation** : `scripts/evaluate_rag.py` pose les 20 questions puis calcule toutes les mesures ; les
 résultats sont enregistrés au fil de l'eau (une relance reprend là où le calcul s'était arrêté) dans
 `data/eval/` (réponses complètes, mesures et détail du juge, résumé lisible `rag_evaluation.md`). Avec la
-formule gratuite (2 requêtes par minute), l'évaluation complète prend ≈ 1 h 20 ; `--no-ragas` donne les mesures
+formule gratuite (2 requêtes par minute), l'évaluation complète prend ≈ 1 h 40 ; `--no-ragas` donne les mesures
 sans juge en ≈ 10 minutes, réponses comprises. Le script s'arrête au premier refus de Mistral qu'une attente ne résoudrait pas.
 
 ### 7.3 Résultats obtenus : analyse quantitative
@@ -723,7 +740,7 @@ reste en écart.
 | Domaine | Limite |
 |---|---|
 | **Qualité de génération** | Ministral 8B se trompe sur les dates (4 réponses partielles sur 20), ne tient pas toujours un refus (Q17), produit un faux négatif sur un cas simple (théâtre à Poitiers) |
-| **Couverture des données** | L'offre dépend des organisateurs qui publient sur Open Agenda : la Gironde représente 76 % des événements à venir (82 % en décembre) ; les événements lointains sont encore peu publiés à la date de la photo ; certains événements « parapluie » (opérations nationales rattachées à une ville) n'ont pas lieu là où les données les placent ; la liste des agendas exclus est à relire à chaque nouvelle photo |
+| **Couverture des données** | L'offre dépend des organisateurs qui publient sur Open Agenda : la Gironde représente 76 % des événements à venir (82 % en décembre) ; les événements lointains sont encore peu publiés à la date de la photo ; certains événements « parapluie » (opérations nationales rattachées à une ville) n'ont pas lieu là où les données les placent ; la liste des agendas exclus est à relire à chaque nouvelle photo ; 401 événements ont un âge maximal supérieur à 99 ans (120, 107…), une façon de dire « tout public », à normaliser à la prochaine reconstruction |
 | **Repérage des critères** | Par des règles : villes présentes dans les données, après une préposition de lieu ; expressions de période connues. Une formulation imprévue (« vers Arcachon », « pendant les vacances ») n'est pas comprise |
 | **Volumétrie et performance** | Une région (20 644 vecteurs) ; reconstruction complète à chaque mise à jour (≈ 12 min) ; temps de réponse dépendant de l'API Mistral |
 | **Coût et dépendance** | Formule gratuite : 2 requêtes par minute, conditions changées sans préavis pendant le projet (modèles refusés, refus 402 des embeddings) ; avec une offre payante, ≈ 0,0003 $ par question (Ministral 8B) ou 0,0027 $ (Large 4), ≈ 0,67 $ par reconstruction complète de l'index |
@@ -750,6 +767,8 @@ reste en écart.
 **Données et index**
 - **Reconstruction incrémentale** chaque nuit : ne vectoriser que les événements nouveaux ou modifiés (champ
   `updatedat`), retirer les événements terminés depuis plus d'un an.
+- Comparatif avec un modèle d'embedding multilingue local (HuggingFace) sur le jeu de test annoté : gratuit et
+  hors ligne, au prix d'une image plus lourde et d'un calcul plus lent sans carte graphique.
 - Intégration directe de Faiss avec des métadonnées sans pickle ; au-delà de quelques millions de vecteurs (autres
   régions, France entière), index HNSW ou IVF, ou base vectorielle gérée qui sait filtrer sur les métadonnées.
 
@@ -794,6 +813,7 @@ reste en écart.
 │   └── judge.py              Juge Ragas
 ├── api/                      API REST FastAPI (main.py : routes ; schemas.py : schémas Pydantic)
 ├── scripts/                  Points d'entrée en ligne de commande
+│   ├── check_env.py          Vérification de l'installation (imports, clé, accès à Mistral)
 │   ├── fetch_events.py, preprocess_events.py, build_index.py   Reconstruction des données et de l'index
 │   ├── ask.py                Question en ligne de commande
 │   ├── serve.py              Lancement de l'API (prépare l'index)
@@ -803,12 +823,16 @@ reste en écart.
 ├── notebooks/                01 exploration, 02 embeddings, 03 index Faiss, 04 chaîne RAG, 05 évaluation
 ├── data/
 │   ├── raw/                  Photo de référence des données (versionnée)
+│   ├── processed/            Données nettoyées (générées, non versionnées)
 │   ├── eval/                 Jeu de test annoté, réponses, résultats d'évaluation, classement humain
 │   └── demo/                 Réponses de secours de la démonstration
+├── vectorstore/              Index Faiss (construit ou téléchargé, non versionné)
 ├── api_test.py               Test fonctionnel de l'API lancée
 ├── Dockerfile, docker-compose.yml, .dockerignore
 ├── .github/workflows/tests.yml   Intégration continue
-└── requirements*.in / *.txt  Dépendances directes et versions figées
+├── requirements*.in / *.txt  Dépendances directes et versions figées
+├── .env.example              Modèle du fichier .env (clé Mistral, jeton de reconstruction)
+└── pytest.ini, .gitattributes, .gitignore   Configuration des tests, fins de ligne, fichiers ignorés
 ```
 
 ### 9.2 Rôle de chaque répertoire
@@ -819,7 +843,7 @@ reste en écart.
 | `api/` | Exposition HTTP de l'assistant (routes, schémas, erreurs, réponses de secours) |
 | `scripts/` | Commandes à lancer depuis la racine (`python -m scripts.xxx`) : reconstruire les données et l'index, poser une question, lancer l'API, évaluer |
 | `tests/` | Tests unitaires (appels à Mistral simulés) et **tests des données** (tolérance sur les données reçues, tolérance zéro sur les données produites) ; lancés par `python -m pytest` et par la CI |
-| `notebooks/` | Exploration et justification des choix, chiffres à l'appui ; ils relisent les résultats enregistrés, sans nouvel appel à Mistral |
+| `notebooks/` | Exploration et justification des choix, chiffres à l'appui. 01 et 05 se relancent sans aucun appel ; 04 relit les réponses du LLM enregistrées dans `data/eval/` ; 02, 03 et la recherche du 04 vectorisent des textes avec `mistral-embed` (clé Mistral nécessaire pour les relancer) |
 | `data/` | Données versionnées : la photo de référence (`raw/`), le jeu de test et les résultats d'évaluation (`eval/`), les réponses de secours (`demo/`). `data/processed/` est régénéré et non versionné |
 | `vectorstore/` | Index Faiss (non versionné : construit ou téléchargé) |
 | `docs/` | Rapport technique |

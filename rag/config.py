@@ -101,7 +101,7 @@ CHAT_TEMPERATURE = 0.2              # réponses stables et fidèles aux événem
 # Niveau de réflexion d'un modèle de raisonnement (Large 4 : low, medium ou high ; le plafond de tokens
 # couvre alors la réflexion ET la réponse). None : Ministral 8B ne raisonne pas, le paramètre n'est pas envoyé.
 CHAT_REASONING_EFFORT = None
-CHAT_MAX_TOKENS = 4000              # plafond de sécurité ; réponse la plus longue observée : 291 tokens
+CHAT_MAX_TOKENS = 4000              # plafond de sécurité ; réponse la plus longue observée : 345 tokens
 CHAT_MIN_INTERVAL_S = 31            # formule gratuite : 2 requêtes par minute et par modèle de chat
 
 # --- Évaluation (Ragas) -------------------------------------------------------------------------------

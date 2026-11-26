@@ -91,6 +91,16 @@ def test_the_api_reads_the_recorded_file(tmp_path):
     assert service.recorded_answer(DEMO_QUESTIONS[0], date(2026, 11, 20)) is None   # autre date : pas de secours
 
 
+def test_the_api_examples_are_recorded_demo_scenarios():
+    """L'exemple du Swagger et la question de api_test.py répondent même si Mistral est indisponible."""
+    from api.schemas import DEMO_QUESTION, AskRequest
+    from api_test import DEMO
+    assert DEMO_QUESTION in DEMO_QUESTIONS
+    assert DEMO == {"question": DEMO_QUESTION, "today": DEMO_TODAY.isoformat()}
+    today_examples = AskRequest.model_json_schema()["properties"]["today"]["examples"]
+    assert today_examples == [DEMO_TODAY.isoformat()]
+
+
 def test_the_fallback_file_is_copied_into_the_docker_image():
     """La démonstration se fait dans le conteneur : le fichier doit entrer dans l'image (liste blanche)."""
     folder = config.DEMO_FALLBACK_FILE.parent.relative_to(config.PROJECT_ROOT).as_posix()   # data/demo

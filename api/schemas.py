@@ -9,7 +9,9 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
-DEMO_QUESTION = "Un concert de jazz à Bordeaux ce week-end"
+# Exemple affiché par Swagger : un scénario de démonstration enregistré (scripts/record_demo.py), auquel l'API
+# répond même si Mistral est indisponible (réponse enregistrée, signalée), avec la date du jour 2026-10-29
+DEMO_QUESTION = "Un opéra à Limoges ce week-end"
 
 
 # --- /ask -----------------------------------------------------------------------------------------------

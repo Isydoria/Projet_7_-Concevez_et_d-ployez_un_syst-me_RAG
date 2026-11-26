@@ -2,7 +2,7 @@
 
 - Jeu de test : 20 questions ; date du jour fixée : 2026-10-29 ; données : `data/raw/events_nouvelle-aquitaine_2026-10-29.json.gz`
 - Réponses : modèle `ministral-8b-2512`, index `nouvelle-aquitaine_2026-10-29` (obtenues à partir du 2026-11-20T17:35:15)
-- Juge Ragas : `ministral-14b-2512` (jugement mis à jour le 2026-11-20T17:46:08)
+- Juge Ragas : non utilisé (--no-ragas : mesures sans juge seulement, calculées le 2026-11-20T17:46:08)
 
 ## Synthèse
 

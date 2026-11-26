@@ -217,6 +217,15 @@ def test_report_shows_the_summary_the_questions_and_the_unsupported_statements(t
     assert "| Ragas : fidélité | 0,50 | 1 |" in report
     assert "| 1 | Un concert de jazz ? |" in report
     assert "« B » : absente des événements" in report        # affirmation jugée non appuyée, avec son motif
+    assert "- Juge Ragas : `faux-juge`" in report
+
+
+def test_report_says_when_ragas_was_not_used(tmp_path):
+    answers = answers_file(tmp_path)
+    evaluation = judge(tmp_path, answers, FakeJudgeLLM(), use_ragas=False)
+    report = render_report(TEST_SET, answers, evaluation, summarize(list(evaluation["questions"].values())))
+    assert "- Juge Ragas : non utilisé (--no-ragas" in report
+    assert "faux-juge" not in report                           # aucun juge nommé : il n'a rien jugé
 
 
 def human_judgments(answers: dict, started_at: str | None = None) -> dict:

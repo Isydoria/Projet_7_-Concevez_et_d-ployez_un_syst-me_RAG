@@ -5,7 +5,9 @@ Depuis la racine du projet, après avoir lancé l'API (uvicorn api.main:app) dan
     python api_test.py --url http://127.0.0.1:8000  # autre adresse
 
 Affiche [OK] ou [ECHEC] pour chaque vérification ; code de sortie 0 si tout passe, 1 sinon.
-La question de démonstration appelle Mistral (une requête de génération et une d'embeddings).
+La question de démonstration appelle Mistral (une requête de génération et une d'embeddings). C'est l'un des
+scénarios enregistrés (data/demo/fallback_answers.json) : si Mistral est indisponible, l'API renvoie la réponse
+enregistrée, signalée par l'en-tête X-Answer-Source: recorded.
 """
 
 import argparse
@@ -13,7 +15,7 @@ import sys
 
 import httpx
 
-DEMO = {"question": "Un concert de jazz à Bordeaux ce week-end", "today": "2026-10-29"}
+DEMO = {"question": "Un opéra à Limoges ce week-end", "today": "2026-10-29"}
 
 
 def check(name: str, ok: bool, detail: str) -> tuple[str, bool, str]:
