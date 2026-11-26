@@ -8,6 +8,9 @@ recherchés par similarité de sens dans une base vectorielle (**Faiss**), puis 
 (**Mistral**) rédige la réponse à partir des événements trouvés. L'ensemble est orchestré par
 **LangChain** et exposé via une **API REST** (FastAPI).
 
+Le **rapport technique** (architecture et schémas UML, choix justifiés, résultats de l'évaluation, limites et
+perspectives) est dans [`docs/rapport_technique.md`](docs/rapport_technique.md) ; ce README est le mode d'emploi.
+
 > Projet en cours de construction : ce README est complété au fil des étapes.
 
 ## Objectifs
@@ -279,6 +282,8 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   ├── processed/          Données nettoyées (générées par le script, non versionnées)
 │   ├── eval/               Jeu de test annoté (test_set.json), résultats de l'évaluation, réponses du notebook 04
 │   └── demo/               Réponses de secours de la démonstration (rendues si Mistral est indisponible)
+├── docs/
+│   └── rapport_technique.md    Rapport technique (architecture, choix, évaluation, perspectives)
 ├── api/                    API REST (FastAPI)
 │   ├── main.py             Application et routes (/ask, /health, /metadata, /rebuild)
 │   └── schemas.py          Modèles Pydantic des requêtes et des réponses
