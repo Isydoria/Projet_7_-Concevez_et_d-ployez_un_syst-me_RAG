@@ -798,7 +798,7 @@ reste en écart.
 ```text
 .
 ├── README.md                 Installation, lancement, tests, évaluation (mode d'emploi)
-├── docs/rapport_technique.md Ce rapport
+├── docs/                     Ce rapport, la présentation (presentation.pptx), les captures de la démo (demo/)
 ├── rag/                      Logique métier (package Python)
 │   ├── config.py             Tous les paramètres (chemins, nettoyage, découpage, modèles, débits)
 │   ├── fetch.py              Récupération Open Agenda

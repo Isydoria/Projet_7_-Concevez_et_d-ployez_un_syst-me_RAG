@@ -10,6 +10,8 @@ recherchés par similarité de sens dans une base vectorielle (**Faiss**), puis 
 
 Le **rapport technique** (architecture et schémas UML, choix justifiés, résultats de l'évaluation, limites et
 perspectives) est dans [`docs/rapport_technique.md`](docs/rapport_technique.md) ; ce README est le mode d'emploi.
+La présentation du projet (15 slides) est dans [`docs/presentation.pptx`](docs/presentation.pptx), et les
+captures de la démonstration de l'API dans [`docs/demo/`](docs/demo/).
 
 ## Objectifs
 
@@ -217,7 +219,8 @@ python -m scripts.record_demo --from-eval data/eval/question_reduite/rag_answers
 ```
 
 La seconde commande reprend les réponses déjà obtenues lors d'une évaluation : c'est le cas des réponses
-versionnées (évaluation du 20/11/2026, configuration actuelle).
+versionnées (évaluation du 20/11/2026, configuration actuelle). Captures du Swagger pour ces scénarios, avec
+l'API dans le conteneur Docker et Mistral indisponible : [`docs/demo/`](docs/demo/).
 
 **Reconstruction** : `POST /rebuild` avec l'en-tête `X-Rebuild-Token`, dont la valeur doit être celle de
 `REBUILD_TOKEN` dans `.env` (sans valeur, la route est désactivée : 403). Corps facultatif :
@@ -283,7 +286,9 @@ saturés). Les statistiques d'usage de Ragas sont désactivées (`RAGAS_DO_NOT_T
 │   │                       (manual_judgments.json), run « question réduite » (question_reduite/), réponses du notebook 04
 │   └── demo/               Réponses de secours de la démonstration (rendues si Mistral est indisponible)
 ├── docs/
-│   └── rapport_technique.md    Rapport technique (architecture, choix, évaluation, perspectives)
+│   ├── rapport_technique.md    Rapport technique (architecture, choix, évaluation, perspectives)
+│   ├── presentation.pptx       Présentation du projet (15 slides)
+│   └── demo/                   Captures de la démonstration de l'API (Swagger)
 ├── api/                    API REST (FastAPI)
 │   ├── main.py             Application et routes (/ask, /health, /metadata, /rebuild)
 │   └── schemas.py          Modèles Pydantic des requêtes et des réponses
